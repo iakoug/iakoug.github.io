@@ -9,9 +9,9 @@
     "start": "npx hexo clean && npx hexo generate",
     "dev": "npx hexo generate -w & npx hexo server",
     "index": "export HEXO_ALGOLIA_INDEXING_KEY='668e8865f5d99b1e6d6e5f8dbb3ee25d' && npx hexo algolia",
-    "deploy": "npm run start && npx hexo deploy",
+    "d": "npx hexo deploy",
     "deploy-index": "npm run start && npx hexo deploy && npm run index",
-    "d": "hexo d -g"
+    "deploy": "hexo d -g"
   },
   "hexo": {
     "version": "3.8.0"
