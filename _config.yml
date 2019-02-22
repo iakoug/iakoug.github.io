@@ -49,9 +49,16 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  per_page: 5
+
+archive_generator:
+  per_page: 20
+  yearly: true
+  monthly: true
+
+tag_generator:
   per_page: 10
-  order_by: -date
+
   
 # Category & Tag
 default_category: uncategorized
