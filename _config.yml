@@ -95,8 +95,8 @@ jsonContent:
     tags: true
 
 algolia:
-  applicationID: '30Y4O0O0A2'
-  apiKey: '16bdbd3e031ecae9ae00c3626d819d64'
+  applicationID: 'OO448X9PFP'
+  apiKey: 'bca186b3b473a887dcd1d5ac191832e8'
   indexName: 'Blog'
   chunkSize: 5000
 
