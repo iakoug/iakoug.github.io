@@ -11,7 +11,7 @@ social:
   github: //github.com/rollawaypoint
   # wechat and qq should be a path of qr-code image
   wechat: /images/wechat.png
-  weibo: https://weibo.com/577117087/home
+  weibo: https://weibo.com/577117087
   zhihu: 
   twitter: 
   instagram: 
@@ -75,12 +75,12 @@ comment:
   valine_appKey: "1Fe0jaE38KF5iFsXDY4i8YoO"
   valine_placeHolder: 给我个留言吧！
 leancloud_visitors:
-  enable: true 设置为true 默认为false
+  enable: true
   app_id:  "182xGKUdHzDs4pqBWIanVxsg-gzGzoHsz"
   app_key:  "1Fe0jaE38KF5iFsXDY4i8YoO"
-  Dependencies:  https://github.com/theme-next/hexo-leancloud-counter-security #设置依赖
-  # security: true #如果您不关心lc计数器中的安全性并且只想直接使用它（没有hexo-leancloud-counter-security插件），请将`security`设置为`false`。
-  betterPerformance: true#更好的性能
+  # Dependencies:  https://github.com/theme-next/hexo-leancloud-counter-security #设置依赖
+  security: false #如果您不关心lc计数器中的安全性并且只想直接使用它（没有hexo-leancloud-counter-security插件），请将`security`设置为`false`。
+  betterPerformance: true #更好的性能
 
 # ========== Analytics ========== #
 # enable Busuanzi analytics
