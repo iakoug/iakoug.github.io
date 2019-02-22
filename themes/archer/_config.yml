@@ -63,8 +63,8 @@ comment:
   # Youyan  site: http://www.uyan.cc/
   youyan_uid: 
   # Valine  site: https://valine.js.org/
-  valine_appId: "0eAmMMUxqe9alLwt4KzftCnv-gzGzoHsz"
-  valine_appKey: "PfYhgvohzSQStMaJHaneYXq9"
+  valine_appId: "182xGKUdHzDs4pqBWIanVxsg-gzGzoHsz"
+  valine_appKey: "1Fe0jaE38KF5iFsXDY4i8YoO"
   valine_placeHolder: 给我个留言吧！
 
 # ========== Analytics ========== #

@@ -13,7 +13,7 @@ timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://www.mizuka.top
+url: https://www.chriskwok.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -111,7 +111,7 @@ offline:
     - urlPattern: /*
       handler: cacheFirst
       options:
-        origin: mizuka-blog.oss-cn-shanghai.aliyuncs.com
+        origin: 
 
 sitemap:
   path: sitemap.xml

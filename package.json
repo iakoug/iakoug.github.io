@@ -3,15 +3,15 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git@github.com:mizuka-wu/mizuka-wu.github.io.git"
+    "url": "git@github.com:rollawaypoint/rollawaypoint.github.io.git"
   },
   "scripts": {
     "start": "npx hexo clean && npx hexo generate",
     "dev": "npx hexo generate -w & npx hexo server",
     "index": "export HEXO_ALGOLIA_INDEXING_KEY='668e8865f5d99b1e6d6e5f8dbb3ee25d' && npx hexo algolia",
-    "d": "npx hexo deploy",
+    "deploy": "npx hexo deploy",
     "deploy-index": "npm run start && npx hexo deploy && npm run index",
-    "deploy": "hexo d -g"
+    "dep": "hexo clean && hexo generate && hexo d -g"
   },
   "hexo": {
     "version": "3.8.0"
