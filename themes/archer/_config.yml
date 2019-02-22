@@ -33,9 +33,9 @@ main_title: kwok io
 # subtitle
 subtitle: Run.
 # site haeder image
-site_header_image: /imgages/bg1.jpg
+site_header_image: /images/bg1.jpg
 # post haeder image
-post_header_image: /imgages/bg1.jpg
+post_header_image: /images/bg1.jpg
 # 404 image
 _404_image: 'https://source.unsplash.com/random'
 
