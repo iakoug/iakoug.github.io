@@ -9,11 +9,10 @@ before_install:
 install:
 - yarn
 script:
-- git config user.name "christian"
-- git config user.email "baozaodexianyu@163.com"
 - hexo clean
 - hexo generate
-- hexo d -g
+- hexo g
+- hexo d
 after_script:
   # - cd ./public
   # - git init
