@@ -5,7 +5,7 @@ cache:
   directories:
   - node_modules
 before_install:
-- cnpm install hexo-cli -g
+- npm install hexo-cli -g
 install:
 - yarn
 script:
