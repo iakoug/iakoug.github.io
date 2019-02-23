@@ -9,8 +9,6 @@ before_install:
 install:
 - yarn
 script:
-  
-- sudo rm -rf .deploy_git
 - hexo clean
 - hexo generate
 - hexo g
