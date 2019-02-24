@@ -1,3 +1,7 @@
+addons:
+  ssh_known_hosts:
+  - github.com
+  - 192.30.253.113
 language: node_js
 node_js:
 - 8.9.0
