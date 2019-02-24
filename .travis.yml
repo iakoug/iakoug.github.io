@@ -37,6 +37,6 @@ branches:
 env:
  global:
    # Github Pages
-   - GH_REF: git@github.com:rollawaypoint/rollawaypoint.github.io.git
+   - GH_REF: rollawaypoint/rollawaypoint.github.io.git
    # Coding Pages
   #  - CO_REF: https://git.dev.tencent.com/chriskowk/kowk_blog.git
