@@ -24,7 +24,7 @@ after_script:
   - git config user.name "christian"
   - git config user.email "baozaodexianyu@163.com"
   - git add .
-  - git commit -m "Travis CI 自动部署"
+  - git commit -m "Travis CI：{{ now('YYYY-MM-DD HH:mm:ss') }}"
   # Github Pages
   - git push --force --quiet "https://${ACCESS_TOKEN}@${GH_REF}" master:master 
   # Coding Pages
