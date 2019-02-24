@@ -15,8 +15,6 @@ install:
 script:
 - hexo clean
 - hexo generate
-- hexo g
-- hexo d
 after_success:
   - cd ./public
   - git init
