@@ -18,6 +18,7 @@ script:
 - hexo generate
 after_script:
   - cd ./public
+  - git config --global --unset http.proxy
   - git init
   - git config user.name "christian"
   - git config user.email "baozaodexianyu@163.com"
@@ -27,7 +28,6 @@ after_script:
   - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:master 
   # Coding Pages
   # - git push --force --quiet "https://coding用户名:${CO_TOKEN}@${CO_REF}" master:master
-  - hexo d
 branches:
   only:
   - dev
