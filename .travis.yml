@@ -16,18 +16,19 @@ install:
 script:
 - hexo clean
 - hexo generate
-after_success:
+after_script:
   - cd ./public
   - git init
   - git config user.name "christian"
   - git config user.email "baozaodexianyu@163.com"
   - git add .
-  - git commit -m "TravisCI 自动部署"
+  - git commit -m "Travis CI 自动部署"
   # Github Pages
   - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:master 
   # Coding Pages
   # - git push --force --quiet "https://coding用户名:${CO_TOKEN}@${CO_REF}" master:master
-  - git push https://git.dev.tencent.com/chriskowk/kowk_blog.git --all
+  - sed -i "s/github_token/${CI_TOKEN}/g" ./_config.yml
+  - hexo deploy
 branches:
   only:
   - dev
@@ -37,4 +38,4 @@ env:
    # Github Pages
    - GH_REF: https://github.com/rollawaypoint/rollawaypoint.github.io.git
    # Coding Pages
-   - CO_REF: https://git.dev.tencent.com/chriskowk/kowk_blog.git
+  #  - CO_REF: https://git.dev.tencent.com/chriskowk/kowk_blog.git
