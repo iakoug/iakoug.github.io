@@ -18,15 +18,13 @@ script:
 - hexo generate
 after_script:
   - cd ./public
-  - git config --global --unset https.proxy
-  - git config --global --unset http.proxy
   - git init
   - git config user.name "christian"
   - git config user.email "baozaodexianyu@163.com"
   - git add .
   - git commit -m "Travis CI 自动部署"
   # Github Pages
-  - git push --force --quiet "http://${CI_TOKEN}@${GH_REF}" master:master 
+  - git push --force --quiet "https://${CI_TOKEN}@${GH_REF}" master:master 
   # Coding Pages
   # - git push --force --quiet "https://coding用户名:${CO_TOKEN}@${CO_REF}" master:master
 branches:
