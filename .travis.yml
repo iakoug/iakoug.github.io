@@ -29,7 +29,7 @@ after_success:
   - git push https://git.dev.tencent.com/chriskowk/kowk_blog.git --all
 branches:
   only:
-  - dev
+  - master
 
 env:
  global:
