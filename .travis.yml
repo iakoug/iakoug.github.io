@@ -3,6 +3,7 @@ addons:
   - github.com
   - 192.30.253.113
 language: node_js
+sudo: enabled
 node_js:
 - 8.9.0
 cache:
@@ -29,11 +30,11 @@ after_success:
   - git push https://git.dev.tencent.com/chriskowk/kowk_blog.git --all
 branches:
   only:
-  - master
+  - dev
 
 env:
  global:
    # Github Pages
-   - GH_REF: https://github.com/rollawaypoint/rollawaypoint.github.io
+   - GH_REF: https://github.com/rollawaypoint/rollawaypoint.github.io.git
    # Coding Pages
    - CO_REF: https://git.dev.tencent.com/chriskowk/kowk_blog.git
