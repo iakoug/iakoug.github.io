@@ -14,7 +14,7 @@
     "dep": "hexo clean && hexo generate && hexo d -g"
   },
   "hexo": {
-    "version": "3.8.0"
+    "version": "3.7.1"
   },
   "dependencies": {
     "firebase-admin": "^6.4.0",

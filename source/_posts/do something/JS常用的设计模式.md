@@ -201,6 +201,49 @@ seller.getPrice()
 ```
 显然逻辑多而复杂时可以极大提高代码可读性以及减少维护成本
 
+补充：上述不断重复的代码片段看起来非常丑陋，其实可以通过继承来实现更简洁的写法：
+```js
+// 定义父类
+class Handler {
+  constructor(discount) {
+    // 不传为原价
+    this.discount = discount || 1
+  }
+
+  getPrice(price) {
+    return this.discount === 1
+      ? price
+      : this.discount * price
+  }
+}
+
+// 声明子类
+class Vip extends Handler {}
+class Old extends Handler {}
+class Others extends Handler {}
+
+// Context类同上方便统一接口输出
+class Context {}
+```
+测试：
+```js
+const seller = new Context
+const vip = new Vip(0.5)
+const old = new Old(0.8)
+const other = new Others
+seller.setPrice('zs', vip, 1000)
+seller.getPrice()
+seller.setPrice('ls', old, 1000)
+seller.getPrice()
+seller.setPrice('ww', other, 1000)
+seller.getPrice()
+// output:
+// zs 500 元
+// ls 800 元
+// ww 1000 元
+```
+测试结果一致
+
 # 代理模式
 
 ### 定义：
