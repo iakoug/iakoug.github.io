@@ -53,7 +53,7 @@ algolia_search:
   hits:
     per_page: 10 # 每页的结果数
   labels:
-    input_placeholder: 搜索模式，启动！ # 搜索栏 placeholder
+    input_placeholder: 域名暂未备案... 稍后上线！ # 搜索栏 placeholder
     hits_empty: "什么都没找到呢～" # 搜索结果提示
     hits_stats: "搜索到了${hits}条结果！ （${time} ms）" # 搜索无结果的提示
 
