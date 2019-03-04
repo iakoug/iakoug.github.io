@@ -222,9 +222,18 @@ class Handler {
 }
 
 // 声明子类
-class Vip extends Handler {}
-class Old extends Handler {}
-class Others extends Handler {}
+class Sub extends Handler {}
+
+// 可以自定义更多不同级别顾客不同需求
+// class Test extend Handler {
+//   getGifts() {
+//     if (this.discount < 1) {
+//       // 赠送赠品
+//     }
+//   }
+// }
+// const master = new Test(0.1)
+// master.getGifts()
 
 // Context类同上方便统一接口输出
 class Context {}
@@ -232,15 +241,17 @@ class Context {}
 测试：
 ```js
 const seller = new Context
-const vip = new Vip(0.5)
-const old = new Old(0.8)
-const other = new Others
+const vip = new Sub(0.5)
+const old = new Sub(0.8)
+const other = new Sub
+
 seller.setPrice('zs', vip, 1000)
 seller.getPrice()
 seller.setPrice('ls', old, 1000)
 seller.getPrice()
 seller.setPrice('ww', other, 1000)
 seller.getPrice()
+
 // output:
 // zs 500 元
 // ls 800 元
