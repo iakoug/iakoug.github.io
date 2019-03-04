@@ -4,6 +4,8 @@ const Selector = (classPrefix) => ({
   ACTIVE: `${classPrefix}-active`
 })
 
+let flag = false
+
 class Sidebar {
     static defaultOptions = {
       activeIndex: 0
@@ -36,6 +38,8 @@ class Sidebar {
     }
 
     activateSidebar() {
+      flag = true
+
       $('.wrapper').addClass('wrapper-sidebar-active')
       $('.header').addClass('header-sidebar-active')
       $('.toc-wrapper').addClass('toc-slide')
@@ -44,6 +48,8 @@ class Sidebar {
     }
 
     _inactivateSidebar() {
+      flag = false
+
       $('.wrapper').removeClass('wrapper-sidebar-active')
       $('.header').removeClass('header-sidebar-active')
       $('.toc-wrapper').removeClass('toc-slide')
@@ -98,7 +104,7 @@ class Sidebar {
 
     _bindButtonClick() {
       this.$menuButton.click((e) => {
-        this.activateSidebar()
+        flag ? this._inactivateSidebar() : this.activateSidebar()
       })
     }
 

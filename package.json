@@ -6,8 +6,7 @@
     "url": "git@github.com:rollawaypoint/rollawaypoint.github.io.git"
   },
   "scripts": {
-    "start": "npx hexo clean && npx hexo generate",
-    "dev": "npx hexo generate -w & hexo s",
+    "dev": "hexo clean && npx hexo generate -w & hexo s",
     "index": "export HEXO_ALGOLIA_INDEXING_KEY='f2b6444a06bb04588eaf122ef9eec424' && npx hexo algolia",
     "deploy": "npx hexo deploy",
     "deploy-index": "npm run start && npx hexo deploy && npm run index",
