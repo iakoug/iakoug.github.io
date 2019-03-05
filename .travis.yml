@@ -12,11 +12,14 @@ cache:
 before_install:
 - npm install hexo-cli -g
 install:
+# - npm install -g codecov
 - yarn
 script:
 - rm -rf .deploy_git
 - hexo clean
 - hexo generate
+# - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
+# - codecov
 after_script:
   - git config --global --unset http.proxy 
   - git config --global --unset https.proxy 
