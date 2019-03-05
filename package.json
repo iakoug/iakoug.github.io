@@ -6,11 +6,11 @@
     "url": "git@github.com:rollawaypoint/rollawaypoint.github.io.git"
   },
   "scripts": {
-    "dev": "hexo clean && npx hexo generate -w & hexo s",
-    "index": "export HEXO_ALGOLIA_INDEXING_KEY='f2b6444a06bb04588eaf122ef9eec424' && npx hexo algolia",
+    "dev": "hexo clean & npx hexo generate -w & hexo s",
+    "index": "export HEXO_ALGOLIA_INDEXING_KEY='f2b6444a06bb04588eaf122ef9eec424' & npx hexo algolia",
     "deploy": "npx hexo deploy",
-    "deploy-index": "npm run start && npx hexo deploy && npm run index",
-    "dep": "hexo clean && hexo generate && hexo d"
+    "deploy-index": "npm run start & npx hexo deploy & npm run index",
+    "dep": "hexo clean & hexo generate & hexo d"
   },
   "hexo": {
     "version": "3.7.1"
