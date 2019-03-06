@@ -104,7 +104,7 @@ jsonContent:
 algolia:
   applicationID: 'OO448X9PFP'
   apiKey: 'bca186b3b473a887dcd1d5ac191832e8'
-  # adminApiKey: 'f2b6444a06bb04588eaf122ef9eec424'
+  adminApiKey: 'f2b6444a06bb04588eaf122ef9eec424'
   indexName: 'kwok_blog'
   chunkSize: 5000
 
