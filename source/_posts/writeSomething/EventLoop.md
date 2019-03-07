@@ -103,7 +103,7 @@ node是js的一个runtime，所以事件循环同样是 Node.js 处理非阻塞 
 
 与浏览器端的事件循环相比有很大不同，node的事件循环主要分为六个阶段（Phase），每个阶段都会有一个类似于队列的结构, 存储着该阶段需要处理的回调函数：
 - timer：用一个 for 循环处理所有 setTimeout 和 setInterval 的回调
-  * 检查 timer 队列是否有到期的 timer 回调，如果有，将到期的 timer 回调按照 timerId 升序* 执行
+  * 检查 timer 队列是否有到期的 timer 回调，如果有，将到期的 timer 回调按照 timerId 升序执行
   * 检查是否有 process.nextTick 任务，如果有，全部执行
   * 检查是否有microtask，如果有，全部执行
   * 退出该阶段
