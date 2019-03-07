@@ -18,6 +18,7 @@ script:
 - rm -rf .deploy_git
 - hexo clean
 - hexo generate
+- hexo algolia
 # - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
 # - codecov
 after_script:
