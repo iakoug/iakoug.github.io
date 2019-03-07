@@ -41,7 +41,7 @@ All we know, JS是一种动态类型、弱类型、基于原型的脚本语言�
 - Object.observe（已废弃）
 - MutationObserver（浏览器）
 
-*括号内表示支持的环境，未标记则都支持*
+*括号内表示支持的环境*
 
 ### 案例分析
 ```js
