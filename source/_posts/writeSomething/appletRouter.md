@@ -465,6 +465,9 @@ export default {
 此篇文章已经发布在 [http://doc.yupaopao.com](http://doc.yupaopao.com/pages/viewpage.action?pageId=7176857)
 
 ## 总结
-路由基本功能的封装基本至此已经全部完成，基本满足日常开发需要。但由于自身水平限制，会存在各类问题，希望大家指出一起讨论，共同进步。
+路由基本功能的封装基本至此已经全部完成，基本满足日常开发需要。但由于自身水平限制，会存在各类问题，希望大家指出一起讨论，共同进步
 
-开放、真实！peace.
+## 最后
+po一下前端生涯的完成的第一个小程序的码，使用美团的mpvue：
+
+![比心小程序](https://yphoto.eryufm.cn/gh_3192acdd1484_258.jpg)
