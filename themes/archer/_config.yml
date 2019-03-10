@@ -16,7 +16,7 @@ social:
   twitter: 
   instagram: 
   bilibili: 
-  # rss: /atom.xml
+  rss: /atom.xml
 social_icons:
   enable: true
   # Icon Mappings
