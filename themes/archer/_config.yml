@@ -109,6 +109,19 @@ reading_info: true
 index_intro_height: 50
 post_intro_height: 50
 about_intro_height: 50
+
+# 二次元启动
+live2d:
+  enable: true
+  scriptFrom: local
+  model:
+    use: live2d-widget-model-gf
+  display:    
+    position: right
+    width: 150
+    height: 300
+  mobile:
+    show: true
 # copyright
 copyright:
   enable: true
