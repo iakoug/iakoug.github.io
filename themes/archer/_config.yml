@@ -110,18 +110,19 @@ index_intro_height: 50
 post_intro_height: 50
 about_intro_height: 50
 
-# 二次元启动
+# hexo-helper-live2d
 live2d:
   enable: true
   scriptFrom: local
   model:
-    use: live2d-widget-model-gf
+    use: live2d-widget-model-hijiki
   display:    
     position: right
-    width: 150
-    height: 300
+    width: 50
+    height: 100
   mobile:
-    show: true
+    show: false
+
 # copyright
 copyright:
   enable: true
