@@ -18,6 +18,7 @@ script:
 - rm -rf .deploy_git
 - hexo clean
 - hexo generate
+- export HEXO_ALGOLIA_INDEXING_KEY=f2b6444a06bb04588eaf122ef9eec424
 - hexo algolia
 # - istanbul cover ./node_modules/mocha/bin/_mocha --reporter lcovonly -- -R spec
 # - codecov
