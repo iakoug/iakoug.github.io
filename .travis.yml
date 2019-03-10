@@ -38,7 +38,6 @@ after_script:
 branches:
   only:
   - dev
-  - z
 
 env:
  global:
