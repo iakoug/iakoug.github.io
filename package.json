@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "hexo clean & npx hexo generate -w & hexo s",
-    "algolia": "export HEXO_ALGOLIA_INDEXING_KEY=f2b6444a06bb04588eaf122ef9eec424 & hexo algolia",
+    "index": "export HEXO_ALGOLIA_INDEXING_KEY='40c7ea53a5eb3b5f0fd6449ee58bd358 & npx hexo algolia",
     "deploy": "hexo clean & hexo d -g"
   },
   "hexo": {

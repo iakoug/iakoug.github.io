@@ -102,9 +102,9 @@ jsonContent:
     tags: true
 
 algolia:
-  applicationID: 'OO448X9PFP'
-  apiKey: 'bca186b3b473a887dcd1d5ac191832e8'
-  adminApiKey: 'f2b6444a06bb04588eaf122ef9eec424'
+  applicationID: 'IM28YKSSIM'
+  apiKey: '982da96bc57c8f57cf0dfb973f755d18'
+  adminApiKey: '40c7ea53a5eb3b5f0fd6449ee58bd358' # algolia
   indexName: 'kwok_blog'
   chunkSize: 5000
 
