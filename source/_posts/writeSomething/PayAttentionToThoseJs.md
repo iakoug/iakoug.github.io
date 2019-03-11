@@ -245,7 +245,7 @@ emit是静态的而on才是依赖收集的地方 这个顺序不能变----一定
 
 首先涉及到一个初始化的机制
 
-假如是同步执行 resolve如果在new Promise时立即触发 此时是没有收集依赖函数的（then）
+假如是同步执行 resolve如果在new Promise时立即触发 此时是没有收集依赖函数的（then收集到的对应的微任务队列 `onResolvedCallback` 尚未执行）
 那么resolve中的数值无法被传递
 
 而如果加入异步（setTimeout）变为一次宏任务推入下次事件循环
