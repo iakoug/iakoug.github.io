@@ -10,10 +10,10 @@ cache:
   directories:
   - node_modules
 before_install:
-- npm install hexo-cli -g
+# - npm install hexo-cli -g
 install:
 # - npm install -g codecov
-- yarn
+# - yarn
 script:
 - rm -rf .deploy_git
 - hexo clean
