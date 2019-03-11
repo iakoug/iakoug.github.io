@@ -5,14 +5,14 @@ tags:
 date: 2019-03-11 12:35:00
 categories: 你应该知道的
 ---
-记录那些没有注意的JS或者遇到的issues
+记录基本的JS相关的使用或者遇到的issues
 持续更新👏
 <!-- more -->
 *没有分类顺序可能杂乱😝*
 
 # 小数部分进行数学运算可能会生成过多的小数位
 很多人应该都遇到过类似的问题：`0.1 + 0.2 === 0.3` 返回值是 false，顿为惊叹
-在浏览器输入后发现 `0.1 + 0.2` 返回值是 `0.30000000000000004`(小数17位，<a href="#hahhhhhh">关于这个</a>)
+在浏览器输入后发现 `0.1 + 0.2` 返回值是 `0.30000000000000004`(小数17位，<a href="#JS（Java）浮点数的数字长度">关于这个</a>)
 查了一下找到了个解释：
 > Computer in dealing with digital mathematical operations (such as the decimal), its first converted to binary again, the decimal Numbers to binary may occur in the process of precision loss, can be used by toFixed and round method comprehensive to solve this problem.
 
@@ -149,6 +149,114 @@ a2所在的原型链: a2 ==> obj ==> Object.prototype ==> null
 所以此时如果赋值a.__proto__ = obj，a instanceof A 同样会返回true
 
 *JS是一门基于原型的语言，而原型是动态的并非一定不变所以会有上述情况*
+
+# 将function声明的函数的函数式调用改为new 关键字调用
+es6的class声明类的方式是必须通过new关键字进行调用的
+
+而传统的利用function关键字声明的构造函数如何避免被函数式调用呢？或者说就算是函数式调用但是依然想要生成实例对象呢
+很简单 判断constructor即可
+
+```js
+// eg:
+
+function A() {
+  if (this.constructor !== arguments.callee) {
+    return new A
+  }
+  this.name = 'chris'
+  this.age = 23
+  this.job = function() {
+    console.log('A front-end engineer')
+  }
+  A.work = function() {
+    console.log('working hard')
+  }
+}
+A().job() // that's all
+
+```
+补充：
+*`Array()` 和 `new Array()` 是完全一致的*
+> The Array constructor is the %Array% intrinsic object and the initial value of the Array property of the global object. When called as a constructor it creates and initializes a new exotic Array object. When Array is called as a function rather than as a constructor, it also creates and initializes a new Array object. Thus the function call Array(…) is equivalent to the object creation expression new Array(…) with the same arguments.
+https://www.ecma-international.org/ecma-262/7.0/index.html#sec-array-constructor
+
+关于 `Object()` 与 `new Object()` 之间的差异，ES规范中说Object()会进行类型转换
+> The Object constructor is the %Object% intrinsic object and the initial value of the Object property of the global object. When called as a constructor it creates a new ordinary object. When Object is called as a function rather than as a constructor, it performs a type conversion.
+The Object constructor is designed to be subclassable. It may be used as the value of an extends clause of a class definition.
+https://www.ecma-international.org/ecma-262/7.0/index.html#sec-object-constructor
+
+# The play() request was interrupted by a call to pause()
+做桌面通知的一个需求，需要自定义桌面通知是否带有提示音，使用的是h5的Notification API，在api 的 silent配置项不work的时候自定义new Audio在有新消息的时候触发，然后在延时器中关闭的时候出现以下错误：
+*The play() request was interrupted by a call to pause()*
+
+google后发现 *Moreover since Chrome 50, a play() call on an a or element returns a Promise*
+
+play是一个异步函数， 返回一个promise
+**所以正确的方式应该先获取这个promise， 在then回调中安全的将其pause掉**
+
+```js
+const playSound = () => {
+  let timer = null
+  const audio = new Audio(fileUrl)
+  const playPromise = audio.play()
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      timer = setTimeout(() => {
+        audio.pause()
+        clearTimeout(timer)
+      }, 2000)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+}
+```
+> [https://developers.google.com/web/updates/2017/06/play-request-was-interrupted](https://developers.google.com/web/updates/2017/06/play-request-was-interrupted)
+
+# 实现 Promise 的 resolve 和 reject 函数时内部为何要异步执行
+参考别人的实现看到里面有关resolve 和 reject 函数内部的代码异步执行 却没有解释原因
+> [剖析Promise内部结构，一步一步实现一个完整的、能通过所有Test case的Promise类](https://github.com/xieranmaya/blog/issues/3)
+
+```js
+function resolve(value) {
+  setTimeout(function () {
+      if(self.status === 'pending') {
+          self.status = 'resolved';
+          self.data = value;
+          for(var i = 0; i < self.onResolvedCallback.length; i++) {
+              self.onResolvedCallback[i](value);
+          }
+      }
+  })
+}
+```
+以下为个人简单理解：
+
+举个例子：eventbus的实现
+在使用eventbus进行数据通信的时候，通常都是在一个地方emit事件名 在另外想要触发的地方on接收这个事件同时传入相应的回调，而这种使用方式很容易给小白造成一种误解：我使用emit派发，使用on来接收执行这个派发
+
+显然不是的
+自己封装一个简单的eventbus之后就会理解
+emit是静态的而on才是依赖收集的地方 这个顺序不能变----一定是先收集完依赖才可以派发
+
+所以对于promise的resolve和then之间是不是就可以理解为必须then收集依赖后才可以触发resolve这样resolve的参数才可以被then接收到（reject和catch同理）
+
+所以回到上面提出的resolve和reject函数内部为何一定要异步执行的问题
+
+首先涉及到一个初始化的机制
+
+假如是同步执行 resolve如果在new Promise时立即触发 此时是没有收集依赖函数的（then）
+那么resolve中的数值无法被传递
+
+而如果加入异步（setTimeout）变为一次宏任务推入下次事件循环
+
+这样就确保了先收集了依赖再触发回调
+
+> [JS/Node事件循环](https://rollawaypoint.github.io/2019/03/07/writeSomething/EventLoop/)
+
+
+
+
 
 
 .
