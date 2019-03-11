@@ -13,7 +13,7 @@ before_install:
 # - npm install hexo-cli -g
 install:
 # - npm install -g codecov
-# - yarn
+# - yarn # 更新 pkg 时需要重新yarn
 script:
 - rm -rf .deploy_git
 - hexo clean
