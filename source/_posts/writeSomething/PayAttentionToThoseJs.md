@@ -254,7 +254,24 @@ emit是静态的而on才是依赖收集的地方 这个顺序不能变----一定
 
 > [JS/Node事件循环](https://rollawaypoint.github.io/2019/03/07/writeSomething/EventLoop/)
 
+# 你不知道的原生方法更多使用方式 JSON.parse、JSON.stringify、setTimeout
+#### setTimeout 定时器
+支持传递第三个以及之后参数作为第一个回调函数的参数
+```js
+const delay = (fn, wait, ...args) => setTimeout(fn, wait, ...args)
 
+delay(function(...args) { console.log(args)}, 1000, 1, 2, 3)
+```
+
+#### JSON.parse
+
+JSON.parse还可额外接受第二个处理函数 对原本生成的返回值进行修改
+
+#### JSON.stringify
+
+JSON.stringify可额外再接收两个参数
+* 第二个参数： 如果该参数是一个函数，则在序列化过程中，被序列化的值的每个属性都会经过该函数的转换和处理；如果该参数是一个数组，则只有包含在这个数组中的属性名才会被序列化到最终的 JSON 字符串中；如果该参数为null或者未提供，则对象所有的属性都会被序列化
+* 第三个参数：指定缩进用的空白字符串，用于美化输出（pretty-print）；如果参数是个数字，它代表有多少的空格；上限为10。该值若小于1，则意味着没有空格；如果该参数为字符串(字符串的前十个字母)，该字符串将被作为空格；如果该参数没有提供（或者为null）将没有空格
 
 
 
