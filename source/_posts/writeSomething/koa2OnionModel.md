@@ -72,7 +72,7 @@ app.listen(3000)
 .
 
 .
-和之前的一篇 [动态规划和递归：从虎羊草开始](http://localhost:4000/2019/02/21/do%20something/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E5%92%8C%E9%80%92%E5%BD%92%EF%BC%9A%E4%BB%8E%E8%99%8E%E7%BE%8A%E8%8D%89%E5%BC%80%E5%A7%8B/#%E4%BB%8E%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%83%85%E5%86%B5%E5%85%A5%E6%89%8B) 类似进行简单的归纳之后得出思路，最关键的流程控制问题既然有了思路下面开始封装代码
+和之前的一篇 [动态规划和递归：从虎羊草开始](https://rollawaypoint.github.io/2019/02/21/writeSomething/dynamicProgrammingAndRecursion/) 类似进行简单的归纳之后得出思路，最关键的流程控制问题既然有了思路下面开始封装代码
 
 # 三步完成封装
 
