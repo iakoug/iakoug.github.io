@@ -1,13 +1,14 @@
 ---
 title: 你应该注意的那些JS（相关）
 tags:
-  - 知识点
+  - 你应该知道的
 date: 2019-03-11 12:35:00
 categories: 你应该知道的
 ---
 记录基本的JS相关的使用或者遇到的issues
 持续更新👏
 <!-- more -->
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=1340842066&auto=1&height=66"></iframe>
 *没有分类顺序可能杂乱😝*
 
 # 小数部分进行数学运算可能会生成过多的小数位
