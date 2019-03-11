@@ -132,19 +132,19 @@ live2d:
     scale: 1
     hHeadPos: 0.5
     vHeadPos: 0.618
-    use: live2d-widget-model-hijiki # // 下载的动画模型名称
+    use: live2d-widget-model-tororo # // 下载的动画模型名称
   display:
     superSample: 2
     width: 50
     height: 100
     position: right # // 模型在网页显示位置
-    hOffset: 20
-    vOffset: 50
+    hOffset: 0
+    vOffset: 0
   mobile:
     show: true  #// 移动设备是否显示
-    scale: 0.5
+    scale: 0.2
   react:
-    opacityDefault: 0.7
+    opacityDefault: 0.9
     opacityOnHover: 0.2
 
         
