@@ -166,7 +166,6 @@ Link:
 > The production FunctionExpression : function Identifier (
 FormalParameterListopt ) { FunctionBody }
 is evaluated as follows:
-
   - Let funcEnv be the result of calling NewDeclarativeEnvironment passing the running execution context’s Lexical Environment as the argument
   - Let envRec be funcEnv’s environment record.
   - Call the CreateImmutableBinding concrete method of envRec passing the String value of Identifier as the argument.
