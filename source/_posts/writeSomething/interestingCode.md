@@ -146,3 +146,58 @@ a.x 和 a 的两个引用并且判断属于 `environment records`（a.x 属于�
 
 Link:
 > [由ES规范学JavaScript(二)：深入理解“连等赋值”问题](https://segmentfault.com/a/1190000004224719)
+
+# 立即执行的函数(Immediately-invoked function)的具名函数表达式(Named function expression, NFE)
+```js
+(function A() {
+    console.log(A) // [Function A]
+    A = 1
+    console.log(window.A) // undefined
+    console.log(A) // [Function A]
+}())
+```
+上面立即执行函数中直接将1赋值给一个未声明的变量，正常逻辑下我们知道会将他绑定的全局作为全局变量，但是上面的输出显然不是如此，原因在于匿名执行函数有了名字且和赋值的变量A同名
+
+有了名字的函数（NFE）有两个特性：
+- 作为函数名的标识符（在这里是 A ）只能从函数体内部访问，在函数外部访问不到 (IE9+)
+- 绑定为函数名的标识符（在这里是A）不能再绑定为其它值，即该标识符绑定是不可更改的（immutable），所以在 NFE 函数体内对 A 重新赋值是无效的
+
+创建 NFE 的机制：
+> The production FunctionExpression : function Identifier (
+FormalParameterListopt ) { FunctionBody }
+is evaluated as follows:
+
+  - Let funcEnv be the result of calling NewDeclarativeEnvironment passing the running execution context’s Lexical Environment as the argument
+  - Let envRec be funcEnv’s environment record.
+  - Call the CreateImmutableBinding concrete method of envRec passing the String value of Identifier as the argument.
+  - Let closure be the result of creating a new Function object as specified in 13.2 with parameters specified by FormalParameterListopt and body specified by FunctionBody. Pass in funcEnv as the Scope. Pass in true as the Strict flag if the FunctionExpression is contained in strict code or if its FunctionBody is strict code.
+  - Call the InitializeImmutableBinding concrete method of envRec passing the String value of Identifier and closure as the arguments.
+  - Return closure.
+
+注意步骤 3 和 5，分别调用了 createImmutableBinding 和 InitializeImmutableBinding 内部方法，**创建的是不可更改的绑定**
+
+要理解这两个特性，最重要的是搞清楚标识符 A的绑定记录保存在哪里。让我们问自己几个问题：
+1. 标识符 A 与 该 NFE 是什么关系？ 两层关系：首先，该 NFE 的 name 属性是 字符串 'A'；更重要的是，A是该 NFE 的一个自由变量。在函数体内部，我们引用了 A，但 A 既不是该 NFE 的形参，又不是它的局部变量，那它不是自由变量是什么！解析自由变量，要从函数的 [[scope]] 内部属性所保存的词法环境 (Lexical Environment) 中查找变量的绑定记录。
+
+2. 标识符 A 保存在全局执行环境（Global Execution Context）的词法环境(Lexical Environment)中吗？ 答案是否。如果你仔细看过 ES5 Section 13 这一节，会发现创建 NFE 比创建 匿名函数表达式 （Anonymous Function Expression, AFE） 和 函数声明 (Function Declaration) 的过程要复杂得多
+
+那么为何创建 NFE 要搞得那么复杂呢？就是为了实现 NFE 的只能从函数内部访问A，而不能从外部访问这一特性！咋实现的？ 创建 NFE 时，创建了一个专门的词法环境用于保存 A 的绑定记录(见上面步骤 1~3)！对于 NFE, 有如下关系：
+```js
+A.[[scope]]
+  --->  Lexical Environment {'environment record': {A: function ...}, outer: --}
+  ---> Lexical Environment of Global Context {'environment record': {...}, outer --}
+  ---> null
+```
+
+可见，A 的绑定记录不在全局执行上下文的词法环境中，故不能从外部访问
+
+但是有个疑问：如果内部输出的时候进行赋值呢？
+```js
+(function A() {
+    console.log(A = 100) // 100
+}())
+```
+却可以打印出100，<a href="#JS引擎对赋值表达式的处理过程">JS引擎对赋值表达式的处理过程</a>中我们知道赋值表达式最终结果是返回这个值，如果NFE内部没有成功赋值为何可以打印出100呢？
+
+Link:
+[在JavaScript的立即执行的具名函数A内修改A的值时到底发生了什么](https://segmentfault.com/q/1010000002810093)
