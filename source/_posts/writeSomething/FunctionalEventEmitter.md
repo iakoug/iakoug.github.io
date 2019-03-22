@@ -110,16 +110,21 @@ e.dispatch('e1')
 #### functional addEventListener
 如传统封装方法的一致，addEventListener内部需要分别使用消息类型event，消息回调handler以及存储中心eventMap，用柯里化的思想分别将这三个传入新封装的函数，新函数即为：
 ```js
-const addEventListener = event => handler => eventMap => eventMap.has(event)
-  // 判断逻辑不变
-  ? new Map(eventMap).set(event, eventMap.get(event).concat([handler]))
-  : new Map(eventMap).set(event, [handler])
+const addEventListener = event
+  => handler
+    => eventMap
+      => eventMap.has(event)
+        // 判断逻辑不变
+        ? new Map(eventMap).set(event, eventMap.get(event).concat([handler]))
+        : new Map(eventMap).set(event, [handler])
 ```
 
 #### functional dispatch
 同样，观察上面封装的dispatch方法，我们需要消息类型event和存储中心eventMap两个数据，下面也分为两个参数分别传入，改写的dispatch方法如下：
 ```js
-const dispatch = event => eventMap => eventMap.has(event) && eventMap.get(event).forEach(fn => fn())
+const dispatch = event
+  => eventMap
+    => eventMap.has(event) && eventMap.get(event).forEach(fn => fn())
 ```
 event emitter类两个核心的函数已经改写完毕了，可是我们观察上面的addEventListener方法，可以看到上面的封装分三步将所需要的参数分别传入，调用即为：`addEventListener('e2')(() => log('hey'))`, 此时的返回值是一个需要接受存储中心 `eventMap` 为参数的一个新函数，这里需要注意
 我们要对所有的addEventListener进行整合最终传入同一个map对象作为唯一存储对象，下面我们要写一个compose函数
@@ -127,7 +132,10 @@ event emitter类两个核心的函数已经改写完毕了，可是我们观察�
 #### functional compose
 这个compose需要接受函数的集合（函数即为`addEventListener('e2')(() => log('hey'))`的返回值的函数）作为参数，使用数组最强大的reduce方法对传入的函数进行批处理调用即可，如果大家熟悉redux里面的compose函数，其实都是一样的，代码如下：
 ```js
-const compose = (...fns) => fns.reduceRight((f, g) => (...args) => f(g(...args)))
+const compose = (...fns)
+  => fns.reduceRight((f, g)
+    => (...args)
+      => f(g(...args)))
 ```
 至此，所有的封装基本已经完成了，使用函数式的封装，保护函数状态的单一性，下面进行测试：
 
