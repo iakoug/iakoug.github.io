@@ -64,7 +64,7 @@ class Event {
 
 下面添加event的订阅方法，支持传入订阅消息名和对应的回调
 ```js
-class EventMa {
+class Event {
   constructor (eventMap = new Map()) {
     // 使用map存储订阅者
     this.eventMap = eventMap
