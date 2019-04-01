@@ -1,6 +1,6 @@
 # ========== Profile ========== #
 # avatar
-avatar: /images/avatar1.png
+avatar: /images/avatar_.png
 # author name
 author: chris kwok
 # signature
@@ -10,7 +10,7 @@ social:
   email: baozaodexianyu@163.com
   github: //github.com/rollawaypoint
   # wechat and qq should be a path of qr-code image
-  wechat: /images/wechat.jpg
+  wechat: /images/wechat_.jpg
   weibo: https://weibo.com/577117087
   zhihu: 
   twitter: 
@@ -41,9 +41,9 @@ main_title: christian
 # subtitle
 subtitle: Run.
 # site haeder image
-site_header_image: /images/site.JPG
+site_header_image: /images/site_.JPG
 # post haeder image
-post_header_image: /images/post.JPG
+post_header_image: /images/post_.JPG
 # 404 image
 _404_image: 'https://source.unsplash.com/random'
 
