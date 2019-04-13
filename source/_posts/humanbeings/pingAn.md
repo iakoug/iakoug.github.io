@@ -1,5 +1,5 @@
 ---
-title: 新工作 新开始
+title: new Begining
 tags:
   - 当我在扯淡
 date: 2019-03-29 13:02:00
