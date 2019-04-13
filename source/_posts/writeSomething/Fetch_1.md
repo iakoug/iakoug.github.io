@@ -120,7 +120,7 @@ function curl(url: string, options: any = {}): Promise<any> {
 ```
 至此拦截器相关封装已经极为简单的完成了
 
-# 对外暴露curl已经封装use方法便于使用
+# 对外暴露curl以及封装use方法便于使用
 ```ts
 const obtain = new Fetch()
 
