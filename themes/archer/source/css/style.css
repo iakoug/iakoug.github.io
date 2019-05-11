@@ -38,3 +38,7 @@
 .site-intro {
   height: 100vh!important;
 }
+
+.sidebar {
+  background:linear-gradient(to right, #171718, #23394d);
+}
