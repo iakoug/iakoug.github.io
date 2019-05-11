@@ -34,3 +34,7 @@
 .header-sidebar-menu {
   font-family: "iconfont-archer"!important;
 }
+
+.site-intro {
+  height: 100vh!important;
+}
