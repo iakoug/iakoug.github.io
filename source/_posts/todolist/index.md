@@ -17,7 +17,7 @@ The to do list of 2019.
 
 - Webpack to advanced.
 
-- Node.js to be advanced.
+- Node.js to advanced.
 
 
 **Essential things:**
