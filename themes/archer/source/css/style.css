@@ -40,5 +40,6 @@
 }
 
 .sidebar {
-  background:linear-gradient(to right, #171718, #23394d);
+  background:linear-gradient(to right, rgb(1, 28, 68), #000);
+  /* background:linear-gradient(to right, #23394d, #171718); */
 }
