@@ -31,8 +31,11 @@
   font-family: "Microsoft Yahei" !important;
 }
 
-.header-sidebar-menu {
+.header-sidebar-menu, .anchorjs-link, .anchorjs-archer {
   font-family: "iconfont-archer"!important;
+}
+.anchorjs-link, .anchorjs-archer {
+  font-family: "anchorjs-icons"!important;
 }
 
 .site-intro {
