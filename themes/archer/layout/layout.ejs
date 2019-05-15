@@ -67,7 +67,33 @@
     <!-- async load share.js -->
     <% if(is_post()) { %>
         <script src="<%- url_for('/scripts/share.js') %>" async></script>    
-    <% } %> 
+    <% } %>
+    <script>
+        function back() {
+            $('.header').removeClass('header-sidebar-active')
+            $('.wrapper').removeClass('wrapper-sidebar-active')
+            $('.toc-wrapper').removeClass('toc-slide')
+            $('.sidebar').removeClass('sidebar-active')
+        }
+        function active() {
+            $('.header').addClass('header-sidebar-active')
+            $('.wrapper').addClass('wrapper-sidebar-active')
+            $('.toc-wrapper').addClass('toc-slide')
+            $('.sidebar').removeClass('sidebar-hide').addClass('sidebar-active')
+        }
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                $('.header-sidebar-menu').off('click')
+                $('.header-sidebar-menu')[0].onclick = function() {
+                    if ($('.header').hasClass('header-sidebar-active')) {
+                        return back()
+                    }
+
+                    active()
+                }
+            }, 100)
+        })
+    </script>
 
     </body>
 </html>
