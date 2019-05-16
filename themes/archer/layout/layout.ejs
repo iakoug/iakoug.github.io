@@ -81,7 +81,7 @@
             $('.toc-wrapper').addClass('toc-slide')
             $('.sidebar').removeClass('sidebar-hide').addClass('sidebar-active')
         }
-        window.addEventListener('load', () => {
+        $(function() {
             setTimeout(() => {
                 $('.header-sidebar-menu').off('click')
                 $('.header-sidebar-menu')[0].onclick = function() {
