@@ -49,8 +49,8 @@ module.exports = Object.keys(APISMap).reduce((proxyTable, proxyDomain) => {
   proxyTable.push({
     context: Object.keys(domainApiMap).reduce((apis, apiKey) => [...apis, domainApiMap[apiKey]], []),
     config: {
-      // target: 'https://teststable-mobile.stg.1qianbao.com/mtp-web',
-      target: env ? apiConfig[env][proxyDomain] : 'http://test-mock.stg.yqb.com/api',
+      // target: '//prod.com',
+      target: env ? apiConfig[env][proxyDomain] : '//mock.com/api',
       changeOrigin: true,  
     },
   })
