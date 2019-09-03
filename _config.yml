@@ -39,11 +39,11 @@ post_asset_folder: true
 relative_link: false
 future: true
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
-  tab_replace:
-  
+  tab_replace: false
+
 # Home page setting
 # path: Root path for your blogs index page. (default = '')
 # per_page: Posts displayed per page. (0 = disable pagination)
@@ -59,7 +59,6 @@ archive_generator:
 tag_generator:
   per_page: 10
 
-  
 # Category & Tag
 default_category: uncategorized
 category_map:
@@ -112,14 +111,14 @@ algolia:
 offline:
   maximumFileSizeToCacheInBytes: 5242880
   staticFileGlobs:
-  - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
+    - public/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,woff2}
   stripPrefix: public
   verbose: false
   runtimeCaching:
     - urlPattern: /*
       handler: cacheFirst
       options:
-        origin: 
+        origin:
 
 sitemap:
   path: sitemap.xml
@@ -142,17 +141,16 @@ live2d:
     hOffset: 0
     vOffset: 0
   mobile:
-    show: true  #// 移动设备是否显示
+    show: true #// 移动设备是否显示
     scale: 0.2
   react:
     opacityDefault: 0.9
     opacityOnHover: 0.2
 
-        
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@github.com:rollawaypoint/rollawaypoint.github.io.git  #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
+  repo: git@github.com:rollawaypoint/rollawaypoint.github.io.git #https://bitbucket.org/JohnSmith/johnsmith.bitbucket.io
   branch: master #published
-  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}"  #leave this blank
+  message: "Site updated: {{ now('YYYY-MM-DD HH:mm:ss') }}" #leave this blank
