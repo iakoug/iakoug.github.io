@@ -4,6 +4,7 @@ tags:
   - 经济学
 date: 2019-03-27 16:53:00
 categories: 经济学
+index_img: /img/index.jpg
 ---
 读小岛经济学，简单了解经济学概念
 <!-- more -->

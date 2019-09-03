@@ -4,7 +4,7 @@ tags:
   - 技术分享
 date: 2019-05-24 14:00:00
 categories: 技术分享
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 壹钱包理财信贷组技术分享
 

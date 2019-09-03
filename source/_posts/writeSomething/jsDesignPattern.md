@@ -5,7 +5,7 @@ tags:
   - 算法
 date: 2019-02-24 22:52:00
 categories: 算法
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 持续更新
 JS常用的设计模式以及应用场景

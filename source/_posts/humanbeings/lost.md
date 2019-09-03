@@ -4,7 +4,7 @@ tags:
   - 当我在扯淡
 date: 2019-07-16 22:04:00
 categories: 当我在扯淡
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 `生活不易 当砥砺前行`
 <!-- more -->

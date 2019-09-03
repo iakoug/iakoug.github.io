@@ -4,7 +4,7 @@ tags:
   - 你应该知道的
 date: 2019-03-11 12:35:00
 categories: 你应该知道的
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 记录基本的JS相关的使用或者遇到的issues
 持续更新👏

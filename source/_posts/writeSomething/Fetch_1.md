@@ -5,7 +5,7 @@ tags:
   - interceptor
 date: 2019-04-13 11:34:00
 categories: 封装
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 
 封装自己的fetch请求库---拦截器篇

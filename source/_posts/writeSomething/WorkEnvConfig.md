@@ -4,7 +4,7 @@ tags:
   - 开发环境搭建
 date: 2019-04-03 13:27:00
 categories: 开发环境搭建
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 
 入手新的mac？快速搭建你的开发环境！👏

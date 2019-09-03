@@ -4,7 +4,7 @@ tags:
   - fetch
 date: 2019-05-21 14:30:00
 categories: 封装
-index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
+index_img: /img/index.jpg
 ---
 当你的promise链某一个环节需要显式的抛出异常，这个时候后面的所有剩余的then回调其实就不必要执行，那么如何终止这个Promise链呢
 
