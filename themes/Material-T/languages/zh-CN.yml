@@ -1,35 +1,35 @@
 search:
-  title: 搜索
-  keyword: 关键词
+  title: Search
+  keyword: Keyword
   status:
-    success: v 
-    error: x
+    success: success
+    error: error
 
-postTotal: 共计 %d 篇文章
+postTotal: A total of %d articles.
 
 paginator:
-  pre: 上一页
-  next: 下一页
+  pre: Previous Page
+  next: Next Page
 
 post:
-  toc: 目录
+  toc: TOC
 
 archive:
-  title: 归档
-  subtitle: 归档
+  title: Archive
+  subtitle: Archive
 
 tag:
-  title: 标签
-  subtitle: 标签
+  title: Tag
+  subtitle: Tag
 
 category:
-  title: 分类
-  subtitle: 分类
+  title: Sorts
+  subtitle: Sorts
 
 about:
-  title: 关于
-  subtitle: 关于
+  title: About
+  subtitle: About
 
 page404:
-  title: 页面走丢啦~
-  subtitle: 页面走丢啦~
+  title: This page has migrated to Mars:)
+  subtitle: This page has migrated to Mars:)
