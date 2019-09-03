@@ -6,6 +6,7 @@ tags:
   - 递归
 date: 2019-02-21 20:36:00
 categories: 算法
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 
 老虎会吃羊吗？🐅🐑

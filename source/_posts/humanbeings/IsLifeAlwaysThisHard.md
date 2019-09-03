@@ -4,6 +4,7 @@ tags:
   - 当我在扯淡
 date: 2019-04-01 20:59:00
 categories: 当我在扯淡
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 “人类的悲欢并不相通。”
 <!-- more -->

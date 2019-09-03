@@ -4,6 +4,7 @@ tags:
   - webpack
 date: 2019-05-10 17:17:00
 categories: webpack
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 关于 webpack define plugin 的一些思考（胡思乱想）
 

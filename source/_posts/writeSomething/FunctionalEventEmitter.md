@@ -5,6 +5,7 @@ tags:
   - event emitter
 date: 2019-03-22 16:35:00
 categories: 算法
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 
 用函数式编程简单封装一个 `event emitter`

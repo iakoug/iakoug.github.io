@@ -4,6 +4,7 @@ tags:
   - 思维
 date: 2019-06-01 17:14:00
 categories: 思维
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 批判性思维
 

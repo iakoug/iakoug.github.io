@@ -4,6 +4,7 @@ tags:
   - 当我在扯淡
 date: 2019-05-06 15:02:00
 categories: 当我在扯淡
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 “生亦何欢 死亦何苦”
 <!-- more -->

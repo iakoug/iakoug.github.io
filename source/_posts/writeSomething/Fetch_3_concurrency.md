@@ -5,6 +5,7 @@ tags:
   - concurrency
 date: 2019-06-13 14:20:00
 categories: 封装
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 fetch系列第三篇`记录帖`，封装一个请求并发控制的库
 

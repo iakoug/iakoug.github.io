@@ -5,6 +5,7 @@ tags:
   - 任务队列
 date: 2019-03-07 11:21:00
 categories: 你应该知道的
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 
 JS特色之一是单线程，那所谓的基于事件的异步机制是什么？

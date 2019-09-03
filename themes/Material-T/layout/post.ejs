@@ -57,7 +57,8 @@ page.banner_img_height = theme.post.banner_img_height %>
 <!-- Comments -->
 <div class="col-lg-7 mx-auto nopadding-md">
   <div class="container comments mx-auto" id="comments">
-    <% console.log(theme.post.comments.type, 111111);if(page.comments &&
+    <% console.log(theme.post.comments.type, page.comments &&
+    theme.post.comments.enable, 111133311);if(page.comments &&
     theme.post.comments.enable) { %>
     <br /><br />
     <% var type = '_partial/comments/' + theme.post.comments.type %> <%-

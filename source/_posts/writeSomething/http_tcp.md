@@ -4,6 +4,7 @@ tags:
   - tcp
 date: 2019-09-02 22:29:00
 categories: 计算机网络
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 
 听腻了大学课本人云亦云的三次握手四次挥手，那么具体的tcp连接在应用场景中是什么样的表现形式呢？

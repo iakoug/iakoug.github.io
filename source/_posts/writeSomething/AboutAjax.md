@@ -4,6 +4,7 @@ tags:
   - ajax
 date: 2019-07-04 14:50:22
 categories: ajax
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 `Asynchronous Javascript And XML`
 <!-- more -->

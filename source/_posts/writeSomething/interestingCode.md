@@ -4,6 +4,7 @@ tags:
   - interview
 date: 2019-03-012 19:33:00
 categories: 你应该知道的
+index_img: http://pic.netbian.com/uploads/allimg/180315/110404-1521083044b19d.jpg
 ---
 
 JS相关各类型题目记录
