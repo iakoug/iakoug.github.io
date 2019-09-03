@@ -135,8 +135,8 @@ live2d:
     use: live2d-widget-model-hijiki # // 下载的动画模型名称
   display:
     superSample: 2
-    width: 100
-    height: 200
+    width: 50
+    height: 100
     position: right # // 模型在网页显示位置
     hOffset: 0
     vOffset: 0
