@@ -30,7 +30,7 @@
   </div>
 
   <span id="busuanzi_container_site_uv">
-    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+    <span id="busuanzi_value_site_uv"></span>
   </span>
   <div id="page_uv_container">
     <span class="icon">🌴</span><span id="page_uv_value"></span>
@@ -41,6 +41,7 @@
     document.getElementById(
       'page_uv_value'
     ).innerText = document.getElementById('busuanzi_value_site_uv').innerText
+    document.getElementById('busuanzi_container_site_uv').style.display = 'none'
   })
 </script>
 <div class="mt5">
