@@ -2,8 +2,8 @@ search:
   title: Search
   keyword: Keyword
   status:
-    success: success
-    error: error
+    success: Here's all the matching results！ 🎉
+    error: No match... 😩
 
 postTotal: A total of %d articles.
 
