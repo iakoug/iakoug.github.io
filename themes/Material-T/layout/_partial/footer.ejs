@@ -1,3 +1,7 @@
+<script
+  async
+  src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"
+></script>
 <footer class="mt-5">
   <div class="text-center py-3">
     <a href="/" target="_blank" rel="nofollow noopener"><b>Powered by</b></a>
@@ -24,7 +28,21 @@
     >
     <% } %> <% } %>
   </div>
+
+  <span id="busuanzi_container_site_uv">
+    本站访客数<span id="busuanzi_value_site_uv"></span>人次
+  </span>
+  <div id="page_uv_container">
+    <span class="icon">🌴</span><span id="page_uv_value"></span>
+  </div>
 </footer>
+<script>
+  window.addEventListener('load', () => {
+    document.getElementById(
+      'page_uv_value'
+    ).innerText = document.getElementById('busuanzi_value_site_uv').innerText
+  })
+</script>
 <div class="mt5">
   <div class="base-cube">
     <div class="cube"></div>
