@@ -156,7 +156,7 @@ comment:
   cleanly: false # Hide 'Powered by ...' on footer, and more
   language: # Force language, or auto switch by theme
   gitment_owner: rollawaypoint
-  gitment_repo: rollawaypoint.github.io
+  gitment_repo: Blog
   gitment_client_id: '4bcfd44115c793d5e598'
   gitment_client_secret: '7ebfb0aa1712386ea6fc6c1619c6fa0155186ac5'
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
