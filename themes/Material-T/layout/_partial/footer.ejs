@@ -35,10 +35,16 @@
   <span id="busuanzi_container_site_pv">
     <span id="busuanzi_value_site_pv"></span>
   </span>
+  <span id="busuanzi_container_page_pv">
+    <span id="busuanzi_value_page_pv"></span>
+  </span>
   <div id="page_uv_container">
-    <span class="icon">🌴</span><span id="page_uv_value"></span>/<span
-      id="page_pv_value"
-    ></span>
+    <span class="icon">🌴</span>
+    <span id="page_page_pv_value"></span>
+    /
+    <span id="page_uv_value"></span>
+    /
+    <span id="page_pv_value"></span>
   </div>
 </footer>
 <script>
@@ -49,8 +55,12 @@
     document.getElementById(
       'page_pv_value'
     ).innerText = document.getElementById('busuanzi_value_site_pv').innerText
+    document.getElementById(
+      'page_page_pv_value'
+    ).innerText = document.getElementById('busuanzi_value_page_pv').innerText
     document.getElementById('busuanzi_container_site_uv').style.display = 'none'
     document.getElementById('busuanzi_container_site_pv').style.display = 'none'
+    document.getElementById('busuanzi_container_page_pv').style.display = 'none'
   })
 </script>
 <div class="mt5">
