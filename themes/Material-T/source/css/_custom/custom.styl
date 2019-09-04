@@ -1,7 +1,9 @@
 // Custom styles
+.mt-5
+  position relative
 
 .row {
-  padding 1rem .5rem
+  padding 1rrem .5rrem
 }
 
 .top-nav-collapse {
@@ -47,12 +49,12 @@
     padding-left 0
   }
 
-  .category-tree-list-item {
+  .category-tree-list-itrem {
     border-bottom 1px solid #dfe2e5
     padding 10px
   }
 
-  .list-group-item.list-group-item-action {
+  .list-group-itrem.list-group-itrem-action {
     border 1px solid #dfe2e5
   }
 }
@@ -65,6 +67,80 @@ figure.iseeu.highlight {
   box-sizing border-box
 }
 
-@media (max-width: 768px)
-  .custom-padding
-    // padding 1rem .5rem!important
+.base-cube {
+  height: 15rem;
+  left: 50%;
+  margin: -7.5rem;
+  padding: 3rem;
+  position: absolute;
+  top: 25%;
+  width: 15rem;
+  transform: rotateX(45deg) rotateZ(45deg);
+  transform-style: preserve-3d;
+
+
+  .cube,
+  .cube:after,
+  .cube:before {
+    content: '';
+    float: left;
+    height: 3rem;
+    position: absolute;
+    width: 3rem;
+  }
+
+  /* Top */
+  .cube {
+    background-color: rgba(0, 0, 0, .6);
+    position: relative;
+    transform: translateZ(3rem);
+    transform-style: preserve-3d;
+    transition: .25s;
+    box-shadow: 13rem 13rem 1.5rem rgba(0, 0, 0, 0.1);
+    animation: anim 1s infinite;
+  }
+  .cube:after {
+    background-color: rgba(20, 20, 20, .6);
+    transform: rotateX(-90deg) translateY(3rem);
+    transform-origin: 100% 100%;
+  }
+  .cube:before {
+    background-color: rgba(0, 110, 110, .6);
+    transform: rotateY(90deg) translateX(3rem);
+    transform-origin: 100% 0;
+  }
+  .cube:nth-child(1) {
+    animation-delay: 0.05s;
+  }
+  .cube:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .cube:nth-child(3) {
+    animation-delay: 0.15s;
+  }
+  .cube:nth-child(4) {
+    animation-delay: 0.2s;
+  }
+  .cube:nth-child(5) {
+    animation-delay: 0.25s;
+  }
+  .cube:nth-child(6) {
+    animation-delay: 0.3s;
+  }
+  .cube:nth-child(7) {
+    animation-delay: 0.35s;
+  }
+  .cube:nth-child(8) {
+    animation-delay: 0.4s;
+  }
+  .cube:nth-child(9) {
+    animation-delay: 0.45s;
+  }
+}
+
+
+@keyframes anim {
+  50% {
+    transform: translateZ(0.5rem);
+  }
+}
