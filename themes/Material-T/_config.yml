@@ -208,6 +208,7 @@ about: # 以下仅为页面顶部的基本信息，更多内容请在 /Material-
     'fab fa-weibo': https://www.weibo.com/5483326886
     'fas fa-music': https://music.163.com/#/user/home?id=65978744
     'fas fa-envelope-square': mailto:rollawaypoint@gmail.com
+    'fas fa-rss': https://rollawaypoint.github.io/atom.xml
 
 #---------------------------
 # 404页
