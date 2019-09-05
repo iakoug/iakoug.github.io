@@ -1,4 +1,5 @@
-
+db.json
+package-lock.json
 # Created by https://www.gitignore.io/api/git,node,webstorm,visualstudiocode
 .DS_Store
 .vscode
