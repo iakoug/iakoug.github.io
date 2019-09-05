@@ -11,6 +11,11 @@ author: chris kwok
 language: zh-CN
 timezone:
 
+feed:
+  type: atom
+  path: atom.xml
+  limit: false
+
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: https://rollawaypoint.github.io
@@ -100,12 +105,12 @@ jsonContent:
     categories: true
     tags: true
 
-algolia:
-  applicationID: 'IM28YKSSIM'
-  apiKey: '982da96bc57c8f57cf0dfb973f755d18'
-  adminApiKey: '40c7ea53a5eb3b5f0fd6449ee58bd358' # algolia
-  indexName: 'kwok_blog'
-  chunkSize: 5000
+# algolia:
+#   applicationID: 'IM28YKSSIM'
+#   apiKey: '982da96bc57c8f57cf0dfb973f755d18'
+#   adminApiKey: '40c7ea53a5eb3b5f0fd6449ee58bd358' # algolia
+#   indexName: 'kwok_blog'
+#   chunkSize: 5000
 
 # offline config passed to sw-precache.
 offline:
@@ -132,19 +137,19 @@ live2d:
     scale: 1
     hHeadPos: 0.5
     vHeadPos: 0.618
-    use: live2d-widget-model-hijiki # // 下载的动画模型名称
+    use: live2d-widget-model-tororo # // 下载的动画模型名称
   display:
     superSample: 2
-    width: 50
-    height: 100
+    width: 100
+    height: 200
     position: right # // 模型在网页显示位置
     hOffset: 0
     vOffset: 0
   mobile:
     show: true #// 移动设备是否显示
-    scale: 0.2
+    scale: 1
   react:
-    opacityDefault: 0.9
+    opacityDefault: 0.5
     opacityOnHover: 0.2
 
 # Deployment

@@ -52,6 +52,7 @@ navbar:
     Categories: /categories/
     Tags: /tags/
     About: /about/
+    Rss: /atom.xml
 
 #---------------------------
 # 页脚
@@ -204,7 +205,10 @@ about: # 以下仅为页面顶部的基本信息，更多内容请在 /Material-
   introduce: Leo / male / 1996 # 支持 HTML
   icons: # 更多图标可从 https://fontawesome.com/icons 查找，并以 "图标名: url" 的格式添加在下方
     'fab fa-github': https://github.com/rollawaypoint
-    # 'fab fa-twitter': https://twitter.com
+    'fab fa-weibo': https://www.weibo.com/5483326886
+    'fas fa-music': https://music.163.com/#/user/home?id=65978744
+    'fas fa-envelope-square': mailto:rollawaypoint@gmail.com
+    'fas fa-rss': https://rollawaypoint.github.io/atom.xml
 
 #---------------------------
 # 404页
