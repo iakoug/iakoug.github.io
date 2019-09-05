@@ -52,6 +52,7 @@ navbar:
     Categories: /categories/
     Tags: /tags/
     About: /about/
+    Rss: /atom.xml
 
 #---------------------------
 # 页脚
