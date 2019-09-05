@@ -10,6 +10,11 @@
   }
 }
 
+#busuanzi_value_site_uv,
+#busuanzi_value_site_pv,
+#busuanzi_value_page_pv {
+  display none
+}
 .mt-5
   position relative
 
@@ -89,7 +94,6 @@ figure.iseeu.highlight {
   transform: rotateX(45deg) rotateZ(45deg);
   transform-style: preserve-3d;
 
-
   .cube,
   .cube:after,
   .cube:before {
@@ -107,8 +111,19 @@ figure.iseeu.highlight {
     transform: translateZ(3rem);
     transform-style: preserve-3d;
     transition: .25s;
-    box-shadow: 13rem 13rem 1.5rem rgba(0, 0, 0, 0.1);
+    box-shadow: 13rem 13rem 1.5rem rgba(0, 0, 0, 0.5);
     animation: anim 1s infinite;
+
+    box-sizing border-box
+    display: flex
+    justify-content: center
+    align-items: center
+    color red
+    font-weight: bold
+
+    div {
+      transform: rotateZ(-45deg);
+    }
   }
   .cube:after {
     background-color: rgba(20, 20, 20, .6);
