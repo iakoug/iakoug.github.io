@@ -86,7 +86,7 @@ index:
 # Post Page
 #---------------------------
 post:
-  banner_img: /img/post.jpg
+  banner_img: /img/post.png
   banner_img_height: 70 # available: 0 - 100
   date_format: 'dddd, MMMM Do YYYY, h:mm a'
   toc:
