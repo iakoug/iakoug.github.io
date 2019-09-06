@@ -4,7 +4,7 @@
 
 # Site
 title: chris kowk
-subtitle: 有生当醉饮，借月照华庭
+subtitle: 乖张暴戾，不易相处
 description: record
 keywords:
 author: chris kwok
@@ -147,7 +147,7 @@ live2d:
     vOffset: 0
   mobile:
     show: true #// 移动设备是否显示
-    scale: 1
+    scale: 0.6
   react:
     opacityDefault: 0.5
     opacityOnHover: 0.2
