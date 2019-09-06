@@ -9,7 +9,6 @@ index_img: /img/index.jpg
 壹钱包理财信贷组技术分享
 
 <!-- more -->
-_拙见_
 
 # 编程在现阶段我们需要注意哪些
 如何在众多的竞争者中找到自己定位并且提升是每个开发都应该思考的问题。
@@ -93,15 +92,13 @@ redux connect-> compose、reduce -> 类函数式编程？ -> koa middleware -> �
 
 开发规范比较笼统且条框限制特别多，不是从0组建的team也就没有必要从0定义一个全面的约束规定。现在从已有项目的部分代码中发现存在的不规范写法进行简单约束一下今后相关的编码书写规范。
 
-1. 单文件大小限制
-本质上没有严格限制但是要尽量条理分明
-超过500（Random）行代码检查是否有的功能是可以抽离成单独逻辑处理脚本的（组件抽离不必说）
+1. 文件抽离度
 
 2. 组件的render内的return语句中应该只包含渲染，业务逻辑、数据判断、函数调用传参控制等提到外面
 
-3. 不依靠view-viewModel的数据尽量不要挂载在this上，单独作为变量
+3. view-viewModel纯净化
 
-4. 使用if语句遵循尽早return避免嵌套的原则
+4. 避免嵌套
 
 5. promise链应保证纯净避免大量在callback中直接使用Promise.resolve()(reject)
 当前如果处于promise链内（fetch内） return res代替 return Promise.resolve(res)
