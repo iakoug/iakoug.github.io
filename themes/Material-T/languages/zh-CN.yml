@@ -16,19 +16,20 @@ post:
 
 archive:
   title: Archive
-  subtitle: Archive
+  subtitle: 人生如逆旅
+
+  
+category:
+  title: Sorts
+  subtitle: 我亦是行人
 
 tag:
   title: Tag
-  subtitle: Tag
-
-category:
-  title: Sorts
-  subtitle: Sorts
+  subtitle: 无波真古井
 
 about:
   title: About
-  subtitle: About
+  subtitle: 有节是秋筠
 
 page404:
   title: This page has migrated to Mars:)

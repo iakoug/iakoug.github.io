@@ -176,7 +176,7 @@ archive:
 # Categories Page
 #---------------------------
 category:
-  banner_img: /img/archive.jpg
+  banner_img: /img/category.jpg
   banner_img_height: 80 # available: 0 - 100
 
 #---------------------------
@@ -184,7 +184,7 @@ category:
 # Tags Page
 #---------------------------
 tag:
-  banner_img: /img/archive.jpg
+  banner_img: /img/tag.jpg
   banner_img_height: 80 # available: 0 - 100
   tagcloud: # 标签云
     min_font: 15
