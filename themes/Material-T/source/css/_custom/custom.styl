@@ -1,12 +1,15 @@
 // Custom styles
 // post hover
 .row.mb-4.mx-auto {
-  transition: background 1s;  
+  transition: background .5s, transform .5s;
+  position relative
+  z-index 1
 }
 .row.mb-4.mx-auto:hover {
   * {
     color: #20c997;
   }
+
   background-color:rgba(0, 0, 0, .8);
   background-image:
   radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
@@ -15,6 +18,9 @@
   radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
   background-size:200px 200px, 1800px 180px, 120px 120px, 80px 80px; 
   background-position: 0 0, 20px 30px, 60px 120px, 30px 50px;
+
+  transform: translateY(-10px)
+  box-shadow: 4px 4px 20px rgba(32,201,151, .3)!important;
 }
 
 
