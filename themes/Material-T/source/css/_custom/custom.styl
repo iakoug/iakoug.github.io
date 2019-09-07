@@ -1,6 +1,24 @@
 // Custom styles
+// post hover
+.row.mb-4.mx-auto {
+  transition: background 1s;  
+}
+.row.mb-4.mx-auto:hover {
+  * {
+    color: #20c997;
+  }
+  background-color:rgba(0, 0, 0, .8);
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size:200px 200px, 1800px 180px, 120px 120px, 80px 80px; 
+  background-position: 0 0, 20px 30px, 60px 120px, 30px 50px;
+}
 
-// 本文采用知识共享署名-非商业性使用 4.0 国际许可协议进行许可
+
+// 署名
 .note.note-warning {
   background-color: rgba(32,201,151,0.05);
   border-left: 4px solid rgba(32,201,151,0.25);
