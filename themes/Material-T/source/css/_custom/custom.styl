@@ -26,6 +26,18 @@
 
   transform: translateY(-10px)
   box-shadow: 4px 4px 20px rgba(32,201,151, .3)!important;
+
+  animation: postCardBackground 30s ease-in infinite
+}
+
+@keyframes postCardBackground {
+  0% {
+    background-position: 0 0, 20px 30px, 60px 120px, 30px 50px;
+  }
+
+  100% {
+    background-position: 0 0, 2000px 3000px, 6000px 12000px, 3000px 5000px;
+  }
 }
 
 
