@@ -4,7 +4,7 @@ tags:
   - interview
 date: 2019-03-012 19:33:00
 categories: 你应该知道的
-index_img: /img/index.jpg
+
 ---
 
 JS相关各类型题目记录

@@ -4,7 +4,7 @@ tags:
   - 当我在扯淡
 date: 2019-05-06 15:02:00
 categories: 当我在扯淡
-index_img: /img/index.jpg
+
 ---
 “生亦何欢 死亦何苦”
 <!-- more -->

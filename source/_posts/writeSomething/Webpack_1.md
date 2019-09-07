@@ -4,7 +4,7 @@ tags:
   - webpack
 date: 2019-05-10 17:17:00
 categories: webpack
-index_img: /img/index.jpg
+
 ---
 关于 webpack define plugin 的一些思考（胡思乱想）
 

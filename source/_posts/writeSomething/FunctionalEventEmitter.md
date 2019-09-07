@@ -5,7 +5,7 @@ tags:
   - event emitter
 date: 2019-03-22 16:35:00
 categories: 算法
-index_img: /img/index.jpg
+
 ---
 
 用函数式编程简单封装一个 `event emitter`

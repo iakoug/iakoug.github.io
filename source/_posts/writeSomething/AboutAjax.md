@@ -4,7 +4,7 @@ tags:
   - ajax
 date: 2019-07-04 14:50:22
 categories: ajax
-index_img: /img/index.jpg
+
 ---
 `Asynchronous Javascript And XML`
 <!-- more -->

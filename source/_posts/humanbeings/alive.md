@@ -4,7 +4,7 @@ tags:
   - 当我在扯淡
 date: 2018-12-07 14:36:00
 categories: 当我在扯淡
-index_img: /img/index.jpg
+
 ---
 你选择了生活还是被生活选择
 <!-- more -->

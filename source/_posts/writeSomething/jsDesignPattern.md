@@ -5,7 +5,7 @@ tags:
   - 算法
 date: 2019-02-24 22:52:00
 categories: 算法
-index_img: /img/index.jpg
+
 ---
 持续更新
 JS常用的设计模式以及应用场景

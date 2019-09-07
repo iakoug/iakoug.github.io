@@ -6,7 +6,7 @@ tags:
   - 洋葱模型
 date: 2019-02-22 19:00:00
 categories: 封装
-index_img: /img/index.jpg
+
 ---
 
 十行代码实现 `koa2` 洋葱模型

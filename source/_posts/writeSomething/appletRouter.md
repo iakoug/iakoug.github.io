@@ -6,7 +6,7 @@ tags:
   - 路由
 date: 2018-12-09 16:00:00
 categories: 封装
-index_img: /img/index.jpg
+
 ---
 
 基于 `mpvue` 小程序的路由封装

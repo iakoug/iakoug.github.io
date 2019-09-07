@@ -5,7 +5,7 @@ tags:
   - 算法复杂度
 date: 2019-03-06 11:15:00
 categories: 算法
-index_img: /img/index.jpg
+
 ---
 算法运行的时间复杂度和空间复杂度简单理解
 <!-- more -->
