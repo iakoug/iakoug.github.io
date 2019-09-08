@@ -332,7 +332,7 @@ Koa 的中间件和 Express 不同，Koa 选择了洋葱圈模型
 
 现在将 koa2 的中间件处理机制一起加到 App 中
 ```js
-cnost http = require('http')
+const http = require('http')
 
 const createNext = (ctx, middleware, oldNext) =>
   async () => {
