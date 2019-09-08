@@ -2,12 +2,12 @@
 title: 轻量版koa2框架的简易实现
 tags:
   - koa
-date: 2019-09-07 15:54:00
+date: 2019-09-08 17:56:00
 categories: 封装
 index_img: /img/index/encapsulatingSimplifiedKoa.png
 ---
 
-前端开发人员的服务端之旅大都从 express、koa 这类 node 框架开始
+前端攻城狮的服务端之旅大都从 express、koa 这类 node 框架开始
 <!-- more -->
 
 之前简单写过koa的中间件处理模型
