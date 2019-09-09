@@ -166,7 +166,7 @@ function init() {
   onWindowResize();
   window.addEventListener('resize', onWindowResize, false);
   document.addEventListener('pointermove', pointerMove);
-  // document.addEventListener('click', onClick);
+  document.addEventListener('click', onClick);
 
   // initialise the video renderer
 }
