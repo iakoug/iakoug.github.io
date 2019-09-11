@@ -252,7 +252,7 @@ function responseBody(ctx) {
   if (typeof body === 'string') {
     ctx.res.end(body)
   }
-  
+
   if (typeof body === 'object') {
     ctx.res.end(JSON.stringify(body))
   }
@@ -334,17 +334,16 @@ Koa 的中间件和 Express 不同，Koa 选择了洋葱圈模型
 ```js
 const http = require('http')
 
-const createNext = (ctx, middleware, oldNext) =>
-  async () => {
-    return await middleware(ctx, oldNext)
-  }
-
-const compose = (ctx) =>
-  async middlewares =>
-    await middlewares.reduceRight(
-      (next, middleware) => (next = createNext(ctx, middleware, next)),
-      async () => Promise.resolve(),
-    )()
+const compose = ctx => async middlewares =>
+  await middlewares.reduceRight(
+    (next, middleware) =>
+      (next = ((ctx, middleware, oldNext) => async () => await middleware(ctx, oldNext))(
+        ctx,
+        middleware,
+        next,
+      )),
+    async () => Promise.resolve(),
+  )()
 
 class App {
   constructor() {
@@ -506,17 +505,16 @@ Object.keys(ctxSetter)
     ctxGetter[prop].forEach(name =>
       __defineProxySetter__(prop, name)))
 
-const createNext = (ctx, middleware, oldNext) =>
-  async () => {
-    return await middleware(ctx, oldNext)
-  }
-
-const compose = (ctx) =>
-  async middlewares =>
-    await middlewares.reduceRight(
-      (next, middleware) => (next = createNext(ctx, middleware, next)),
-      async () => Promise.resolve(),
-    )()
+const compose = ctx => async middlewares =>
+  await middlewares.reduceRight(
+    (next, middleware) =>
+      (next = ((ctx, middleware, oldNext) => async () => await middleware(ctx, oldNext))(
+        ctx,
+        middleware,
+        next,
+      )),
+    async () => Promise.resolve(),
+  )()
 
 class App extends EventEmit {
   constructor() {
