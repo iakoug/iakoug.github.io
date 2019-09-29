@@ -1,4 +1,26 @@
 // mac Panel效果代码块相关
+.highlight-wrap {
+}
+.highlight {
+
+    // background: #21252b;
+
+    // pre {
+    //     background: #21252b!important;
+
+    //     span {
+    //         color #fff;
+    //     }
+    // }
+    margin-bottom 0!important
+
+    pre {
+    }
+
+    .gutter {
+        display: none
+    }
+}
 
 /*滚动条样式*/
 ::-webkit-scrollbar {/*滚动条整体样式*/
@@ -23,12 +45,18 @@ label[for="local-search-input"], label[for="local-search-input"]:after {
 
 .highlight-wrap table {
     display: table;
+    margin-bottom 0
 
     .gutter {
         text-align: center;
     }
 
+    .title {
+        color: #55B5DB
+    }
+
     .keyword {
+        // color: #e3ca67
         color: #e83e8c
     }
 
@@ -38,11 +66,10 @@ label[for="local-search-input"], label[for="local-search-input"]:after {
 
     .built_in {
         color #69c
-        font-weight bold
     }
 
     .number {
-        color #f99157    
+        color #f99157
     }
 
     .comment {
@@ -108,7 +135,7 @@ label[for="local-search-input"], label[for="local-search-input"]:after {
 }
 .highlight-wrap[data-rel] pre{
     box-sizing: border-box;
-    padding: 45px 8px 10px;
+    padding: 50px 20px 20px;
     margin-bottom: -0.01rem;
 }
 
