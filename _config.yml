@@ -132,25 +132,25 @@ sitemap:
 ## https://github.com/xiazeyu/live2d-widget.js
 ## https://l2dwidget.js.org/docs/class/src/index.js~L2Dwidget.html#instance-method-init
 ## https://huaji8.top/post/live2d-plugin-2.0/
-live2d:
-  model:
-    scale: 1
-    hHeadPos: 0.5
-    vHeadPos: 0.618
-    use: live2d-widget-model-tororo # // 下载的动画模型名称
-  display:
-    superSample: 2
-    width: 100
-    height: 200
-    position: right # // 模型在网页显示位置
-    hOffset: 0
-    vOffset: 0
-  mobile:
-    show: true #// 移动设备是否显示
-    scale: 0.6
-  react:
-    opacityDefault: 0.5
-    opacityOnHover: 0.2
+# live2d:
+#   model:
+#     scale: 1
+#     hHeadPos: 0.5
+#     vHeadPos: 0.618
+#     use: live2d-widget-model-tororo # // 下载的动画模型名称
+#   display:
+#     superSample: 2
+#     width: 100
+#     height: 200
+#     position: right # // 模型在网页显示位置
+#     hOffset: 0
+#     vOffset: 0
+#   mobile:
+#     show: true #// 移动设备是否显示
+#     scale: 0.6
+#   react:
+#     opacityDefault: 0.5
+#     opacityOnHover: 0.2
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
