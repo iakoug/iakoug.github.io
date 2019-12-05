@@ -1,0 +1,18 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "chriskwok <rollawaypoint@gmail.com> (@rollawaypoint)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby clean && gatsby develop",
+    "build": "gatsby clean && gatsby build",
+    "deploy": "sh bin/publish.sh"
+  },
+  "dependencies": {
+    "gatsby-theme-cat": "0.1.2",
+    "gatsby": "^2.15.28",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "react": "^16.12.0"
+  }
+}
