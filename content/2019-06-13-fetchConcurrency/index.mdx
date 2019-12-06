@@ -1,6 +1,6 @@
 ---
 title: Fetch concurrency
-description: fetch 系列第三篇`记录帖`，封装一个请求并发控制的库
+description: 封装一个请求并发控制的库
 date: 2019-06-13 14:20:00
 published: true
 cover: ./photo-1533594124935-d848a72fb016.jpeg
@@ -8,15 +8,13 @@ coverAuthor: Belinda Fewings
 coverOriginalUrl: https://unsplash.com/photos/yR_llXzRCjg
 ---
 
-fetch 系列第三篇`记录帖`，封装一个请求并发控制的库
-
-<!-- more -->
-
 和各类型拦截器封装的本质一样，通过不直接更改原宿主的形式对原宿主进行包装重写覆盖（或者称之为装饰者模式）
 
 _代码由 `wx.request` 作为示例_
 
-# 从使用开始
+---
+
+### 从使用开始
 
 先从使用场景入手，希望引入一个函数可以接受原 request 方法以及控制的并发数从而返回一个内部可以控制指定并发数的新请求函数
 
@@ -32,7 +30,7 @@ const new_fetch = wrapper(fetch, 2)
 2. 构建请求派发队列
 3. 对原请求进行包装参数处理
 
-# 接受原请求方法以及并发数参数
+### 接受原请求方法以及并发数参数
 
 接受原请求方法以及并发数参数并返回一个 promsie
 
@@ -55,7 +53,7 @@ function setConcurrencyRequest(request, concurrency = 10) {
 
 接下来需要构建请求派发队列，主要分为两部分：执行队列和等待队列
 
-# 构建请求派发队列
+### 构建请求派发队列
 
 用闭包对两个队列分别做存储，用户每次触发客户端请求都会先将请求推入等待队列中，而在执行阶段则主要做两件事情，一是不断将执行队列中的请求派发出去（初始是空），二是不断检查执行队列的长度（并发数），当执行队列的长度在并发数以内则将等待队列中的请求按顺序推入（先入先出）执行队列。
 
@@ -121,7 +119,7 @@ function getRequestQueue(call, concurrency) {
 }
 ```
 
-# 以下为完整代码
+### Source code
 
 源码放在：
 
