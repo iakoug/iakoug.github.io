@@ -17,5 +17,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - name: npm build
-        run: npm run deploy
+      - name: npm publish
+        run: |
+          npm install
+          npm run deploy
