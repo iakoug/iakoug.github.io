@@ -7,11 +7,15 @@
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
     "build": "gatsby clean && gatsby build",
-    "deploy": "npm run build && sh bin/publish.sh"
+    "deploy": "npm run build && sh bin/publish.sh",
+    "ci": "gatsby build --prefix-paths && gh-pages -d public -b master -m \"Automated deployment to GitHub Pages: ${CIRCLE_SHA1}\""
   },
   "dependencies": {
     "gatsby-theme-cat": "0.1.16",
     "gatsby": "^2.15.28",
     "gatsby-plugin-manifest": "^2.2.20"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }

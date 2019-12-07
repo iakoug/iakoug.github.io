@@ -19,11 +19,11 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm publish
         run: |
-          mkdir -p ~/.ssh/
-          echo "$NODE_AUTH_TOKEN" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan github.com >> ~/.ssh/known_hosts
-          npm install
-          npm run deploy
+          # mkdir -p ~/.ssh/
+          # echo "$NODE_AUTH_TOKEN" > ~/.ssh/id_rsa
+          # chmod 600 ~/.ssh/id_rsa
+          # ssh-keyscan github.com >> ~/.ssh/known_hosts
+          # npm install
+          # npm run deploy
         env:
           NODE_AUTH_TOKEN: ${{secrets.GITHUB_AUTH_TOKEN}}
