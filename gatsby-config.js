@@ -13,20 +13,15 @@ module.exports = {
         url: 'https://github.com/rollawaypoint'
       },
       {
-        icon: 'twitter',
-        name: 'Twitter',
-        url: 'https://twitter.com/rollaway9'
+        icon: 'netease-cloud-music',
+        name: 'NetEase',
+        url: 'https://music.163.com/#/user/home?id=65978744'
       },
       {
-        icon: 'weibo',
-        name: 'Wibo',
-        url: 'https://www.weibo.com/5483326886'
+        icon: 'wechat',
+        name: 'Wechat',
+        url: '/wechat.jpeg'
       }
-      // {
-      //   icon: 'wechat',
-      //   name: 'Wechat',
-      //   url: ''
-      // }
     ]
   },
   plugins: [
