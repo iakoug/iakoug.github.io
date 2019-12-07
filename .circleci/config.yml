@@ -26,4 +26,4 @@ jobs:
             - ./node_modules
       - run: # publish
           name: push-github
-          command: npm run deploy
+          # command: npm run deploy
