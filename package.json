@@ -10,7 +10,7 @@
     "deploy": "npm run build && sh bin/publish.sh"
   },
   "dependencies": {
-    "gatsby-theme-cat": "0.1.17",
+    "gatsby-theme-cat": "0.1.21",
     "gatsby": "^2.15.28",
     "gatsby-plugin-manifest": "^2.2.20"
   }
