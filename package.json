@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
     "build": "gatsby clean && gatsby build",
-    "deploy": "yarn build && sh bin/publish.sh"
+    "deploy": "npm run build && sh bin/publish.sh"
   },
   "dependencies": {
     "gatsby-theme-cat": "0.1.16",
