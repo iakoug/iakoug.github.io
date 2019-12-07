@@ -13,8 +13,5 @@
     "gatsby-theme-cat": "0.1.16",
     "gatsby": "^2.15.28",
     "gatsby-plugin-manifest": "^2.2.20"
-  },
-  "devDependencies": {
-    "gh-pages": "^2.1.1"
   }
 }
