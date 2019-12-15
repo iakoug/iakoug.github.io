@@ -1,0 +1,53 @@
+Arguments: 
+  /usr/local/share/.config/yarn/global/node_modules/node/bin/node /usr/local/Cellar/yarn/1.12.3/libexec/bin/yarn.js
+
+PATH: 
+  /Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Applications/Wireshark.app/Contents/MacOS:/Library/Frameworks/Python.framework/Versions/3.7/bin
+
+Yarn version: 
+  1.12.3
+
+Node version: 
+  10.0.0
+
+Platform: 
+  darwin x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/typescript/-/typescript-3.7.3.tgz: ESOCKETTIMEDOUT
+      at ClientRequest.<anonymous> (/usr/local/Cellar/yarn/1.12.3/libexec/lib/cli.js:129645:19)
+      at Object.onceWrapper (events.js:275:13)
+      at ClientRequest.emit (events.js:182:13)
+      at TLSSocket.emitTimeout (_http_client.js:694:34)
+      at Object.onceWrapper (events.js:275:13)
+      at TLSSocket.emit (events.js:182:13)
+      at TLSSocket.Socket._onTimeout (net.js:447:8)
+      at ontimeout (timers.js:427:11)
+      at tryOnTimeout (timers.js:289:5)
+      at listOnTimeout (timers.js:252:5)
+
+npm manifest: 
+  {
+    "name": "rollawaypoint.github.io",
+    "version": "1.0.0",
+    "main": "index.js",
+    "author": "chriskwok <rollawaypoint@gmail.com> (@rollawaypoint)",
+    "license": "MIT",
+    "scripts": {
+      "dev": "gatsby clean && gatsby develop",
+      "build": "gatsby clean && gatsby build",
+      "deploy": "npm run build && sh bin/publish.sh",
+      "surge": "npx surge public/"
+    },
+    "dependencies": {
+      "gatsby": "^2.15.28",
+      "gatsby-theme-cat": "0.1.28",
+      "gatsby-plugin-manifest": "^2.2.20"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

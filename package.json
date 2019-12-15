@@ -1,8 +1,8 @@
 {
-  "name": "rollawaypoint.github.io",
+  "name": "justwink.github.io",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "chriskwok <rollawaypoint@gmail.com> (@rollawaypoint)",
+  "author": "christian <rollawaypoint@gmail.com> (@justwink)",
   "license": "MIT",
   "scripts": {
     "dev": "gatsby clean && gatsby develop",
