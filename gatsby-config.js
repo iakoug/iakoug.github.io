@@ -2,15 +2,15 @@ module.exports = {
   pathPrefix: `/`,
   siteMetadata: {
     title: `chris kwok`,
-    siteUrl: `http://47.100.219.10:7000/`,
+    siteUrl: `https://justwink.github.io/`,
     description: `chriskwok's Personal Blog`,
     author: `chris kwok`,
-    authorURL: `http://47.100.219.10:7000/`,
+    authorURL: `https://justwink.github.io/`,
     socials: [
       {
         icon: 'github',
         name: 'GitHub',
-        url: 'https://github.com/rollawaypoint'
+        url: 'https://github.com/justwink'
       },
       {
         icon: 'netease-cloud-music',
