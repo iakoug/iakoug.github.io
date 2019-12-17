@@ -1,0 +1,194 @@
+---
+title: FIFO And LRU
+description: Simple implementation of an LRU algorithm using JS.
+date: 2019-12-17
+published: true
+cover: ./Daniel Robert.jpeg
+coverAuthor: Daniel Robert
+coverOriginalUrl: https://unsplash.com/photos/HpG3tUcrTwQ
+---
+
+周末参加 Google 开发者大会，对 [天哥](https://www.weibo.com/dreamit) 的“知识迁移---利用过往掌握的算法、模型、设计思路等来高效学习当前新知识”很是赞同，会上我的提问“如何‘高效的’将过往大量知识映射到当前新知识上”我觉得是个当下大部分 developer 在知识迁移过程中所需要关注的问题。
+
+会上天哥简单提到 LRU 算法，若能在脑海知识库体系中得以构建 LRU，将在知识迁移过程中极大提高认知效率。
+
+_最近被部门长点名要人即将从当前业务线转岗去基础架构组（Sad story，多番谈话终究未能抗命属实非我之愿），时间空闲那就看看这个 LRU。_
+
+---
+
+LRU 属于很常见的缓存算法被各领域大量应用，如在 Redis 中一些场景下要考虑内存的空间消耗问题， Redis 会删除过期键以释放空间，过期键的删除策略有两种：
+
+- 惰性删除：每次取键时检查取得的键是否过期来决定是否删除该键或是返回该键。
+- 定期删除：定期对数据库进行一次检查，删除里面的过期键。
+
+当需要从缓存中淘汰数据时，希望能淘汰那些将来不可能再被使用的数据，保留那些将来还会频繁访问的数据，但最大的问题是缓存并不能预言未来。
+一个解决方法就是通过 LRU 进行预测：最近被频繁访问的数据将来被访问的可能性也越大。缓存中的数据一般属于一部分数据拥有绝大部分的访问量。当访问模式很少改变时，可以记录每个数据的最后一次访问时间，拥有最少空闲时间的数据可以被认为将来最有可能被访问到。
+
+### FIFO
+
+**First in first out** 先入先出策略，属于最简单的缓存算法，达到存储上限时先将最早存储的键值对删除，然后增加新的键值对。
+
+JS 中使用数组对 key 单独存储记录其入栈顺序，使用对象存储数据。
+
+```JS
+class FIFO{
+  constructor(max = 3) {
+    this.max = max
+    this.map = {}
+    this.keys = []
+  }
+
+  set(key, value){
+    if (!this.map.hasOwnProperty(key)) {
+      if (this.keys.length === this.max) {
+        // 达到限制移除首个 key
+        delete this.map[this.keys.shift()]
+      }
+
+      this.keys.push(key)
+    }
+
+    this.map[key] = value
+  }
+
+  get(key) {
+    return key ? this.map[key] : this.map
+  }
+}
+
+const memory = new FIFO()
+
+memory.set('name', 'christion')
+memory.set('gender', '1')
+memory.set('nation', 'Han')
+memory.get() // {name: "christion", gender: "1", nation: "Han"}
+memory.set('job', 'developer')
+// name 被移除
+memory.get() // {gender: "1", nation: "Han", job: "developer"}
+```
+
+### LRU
+
+**LRU（Least recently used** 算法：最近被访问的数据那么它将来访问的概率就大，缓存满的时候，选择最近最久未使用的数据予以淘汰。
+
+LRU 算法需要一个双向链表来记录数据的最近被访问顺序。基于一个双向链表的数据结构，在没有达到内存限制的情况下，新来的 k-v 放在链表的头部，以后每次获取缓存中的 k-v 时就将该 k-v 移到最前面，缓存满的时候优先淘汰末尾的。
+
+##### 使用链表实现
+
+_存储的每个节点存在的 next 和 prev 指针分别指向该节点的下一个和上一个节点_
+
+```JS
+class Node {
+  prev = null
+  next = null
+
+  constructor(key, value) {
+    this.key = key
+    this.value = value
+  }
+}
+
+class LRU {
+  map = {}
+  head = null
+  tail = null
+  size = 0
+
+  constructor(max = 3) {
+    this.max = max
+  }
+
+  get(key) {
+    const node = this.map[key]
+    this.set(node.key, node.value)
+
+    return node.value
+  }
+
+  set(key, value) {
+    if (key in this.map) {
+      const node = this.map[key]
+      node.value = value
+      this.delete(node)
+
+      if (!this.tail) {
+        return (this.tail = this.head = node)
+      }
+
+      this.tail.next = node
+      node.prev = this.tail
+      this.tail = node
+    } else {
+      const node = new Node(key, value)
+
+      if (!this.tail) {
+        return (this.tail = this.head = node)
+      }
+
+      this.tail.next = node
+      node.prev = this.tail
+      this.tail = node
+      this.map[key] = node
+      this.size++
+    }
+
+    if (this.size > this.max) {
+      const key = this.head.key
+      this.delete(this.head)
+      delete this.map[key]
+      this.size--
+    }
+  }
+
+  delete(node) {
+    node.prev ? (node.prev.next = node.next) : (this.head = this.head.next)
+
+    node.next ? (node.next.prev = node.prev) : (this.tail = this.tail.prev)
+
+    node.prev = node.next = null
+  }
+}
+
+```
+
+##### 借助 ES6 的 map 构造类
+
+_map.keys().next()可以取得到排位第一的键值，map.put()将值保存在最顶的位置_
+利用 Map 可以更精简的实现方式
+
+```JS
+class LRU {
+  constructor(max) {
+    this.max = max
+    this.map = new Map()
+  }
+
+  get(key) {
+    const value = this.map.get(key)
+
+    this.map.delete(key)
+    this.map.set(key, value)
+
+    return value
+  }
+
+  set(key, value) {
+    if (this.map.has(key)) {
+      this.map.delete(key)
+    }
+
+    this.map.set(key, value)
+
+    const keys = this.map.keys()
+
+    while (this.map.size > this.max) {
+      this.map.delete(keys.next().value)
+    }
+  }
+}
+```
+
+### Reference
+
+- [Using Redis as an LRU cache](https://redis.io/topics/lru-cache)
+- [Approximate LRU algorithm in Redis](https://www.cnblogs.com/linxiyue/p/10945216.html)
