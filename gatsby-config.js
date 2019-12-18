@@ -9,7 +9,7 @@ module.exports = {
     socials: [
       {
         icon: 'mail-send',
-        name: 'email',
+        name: 'Email',
         url: 'mailto:baozaodexianyu@163.com'
       },
       {
