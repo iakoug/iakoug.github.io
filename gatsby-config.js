@@ -8,6 +8,11 @@ module.exports = {
     authorURL: `https://justwink.github.io/`,
     socials: [
       {
+        icon: 'mail-send',
+        name: 'email',
+        url: 'mailto:baozaodexianyu@163.com'
+      },
+      {
         icon: 'github',
         name: 'GitHub',
         url: 'https://github.com/justwink'
