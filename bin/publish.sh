@@ -1,5 +1,7 @@
 #!/bin/sh
 cd public
+touch CNAME
+echo 'justwink.cn' >> CNAME
 git init
 git add .
 git config user.email "rollawaypoint@gmail.com"
