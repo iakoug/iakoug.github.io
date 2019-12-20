@@ -33,7 +33,7 @@ module.exports = {
     {
       resolve: `gatsby-theme-cat`,
       options: {
-        postPath: 'content',
+        postPath: 'posts',
         mdxExtensions: ['.mdx', '.md'],
         ga: 'UA-137858782-1',
         htmlLang: 'zh'
