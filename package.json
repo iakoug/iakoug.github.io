@@ -1,5 +1,5 @@
 {
-  "name": "justwink.github.io",
+  "name": "justwink.cn",
   "version": "1.0.0",
   "main": "index.js",
   "author": "christian <rollawaypoint@gmail.com> (@justwink)",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "gatsby": "^2.15.28",
-    "gatsby-theme-cat": "0.1.44",
-    "gatsby-plugin-manifest": "^2.2.20"
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-theme-cat": "0.1.48"
   }
 }
