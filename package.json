@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "gatsby": "^2.15.28",
-    "gatsby-theme-cat": "0.1.40",
+    "gatsby-theme-cat": "0.1.44",
     "gatsby-plugin-manifest": "^2.2.20"
   }
 }
