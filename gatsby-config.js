@@ -26,6 +26,11 @@ module.exports = {
         icon: 'wechat',
         name: 'Wechat',
         url: '/wechat.jpeg'
+      },
+      {
+        icon: 'telegram',
+        name: 'Telegram',
+        url: 'https://t.me/christiankwok'
       }
     ]
   },
