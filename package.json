@@ -13,6 +13,6 @@
   "dependencies": {
     "gatsby": "^2.15.28",
     "gatsby-plugin-manifest": "^2.2.20",
-    "gatsby-theme-cat": "0.1.61"
+    "gatsby-theme-cat": "0.1.65"
   }
 }
