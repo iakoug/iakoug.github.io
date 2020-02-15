@@ -10,8 +10,6 @@ coverOriginalUrl: https://www.justwink.cn
 
 从零开发一个类 Notion 的富文本编辑项目该怎么做？一个实现 Notion 富文本基本编辑功能的 demo 记录。
 
-主要叙述数据结构的定义以及在定义的数据结构下的拖拽、光标、组合键等行为功能。
-
 ---
 
 ### Notion
@@ -111,8 +109,8 @@ const pageData = [
 
 由于行和列这两种特殊的结构节点，所以分三步分别将行、列、内容节点递归渲染出来。
 
-- 为文本直接子节点绑定 `onInput`、`onFocus`、`onBlur`、`onKeyUp`、`onKeyDown`、`contentEditable` 等事件以及属性
-- 为定义结构支持拖拽的节点绑定 `onDrag`、`onDrop`、`onDragLeave`、`onDragOver`、`draggable` 等事件以及属性
+- 为文本直接子节点绑定光标以及监听输入的事件以及属性
+- 为定义结构支持拖拽的节点绑定支持拖拽的相关事件以及属性
 - 将节点的 key 渲染为节点的类名，方便对节点进行读写操作
 
 渲染行：
@@ -251,19 +249,12 @@ handleDrag = d => e => {
     // Fix remove the influence of other draggable elements.
     isEditorBlock: true
   }
-
-  // console.log(d, '<---- drag options')
 }
 ```
 
 此处存在一个问题，当拖拽元素的释放的元素位置是自身子元素时会导致干扰，所以此处需要判断目标元素是否是拖拽元素的子元素。
 
 ```js
-/**
- * 判断drop元素是否为拖拽元素的子元素或者元素本身
- * @memberof Demo
- */
-
 findSubKey = (data, parentKey, subKey) => {
   let bool = false
 
@@ -344,8 +335,6 @@ handleDragLeave = cn => e => {
 deleteNode = (data, key) => {
   data.forEach((item, index) => {
     if (item.key === key) {
-      console.log('[delete node match key]')
-
       data.splice(index, 1)
     } else if (item.children) {
       this.deleteNode(item.children, key)
@@ -516,10 +505,6 @@ handleDrop = (d, cn, position, rowIndex) => e => {
     rowNode.children[0].children &&
     rowNode.children[0].children.length === 1
   ) {
-    console.log(
-      `// 父亲是列并且自身无子元素同时列所在的行只有一列 列的子元素只有一个 此时判断为新增一行`
-    )
-
     const fromParentNode = this.findNode(from.parent).node
 
     const deleteFromNodeKey =
@@ -615,8 +600,6 @@ handleContentInput = item => debounce(this.debounceContentInput(item), 300)
 moveCursor = (id, trail = true) => {
   setTimeout(() => {
     const dom = document.querySelector(`#id-${id}`)
-
-    console.log(dom, '[moveCursor] dom')
 
     try {
       dom.focus()
@@ -729,7 +712,6 @@ handleContentFocus = (item, position) => e => {
 
 ```js
 handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
-  console.log('[handleContentKeyDown key code]', e.keyCode)
   const item = globalItem
 
   // 退格操作
@@ -739,14 +721,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
     const cursorDOM = document.querySelector(`#id-${item.key}`)
 
     focusDivContent = cursorDOM.innerText // 全局变量存储聚焦文本
-
-    console.log('[FocusDivContent]', focusDivContent)
-
-    // FIXME: 计算光标所在位置的前后文本之后退格操作会失效 光标立刻回到句首
-    // const { before, after } = this.getCursorSplitTxt(cursorDOM)
-
-    // 为空是再进行删除操作直接删除当前子元素光标移动至上一个紧邻元素
-    // if (!before) {
   }
 }
 ```
@@ -754,11 +728,7 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
 根据指定节点 找最深子节点的 key。
 
 ```js
-/**
- * 寻找指定key最后的子元素 用于光标聚焦
- * @memberof Demo
- */
-
+// 寻找指定key最后的子元素 用于光标聚焦
 findLastKeyAccording2SpecificKey = item => {
   let key = item.key
 
@@ -783,11 +753,6 @@ findLastKeyAccording2SpecificKey = item => {
 需要寻找上一个兄弟元素的最后一个子元素的位置，用于确定光标退格变更的位置。
 
 ```js
-/**
- * 寻找当前key的上一个元素的最后子元素
- * @memberof Demo
- */
-
 findPreviousSiblingLastSubKey = param => {
   const currentKey = param.key
   let prevKey = param.parent
@@ -795,8 +760,6 @@ findPreviousSiblingLastSubKey = param => {
   const loop = item =>
     item.children.forEach((it, j) => {
       if (it.key === currentKey) {
-        console.log('[Match findPreviousSiblingLastSubKey]: trigger sub')
-
         if (j) {
           // prevKey = item.children[j - 1].key
           prevKey = this.findLastKeyAccording2SpecificKey(item.children[j - 1])
@@ -846,18 +809,14 @@ handleContentKeyUp = (item, itemIndex, allItemsCount) => e => {
     const cursorDOM = document.querySelector(`#id-${item.key}`)
     const currentContent = cursorDOM.innerText
 
-    console.log('[Trigger backspace delete node & rending]', item.key)
-
     // 未删除 光标在首部
     if (focusDivContent === currentContent) {
       // 此时考虑当前节点是否有上级 有的话退格至上级 否则删除该节点 移动光标至临近的上一个元素
       const originParentNode = this.findNode(item.parent).node
 
       if (originParentNode.type !== 'column') {
-        // ---------------------
         // 元素非当前兄弟元素的最后一个元素（既当前元素没有下一个兄弟元素）则当前元素退格至父元素所在级别
         // 否则将当前元素和上一个兄弟元素的内容拼接 该节点的子元素变为父元素所在级别
-        // ---------------------
         const changeParentNode = this.findNode(originParentNode.parent).node
 
         if (itemIndex < allItemsCount - 1) {
@@ -924,13 +883,11 @@ handleContentKeyUp = (item, itemIndex, allItemsCount) => e => {
 
       this.jsonRending() // render
     }
-
-    // document.querySelector('#editor-box').focus()
   }
 }
 ```
 
-#### 回车
+#### 回车 & shiftKey+enter
 
 回车用于截断文本，将当前节点文本分割，分离的文本根据不同的场景作为下一个兄弟节点或者子节点的内容。
 
@@ -968,11 +925,12 @@ getCursorSplitTxt = dom => {
 }
 ```
 
+同时当用 `shift` 和 `enter` 键一起按下的时候需要进行额外的判断：则将回车截断的内容创建新节点，若所在元素存在子元素，原子元素变更为新节点的子元素，新节点作为当前元素的下一个兄弟元素插入。
+
 具体行为逻辑以及注释如下：
 
 ```js
 handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
-  console.log('[handleContentKeyDown key code]', e.keyCode)
   const item = globalItem
 
   if (e.keyCode === 13) {
@@ -1031,8 +989,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
               return
             }
 
-            console.log(`// 添加为子元素 loop`)
-
             obj.parent = data.key
 
             data.children.splice(0, 0, obj)
@@ -1041,7 +997,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
           }
 
           // 添加为同级元素
-          console.log('// 添加为同级元素 loop')
           ele.children.splice(focusPosition + 1, 0, obj)
         } else if (data.children) {
           loop(data)
@@ -1057,7 +1012,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
             // this.pageData[rowIndex].children.length > 1 &&
             !(ele.children && ele.children.length)
           ) {
-            console.log('// 列单元素 回车添加同级元素')
             // 列单元素 回车添加同级元素
             domId = Date.now()
 
@@ -1090,10 +1044,7 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
              * 当前行有子元素则创建子元素并且非所在行非单列
              * 否则新起一行
              */
-            console.log(`/**
-              * 当前行有子元素则创建子元素并且非所在行非单列
-              * 否则新起一行
-              */`)
+
             const keyId = Date.now()
 
             // 光标截断的文本
@@ -1126,7 +1077,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
             ele.children.length
           ) {
             // 当前行有子元素则创建子元素
-            console.log(`// 当前行有子元素则创建子元素`)
             const keyId = Date.now()
 
             // shift enter 组合键
@@ -1179,7 +1129,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
 
     this.jsonRending(() => {
       // render 后延迟触发
-      console.log(domId, '[handleContentKeyDown] new dom id')
       // 光标不需要移动至末尾
       this.moveCursor(domId, false)
     })
@@ -1242,7 +1191,6 @@ Tab 行为逻辑以及注释如下：
 
 ```js
 handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
-  console.log('[handleContentKeyDown key code]', e.keyCode)
   const item = globalItem
 
   // Tab操作转子元素
@@ -1250,9 +1198,6 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
     prevent(e)
 
     const parentNode = this.findNode(item.parent).node
-    // const rowNode = this.findNode(parentNode.parent).node
-    // const isColumn =
-    // parentNode.type === 'column' && rowNode.children.length === 1
 
     // 非 列下首个元素
     if (parentNode.type !== 'column' && !itemIndex_) {
@@ -1304,7 +1249,7 @@ handleContentKeyDown = (item_, rowIndex_, itemIndex_) => e => {
 }
 ```
 
-至此文本块的基本行为大致 s 实现，最后再实现页面初始化的文本框，用于创建节点以及与已经创建的节点进行光标关联。
+至此文本块的基本行为大致实现，最后再实现页面初始化的文本框，用于创建节点以及与已经创建的节点进行光标关联。
 
 ```jsx
 <div
@@ -1373,6 +1318,6 @@ handleEditorKeyDown = e => {
 
 文本块作为 Notion 的核心块，基本功能如上。
 
-关于拖拽行为虽然做了排序处理但是并不完善，缺乏更精细化的行为，如拖拽到指定元素的指定位置（上、下）以及拖拽到右侧进行创建新列，具体实现的技术方案还没确定，预想大概是通过光标位置像素计算，后续更新。
+关于拖拽行为虽然做了排序处理但是并不完善，缺乏更精细化的行为，如拖拽到指定元素的指定位置（上、下）以及拖拽到右侧进行创建新列，由于不属于释放元素的监听区域具体实现的技术方案还没确定，预想是通过光标位置像素计算，后续更新。
 
-2020.02.14 23:01:40 情人节快乐。
+情人节快乐。
