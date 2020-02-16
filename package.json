@@ -5,7 +5,7 @@
   "author": "christian <rollawaypoint@gmail.com> (@justwink)",
   "license": "MIT",
   "scripts": {
-    "dev": "gatsby clean && gatsby develop",
+    "dev": "gatsby clean && gatsby develop -p 9001",
     "build": "gatsby clean && gatsby build",
     "deploy": "npm run build && sh bin/publish.sh",
     "surge": "npx surge public/"
@@ -13,6 +13,6 @@
   "dependencies": {
     "gatsby": "^2.15.28",
     "gatsby-plugin-manifest": "^2.2.20",
-    "gatsby-theme-cat": "1.0.1"
+    "gatsby-theme-cat": "1.0.3"
   }
 }
