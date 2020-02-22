@@ -144,7 +144,7 @@ event emitter 类两个核心的函数已经改写完毕了，可是我们观察
 
 ##### Functional compose
 
-这个 compose 需要接受函数的集合（函数即为`addEventListener('e2')(() => log('hey'))`的返回值的函数）作为参数，使用数组最强大的 reduce 方法对传入的函数进行批处理调用即可，如果大家熟悉 redux 里面的 compose 函数，其实都是一样的，都是处理一组函数集合的集中调用（类似的还有之前的一篇博客 [十行代码实现 Koa2 洋葱模型](https://rollawaypoint.github.io/2019/02/22/writeSomething/koa2OnionModel/#%E4%B8%89%E6%AD%A5%E5%AE%8C%E6%88%90%E5%B0%81%E8%A3%85) 中的 compose 函数）， 代码如下：
+这个 compose 需要接受函数的集合（函数即为`addEventListener('e2')(() => log('hey'))`的返回值的函数）作为参数，使用数组最强大的 reduce 方法对传入的函数进行批处理调用即可，如果大家熟悉 redux 里面的 compose 函数，其实都是一样的，都是处理一组函数集合的集中调用（类似的还有之前的一篇博客 [十行代码实现 Koa2 洋葱模型](https://justwink.cn/post/2019-02-22-KoaOnionModel) 中的 compose 函数）， 代码如下：
 
 ```js
 const compose = (...fns)
