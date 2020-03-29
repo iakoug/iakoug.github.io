@@ -48,6 +48,8 @@ Debugger 进登录接口所在位置可以正确获得响应报文。<br />
 
 这种警告情况下浏览器应该会有提示，才开始注意控制台输出了几行标黄警告信息（一般情况下的浏览器自身警告我都是下意识忽略 XD），大概意思是指当前网络请求不会携带任何 Cookie，如果需要强行携带，需要把 `Secure` 设为 true（上图）同时将 `Same-Site` 属性设置为 none，默认 `Same-Site=Lax`。<br />
 
+![Same-Site](https://i.loli.net/2020/03/23/TV7xoPChQc4jtk3.png)
+
 貌似找到了问题真相...<br />
 
 ### Same-Site
