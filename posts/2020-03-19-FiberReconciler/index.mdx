@@ -147,6 +147,13 @@ let frameDeadline = 0
 let isPerformingWork = false
 ```
 
+定义操作类型。
+```js
+const [HOST, HOOKCOMPONENT, CLASSCOMPONENT, HOSTROOT] = [0, 1, 2, 3]
+const [NormalPriority] = [97]
+const [NOWORK, DELETE, UPDATE, PLACEMENT] = [0, 2, 3, 4]
+```
+
 在调用 React 的render周期函数时，开始进行Fiber node的生成调度工作。
 ```js
 // 当前正在执行的工作
