@@ -61,18 +61,16 @@ Debugger 进登录接口所在位置可以正确获得响应报文。<br />
 
 - Lax：一般情况不发送第三方 Cookie，除却导航到目标网址的 Get 请求。
 
-| Type | Case | Normal | Lax |
-| :----: | :-------: | :----: |:----:|
-| 链接 | `<a href="..."></a>` | 发送 Cookie | 发送 Cookie |
-| GET 表单 | `<form method="GET" action="...">` | 发送 Cookie | 发送 Cookie |
-| POST 表单 | `<form method="POST" action="...">` | 发送 Cookie | 不发送 |
-| iframe | `<iframe src="..."></iframe>` | 发送 Cookie | 不发送 |
-| AJAX | `$.get("...")` | 发送 Cookie | 不发送 |
-| Image | `<img src="...">` | 发送 Cookie | 不发送 |
+|   Type    |                Case                 |   Normal    |     Lax     |
+| :-------: | :---------------------------------: | :---------: | :---------: |
+|   链接    |        `<a href="..."></a>`         | 发送 Cookie | 发送 Cookie |
+| GET 表单  | `<form method="GET" action="...">`  | 发送 Cookie | 发送 Cookie |
+| POST 表单 | `<form method="POST" action="...">` | 发送 Cookie |   不发送    |
+|  iframe   |    `<iframe src="..."></iframe>`    | 发送 Cookie |   不发送    |
+|   AJAX    |           `$.get("...")`            | 发送 Cookie |   不发送    |
+|   Image   |          `<img src="...">`          | 发送 Cookie |   不发送    |
 
 - None：Chrome 计划将 Lax 变为默认设置。这时，网站可以选择显式关闭 `SameSite` 属性，将其设为 None。不过，前提是必须同时设置 Secure 属性（Cookie 只能通过 HTTPS 协议发送），否则无效。
-
-
 
 ### Fix
 
@@ -92,5 +90,3 @@ ctx.cookies.set('auth', '******************', {
 ### Last
 
 产线域名不存在跨域所以直接登录没有问题。Chrome 当前的版本是 v80.0.3987.132，还是同源策略相关的限制（Chrome 偷偷加入 Hot patch？所以 FireFox 没事）导致这个问题（Safari the same）。那么以插件形式运行在 Chrome 插件进程上的 Postman 为何不受到影响呢？
-
-

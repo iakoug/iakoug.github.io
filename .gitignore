@@ -1,7 +1,6 @@
-.cache
-.deploy_git
-
 node_modules
 public
 
-yarn-error.*
+*.log
+
+.cache

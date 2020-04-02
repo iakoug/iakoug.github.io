@@ -1,0 +1,18 @@
+{
+  "name": "justwink.cn",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "christian <rollawaypoint@gmail.com> (@justwink)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "gatsby clean && gatsby develop -p 9001",
+    "build": "gatsby clean && gatsby build",
+    "deploy": "npm run build && sh bin/publish.sh",
+    "surge": "npx surge public/"
+  },
+  "dependencies": {
+    "gatsby": "^2.15.28",
+    "gatsby-plugin-manifest": "^2.2.20",
+    "gatsby-theme-cat": "0.1.65"
+  }
+}

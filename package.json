@@ -1,9 +1,9 @@
 {
-  "name": "justwink.cn",
-  "version": "1.0.0",
+  "name": "justwink.github.io",
+  "version": "1.0.15",
+  "description": "A gatsby theme focus on content expression",
   "main": "index.js",
-  "author": "christian <rollawaypoint@gmail.com> (@justwink)",
-  "license": "MIT",
+  "author": "rollawaypoint@gmail.com",
   "scripts": {
     "dev": "gatsby clean && gatsby develop -p 9001",
     "build": "gatsby clean && gatsby build",
@@ -11,8 +11,67 @@
     "surge": "npx surge public/"
   },
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.7.7",
+    "@mdx-js/mdx": "^1.5.0",
+    "@mdx-js/react": "^1.5.0",
+    "gatsby-image": "^2.2.23",
+    "gatsby-plugin-html-attributes": "^1.0.5",
+    "gatsby-plugin-manifest": "^2.2.34",
+    "gatsby-plugin-mdx": "^1.0.46",
+    "gatsby-plugin-no-sourcemaps": "^2.2.0",
+    "gatsby-plugin-offline": "^3.1.2",
+    "gatsby-plugin-page-creator": "^2.1.23",
+    "gatsby-plugin-react-helmet": "^3.1.10",
+    "gatsby-plugin-remove-trailing-slashes": "^2.1.9",
+    "gatsby-plugin-sharp": "^2.2.27",
+    "gatsby-plugin-sitemap": "^2.2.16",
+    "gatsby-plugin-styled-components": "^3.1.8",
+    "gatsby-plugin-typescript": "^2.1.11",
+    "gatsby-remark-images": "^3.1.25",
+    "gatsby-remark-katex": "^3.1.12",
+    "gatsby-remark-prismjs": "^3.3.16",
+    "gatsby-source-filesystem": "^2.1.28",
+    "gatsby-transformer-remark": "^2.6.26",
+    "gatsby-transformer-sharp": "^2.2.19",
+    "katex": "^0.11.1",
+    "prismjs": "^1.17.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "react-helmet": "^5.2.1",
+    "react-medium-image-zoom": "^3.1.1",
+    "remark-slug": "^5.1.2",
+    "styled-components": "^4.4.0",
+    "typescript": "^3.6.3"
+  },
+  "devDependencies": {
+    "@types/react": "^16.9.3",
+    "@types/react-dom": "^16.9.1",
+    "@types/react-helmet": "^5.0.11",
+    "@types/styled-components": "^4.1.19",
+    "@typescript-eslint/eslint-plugin": "^2.3.1",
+    "@typescript-eslint/parser": "^2.3.1",
+    "eslint": "^6.4.0",
+    "eslint-plugin-react": "^7.14.3",
     "gatsby": "^2.15.28",
-    "gatsby-plugin-manifest": "^2.2.20",
-    "gatsby-theme-cat": "1.0.5"
+    "surge": "^0.21.3"
+  },
+  "peerDependencies": {
+    "gatsby": "^2"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justwink/gatsby-theme-cat",
+    "directory": "gatsby-theme-cat"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-theme",
+    "react"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   }
 }

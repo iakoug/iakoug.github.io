@@ -13,22 +13,26 @@ coverOriginalUrl: https://unsplash.com/photos/w2fTKLN3CJU
 ---
 
 ### 问题
-大量的同步计算任务阻塞了浏览器的 UI 渲染。默认情况下，JS 运算、页面布局和页面绘制都是互斥的运行在浏览器的主线程当中。如果 JS 运算持续占用主线程，页面就没法得到及时的更新。当我们调用setState更新页面的时候，React 会遍历应用的所有节点，计算出差异，然后再更新 UI。整个过程是一气呵成，不能被打断的。如果页面元素很多，整个过程占用的时机就可能超过 16 毫秒，就容易出现掉帧的现象。
+
+大量的同步计算任务阻塞了浏览器的 UI 渲染。默认情况下，JS 运算、页面布局和页面绘制都是互斥的运行在浏览器的主线程当中。如果 JS 运算持续占用主线程，页面就没法得到及时的更新。当我们调用 setState 更新页面的时候，React 会遍历应用的所有节点，计算出差异，然后再更新 UI。整个过程是一气呵成，不能被打断的。如果页面元素很多，整个过程占用的时机就可能超过 16 毫秒，就容易出现掉帧的现象。
 
 针对这一问题，React 团队从框架层面对 web 页面的运行机制做了优化，得到很好的效果。
 ![stack](https://i.loli.net/2020/03/29/3akQRFy8WsXhSZi.png)
 
 ### 方案
+
 解决主线程长时间被 JS 运算占用这一问题的基本思路，是将运算切割为多个步骤，分批完成。也就是说在完成一部分任务之后，将控制权交回给浏览器，让浏览器有时间进行页面的渲染。等浏览器忙完之后，再继续之前未完成的任务。
 
-旧版 React 通过递归的方式进行渲染，使用的是 JS 引擎自身的函数调用栈，它会一直执行到栈空为止。而Fiber实现了自己的组件调用栈，它以链表的形式遍历组件树，可以灵活的暂停、继续和丢弃执行的任务。实现方式是使用了浏览器的requestIdleCallback这一 API。官方的解释是这样的：
+旧版 React 通过递归的方式进行渲染，使用的是 JS 引擎自身的函数调用栈，它会一直执行到栈空为止。而 Fiber 实现了自己的组件调用栈，它以链表的形式遍历组件树，可以灵活的暂停、继续和丢弃执行的任务。实现方式是使用了浏览器的 requestIdleCallback 这一 API。官方的解释是这样的：
 
 window.requestIdleCallback()会在浏览器空闲时期依次调用函数，这就可以让开发者在主事件循环中执行后台或低优先级的任务，而且不会对像动画和用户交互这些延迟触发但关键的事件产生影响。函数一般会按先进先调用的顺序执行，除非函数在浏览器调用它之前就到了它的超时时间。
 ![frame](https://i.loli.net/2020/03/29/KTVjUfLNOwuSGpX.png)
 
 ### 实现
-原本的实现机制中 React 内部会将 JSX 转化为 AST node，而在这个过程中将引入一个生成Fiber node的阶段，建立一条由节点、类型、标记等信息的一个Fiber node 组成的链表结构。
+
+原本的实现机制中 React 内部会将 JSX 转化为 AST node，而在这个过程中将引入一个生成 Fiber node 的阶段，建立一条由节点、类型、标记等信息的一个 Fiber node 组成的链表结构。
 ![fiber](https://i.loli.net/2020/03/29/aBOMNU8njZAbs7K.png)
+
 ```js
 class Fiber {
   constructor(tag, vnode) {
@@ -56,7 +60,6 @@ class Fiber {
     this.oldChildren = null
   }
 }
-
 ```
 
 构建节点信息的同时要确保过程是可以打断的，链表的根节点信息需要进行初始化。
@@ -72,9 +75,10 @@ class FiberRoot {
     this.done = cb || null
   }
 }
-
 ```
-构建的链表结构所对应的CRUD行为进行定义。
+
+构建的链表结构所对应的 CRUD 行为进行定义。
+
 ```js
 function push(heap, node) {
   const i = heap.length
@@ -128,10 +132,10 @@ function cmp(a, b) {
 function peek(heap) {
   return heap[0] || null
 }
-
 ```
 
 此时需要一些全局变量记录工作状态。
+
 ```js
 // 任务队列
 const taskQueue = []
@@ -148,13 +152,15 @@ let isPerformingWork = false
 ```
 
 定义操作类型。
+
 ```js
 const [HOST, HOOKCOMPONENT, CLASSCOMPONENT, HOSTROOT] = [0, 1, 2, 3]
 const [NormalPriority] = [97]
 const [NOWORK, DELETE, UPDATE, PLACEMENT] = [0, 2, 3, 4]
 ```
 
-在调用 React 的render周期函数时，开始进行Fiber node的生成调度工作。
+在调用 React 的 render 周期函数时，开始进行 Fiber node 的生成调度工作。
+
 ```js
 // 当前正在执行的工作
 let WIP = null
@@ -209,13 +215,14 @@ function scheduleWork(fiber) {
   }
 
   push(taskQueue, newTask)
-    requestHostCallback(flushWork)
+  requestHostCallback(flushWork)
 
-    return newTask
-
+  return newTask
 }
 ```
+
 定义提交动作。
+
 ```js
 function commitWork(fiber, patchQueue) {
   // 提交阶段
@@ -230,7 +237,7 @@ function commit(patch) {
   const op = patch.effectTag
   const tag = patch.tag
 
-// 行为删除标志 2
+  // 行为删除标志 2
   if (op === 2) {
     // 提交副作用 销毁的生命周期
     // 行为 hook 1
@@ -261,10 +268,10 @@ function getParentDomNode(patch) {
     return patch.return.stateNode.dom
   }
 }
-
 ```
 
 更新当前状态。
+
 ```js
 function performUnitOfWork(fiber) {
   switch (fiber.tag) {
@@ -392,7 +399,8 @@ function reconcileChildren(fiber) {
 }
 ```
 
-定义React中根据Fiber node创建和更新元素的方法。
+定义 React 中根据 Fiber node 创建和更新元素的方法。
+
 ```js
 function createElement(fiber) {
   const type = fiber.type
@@ -432,10 +440,10 @@ function updateElement(dom, oldProps, newProps) {
     }
   }
 }
-
 ```
 
-最后可以重新定义 React 的render方法。
+最后可以重新定义 React 的 render 方法。
+
 ```js
 function render(vnode, dom, callback) {
   // 生成根节点
@@ -450,21 +458,24 @@ function render(vnode, dom, callback) {
   // 初始化调度工作
   scheduleWork(current)
 }
-
 ```
 
 使用。
+
 ```js
 function App() {
   return (
     <div>
-      {
-        new Array(300).fill('').map((item, i) => (<div key={i}>item</div>))
-      }
+      {new Array(300).fill('').map((item, i) => (
+        <div key={i}>item</div>
+      ))}
     </div>
   )
 }
 
-document.body.addEventListener('click',() => render(<App></App>, document.getElementById('app')))
+document.body.addEventListener('click', () =>
+  render(<App></App>, document.getElementById('app'))
+)
 ```
-此时Fiber reconciler的基本调度算法已经实现，此时如果页面存在大量阻塞渲染时不会再干扰到页面其他动画的卡顿。
+
+此时 Fiber reconciler 的基本调度算法已经实现，此时如果页面存在大量阻塞渲染时不会再干扰到页面其他动画的卡顿。
