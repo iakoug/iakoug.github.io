@@ -35,6 +35,7 @@ export class Layout extends React.Component<Props> {
         <Header siteMeta={this.props.siteMeta} />
         {this.props.children}
         <Footer siteMeta={this.props.siteMeta} />
+        <S.GlobalStyle />
       </S.Layout>
     )
   }

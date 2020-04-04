@@ -25,7 +25,7 @@ module.exports = {
   pathPrefix: `/`,
   siteMetadata: {
     title: `christian`,
-    siteLogo: 'sun',
+    siteLogo: 'edit-2',
     siteUrl: `https://justwink.cn/`,
     description: `chriskwok's Personal Blog`,
     author: `chris kwok`,
@@ -125,10 +125,18 @@ module.exports = {
         lang: 'zh'
       }
     },
+    // {
+    //   resolve: `gatsby-plugin-sass`,
+    //   options: {
+    //     includePaths: [
+    //       require('path').resolve(__dirname, 'node_modules')
+    //     ]
+    //   }
+    // },
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-remove-trailing-slashes`,
     `gatsby-plugin-sitemap`,
-    'gatsby-plugin-no-sourcemaps'
-    // 'gatsby-plugin-offline'
+    'gatsby-plugin-no-sourcemaps',
+    'gatsby-plugin-offline'
   ]
 }
