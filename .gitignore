@@ -4,3 +4,6 @@ public
 *.log
 
 .cache
+yarn-error.*
+
+redux*
