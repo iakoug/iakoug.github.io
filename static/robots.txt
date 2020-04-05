@@ -1,2 +1,3 @@
 User-agent: *
-Disallow:
+
+sitemap: https://justwink.cn/sitemap.xml

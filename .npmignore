@@ -1,8 +1,0 @@
-bin/
-gatsby-config.dev.js
-content/
-static/
-public/
-
-.cache
-.github

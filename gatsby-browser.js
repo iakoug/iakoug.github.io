@@ -1,2 +1,4 @@
-// reload when serviceworker updates - https://github.com/gatsbyjs/gatsby/issues/9087#issuecomment-459105021
-export const onServiceWorkerUpdateReady = () => window.location.reload(true)
+import React from 'react'
+import { ThemeProvider } from './src/context/ThemeContext'
+
+export const wrapRootElement = ({ element }) => <ThemeProvider>{element}</ThemeProvider>
