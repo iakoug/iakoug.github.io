@@ -15,7 +15,8 @@ I aim to create a beautiful corner of the web, it's not sina, qzone, post bar of
 - 👾 loves lol and new technology
 - ☕ needs tea
 - 🍺 also needs music
-- ✍️ has written around 34 tutorials (so far!)
+- 🎸 guitar lover
+- ✍️ has written around 30 tutorials (so far!)
 
 ## Links
 
@@ -40,6 +41,7 @@ Sometimes I sing and play guitar. I like to [record music]() in my spare time. H
 - **Editor:** [Visual Studio Code](https://code.visualstudio.com/)
 - **Static site generator:** [Gatsby](https://gatsbyjs.org)
 - **Syntax highlighting:** [PrismJS](http://prismjs.com/)
+- **Guitar:** Tyma
 
 ## Year in Review
 

@@ -38,7 +38,7 @@
 
   p {
     color: rgba(0, 0, 0, 0.6);
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .button {
@@ -684,7 +684,8 @@ h2.publication-company {
 blockquote {
   color: rgba(0, 0, 0, 0.8);
   border: none;
-  background: lighten($yellow, 25%);
+  // background: lighten($yellow, 25%);
+  background: rgb(239, 243, 245);
   border-radius: $border-radius;
   font-weight: 500;
   margin: 1.5rem 0;
