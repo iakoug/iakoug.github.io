@@ -45,5 +45,5 @@ Sometimes I sing and play guitar. I like to [record music]() in my spare time. H
 
 ## Year in Review
 
-- [2019 into 2020](/2019-into-2020)
+- [2019 into 2020](/2020-01-04-2019-into-2020)
 - [2018 into 2019](/2018-into-2019)
