@@ -6,6 +6,7 @@ thumbnail: '../thumbnails/floppy.png'
 slug: new-coronavirus
 categories:
   - Prose
+  - Popular
 tags:
   - life
   - new coronavirus

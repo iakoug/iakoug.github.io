@@ -6,6 +6,7 @@ thumbnail: '../thumbnails/react.png'
 slug: fiber-reconciler
 categories:
   - Algorithm
+  - Popular
 tags:
   - react
   - fiber
