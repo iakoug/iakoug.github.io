@@ -277,11 +277,12 @@ $dark-primary: $tag;
   }
 
   tbody tr:nth-child(even) {
-    background-color: lighten($background, 5%);
+    // background-color: lighten($background, 5%);
   }
 
   pre code {
-    background: #3a3a3a;
+    // background: #3a3a3a;
+    color: #b3b9c5;
   }
 
   .quotations-section {

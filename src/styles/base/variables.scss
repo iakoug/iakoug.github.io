@@ -27,7 +27,7 @@ $green: #1fc844;
 $gray: rgb(239, 243, 245);
 $yellow: #fed356;
 $accent-color: #cdcdcd;
-$light: #f2f2f2;
+$light: #eff3f5;
 $alternate-background: #f0f0f0;
 $alternate-color: #404040;
 $link-color: $primary-color;
@@ -35,7 +35,7 @@ $link-hover-color: darken($link-color, 10%);
 $highlight: #ffeea8;
 $error: #d33c40;
 $bq-border: 16px solid #f0f0f0;
-$code: Menlo;
+$code: Roboto Mono;
 
 /* Typography */
 
@@ -83,7 +83,7 @@ $content-padding-mobile: 30px 0;
 
 $border-width: 2px;
 $border-style: solid;
-$border-color: #ccc;
+$border-color: rgb(204,217,223);
 $border-radius: 4px;
 $borders: $border-width $border-style $border-color;
 $box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.16);
@@ -135,17 +135,17 @@ $code-background: transparent;
 $code-borders: $borders;
 
 $code-font-family: Menlo, 'Roboto Mono', Courier New, monospace;
-$code-font-color: #b3b9c5;
+$code-font-color: #3C3F45;
 $string: #92d192;
 $variable: #f2777a;
 $property: #abb2bf;
 $number: #fca369;
 $operator: #ac8d58;
-$punctuation: #d5d8df;
+$punctuation: #24292e;
 $comment: #848991;
-$function: #62cfcf;
-$keyword: #ffeead;
+$function: #6f42c1;
+$keyword: #d73a49;
 $attribute: #ffd479;
-$class: #e1a6f2;
-$tag: #6ab0f3;
+$class: #6f42c1;
+$tag: #060607;
 $error: #f2777a;

@@ -3,12 +3,14 @@
 
 // Table expands to full width of containing element
 table {
-  border-collapse: collapse;
-  border-spacing: 0;
   width: 100%;
-  max-width: 100%;
-  overflow-x: auto;
-  display: block;
+  border: 1px solid rgb(204,217,223);
+  border-radius: 4px;
+  border-spacing: 0px;
+  margin: 16px 0px;
+  display: table;
+  border-collapse: separate;
+  line-height: 1.6;
 }
 
 // Extra border underneath header
@@ -21,8 +23,12 @@ tfoot th {
   border-top: 1px solid $border-color;
 }
 
+tbody tr:nth-child(1) td {
+  border-top: none;
+}
+
 td {
-  border-bottom: 1px solid $border-color;
+  border-top: 1px solid $border-color;
 }
 
 th,
@@ -40,5 +46,5 @@ caption {
 }
 
 tbody tr:nth-child(even) {
-  background-color: $stripes;
+  // background-color: $stripes;
 }

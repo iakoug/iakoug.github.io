@@ -74,12 +74,12 @@ code {
 
 html,
 body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
   font-size: 14px;
   line-height: 1.8;
   font-family: 'Heebo', 'PingFang SC', 'Hiragino Sans GB', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji';
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
 }
 // code {
 //   margin:0;
