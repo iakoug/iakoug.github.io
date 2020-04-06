@@ -2,7 +2,7 @@
 date: 2020-03-07
 title: Layer cake
 template: post
-thumbnail: '../thumbnails/floppy.png'
+thumbnail: '../thumbnails/post.png'
 slug: layer-cake
 categories:
   - Prose

@@ -2,7 +2,7 @@
 date: 2019-07-16
 title: Find your own way
 template: post
-thumbnail: '../thumbnails/floppy.png'
+thumbnail: '../thumbnails/post.png'
 slug: find-your-way
 categories:
   - Prose

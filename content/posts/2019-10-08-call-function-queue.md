@@ -2,7 +2,7 @@
 date: 2019-10-08
 title: Call function queue - 三种函数队列调用问题的归档
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/algorithm.png'
 slug: call-function-queue
 categories:
   - Algorithm

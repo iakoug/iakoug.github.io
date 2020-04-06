@@ -2,7 +2,7 @@
 date: 2019-12-28
 title: Game theory - 博弈论/胆小鬼博弈/Chicken game，如何触发对自己有最大收益的纳什均衡点
 template: post
-thumbnail: '../thumbnails/clock.png'
+thumbnail: '../thumbnails/thinking.png'
 slug: game-theory
 categories:
   - Prose

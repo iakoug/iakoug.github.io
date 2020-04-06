@@ -2,7 +2,7 @@
 date: 2020-02-14
 title: Demo of Notion – The all-in-one workspace for your notes, tasks, wikis, and databases
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/algorithm.png'
 slug: demo-of-notion
 categories:
   - Algorithm

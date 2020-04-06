@@ -2,7 +2,7 @@
 date: 2019-10-19
 title: 渺小似芥子，却可纳须弥
 template: post
-thumbnail: '../thumbnails/floppy.png'
+thumbnail: '../thumbnails/post.png'
 slug: one-weekend
 categories:
   - Prose

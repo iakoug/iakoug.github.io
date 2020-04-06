@@ -32,7 +32,7 @@ export default class MessageBoard extends Component {
         <Helmet title={`Message board – ${config.siteTitle}`} />
         <SEO />
         <div className="container message-board">
-          <h2>留言板</h2>
+          <h2>Message board</h2>
           <div className="search-container search-container-name">
             <input
               className="search"
