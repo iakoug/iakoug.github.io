@@ -66,6 +66,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin: 44px 0 0 0;
   font-weight: bold;
+
+  svg {
+    display: none;
+  }
 }
 
 code {
@@ -80,6 +84,7 @@ body {
   line-height: 1.8;
   font-family: 'Heebo', 'PingFang SC', 'Hiragino Sans GB', Helvetica, Arial,
     sans-serif, 'Apple Color Emoji';
+  overflow-x: hidden;
 }
 // code {
 //   margin:0;
