@@ -6,7 +6,10 @@ template: page
 
 Hi, I'm christian, a front-end engineer based out of ShangHai. I build open-source projects and write about modern JavaScript, Node.js, design and web development.
 
-If you have any comments, ideas, critiques, or you just want to say hi, don't hesitate to send me an email at [rollawaypoint@gmail.com](mailto:srollawaypoint@gmail.com)!
+### Message board
+If you want to leave a comment on this web site, &nbsp;[TAP HERE](/message), it will be displayed in the comments section at the bottom of the home page.
+
+If you have more about ideas, critiques, or you just want to say hi, don't hesitate to send me an email at [rollawaypoint@gmail.com](mailto:srollawaypoint@gmail.com)!
 
 ### Around the web
 

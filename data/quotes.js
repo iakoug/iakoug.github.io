@@ -1,6 +1,6 @@
 export default [
   {
-    name: 'Wilhelm Nietzsche',
-    quote: `Wenn du lange in einen Abgrund blickst, blickt der Abgrund auch dich hinein.`,
-  }
+    name: '胡一桶',
+    quote: `"骚，不只是代码"`,
+  },
 ]

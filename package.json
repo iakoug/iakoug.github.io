@@ -5,6 +5,7 @@
   "author": "christian <rollawaypoint@gmail.com>",
   "repository": "git@github.com:justwink/justwink.github.io.git",
   "dependencies": {
+    "axios": "^0.19.2",
     "eslint-utils": "^1.4.1",
     "gatsby": "^2.13.13",
     "gatsby-image": "^2.2.4",

@@ -749,8 +749,8 @@ blockquote {
 }
 
 .quotations {
-  display: flex;
-  flex-wrap: wrap;
+  // display: flex;
+  // flex-wrap: wrap;
   @extend .container;
 
   .quotation {
@@ -769,7 +769,7 @@ blockquote {
     }
 
     &:nth-of-type(2n) {
-      margin-left: 2rem;
+      // margin-left: 2rem;
     }
 
     cite {
@@ -792,7 +792,7 @@ blockquote {
 @include small-breakpoint {
   .quotations {
     .quotation {
-      padding: 2.5rem 2.5rem 5.5rem !important;
+      padding: 1.5rem 1.5rem 2.5rem !important;
 
       p {
         font-size: 1.2rem;

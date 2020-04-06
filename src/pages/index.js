@@ -2,19 +2,42 @@ import React, { Component } from 'react'
 import Helmet from 'react-helmet'
 import GitHubButton from 'react-github-btn'
 import { graphql, Link } from 'gatsby'
+import axios from 'axios'
+
 import Layout from '../layout'
 import PostListing from '../components/PostListing'
 import ProjectListing from '../components/ProjectListing'
 import SEO from '../components/SEO'
 import config from '../../data/SiteConfig'
 import projects from '../../data/projects'
-import quotes from '../../data/quotes'
 import kwok from '../../content/images/profile.jpg'
+import api from '../../data/api'
+import quotes from '../../data/quotes'
 
 export default class Index extends Component {
+  state = {
+    message: []
+  }
+
+  componentDidMount = async () => {
+    // xhr.js:179 Mixed Content: The page at 'https://justwink.cn/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://47.100.219.10:7001/api/justwink/message_board'. This request has been blocked; the content must be served over HTTPS.
+    // 暂未给公网 IP 配置 SSL
+    let message
+
+    try {
+      message = (await axios.post(api.message).catch(e => console.warn(e))).data.filter(Boolean).slice(-6)
+    } catch(e) {
+      // console.warn(e)
+    }
+
+    this.setState({
+      message: message || quotes
+    })
+  }
+
   render() {
     const { data } = this.props
-
+    const {message} = this.state
     const latestPostEdges = data.latest.edges
     const popularPostEdges = data.popular.edges
 
@@ -87,9 +110,9 @@ export default class Index extends Component {
         </div>
         <div className="quotations-section">
           <div className="quotations">
-            {quotes.map(quote => (
+            {message && message.map(quote => (
               <blockquote className="quotation" key={quote.name}>
-                <p>{quote.quote}</p>
+                <p>{quote.message || quote.value || quote.quote}</p>
                 <cite>— {quote.name}</cite>
               </blockquote>
             ))}
