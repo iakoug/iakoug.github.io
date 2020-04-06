@@ -11,8 +11,9 @@ If you have any comments, ideas, critiques, or you just want to say hi, don't he
 ### Around the web
 
 - **Email**: [rollawaypoint@gmail.com](mailto:rollawaypoint@gmail.com)
-- **GitHub**: [justwink](https://github.com/justwink)
-- **Twitter**: [rollaway9](https://twitter.com/rollaway9)
-- **Telegram**: [christiankwok](https://t.me/christiankwok)
-- **NetEaseMusic**: [yesidid](https://music.163.com/#/user/home?id=65978744)
-- **Feed**: [Rss](https://justwink.cn/rss.xml)
+- **GitHub**: <a target="_blank" href="https://github.com/justwink">&nbsp;justwink&nbsp;</a>
+- **Twitter**: <a target="_blank" href="https://twitter.com/rollaway9">&nbsp;rollaway9&nbsp;</a>
+- **Telegram**: <a target="_blank" href="https://t.me/christiankwok">&nbsp;christiankwok&nbsp;</a>
+- **WeChat**: <a target="_blank" href="/wechat.jpeg">&nbsp;King1996728&nbsp;</a>
+- **NetEaseMusic**: <a target="_blank" href="https://music.163.com/#/user/home?id=65978744">&nbsp;yesidid&nbsp;</a>
+- **Feed**: <a target="_blank" href="https://justwink.cn/rss.xml">&nbsp;Rss&nbsp;</a>

@@ -9,7 +9,7 @@ $dark-primary: $tag;
   color: $foreground;
 
   a {
-    color: $dark-primary;
+    // color: $dark-primary;
 
     &:hover,
     &:active,
@@ -125,7 +125,7 @@ $dark-primary: $tag;
       }
 
       &.active {
-        color: $tag;
+        // color: $tag;
       }
     }
   }
@@ -225,7 +225,7 @@ $dark-primary: $tag;
   .tag-container {
     span {
       color: $foreground;
-      background: rgba(0, 0, 0, 0.2);
+      background: rgba(255, 255, 255, 0.1);
       border: none;
 
       .count {
@@ -261,6 +261,10 @@ $dark-primary: $tag;
 
   .post-meta {
     color: $comment;
+
+    a {
+      color: $primary-color;
+    }
   }
 
   th {
@@ -439,7 +443,7 @@ $dark-primary: $tag;
       border-radius: $border-radius;
       margin-right: 0.5rem;
       font-weight: 500;
-      color: $dark-primary;
+      // color: $dark-primary;
       cursor: pointer;
 
       &.active {

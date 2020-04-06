@@ -24,14 +24,13 @@ I aim to create a beautiful corner of the web, it's not sina, qzone, post bar of
 
 A non-exhaustive list.
 
-- [Elegant yu](https://elegantyu.github.io/)
+- <a href="https://elegantyu.github.io" target="_blank">&nbsp;Elegant yu&nbsp;</a>
 
 ## Open Source Projects
-
-- [babel-plugin-authkit](https://github.com/justwink/babel-plugin-authkit) – A plugin that make import on demand
-- [world-of-tanks](https://github.com/justwink/world-of-tanks) – A simple game of webpage that use the native javaScript
-- [tree-md-cli](https://github.com/justwink/tree-md-cli) – Generate a tree markdown file according to a specified directory
-- [gatsby-theme-cat](https://github.com/justwink/gatsby-theme-cat) – A gatsby theme focus on content expression - Delete irrelevant information and customize the theme content by gatsby theme wink
+- <a target="_blank" href="https://github.com/justwink/babel-plugin-authkit">&nbsp;babel-plugin-authkit&nbsp;</a> – A plugin that make import on demand
+- <a target="_blank" href="https://github.com/justwink/world-of-tanks">&nbsp;world-of-tanks&nbsp;</a> – A simple game of webpage that use the native javaScript
+- <a target="_blank" href="https://github.com/justwink/tree-md-cli">&nbsp;tree-md-cli&nbsp;</a> – Generate a tree markdown file according to a specified directory
+- <a target="_blank" href="https://github.com/justwink/gatsby-theme-cat">&nbsp;gatsby-theme-cat&nbsp;</a> – A gatsby theme focus on content expression - Delete irrelevant information and customize the theme content by gatsby theme wink
 
 <!-- ## Music
 
