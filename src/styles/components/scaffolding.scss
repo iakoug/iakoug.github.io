@@ -229,17 +229,17 @@ a {
   font-family: "Source Sans Pro";
 
   a:not(.button):not(.anchor):not(.gatsby-resp-image-link) {
-    border-bottom: 2px solid lighten($primary-color, 30%);
+    border-bottom: 1px solid lighten($primary-color, 30%);
     &:hover {
       color: $link-hover-color;
       background: $primary-hover;
-      border-bottom: 2px solid $link-hover-color;
+      border-bottom: 1px solid $link-hover-color;
     }
     &:active,
     &:focus {
       color: $link-hover-color;
       background: $primary-hover;
-      border-bottom: 2px dashed $link-hover-color;
+      border-bottom: 1px dashed $link-hover-color;
     }
   }
 

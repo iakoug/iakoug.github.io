@@ -11,11 +11,13 @@ I aim to create a beautiful corner of the web, it's not sina, qzone, post bar of
 ### christian:
 
 - 💻 works full-time as a front-end engineer
-- ✏️ loves write some prose
+- 📝 loves write some prose
 - 👾 loves lol and new technology
-- ☕ needs tea
-- 🍺 also needs music
+- 🍵 needs tea
+- 🎵 also needs music
 - 🎸 guitar lover
+- 🖌 loves calligraphy
+- 📔 veteran fiction lover
 - ✍️ has written around 30 tutorials (so far!)
 
 ## Links
@@ -42,8 +44,11 @@ Sometimes I sing and play guitar. I like to [record music]() in my spare time. H
 - **Static site generator:** [Gatsby](https://gatsbyjs.org)
 - **Syntax highlighting:** [PrismJS](http://prismjs.com/)
 - **Guitar:** Tyma
+- **Pen/Writing brush:** Lamy pen/Wolf brush/Xiaokai brush
+
+
 
 ## Year in Review
 
-- [2019 into 2020](/2020-01-04-2019-into-2020)
+- [2019 into 2020](/2019-into-2020)
 - [2018 into 2019](/2018-into-2019)

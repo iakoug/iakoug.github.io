@@ -65,7 +65,7 @@ $dark-primary: $tag;
     font-family: "Source Sans Pro";
 
     a:not(.button):not(.anchor):not(.gatsby-resp-image-link) {
-      border-bottom: 2px solid transparent;
+      border-bottom: 1px solid transparent;
 
       &:hover {
         color: darken($dark-primary, 10%);
@@ -264,16 +264,16 @@ $dark-primary: $tag;
   }
 
   th {
-    border-bottom: 2px solid darken($background, 5%);
+    border-bottom: 1px solid darken($background, 5%);
   }
 
   // Extra border above footer
   tfoot th {
-    border-top: 2px solid darken($background, 8%);
+    border-top: 1px solid darken($background, 8%);
   }
 
   td {
-    border-bottom: 2px solid darken($background, 8%);
+    border-bottom: 1px solid darken($background, 8%);
   }
 
   tbody tr:nth-child(even) {
@@ -289,7 +289,7 @@ $dark-primary: $tag;
   }
 
   blockquote {
-    border: 2px solid #393939;
+    border: 1px solid #393939;
     background: rgba(0, 0, 0, 0.2);
 
     p {
@@ -340,22 +340,22 @@ $dark-primary: $tag;
 
   #{$forms} {
     color: $foreground;
-    border: 2px solid #444;
+    border: 1px solid #444;
     background: #333 !important;
 
     &:hover {
-      border: 2px solid #505050;
+      border: 1px solid #505050;
     }
 
     &:active,
     &:focus {
-      border: 2px solid $dark-primary;
+      border: 1px solid $dark-primary;
     }
   }
 
   #{$buttons} {
     color: white;
-    border: 2px solid transparent;
+    border: 1px solid transparent;
     background: darken($dark-primary, 30%) !important;
 
     &:disabled {
@@ -367,7 +367,7 @@ $dark-primary: $tag;
     &:hover,
     &:focus,
     &:active {
-      border: 2px solid transparent;
+      border: 1px solid transparent;
       background: darken($dark-primary, 20%) !important;
       color: white;
     }
@@ -389,12 +389,12 @@ $dark-primary: $tag;
   .button.muted-button,
   a.button.muted-bottom {
     color: $comment;
-    border: 2px solid $comment;
+    border: 1px solid $comment;
 
     &:hover,
     &:focus,
     &:active {
-      border: 2px solid $foreground;
+      border: 1px solid $foreground;
       background: transparent;
       color: $foreground;
     }
@@ -406,7 +406,7 @@ $dark-primary: $tag;
   }
 
   pre.language-terminal code.language-terminal {
-    border: 2px solid #666;
+    border: 1px solid #666;
     background: #111;
     color: #ccc;
 
@@ -466,7 +466,7 @@ $dark-primary: $tag;
   }
 
   .comments .comment.reply {
-    border: 2px solid #393939;
+    border: 1px solid #393939;
     background: rgba(0, 0, 0, 0.2);
   }
 
