@@ -2,6 +2,9 @@
   "extends": ["airbnb", "prettier"],
   "plugins": ["react", "jsx-a11y", "import"],
   "rules": {
+    "react/sort-comp": 0,
+    "react/jsx-indent-props": 0,
+    "react/jsx-indent": 0,
     "no-else-return": "off",
     "react/no-did-update-set-state": "off",
     "prefer-destructuring": "off",

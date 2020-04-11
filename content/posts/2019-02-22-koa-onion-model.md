@@ -6,7 +6,6 @@ thumbnail: '../thumbnails/js.png'
 slug: koa-onion-model
 categories:
   - Encapsulating
-  - Popular
 tags:
   - koa
   - onion model

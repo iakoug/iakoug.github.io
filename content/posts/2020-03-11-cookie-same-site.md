@@ -6,7 +6,6 @@ thumbnail: '../thumbnails/cookie.png'
 slug: cookie-same-site
 categories:
   - Tools
-  - Popular
 tags:
   - cookie
   - browser

@@ -359,7 +359,7 @@ $dark-primary: $tag;
 
     &:active,
     &:focus {
-      border: 1px solid $dark-primary;
+      border: 1px solid $primary-color;
     }
   }
 
@@ -461,8 +461,8 @@ $dark-primary: $tag;
       }
 
       &:hover {
-        background: #111;
-        color: lighten($dark-primary, 10%);
+        // background: #111;
+        // color: lighten($dark-primary, 10%);
       }
     }
   }

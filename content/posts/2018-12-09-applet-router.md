@@ -6,6 +6,7 @@ thumbnail: '../thumbnails/applet.png'
 slug: applet-router
 categories:
   - Encapsulating
+  - Popular
 tags:
   - applet
   - mpvue

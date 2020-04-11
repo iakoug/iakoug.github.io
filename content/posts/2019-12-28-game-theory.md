@@ -5,7 +5,7 @@ template: post
 thumbnail: '../thumbnails/thinking.png'
 slug: game-theory
 categories:
-  - Prose
+  - Thinking
   - Popular
 tags:
   - methodology
@@ -17,7 +17,7 @@ tags:
 
 ### 虎羊草 🐅🐑🌱
 
-在动态规划中使用过虎羊草的例子 [动态规划和递归：从虎羊草开始](/post/2019-02-21-DynamicProgrammingAndRecursion)
+在动态规划中使用过虎羊草的例子 [动态规划和递归：从虎羊草开始](/dynamic-programming)
 草原上有 n 只老虎和 1 只羊，有如下规则：
 
 - 老虎只能吃羊（每次只能吃一只），羊只能吃草

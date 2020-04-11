@@ -5,8 +5,7 @@ template: post
 thumbnail: '../thumbnails/thinking.png'
 slug: irrational-number
 categories:
-  - Thing
-  - Popular
+  - Thinking
 tags:
   - math
 ---
