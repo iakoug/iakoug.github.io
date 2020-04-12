@@ -4,6 +4,20 @@
   min-height: calc(100vh - 162px);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+img,
+.category-filter,
+button,
+footer,
+.nav {
+  user-select: none!important;
+}
+
 @include small-breakpoint {
   #main-content {
     margin-top: 140px;

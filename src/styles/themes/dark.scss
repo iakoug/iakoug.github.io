@@ -8,6 +8,15 @@ $dark-primary: $tag;
   background: $background;
   color: $foreground;
 
+  .submit-message button {
+    color: $primary-color;
+
+    &:active,
+    &:focus {
+      color: $primary-color;
+    }
+  }
+
   a {
     // color: $dark-primary;
 
@@ -34,7 +43,7 @@ $dark-primary: $tag;
         background: transparent !important;
 
         &:hover {
-          color: darken($dark-primary, 15%);
+          color: darken($primary-color, 5%);
         }
       }
       &.patreon:not(.button):not(.anchor):not(.gatsby-resp-image-link) {
@@ -366,7 +375,7 @@ $dark-primary: $tag;
   #{$buttons} {
     color: white;
     border: 1px solid transparent;
-    background: darken($dark-primary, 30%) !important;
+    // background: darken($dark-primary, 30%) !important;
 
     &:disabled {
       cursor: default;
@@ -428,7 +437,7 @@ $dark-primary: $tag;
 
   .newsletter-section {
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: none;
+    box-shadow: 0px 24px 48px -8px rgba(0, 0, 0, 0.2), 0px 16px 32px -8px rgba(0, 0, 0, 0.22);
     a.button {
       background: #111 !important;
       color: $primary-color !important;
@@ -436,7 +445,8 @@ $dark-primary: $tag;
       &:focus,
       &:active {
         background: #080808 !important;
-        color: lighten($dark-primary, 10%) !important;
+        // color: #fff;
+        color: darken($primary-color, 5%) !important;
       }
     }
   }
