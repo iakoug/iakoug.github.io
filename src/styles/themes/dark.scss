@@ -9,7 +9,7 @@ $dark-primary: $tag;
   color: $foreground;
 
   .submit-message button {
-    color: $primary-color;
+    color: #fff;
 
     &:active,
     &:focus {
@@ -81,13 +81,13 @@ $dark-primary: $tag;
       border-bottom: 1px solid transparent;
 
       &:hover {
-        color: darken($dark-primary, 10%);
+        color: darken($primary-color, 10%);
         background: transparent;
       }
 
       &:active,
       &:focus {
-        color: darken($dark-primary, 10%);
+        color: darken($primary-color, 10%);
         background: transparent;
       }
     }
