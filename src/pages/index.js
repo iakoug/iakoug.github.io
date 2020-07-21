@@ -26,7 +26,7 @@ export default class Index extends Component {
 
     try {
       message = (await axios.post(api.message).catch(e => console.warn(e))).data.filter(Boolean).slice(-6)
-    } catch(e) {
+    } catch (e) {
       // console.warn(e)
     }
 
@@ -37,7 +37,7 @@ export default class Index extends Component {
 
   render() {
     const { data } = this.props
-    const {message} = this.state
+    const { message } = this.state
     const latestPostEdges = data.latest.edges
     const popularPostEdges = data.popular.edges
 
@@ -48,7 +48,7 @@ export default class Index extends Component {
         <div className="container">
           <div className="lead">
             <div className="elevator">
-              <h1>{`Hey, I'm christian 👋`} </h1>
+              <h1>{`Here is christian 🕵️`} </h1>
               <p>
                 I'm a front-end software developer creating{' '}
                 <a href="https://github.com/justwink" target="_blank" rel="noopener noreferrer">

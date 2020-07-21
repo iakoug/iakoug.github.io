@@ -48,7 +48,7 @@ pre code {
   word-spacing: normal;
   word-break: normal;
   line-height: 1.7;
-  font-weight: 400;
+  font-weight: 300;
   margin: 2rem 0;
   tab-size: 2;
   hyphens: none;
@@ -89,7 +89,7 @@ kbd {
 :not(pre) > code[class*='language-'] {
   padding: 3px 5px;
   color: #3c3f45;
-  font-weight: 500;
+  font-weight: 300;
   margin: 0 4px;
 }
 
@@ -97,7 +97,7 @@ kbd {
   padding: 3px 5px;
   border: none;
   font-family: $code-font-family;
-  font-weight: 500;
+  font-weight: 300;
   color: #3c3f45;
   border-radius: 4px;
   background: rgb(239,243,245);
