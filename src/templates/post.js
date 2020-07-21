@@ -65,7 +65,7 @@ export default class PostTemplate extends Component {
                 >
                   Share
                 </a>
-                /
+                {/* /
                 <a
                   className="github-link"
                   href={githubLink}
@@ -73,7 +73,7 @@ export default class PostTemplate extends Component {
                   rel="noopener noreferrer"
                 >
                   Edit ✏️
-                </a>
+                </a> */}
               </div>
               <PostTags tags={post.tags} />
             </div>
