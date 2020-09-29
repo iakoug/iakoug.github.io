@@ -191,7 +191,7 @@ const flatTree = format(...).reverse()
 // 	{ text: '1', tabSize: 0, id: 'nJCwvvptZuDAtiSCz9DjtL', children: [] }
 // ]
 ```
-最终调用 `formatController` 得到树形结构:
+最终调用 `formatController(flatTree)` 得到树形结构:
 ```js
 [
 	{
@@ -232,3 +232,10 @@ const flatTree = format(...).reverse()
 ];
 
 ```
+
+树形结构就很容易在业务中使用了（递归渲染级联关系）。
+写后端导出数据为Markdown文件时正好是将数据库级联字段深度优先遍历出来进行字符串的拼接以及写入文件；而将外部文件导入或者通过剪贴板粘贴时候又是将扁平字符串转为树形结构。
+
+一饮一啄皆是天定。
+
+## THE END
