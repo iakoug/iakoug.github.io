@@ -1,6 +1,6 @@
 ---
 date: 2020-09-27
-title: Technology sharing：从Axios源码解析到项目路由Crisp实践
+title: 知识迁移-Technology sharing：从Axios源码解析到项目路由Crisp实践
 template: post
 thumbnail: '../thumbnails/writing.png'
 slug: axios-crisp
@@ -65,7 +65,7 @@ axios.interceptors.response.use(
 8. Client side support for protecting against XSRF
 
 ## Implementation
-![axios-implementation.png](https://i.loli.net/2020/09/27/dqF8rCfQgOhcAL2.png)
+![axios-implementation.png](https://i.loli.net/2020/10/11/YeZXyThmkIWjdA8.png)
 
 ## Constructor
 
@@ -172,6 +172,11 @@ crisp.push({path: '#/question'})
 ```
 
 ## Compose
+
+- 链式（Axios interceptor 的Promises链，注意async）
+- 参数传递
+
+#### crisp compose
 ```js
 export const compose = (...middlewares) => (...args) =>
  (function dispatch(order = 0) {
@@ -181,8 +186,218 @@ export const compose = (...middlewares) => (...args) =>
  })()
 ```
 
-- 链式（Axios interceptor 的Promises链，注意async）
-- 参数传递
+#### banker compose
+```js
+import BubbleToast from '../components/bubbleToast'
+import {showBubbleTip, globalVar} from './showBubbleTip'
+import {Props as Config} from '../components/bubbleToast'
+
+import bubble7bans from '@img/bubble-7bans.png'
+
+const modalHandler = (next: () => void) => {
+  globalVar.closeBubbleTimer = setTimeout(BubbleToast.close, 3000)
+  globalVar.toastTimer = setTimeout(next, 4000)
+}
+
+const showBubbleTipHandler = (config: Config) => (next: () => void) =>
+  showBubbleTip(config) && modalHandler(next)
+
+const queue = [
+  showBubbleTipHandler({txt: '尊敬的行长，客户借款后您的奖励 T+1 日就可以提现了'}),
+  showBubbleTipHandler({txt: '尊敬的行长，您的银行需要更多的用户，快去邀请吧！'}),
+  showBubbleTipHandler({
+    title: '行长，您有 1 条新推送',
+    img: bubble7bans,
+    linkTxt: '贷款的7不准是啥 >',
+    href: `https://`,
+  }),
+]
+
+const compose = (queue: Function[]) => () =>
+  (function _(i = 0) {
+    return queue[i] && queue[i](() => _(i + 1))
+  })()
+
+export const bubbleQueue = compose(queue)
+
+```
+
+#### wolai compose
+```js
+// 富文本操作行为同步处理
+// 下一步操作依赖上一步返回结果
+export const compose = (...fns) => option =>
+  (function commit(idx = 0, preArg) {
+    if (fns[idx]) {
+      return fns[idx](
+        preArg || option,
+        // Next
+        arg => commit(idx + 1, arg),
+      )
+    }
+  })()
+```
+
+#### koa compose
+```js
+'use strict'
+
+/**
+ * Expose compositor.
+ */
+
+module.exports = compose
+
+/**
+ * Compose `middleware` returning
+ * a fully valid middleware comprised
+ * of all those which are passed.
+ *
+ * @param {Array} middleware
+ * @return {Function}
+ * @api public
+ */
+
+function compose (middleware) {
+  if (!Array.isArray(middleware)) throw new TypeError('Middleware stack must be an array!')
+  for (const fn of middleware) {
+    if (typeof fn !== 'function') throw new TypeError('Middleware must be composed of functions!')
+  }
+
+  /**
+   * @param {Object} context
+   * @return {Promise}
+   * @api public
+   */
+
+  return function (context, next) {
+    // last called middleware #
+    let index = -1
+    return dispatch(0)
+    function dispatch (i) {
+      if (i <= index) return Promise.reject(new Error('next() called multiple times'))
+      index = i
+      let fn = middleware[i]
+      if (i === middleware.length) fn = next
+      if (!fn) return Promise.resolve()
+      try {
+        return Promise.resolve(fn(context, dispatch.bind(null, i + 1)));
+      } catch (err) {
+        return Promise.reject(err)
+      }
+    }
+  }
+}
+```
+
+#### redux compose
+```js
+/**
+ * Composes single-argument functions from right to left. The rightmost
+ * function can take multiple arguments as it provides the signature for
+ * the resulting composite function.
+ *
+ * @param {...Function} funcs The functions to compose.
+ * @returns {Function} A function obtained by composing the argument functions
+ * from right to left. For example, compose(f, g, h) is identical to doing
+ * (...args) => f(g(h(...args))).
+ */
+
+export default function compose(...funcs) {
+  if (funcs.length === 0) {
+    return arg => arg
+  }
+
+  if (funcs.length === 1) {
+    return funcs[0]
+  }
+
+  return funcs.reduce((a, b) => (...args) => a(b(...args)))
+}
+```
+
+#### vue router
+```js
+// vue-router source code demo
+var queue = [].concat(
+  // in-component leave guards
+  extractLeaveGuards(deactivated),
+  // global before hooks
+  this.router.beforeHooks,
+  // in-component update hooks
+  extractUpdateHooks(updated),
+  // in-config enter guards
+  activated.map(function (m) { return m.beforeEnter; }),
+  // async components
+  resolveAsyncComponents(activated)
+);
+
+/*  */
+
+function runQueue (queue, fn, cb) {
+  var step = function (index) {
+    if (index >= queue.length) {
+      cb();
+    } else {
+      if (queue[index]) {
+        fn(queue[index], function () {
+          step(index + 1);
+        });
+      } else {
+        step(index + 1);
+      }
+    }
+  };
+  step(0);
+}
+```
+
+#### koa onion model implementation
+```js
+// a, b, c, d
+// a(b(c(d(c(b(a(...args)))))))
+
+// 构造 compose 函数（ctx 为 Koa 的上下文对象）
+const compose = ctx => async middlewares =>
+  // 接受函数队列借助 reduceRight 方法由由向左进行包装（这样才可以保证最外层函数是队列的第一个最先执行）
+  await middlewares.reduceRight(
+    (next, middleware) =>
+      // 从右向左将队列的每个函数包装为下一个函数的 next 开关
+      (next = ((ctx, middleware, oldNext) => async () =>
+        await middleware(ctx, oldNext))(ctx, middleware, next)),
+    async () => Promise.resolve()
+  )()
+
+
+const middlewares = [
+  async (ctx, next) => {
+    console.log(1)
+    await next()
+    console.log(2)
+  },
+  async (ctx, next) => {
+    console.log(3)
+    await next()
+    console.log(4)
+  },
+  async (ctx, next) => {
+    console.log(5)
+    await next()
+    console.log(6)
+  }
+]
+
+compose(null)(middlewares)
+
+// output:
+// 1
+// 3
+// 5
+// 6
+// 4
+// 2
+```
+
 
 ## Extra
 
