@@ -108,12 +108,10 @@ Axios.prototype.request = function request(config) {
  // ...
  var chain = [dispatchRequest, undefined];
  var promise = Promise.resolve(config);
- this.interceptors.request.forEach(function unshiftRequestInterceptors(inte
-rceptor) {
+ this.interceptors.request.forEach(function unshiftRequestInterceptors(interceptor) {
  chain.unshift(interceptor.fulfilled, interceptor.rejected);
  });
- this.interceptors.response.forEach(function pushResponseInterceptors(int
-erceptor) {
+ this.interceptors.response.forEach(function pushResponseInterceptors(interceptor) {
  chain.push(interceptor.fulfilled, interceptor.rejected);
  });
  while (chain.length) {
