@@ -11,7 +11,6 @@ tags:
 ---
 
 Technology sharing — Typescript进阶
-_技术分享_
 
 ---
 
@@ -21,7 +20,7 @@ _技术分享_
 
 TS的核心能力在于给JS提供静态类型检查，是有类型定义的 JS 的超集，包括 ES5、ES5+ 和其他一些诸如泛型、类型定义、命名空间等特征的集合。
 
-本次分享仅会针对类型声明部分配合示例（以及网上 DEMO）进行着重介绍，更详细的内容以及特性可以查看Typescript handbook。
+本次分享仅会针对类型声明部分配合示例（以及部分网上 DEMO）进行着重介绍，更详细的内容以及特性可以查看Typescript handbook。
 
 # Base abilities
 
@@ -77,13 +76,15 @@ TS的核心能力在于给JS提供静态类型检查，是有类型定义的 JS 
 
 - declare
 
-    - var/let/const/function/module/namespace/global
+    - var/let/const
 
-- interface/type/class/enum
+    - function/namespace/interface/type/class/enum/module
+
+    - global
 
 ### 声明合并
 
-**如果定义了两个相同名字的函数、接口或类，那么它们会合并成一个类型**
+如果定义了两个相同名字的函数、接口或类，那么它们会合并成一个类型
 
 - function
 
@@ -146,6 +147,16 @@ const Wangcai: Animal<'dog'> = {
 ```
 
 具体泛型的使用配合下面大量的示例
+
+# Conditional Types
+
+TypeScript 2.8 introduces conditional types which add the ability to express non-uniform type mappings. A conditional type selects one of two possible types based on a condition expressed as a type relationship test:
+
+```TypeScript
+T extends U ? X : Y
+```
+
+The type above means when T is assignable to U the type is X, otherwise the type is Y.
 
 # Let's move by a simple case
 
@@ -260,7 +271,7 @@ Lucia.luanguage = 'en' // pass
 
 表示在 extends 条件语句中待推断的类型变量
 
-> [https://github.com/Microsoft/TypeScript/pull/21496](https://github.com/Microsoft/TypeScript/pull/21496)
+> [infer](https://github.com/Microsoft/TypeScript/pull/21496)
 
 ```TypeScript
 type ParamType<T> = T extends (param: infer P) => any ? P : T;
@@ -284,17 +295,6 @@ type PICK<T, K extends keyof T> = {
 type A = PICK<Human, "age">; 
 ```
 
-#### REQUIRED_K
-
-```TypeScript
-type REQUIRED_K<T, K extends keyof T> = {
-  [P in K]-?: T[P];
-} &
-  OMIT<T, K>;
-  
-type E = REQUIRED_K<Human, "lover">; 
-```
-
 #### PARTIAL
 
 ```TypeScript
@@ -313,6 +313,45 @@ type REQUIRED<T> = {
 };
 
 type G = REQUIRED<Human>; 
+```
+
+#### REQUIRED_K
+
+```TypeScript
+type REQUIRED_K<T, K extends keyof T> = {
+  [P in K]-?: T[P];
+} &
+  OMIT<T, K>;
+  
+type E = REQUIRED_K<Human, "lover">; 
+```
+
+#### READONLY_RECURSIVE
+
+```TypeScript
+type SIG = {
+  key: {
+    key: {
+      key: any
+    }
+  }
+}
+
+type READONLY_RECURSIVE<T> = {
+  readonly [P in keyof T]: T[P] extends {[index: string]: any} ? READONLY_RECURSIVE<T[P]> : T[P];
+};
+
+
+const test: READONLY_RECURSIVE<SIG> = {
+  key: {
+    key: {
+      key: 123
+    }
+  }
+}
+
+test.key.key = 123 // err: Cannot assign to 'key' because it is a read-only property.ts(2540)
+
 ```
 
 #### RETURN & CONSTRUCTOR_P
@@ -373,7 +412,7 @@ type PROMISE<T = any> = {
 
 #### source code
 
-- 上面所有示例中除却 REQUIRED_K 和 OPTIONAL_K之外都是属于typescript lib.es5.d.ts官方库帮我们内置声明好的类型，便于平时一些快捷的使用
+- 上面所有示例中除却 REQUIRED_K、OPTIONAL_K和READONLY_RECURSIVE之外都是属于typescript lib.es5.d.ts官方库帮我们内置声明好的类型，便于平时一些快捷的使用
 
 ```TypeScript
 
@@ -483,23 +522,124 @@ type InstanceType<T extends new (...args: any) => any> = T extends new (...args:
 
 #### others
 
-此外还内置es5其他函数和方法以及数据类型等的声明如果mac vsc有安装typescript拓展可以借助vsc打开，具体路径在** /Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/lib.es5.d.ts**
+此外还内置es5其他函数和方法以及数据类型等的声明如果mac vsc有安装typescript拓展可以借助vsc打开，具体路径在** ****/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/lib.es5.d.ts**
 
 # 你可能需要了解的协变和逆变
 
 ---
 
-> [https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance](https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance)
+> [what-are-covariance-and-contravariance](https://www.stephanboyer.com/post/132/what-are-covariance-and-contravariance)
 
-我们允许一个函数类型中，返回值类型是协变的，而参数类型是逆变的。返回值类型是协变的，意思是 A ≼ B 就意味着 (T → A) ≼ (T → B) 。参数类型是逆变的，意思是 A ≼ B 就意味着 (B → T) ≼ (A → T) （ A 和 B 的位置颠倒过来了）。
+我们允许一个函数类型中，返回值类型是协变的，而参数类型是逆变的。返回值类型是协变的，意思是 A ≼ B 就意味着 (T → A) ≼ (T → B) 。参数类型是逆变的，意思是 A ≼ B 就意味着 (B → T) ≼ (A → T) （ A 和 B 的位置颠倒过来了）
+
+允许不变的列表（immutable）在它的参数类型上是协变的，但是对于可变的列表（mutable），其参数类型则必须是不变的（invariant），既不是协变也不是逆变
 
 **在 TypeScript 中， 参数类型是双向协变的 ，也就是说既是协变又是逆变的，而这并不安全。但是现在你可以在 TypeScript 2.6 版本中通过 --strictFunctionTypes 或 --strict 标记来修复这个问题。(***在 Java 中，数组既是可变的，又是协变的*。Unsafe)
 
-# 如何利用协变/逆变实现一个高级类型声明
+# 如何利用infer配合协变实现高级类型声明
 
 ---
 
-#### 联合类型转交叉类型：A | B => A & B
+### LeetCode的一道TS面试题
+
+> [https://github.com/LeetCode-OpenSource/hire/blob/master/typescript_zh.md](https://github.com/LeetCode-OpenSource/hire/blob/master/typescript_zh.md)
+
+假设有类型
+
+```TypeScript
+interface Action<T> {
+  payload?: T;
+  type: string;
+}
+
+class EffectModule {
+  count = 1;
+  message = "hello!";
+
+  delay(input: Promise<number>) {
+    return input.then(i => ({
+      payload: `hello ${i}!`,
+      type: 'delay'
+    }));
+  }
+
+  setMessage(action: Action<Date>) {
+    return {
+      payload: action.payload!.getMilliseconds(),
+      type: "set-message"
+    };
+  }
+}
+```
+
+经过 Connect 函数之后，返回值类型为
+
+```TypeScript
+type Result {
+  delay<T, U>(input: T): Action<U>;
+  setMessage<T, U>(action: T): Action<U>;
+}
+```
+
+从表面来看我们要做的有三点：
+
+1. delay<T, U>(input: Promise<T>): Promise<Action>  变成了 asyncMethod<T, U>(input: T): Action<U>
+2. setMessage<T, U>(action: Action<T>): Action  变成了 syncMethod<T, U>(action: T): Action<U>
+3. 去除了其他非函数的成员属性
+
+**step1：构造转换 1 和 2的函数也是最关键的一步**
+
+```TypeScript
+type Transform<T> = {
+  [K in keyof T]: T[K] extends ((input: Promise<infer P>) => Promise<{
+    payload: infer U;type:string
+  }>)
+    ? ((input: P) => Action<U>)
+    : T[K] extends ((action: Action<infer P>) => {
+        payload: infer U;
+        type:string
+      })
+    ?((action: P) => Action<U>)
+    : never;
+}
+
+type Temp = Transform<EffectModule>
+// type Temp = {
+//   count: never;
+//   message: never;
+//   delay: (input: number) => Action<string>;
+//   setMessage: (action: Date) => Action<number>;
+// }
+```
+
+**step2：构造工具函数将step1中得到的 never 类型的无关类型去除**
+
+1. 获取所有的key
+
+2. 通过元语法批量的联合类型的key索引出值联合类型value
+
+```TypeScript
+type OmitNever<T> = {
+  [K in keyof T]: T[K] extends Function? never: K
+}[keyof T];
+
+type temp = OmitNever<EffectModule>
+// type temp = "count" | "message"
+```
+
+**step3: 借助Omit移除step1中step2的key**
+
+```TypeScript
+type Connect<T> = Omit<Transform<T>, OmitNever<T>>;
+
+type Result = Connect<EffectModule>
+// type Result = {
+//   delay: (input: number) => Action<string>;
+//   setMessage: (action: Date) => Action<number>;
+// }
+```
+
+### 联合类型转交叉类型：A | B => A & B
 
 ```TypeScript
 type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends ((
@@ -511,7 +651,7 @@ type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
 
 1. 如果 extends 左边是联合类型，那么 TS 会把 extends 操作符左边的联合类型拆开做判断，这样就得到了很多个函数的联合。如果第一部分的输入是 A | B 那么输出是 `((k: A) => void) | ((k: B) => void)` 而不是 `(k: A|B) => void`
 
-2. 如果左边是一个函数，那就把它第一个参数的类型拿出来返回。
+2. 如果左边是一个函数，那就把它第一个参数的类型拿出来返回
 
 为什么 `((k: A) => void) | ((k: B) => void)` 的参数是 A & B？
 
@@ -522,6 +662,8 @@ P extends K 意味着所有 K 都可以无条件被 P 替换
 一个函数能被 `(k: A) => void 和 (k: B) => void` 无条件替换，那么那个函数接受的参数必然既是A又是B
 
 **Q: 根据 conditional type ****`((k: A) => void) | ((k: B) => void) `****不是应该被分开处理吗？如果分开处理那得到的结果依然会是 A | B**，那么又是为什么能够得出A & B呢？
+
+> [conditional-type](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types)
 
 extends 左边联合类型被拆开判断的情况只会出现在左边是一个类型参数的情况：大概就是 type F<T> = T extends any 的这个左边是会被拆开，而 type F = A | B extends any 的左边就不会被拆开。
 
@@ -535,7 +677,7 @@ type Intersection = UnionToIntersection<Union> // {age} & {number}
 type Intersection2 = UnionToIntersection<Union2> // never
 ```
 
-#### 联合类型转TUPLE：A | B => [A, B]
+### 联合类型转TUPLE：A | B => [A, B]
 
 主体的思路是递归的将联合类型的每一项取出来放入元组同时移除这一项，最后将递归结束后的元组返回；同时也要写一些基本的辅助函数：
 
@@ -560,13 +702,13 @@ type UnionToIoF<U> =
 
 ```
 
-**step2: **借助特性每次获取最后一个元素
+**step2: 借助特性每次获取最后一个元素**
 
 ```TypeScript
 type UnionPop<U> = UnionToIoF<U> extends (a: infer A) => void ? A : never;
 ```
 
-step3: 将获取的类型推入元组
+**step3: 将获取的类型推入元组**
 
 ```TypeScript
 type Prepend<U, T extends any[]> =
@@ -574,14 +716,14 @@ type Prepend<U, T extends any[]> =
 
 ```
 
-step4: 移除推入的类型
+**step4: 移除推入的类型**
 
 ```TypeScript
 // 借助内置类型 Exclude
 type Exclude<T, U> = T extends U ? never : T; 
 ```
 
-step5: 最后一步借助上面的工具函数写转换的递归
+**step5: 最后一步借助上面的工具函数写转换的递归**
 
 ```TypeScript
 type UnionToTupleRecursively<Union, Result extends any[]> = {
@@ -653,13 +795,13 @@ type Tuple = UnionToTuple<Union43>;
 
 除却本次分享之外TS还有很多其他相关的很多特性包括
 
-- 类型保护
+- 类型保护 typeof/instanceof/in
 
-- Flow type
+- Flow type 自动更新
 
-- Freshness
+- Freshness [严格的字面量类型检查](https://github.com/Microsoft/TypeScript/pull/3823)
 
-- 异常处理
+- 异常处理 Error/RangeError/RangeError...
 
 - 兼容
 
@@ -667,16 +809,18 @@ type Tuple = UnionToTuple<Union43>;
 
 以及更多高阶运用
 
-以下为一些ts相关知识，有兴趣可以深入研究（研究不动了
+以下为一些ts相关知识，有兴趣可以深入研究
 
-### 编译器
+### 编译原理
 
-- Scanner 扫描器（`scanner.ts`）
+- AST
 
-- Parser 解析器（`parser.ts`）
+- Scanner（`scanner.ts`）
 
-- Binder 绑定器（`binder.ts`）
+- Parser（`parser.ts`）
 
-- Checker 检查器（`checker.ts`）
+- Binder（`binder.ts`）
 
-- Emitter 发射器（`emitter.ts`）
+- Checker（`checker.ts`）
+
+- Emitter（`emitter.ts`）
