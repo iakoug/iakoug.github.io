@@ -15,7 +15,7 @@ export default class Footer extends Component {
             SinaWeibo
           </a>
           <Link to="/contact">Newsletter</Link>
-          <a href="https://justwink.cn/rss.xml" target="_blank" rel="noopener noreferrer">
+          <a href="https://kwoks.me/rss.xml" target="_blank" rel="noopener noreferrer">
             Rss
           </a>
         </div>

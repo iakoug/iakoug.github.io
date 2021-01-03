@@ -284,7 +284,7 @@ emit 是静态的而 on 才是依赖收集的地方 这个顺序不能变----一
 
 这样就确保了先收集了依赖再触发回调
 
-> [JS/Node 事件循环](https://justwink.cn/post/2019-03-07-EventLoop)
+> [JS/Node 事件循环](https://kwoks.me/post/2019-03-07-EventLoop)
 
 ### 你不知道的原生方法更多使用方式 JSON.parse、JSON.stringify、setTimeout
 

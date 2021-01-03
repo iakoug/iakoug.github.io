@@ -20,7 +20,7 @@ export default class Index extends Component {
   }
 
   componentDidMount = async () => {
-    // xhr.js:179 Mixed Content: The page at 'https://justwink.cn/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://47.100.219.10:7001/api/justwink/message_board'. This request has been blocked; the content must be served over HTTPS.
+    // xhr.js:179 Mixed Content: The page at 'https://kwoks.me/' was loaded over HTTPS, but requested an insecure XMLHttpRequest endpoint 'http://47.100.219.10:7001/api/justwink/message_board'. This request has been blocked; the content must be served over HTTPS.
     // 暂未给公网 IP 配置 SSL
     let message
 
@@ -74,7 +74,7 @@ export default class Index extends Component {
                 <p>
                   I write articles. Get an update when something new comes out by subscribe below!
                 </p>
-                <a className="button" href="https://justwink.cn/rss.xml">
+                <a className="button" href="https://kwoks.me/rss.xml">
                   Subscribe Rss
                 </a>
               </div>

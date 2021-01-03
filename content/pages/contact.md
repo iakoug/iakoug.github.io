@@ -19,4 +19,4 @@ If you have more about ideas, critiques, or you just want to say hi, don't hesit
 - **Telegram**: <a target="_blank" href="https://t.me/christiankwok">&nbsp;christiankwok&nbsp;</a>
 - **WeChat**: <a target="_blank" href="/wechat.jpeg">&nbsp;King1996728&nbsp;</a>
 - **NetEaseMusic**: <a target="_blank" href="https://music.163.com/#/user/home?id=65978744">&nbsp;yesidid&nbsp;</a>
-- **Feed**: <a target="_blank" href="https://justwink.cn/rss.xml">&nbsp;Rss&nbsp;</a>
+- **Feed**: <a target="_blank" href="https://kwoks.me/rss.xml">&nbsp;Rss&nbsp;</a>
