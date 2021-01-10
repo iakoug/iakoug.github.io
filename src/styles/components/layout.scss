@@ -15,7 +15,7 @@ img,
 button,
 footer,
 .nav {
-	user-select: none!important;
+	user-select: none !important;
 }
 
 @include small-breakpoint {
@@ -253,19 +253,12 @@ footer,
 			grid-template-columns: 50px 1fr 70px;
 			padding: 1rem 0;
 			margin: 0;
-			border: 1px solid transparent;
 
 			.date {
 				margin: 0;
 				font-size: 0.9rem;
 				color: rgba(0, 0, 0, 0.4);
 				font-weight: 300;
-			}
-		}
-
-		&:last-of-type {
-			.each {
-				border-bottom-color: transparent;
 			}
 		}
 	}
@@ -292,16 +285,9 @@ footer,
 				align-items: center;
 				padding: 0.5rem 0;
 				margin: 0;
-				border: 1px solid transparent;
 
 				&:hover {
 					background: white;
-				}
-			}
-
-			&:last-of-type {
-				.each {
-					border-bottom: 1px solid transparent !important;
 				}
 			}
 		}
@@ -342,7 +328,6 @@ footer,
 				align-items: start;
 				padding: 1.5rem 2rem;
 				margin: 0 -2rem;
-				border-bottom: 1px solid lighten($border-color, 12%);
 
 				&:hover {
 					border-radius: $border-radius;
@@ -378,10 +363,8 @@ footer,
 				.each {
 					padding: 0.75rem 1rem;
 					margin: 0 -1rem;
-					border-bottom: 1px solid lighten($border-color, 12%);
 
 					&:hover {
-						border: 1px solid $light;
 						background: $light;
 					}
 
@@ -464,7 +447,6 @@ h2.publication-company {
 		.each {
 			padding: 0.5rem 0;
 			margin: 0;
-			border: 1px solid transparent;
 			border-radius: $border-radius;
 
 			h2 {
@@ -487,7 +469,6 @@ h2.publication-company {
 			}
 
 			&:hover {
-				border: 1px solid $light;
 				background: $light;
 
 				h2 {
@@ -504,15 +485,9 @@ h2.publication-company {
 			.each {
 				padding: 0.75rem 1rem;
 				margin: 0 -1rem;
-				border-bottom: 1px solid lighten($border-color, 12%);
 
 				h2 {
 					font-size: 1.3rem;
-				}
-			}
-			&:last-of-type {
-				.each {
-					border-bottom: 1px solid transparent !important;
 				}
 			}
 		}
@@ -578,11 +553,6 @@ h2.publication-company {
 			display: flex;
 			justify-content: space-between;
 			padding: 1.5rem 0;
-			border-bottom: 1px solid #eee;
-
-			&:last-of-type {
-				border-bottom: none;
-			}
 		}
 
 		h2 {

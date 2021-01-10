@@ -56,7 +56,7 @@ export default class MessageBoard extends Component {
 					</div>
 					<div className="search-container search-container-value">
 						<textarea
-							style={{ fontFamily: 'Arial' }}
+							style={{ fontFamily: 'serif' }}
 							className="search"
 							type="text"
 							name="searchTerm"

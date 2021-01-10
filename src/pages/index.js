@@ -8,7 +8,7 @@ import Layout from '../layout'
 import PostListing from '../components/PostListing'
 import ProjectListing from '../components/ProjectListing'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
+// import config from '../../data/SiteConfig'
 import projects from '../../data/projects'
 import kwok from '../../content/images/profile.jpg'
 import api from '../../data/api'
@@ -42,14 +42,14 @@ export default class Index extends Component {
 
     return (
       <Layout>
-        <Helmet title={`${config.siteTitle} – strange site`} />
+        <Helmet title={`Just wink!`} />
         <SEO />
         <div className="container">
           <div className="lead">
             <div className="elevator">
               <h1>{`Hi!`} </h1>
               <p>
-                I'm a front-end software developer creating{' '}
+                Im a front-end software developer creating{' '}
                 <a href="https://github.com/justwink" target="_blank" rel="noopener noreferrer">
                   open source
                 </a>{' '}
@@ -115,39 +115,9 @@ export default class Index extends Component {
 export const pageQuery = graphql`
   query IndexQuery {
     latest: allMarkdownRemark(
-      limit: 5
+      limit: 10
       sort: { fields: [fields___date], order: DESC }
       filter: { frontmatter: { template: { eq: "post" } } }
-    ) {
-      edges {
-        node {
-          fields {
-            slug
-            date
-          }
-          excerpt
-          timeToRead
-          frontmatter {
-            title
-            tags
-            categories
-            thumbnail {
-              childImageSharp {
-                fixed(width: 150, height: 150) {
-                  ...GatsbyImageSharpFixed
-                }
-              }
-            }
-            date
-            template
-          }
-        }
-      }
-    }
-    popular: allMarkdownRemark(
-      limit: 9
-      sort: { fields: [fields___date], order: DESC }
-      filter: { frontmatter: { categories: { eq: "Popular" } } }
     ) {
       edges {
         node {
