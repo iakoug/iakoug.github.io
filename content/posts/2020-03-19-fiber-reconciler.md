@@ -2,7 +2,7 @@
 date: 2020-03-19
 title: Fiber reconciler
 template: post
-thumbnail: '../thumbnails/react.png'
+thumbnail: '../thumbnails/post.png'
 slug: fiber-reconciler
 categories:
   - Algorithm

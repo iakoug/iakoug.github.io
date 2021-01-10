@@ -2,7 +2,7 @@
 date: 2019-03-07
 title: Event loop - JS 特色之一是单线程，那所谓的基于事件的异步机制是什么
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/post.png'
 slug: event-loop
 categories:
   - Language

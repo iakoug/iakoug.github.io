@@ -2,7 +2,7 @@
 date: 2019-06-13
 title: Fetch concurrency - 封装一个请求并发控制的库
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/post.png'
 slug: fetch-concurrency
 categories:
   - Encapsulating

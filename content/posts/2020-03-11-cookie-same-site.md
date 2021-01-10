@@ -2,7 +2,7 @@
 date: 2020-03-11
 title: 一次客户端请求携带 Cookie 的 🐛 - Cookie set Same-Site
 template: post
-thumbnail: '../thumbnails/cookie.png'
+thumbnail: '../thumbnails/post.png'
 slug: cookie-same-site
 categories:
   - Tools

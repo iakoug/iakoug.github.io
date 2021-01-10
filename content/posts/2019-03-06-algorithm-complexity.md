@@ -2,7 +2,7 @@
 date: 2019-03-06
 title: Algorithm complexity - 算法复杂度
 template: post
-thumbnail: '../thumbnails/algorithm.png'
+thumbnail: '../thumbnails/post.png'
 slug: algorithm-complexity
 categories:
   - Algorithm

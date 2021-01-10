@@ -2,7 +2,7 @@
 date: 2020-09-27
 title: 知识迁移-Technology sharing：从Axios源码解析到项目路由Crisp实践
 template: post
-thumbnail: '../thumbnails/writing.png'
+thumbnail: '../thumbnails/post.png'
 slug: axios-crisp
 categories:
   - Thinking

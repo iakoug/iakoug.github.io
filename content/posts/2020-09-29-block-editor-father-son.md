@@ -2,7 +2,7 @@
 date: 2020-09-29
 title: 块编辑器：解析文本缩进父子关系还原深度优先遍历算法
 template: post
-thumbnail: '../thumbnails/algorithm.png'
+thumbnail: '../thumbnails/post.png'
 slug: block-editor-depth-first
 categories:
   - Algorithm

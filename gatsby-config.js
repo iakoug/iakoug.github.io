@@ -99,7 +99,7 @@ module.exports = {
         setup(ref) {
           const ret = ref.query.site.siteMetadata.rssMetadata
           ret.allMarkdownRemark = ref.query.allMarkdownRemark
-          ret.generator = 'christian kwok'
+          ret.generator = 'kwok'
           return ret
         },
         query: `
@@ -163,7 +163,7 @@ module.exports = {
             }
           `,
             output: config.siteRss,
-            title: 'christian kwok - Rss Feed',
+            title: 'kwok - Rss Feed',
           },
         ],
       },

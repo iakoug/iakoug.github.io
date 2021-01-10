@@ -39,7 +39,6 @@ export default class Index extends Component {
     const { data } = this.props
     const { message } = this.state
     const latestPostEdges = data.latest.edges
-    const popularPostEdges = data.popular.edges
 
     return (
       <Layout>
@@ -91,16 +90,6 @@ export default class Index extends Component {
               </Link>
             </h2>
             <PostListing simple postEdges={latestPostEdges} />
-          </section>
-
-          <section className="section">
-            <h2>
-              Most Popular
-              <Link to="/categories/popular" className="view-all">
-                View all
-              </Link>
-            </h2>
-            <PostListing simple postEdges={popularPostEdges} />
           </section>
 
           <section className="section">

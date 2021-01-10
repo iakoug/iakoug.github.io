@@ -2,7 +2,7 @@
 date: 2019-03-12
 title: Interesting js
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/post.png'
 slug: interesting-js
 categories:
   - Language

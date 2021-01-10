@@ -2,7 +2,7 @@
 date: 2019-03-11
 title: Pay attention to those js - 你应该注意的那些JS（相关）
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/post.png'
 slug: pay-attention-to-these-js
 categories:
   - Issues

@@ -1,7 +1,7 @@
 const config = {
-  siteTitle: 'christian',
-  siteTitleShort: 'christian kwok',
-  siteTitleAlt: 'christian kwok',
+  siteTitle: '',
+  siteTitleShort: 'Kwok',
+  siteTitleAlt: 'Kwok',
   siteLogo: '/logos/logo-1024.png',
   siteUrl: 'https://kwoks.me',
   repo: 'https://github.com/justwink/justwink.github.io',

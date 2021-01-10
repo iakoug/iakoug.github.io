@@ -2,7 +2,7 @@
 date: 2020-11-08
 title: Typescript基础到进阶
 template: post
-thumbnail: '../thumbnails/typescript.png'
+thumbnail: '../thumbnails/post.png'
 slug: typescript
 categories:
   - typescript

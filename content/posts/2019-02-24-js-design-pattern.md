@@ -2,7 +2,7 @@
 date: 2019-02-24
 title: JS design pattern - JS 常用的设计模式
 template: post
-thumbnail: '../thumbnails/js.png'
+thumbnail: '../thumbnails/post.png'
 slug: js-design-pattern
 categories:
   - Language

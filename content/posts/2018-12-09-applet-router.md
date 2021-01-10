@@ -2,7 +2,7 @@
 date: 2018-12-09
 title: Applet router - 小程序的路由封装
 template: post
-thumbnail: '../thumbnails/applet.png'
+thumbnail: '../thumbnails/post.png'
 slug: applet-router
 categories:
   - Encapsulating

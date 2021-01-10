@@ -35,7 +35,7 @@ $link-hover-color: darken($link-color, 10%);
 $highlight: #ffeea8;
 $error: #d33c40;
 $bq-border: 16px solid #f0f0f0;
-$code: Roboto Mono;
+$code: serif;
 
 /* Typography */
 
@@ -47,13 +47,13 @@ $font-variant: normal;
 $font-weight: normal;
 $font-color: #454545;
 $light-font-color: rgba(0, 0, 0, 0.6);
-$font-family: Helvetica Neue, 'Roboto', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+$font-family: serif;
 $line-height: 1.6;
 
 // Headings
 $heading-font-color: #111;
 $heading-font-weight: 400;
-$heading-font-family: 'Roboto', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+$heading-font-family: serif;
 $heading-line-height: 1.3;
 
 // Mobile heading font size
@@ -93,7 +93,7 @@ $button-background: $primary-color;
 $button-background-hover: darken($primary-color, 15%);
 $button-color: white;
 $button-font-weight: 400;
-$button-font-family: Helvetica Neue, 'Roboto', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+$button-font-family: serif;
 $button-font-size: 1.1rem;
 $button-border-width: 2px;
 $button-border-style: solid;
@@ -131,7 +131,7 @@ $code-family: Menlo;
 $code-background: transparent;
 $code-borders: $borders;
 
-$code-font-family: Menlo, 'Roboto Mono', Courier New;
+$code-font-family: serif;
 $code-font-color: #3c3f45;
 $string: #92d192;
 $variable: #f2777a;
