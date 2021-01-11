@@ -72,7 +72,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: config.siteTitle,
+        name: config.siteTitle || 'justwink', // Not allowed empty name
         short_name: config.siteTitleShort,
         description: config.siteDescription,
         start_url: config.pathPrefix,
