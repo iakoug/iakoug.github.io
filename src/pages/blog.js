@@ -64,7 +64,7 @@ export default class BlogPage extends Component {
         <Helmet title={`Articles – ${config.siteTitle}`} />
         <SEO />
         <div className="container">
-          <h1>Articles</h1>
+          {/* <h1>Articles</h1> */}
           <div className="category-container">
             {categories.map(category => {
               const active = currentCategories.includes(category.fieldValue)

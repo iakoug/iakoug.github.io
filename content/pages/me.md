@@ -1,14 +1,14 @@
 ---
-title: About me
+title: 
 slug: me
 template: page
 ---
 
 I’m christian kwok, a front-end developer, technical writer. I learn in public and write about everything I know.
 
-I aim to create a beautiful corner of the web, it's not sina, qzone, post bar of baidu, this site is more like a little territory of my own, and I'm willing to work quietly on it to satisfy my sense of belonging, and far away of the annoying noise we're so accustomed to seeing on the internet these days.
+Anything else...
 
-### christian:
+### Christian:
 
 - 💻 works full-time as a front-end engineer
 - 📝 loves write some prose
@@ -26,7 +26,7 @@ A non-exhaustive list.
 
 - <a href="https://elegantyu.github.io" target="_blank">&nbsp;Elegant yu&nbsp;</a>
 
-## Open Source Projects
+## Projects
 - <a target="_blank" href="https://github.com/justwink/babel-plugin-authkit">&nbsp;babel-plugin-authkit&nbsp;</a> – A plugin that make import on demand
 - <a target="_blank" href="https://github.com/justwink/world-of-tanks">&nbsp;world-of-tanks&nbsp;</a> – A simple game of webpage that use the native javaScript
 - <a target="_blank" href="https://github.com/justwink/tree-md-cli">&nbsp;tree-md-cli&nbsp;</a> – Generate a tree markdown file according to a specified directory
