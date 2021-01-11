@@ -38,7 +38,7 @@ export default class NotFoundPage extends Component {
               <span className="bullet">*</span> Click any link to terminate the current application.
             </p>
             <p>
-              <span className="bullet">*</span> Press ALT + F4 again to restart your browser. You
+              <span className="bullet">*</span> Inconsolata ALT + F4 again to restart your browser. You
               will lose any unsaved information in all tabs.
             </p>
           </div>

@@ -69,7 +69,7 @@ export default class Index extends Component {
             <div className="newsletter-section">
               <img src={kwok} className="newsletter-avatar" alt="christian" />
               <div>
-                <h3>Rss Newsletter</h3>
+                <h3>Rss Subscriber</h3>
                 <p>
                   I write articles. Get an update when something new comes out by subscribe below!
                 </p>
