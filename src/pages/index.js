@@ -99,7 +99,7 @@ export default class Index extends Component {
                 View all
               </Link>
             </h2> */}
-            <PostListing simple postEdges={latestPostEdges} />
+            <PostListing simple postEdges={latestPostEdges} showNext={{}} />
           </section>
 
           <section className="section">

@@ -23,7 +23,7 @@ export default class PostListing extends Component {
   }
 
   render() {
-    const { simple } = this.props;
+    const { simple, showNext } = this.props;
     const postList = this.getPostList();
 
     return (
@@ -60,9 +60,11 @@ export default class PostListing extends Component {
             </Link>
           );
         })}
-        <Link to="/blog" className="view-all" style={{margin: '10px 50px'}}>
-          Next 😃
-        </Link>
+        {showNext && (
+          <Link to="/blog" className="view-all" style={{ margin: "10px 50px" }}>
+            Next 😃
+          </Link>
+        )}
       </section>
     );
   }
