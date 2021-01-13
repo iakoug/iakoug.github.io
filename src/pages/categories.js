@@ -4,7 +4,6 @@ import { Link, graphql } from 'gatsby'
 import kebabCase from 'lodash.kebabcase'
 import Layout from '../layout'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
 
 export default class CategoriesPage extends Component {
   render() {
@@ -14,7 +13,7 @@ export default class CategoriesPage extends Component {
     return (
       <Layout>
         <SEO />
-        <Helmet title={`Categories – ${config.siteTitle}`} />
+        <Helmet title={`Categories`} />
         <div className="container">
           <h1>Categories</h1>
           <div className="tag-container">

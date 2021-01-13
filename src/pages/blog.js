@@ -4,7 +4,6 @@ import { graphql } from 'gatsby'
 import Layout from '../layout'
 import PostListing from '../components/PostListing'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
 
 export default class BlogPage extends Component {
   state = {
@@ -61,7 +60,7 @@ export default class BlogPage extends Component {
 
     return (
       <Layout>
-        <Helmet title={`Articles – ${config.siteTitle}`} />
+        <Helmet title={`Articles`} />
         <SEO />
         <div className="container">
           {/* <h1>Articles</h1> */}

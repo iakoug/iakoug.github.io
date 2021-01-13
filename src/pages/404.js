@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import ThemeContext from '../context/ThemeContext'
 import Layout from '../layout'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
 
 export default class NotFoundPage extends Component {
   static contextType = ThemeContext
@@ -23,7 +22,7 @@ export default class NotFoundPage extends Component {
   render() {
     return (
       <Layout>
-        <Helmet title={`Page not found – ${config.siteTitle}`} />
+        <Helmet title={`Page not found`} />
         <SEO />
         <div className="container">
           <div className="text-center">

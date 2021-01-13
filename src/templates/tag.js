@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../layout'
 import PostListing from '../components/PostListing'
-import config from '../../data/SiteConfig'
 
 export default class TagTemplate extends Component {
   render() {
@@ -12,7 +11,7 @@ export default class TagTemplate extends Component {
 
     return (
       <Layout>
-        <Helmet title={`Posts tagged as "${tag}" – ${config.siteTitle}`} />
+        <Helmet title={`Posts tagged as "${tag}"`} />
         <div className="container">
           <h1>
             Posts tagged as <u>{tag}</u>

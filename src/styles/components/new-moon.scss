@@ -19,7 +19,7 @@ pre.language-terminal code.language-terminal {
   color: #333;
 
   &::before {
-    content: '\2022 \2022 \2022';
+    content: "\2022 \2022 \2022";
     position: absolute;
     top: 0;
     left: 0;
@@ -36,8 +36,8 @@ pre.language-terminal code.language-terminal {
   }
 }
 
-code[class*='language-'],
-pre[class*='language-'],
+code[class*="language-"],
+pre[class*="language-"],
 pre code {
   font-family: $code-font-family;
   font-size: 14px;
@@ -53,7 +53,7 @@ pre code {
   tab-size: 2;
   hyphens: none;
   border-radius: $border-radius;
-  -webkit-font-smoothing:  antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Code blocks */
@@ -62,10 +62,10 @@ pre code {
   display: block;
   padding: 1.5rem;
   overflow: auto;
-  // background-color: #333;
   border: 0;
-  border: 1px solid #d1d5da;
-  // box-shadow: 2px 4px 25px rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 12px 24px -8px rgba(0, 0, 0, 0.2),
+    0px 8px 0px -8px rgba(0, 0, 0, 0.22);
 }
 
 // Keyboard input
@@ -86,7 +86,7 @@ kbd {
 
 /* Inline code */
 
-:not(pre) > code[class*='language-'] {
+:not(pre) > code[class*="language-"] {
   padding: 3px 5px;
   color: #3c3f45;
   font-weight: 300;
@@ -100,14 +100,14 @@ kbd {
   font-weight: 300;
   color: #3c3f45;
   border-radius: 4px;
-  background: rgb(239,243,245);
+  background: rgb(239, 243, 245);
   margin: 0 4px;
 }
 
-code[class*='language-css'],
-code[class*='language-scss'],
-code[class*='language-less'],
-code[class*='language-sass'] {
+code[class*="language-css"],
+code[class*="language-scss"],
+code[class*="language-less"],
+code[class*="language-sass"] {
   color: #cc99cc;
 }
 
@@ -125,8 +125,8 @@ code[class*='language-sass'] {
 @include small-breakpoint {
   code,
   pre.language-terminal code.language-terminal,
-  code[class*='language-'],
-  pre[class*='language-'],
+  code[class*="language-"],
+  pre[class*="language-"],
   pre code {
     font-size: 14px;
     line-height: 28px;
@@ -312,19 +312,19 @@ code::selection {
   background: rgba(150, 150, 150, 0.3) !important;
 }
 
-pre[class*='language-']::-moz-selection,
-pre[class*='language-']::-moz-selection,
-code[class*='language-'] ::-moz-selection,
-code[class*='language-'] ::-moz-selection {
+pre[class*="language-"]::-moz-selection,
+pre[class*="language-"]::-moz-selection,
+code[class*="language-"] ::-moz-selection,
+code[class*="language-"] ::-moz-selection {
   text-shadow: none;
   color: inherit;
   background: rgba(150, 150, 150, 0.3) !important;
 }
 
-pre[class*='language-']::selection,
-pre[class*='language-']::selection,
-code[class*='language-'] ::selection,
-code[class*='language-'] ::selection {
+pre[class*="language-"]::selection,
+pre[class*="language-"]::selection,
+code[class*="language-"] ::selection,
+code[class*="language-"] ::selection {
   text-shadow: none;
   color: inherit;
   background: rgba(150, 150, 150, 0.3) !important;

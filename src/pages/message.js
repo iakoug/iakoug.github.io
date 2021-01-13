@@ -4,7 +4,6 @@ import axios from 'axios';
 
 import Layout from '../layout';
 import SEO from '../components/SEO';
-import config from '../../data/SiteConfig';
 import api from '../../data/api';
 
 export default class MessageBoard extends Component {
@@ -40,7 +39,7 @@ export default class MessageBoard extends Component {
 	render() {
 		return (
 			<Layout>
-				<Helmet title={`Message board – ${config.siteTitle}`} />
+				<Helmet title={`Message board`} />
 				<SEO />
 				<div className="container message-board">
 					<h2>Message board</h2>

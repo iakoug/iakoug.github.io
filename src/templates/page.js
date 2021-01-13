@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../layout'
 import SEO from '../components/SEO'
-import config from '../../data/SiteConfig'
 
 export default class PageTemplate extends Component {
   render() {
@@ -18,7 +17,7 @@ export default class PageTemplate extends Component {
     return (
       <Layout>
         <Helmet>
-          <title>{`${page.title} – ${config.siteTitle}`}</title>
+          <title>{`${page.title}`}</title>
         </Helmet>
         <SEO postPath={slug} postNode={postNode} postSEO />
         <div className="container">

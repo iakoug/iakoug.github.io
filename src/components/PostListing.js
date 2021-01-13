@@ -62,7 +62,7 @@ export default class PostListing extends Component {
         })}
         {showNext && (
           <Link to="/blog" className="view-all" style={{ margin: "10px 50px" }}>
-            Next 😃
+            😃
           </Link>
         )}
       </section>

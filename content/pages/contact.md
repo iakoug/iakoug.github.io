@@ -1,5 +1,5 @@
 ---
-title: 
+title: Contact
 slug: contact
 template: page
 ---

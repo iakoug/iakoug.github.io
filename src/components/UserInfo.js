@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import kwok from '../../content/images/profile.jpg'
+import React, { Component } from "react";
+import kwok from "../../content/images/profile.jpg";
 
 export default class UserInfo extends Component {
   render() {
@@ -13,14 +13,26 @@ export default class UserInfo extends Component {
             <div>
               <p>
                 I’m chriatian kwok. I document everything I learn.
-                <strong>
-                  My site has no ads, sponsors, or bullshit.
-                </strong>
+                <strong>Thanks for your reading or comment.</strong>
+              </p>
+              <p>
+                I am currently working with Bytedance front-end architecture
+                infrastructure experience. If you are considering any job
+                opportunities,{" "}
+                {/* eslint-disable-next-line react/jsx-no-target-blank */}
+                <a
+                  target="_blank"
+                  href="mailto:rollawaypoint@gmail.com"
+                  style={{ color: "yellow" }}
+                >
+                  please contact me
+                </a>
+                .
               </p>
             </div>
           </div>
         </div>
       </aside>
-    )
+    );
   }
 }

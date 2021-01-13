@@ -3,7 +3,6 @@ import Helmet from 'react-helmet'
 import { graphql } from 'gatsby'
 import Layout from '../layout'
 import PostListing from '../components/PostListing'
-import config from '../../data/SiteConfig'
 
 export default class CategoryTemplate extends Component {
   render() {
@@ -12,7 +11,7 @@ export default class CategoryTemplate extends Component {
 
     return (
       <Layout>
-        <Helmet title={`Posts in category "${category}" – ${config.siteTitle}`} />
+        <Helmet title={`Posts in category "${category}"`} />
         <div className="container">
           <h1>{category}</h1>
           <PostListing postEdges={postEdges} />
