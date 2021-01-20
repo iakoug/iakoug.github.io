@@ -6,10 +6,10 @@ import axios from "axios";
 
 import Layout from "../layout";
 import PostListing from "../components/PostListing";
-import ProjectListing from "../components/ProjectListing";
+// import ProjectListing from "../components/ProjectListing";
 import SEO from "../components/SEO";
 // import config from '../../data/SiteConfig'
-import projects from "../../data/projects";
+// import projects from "../../data/projects";
 import kwok from "../../content/images/profile.jpg";
 import api from "../../data/api";
 import quotes from "../../data/quotes";
@@ -102,11 +102,11 @@ export default class Index extends Component {
             <PostListing simple postEdges={latestPostEdges} showNext={{}} />
           </section>
 
-          <section className="section">
-            {/* <h2>Open Source Projects</h2> */}
-            <hr />
-            <ProjectListing projects={projects} />
-          </section>
+          {/* <section className="section"> */}
+          {/* <h2>Open Source Projects</h2> */}
+          {/* <hr /> */}
+          {/* <ProjectListing projects={projects} /> */}
+          {/* </section> */}
         </div>
         <div className="quotations-section">
           <div className="quotations">
