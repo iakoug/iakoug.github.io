@@ -1,4 +1,5 @@
 #!/bin/sh
+npm run build
 cd public
 touch CNAME
 echo 'kwoks.me' > CNAME
