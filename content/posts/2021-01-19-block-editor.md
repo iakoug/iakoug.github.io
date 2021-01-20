@@ -53,10 +53,13 @@ Block editor.
 ### 基本块
 
 ```ts
+type BaseType = "page" | "bullet-list" | "order-list" | "text"| "code" | "hr" | "quote"; // ...
+
 interface BaseBlock {
-  type: "page" | "bullet-list" | "order-list" | "text"| "code" | "hr" | "quote"; // ...
+  type: BaseType;
+  parent_type: BaseType | 'column';
   id: string;
-  parent: string;
+  parent_id: string;
   content: string;
   children?: BaseBlock[];
   ...
@@ -68,8 +71,9 @@ interface BaseBlock {
 ```ts
 interface Column {
   type: "column";
+  parent_type: 'row';
   id: string;
-  parent: string;
+  parent_id: string;
   children: BaseBlock[];
   ...
 }
@@ -80,8 +84,9 @@ interface Column {
 ```ts
 interface Row {
   type: "row";
+  parent_type: 'page';
   id: string;
-  parent: string;
+  parent_id: string;
   children: Column[];
   ...
 }
