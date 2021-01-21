@@ -92,6 +92,136 @@ interface Row {
 }
 ```
 
-# 设计
+# 设计流程草图
 
 ![](../postImgs/block-editor-structs.png)
+
+# 编辑区
+
+### contentEditable
+
+- dangerouslySetInnerHTML
+
+### 快捷输入菜单匹配
+
+- 兼容中文输入法
+
+### 获取光标位置
+
+```ts
+const getSelectionCoords = () => {
+  const doc = window.document;
+  let sel,
+    range,
+    rects,
+    rect,
+    x = 0,
+    y = 0;
+  if (window.getSelection) {
+    sel = window.getSelection();
+    if (sel.rangeCount) {
+      range = sel.getRangeAt(0).cloneRange();
+      if (range.getClientRects) {
+        range.collapse(true);
+        rects = range.getClientRects();
+        if (rects.length > 0) {
+          rect = rects[0];
+        }
+        x = rect?.left;
+        y = rect?.top;
+      }
+      if ((x === 0 && y === 0) || rect === undefined) {
+        const span = doc.createElement("span");
+        if (span.getClientRects) {
+          // Ensure span has dimensions and position by
+          // adding a zero-width space character
+          span.appendChild(doc.createTextNode("\u200b"));
+          range.insertNode(span);
+          rect = span.getBoundingClientRect();
+          x = rect?.left;
+          y = rect?.top;
+          const spanParent = span.parentNode;
+          spanParent.removeChild(span);
+
+          // Glue any broken text nodes back together
+          spanParent.normalize();
+        }
+      }
+    }
+  }
+  return { xPos: x, yPos: y };
+};
+
+const setCursorPosByCoords = (ele, x, y) => {
+  let range, node, offset;
+  if (document.caretPositionFromPoint) {
+    range = document.caretPositionFromPoint(x, y);
+    if (range) {
+      node = range.offsetNode;
+      offset = range.offset;
+      this.setCursorPos(node, offset);
+      ele?.focus(); // 有些场景下，新建node节点的事件会无法触发，需要手动focus
+    }
+  }
+};
+
+// 定位光标 此外需要针对不同块的dom结构进行适配
+const setCursorPos = (startNode, offset) => {
+  const selection = document.getSelection();
+  const range = document.createRange();
+  range.setStart(
+    startNode,
+    !startNode.length || startNode.length > offset ? offset : startNode.length
+  );
+  range.collapse(true);
+  selection.removeAllRanges();
+  selection.addRange(range);
+};
+```
+
+### render 输入的文本
+
+# Transform
+
+将扁平结构转为树形结构
+
+```ts
+// 伪代码
+const transform = (type, ...) => {
+  switch (type) {
+    case 'init': return { children: transform('row', ...) }
+    case 'row': return transform('column', ...)
+    case 'column': return transform('node', ...)
+    case 'node': return transform('node', ...)
+  }
+}
+```
+
+# Render
+
+```tsx
+// 伪代码
+class App {
+  renderNode = () => <></>;
+  renderColumn = () => this.renderNode();
+  renderRow = () => this.renderColumn();
+  renderPage = () => this.renderRow();
+  render = () => this.renderPage();
+}
+```
+
+# Markdown
+
+- 将多行字符串分割成
+
+# Undo redo
+
+# 拖拽释放
+
+# IndexDB
+
+# push
+
+```
+
+```
