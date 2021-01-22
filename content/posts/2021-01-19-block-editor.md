@@ -14,13 +14,16 @@ Block editor.
 
 ---
 
-# 基本概念
+# Intro
 
 区分于传统的富文本编辑器，定义块的概念，编辑区内每部分内容由**块**拼接而成
 
 从作用上分为内容块和结构块
 
-### 内容块
+# Blocks
+![](../postImgs/Block editor page.png)
+
+### Content block
 
 用来展示内容，作为页面内容的载体
 
@@ -33,7 +36,7 @@ Block editor.
 - 页面
   ...
 
-### 结构块
+### Structural block
 
 用来固定页面的结构，作为页面内容的骨架
 
@@ -43,14 +46,14 @@ Block editor.
 
 > 页面块时一个特殊的容器，本身是内容的一部分，同时也是作为结构承载级联的内容
 
-### 关于行列页面的结构的简单规范
+### Basic norm
 
 1. 页面块可以成为任意节点的子节点同时是当前编辑器页面的根节点出现
 2. 行列结构块的定义出于美观和数据结构规范不允许嵌套（当然也是可以嵌套）
 3. 行块仅能作为当前页面（参见第一条）的子节点出现，不允许成为其他类型块的子节点
 4. 列块仅能作为行块的子节点出现，不允许成为其他类型块的子节点
 
-### 基本块
+### Basic block
 
 ```ts
 type BaseType = "page" | "bullet-list" | "order-list" | "text"| "code" | "hr" | "quote"; // ...
@@ -66,7 +69,7 @@ interface BaseBlock {
 }
 ```
 
-### 列
+### Column
 
 ```ts
 interface Column {
@@ -79,7 +82,7 @@ interface Column {
 }
 ```
 
-### 行
+### Row
 
 ```ts
 interface Row {
@@ -92,9 +95,13 @@ interface Row {
 }
 ```
 
-# 设计流程草图
+# Operations
 
-![](../postImgs/block-editor-structs.png)
+# Transactions
+
+# Work flow
+
+![](../postImgs/Block editor work flow.png)
 
 # 编辑区
 
@@ -102,55 +109,13 @@ interface Row {
 
 - dangerouslySetInnerHTML
 
-### 快捷输入菜单匹配
-
-- 兼容中文输入法
-
 ### 获取光标位置
 
 ```ts
-const getSelectionCoords = () => {
-  const doc = window.document;
-  let sel,
-    range,
-    rects,
-    rect,
-    x = 0,
-    y = 0;
-  if (window.getSelection) {
-    sel = window.getSelection();
-    if (sel.rangeCount) {
-      range = sel.getRangeAt(0).cloneRange();
-      if (range.getClientRects) {
-        range.collapse(true);
-        rects = range.getClientRects();
-        if (rects.length > 0) {
-          rect = rects[0];
-        }
-        x = rect?.left;
-        y = rect?.top;
-      }
-      if ((x === 0 && y === 0) || rect === undefined) {
-        const span = doc.createElement("span");
-        if (span.getClientRects) {
-          // Ensure span has dimensions and position by
-          // adding a zero-width space character
-          span.appendChild(doc.createTextNode("\u200b"));
-          range.insertNode(span);
-          rect = span.getBoundingClientRect();
-          x = rect?.left;
-          y = rect?.top;
-          const spanParent = span.parentNode;
-          spanParent.removeChild(span);
-
-          // Glue any broken text nodes back together
-          spanParent.normalize();
-        }
-      }
-    }
-  }
-  return { xPos: x, yPos: y };
-};
+const sel = window.getSelection();
+range = sel.getRangeAt(0).cloneRange();
+range.collapse(true);
+const { x, y } = range.getClientRects();
 
 const setCursorPosByCoords = (ele, x, y) => {
   let range, node, offset;
@@ -160,12 +125,10 @@ const setCursorPosByCoords = (ele, x, y) => {
       node = range.offsetNode;
       offset = range.offset;
       this.setCursorPos(node, offset);
-      ele?.focus(); // 有些场景下，新建node节点的事件会无法触发，需要手动focus
     }
   }
 };
 
-// 定位光标 此外需要针对不同块的dom结构进行适配
 const setCursorPos = (startNode, offset) => {
   const selection = document.getSelection();
   const range = document.createRange();
@@ -186,7 +149,6 @@ const setCursorPos = (startNode, offset) => {
 将扁平结构转为树形结构
 
 ```ts
-// 伪代码
 const transform = (type, ...) => {
   switch (type) {
     case 'init': return { children: transform('row', ...) }
@@ -200,7 +162,6 @@ const transform = (type, ...) => {
 # Render
 
 ```tsx
-// 伪代码
 class App {
   renderNode = () => <></>;
   renderColumn = () => this.renderNode();
@@ -216,12 +177,12 @@ class App {
 
 # Undo redo
 
+![](../postImgs/Block editor undoRedo.png)
+
 # 拖拽释放
 
 # IndexDB
 
+![](../postImgs/Block editor IndexDB.png)
+
 # push
-
-```
-
-```
