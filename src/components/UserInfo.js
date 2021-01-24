@@ -15,20 +15,8 @@ export default class UserInfo extends Component {
                 I’m chriatian kwok. I document everything I learn.
                 <strong>Thanks for your reading or comment.</strong>
               </p>
-              <p>
-                I am currently working with Bytedance front-end architecture
-                infrastructure experience. If you are considering any job
-                opportunities,{" "}
-                {/* eslint-disable-next-line react/jsx-no-target-blank */}
-                <a
-                  target="_blank"
-                  href="mailto:rollawaypoint@gmail.com"
-                  style={{ color: "yellow" }}
-                >
-                  please contact me
-                </a>
-                .
-              </p>
+
+              <p style={{ textAlign: "right" }}>- Cyberholic！</p>
             </div>
           </div>
         </div>
