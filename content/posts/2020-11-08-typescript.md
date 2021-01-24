@@ -2,7 +2,7 @@
 date: 2020-11-08
 title: Typescript基础到进阶
 template: post
-thumbnail: '../thumbnails/post.png'
+thumbnail: "../thumbnails/post.png"
 slug: typescript
 categories:
   - typescript
@@ -10,7 +10,9 @@ tags:
   - typescript
 ---
 
-Technology sharing — Typescript进阶
+Technology sharing — Typescript 进阶
+
+Ts version 4.0.5
 
 ---
 
@@ -18,9 +20,9 @@ Technology sharing — Typescript进阶
 
 ---
 
-TS的核心能力在于给JS提供静态类型检查，是有类型定义的 JS 的超集，包括 ES5、ES5+ 和其他一些诸如泛型、类型定义、命名空间等特征的集合。
+TS 的核心能力在于给 JS 提供静态类型检查，是有类型定义的 JS 的超集，包括 ES5、ES5+ 和其他一些诸如泛型、类型定义、命名空间等特征的集合。
 
-本次分享仅会针对类型声明部分配合示例（以及部分网上 DEMO）进行着重介绍，更详细的内容以及特性可以查看Typescript handbook。
+本次分享仅会针对类型声明部分配合示例（以及部分网上 DEMO）进行着重介绍，更详细的内容以及特性可以查看 Typescript handbook。
 
 # Base abilities
 
@@ -28,29 +30,29 @@ TS的核心能力在于给JS提供静态类型检查，是有类型定义的 JS 
 
 1. 类型推断
 
-    - 没有明确的指定类型的时候推测出一个类型
+   - 没有明确的指定类型的时候推测出一个类型
 
-    - 如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查
+   - 如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查
 
 1. declare/class/interface/type/enum
 
-2. any
+1. any
 
-3. union |
+1. union |
 
-    - 当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法：
+   - 当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法：
 
-    - 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型
+   - 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型
 
 1. Array
 
-2. function
+1. function
 
-3. tuple []
+1. tuple []
 
-4. as or <>
+1. as or <>
 
-5. intersection &
+1. intersection &
 
 # Class & interface
 
@@ -76,11 +78,11 @@ TS的核心能力在于给JS提供静态类型检查，是有类型定义的 JS 
 
 - declare
 
-    - var/let/const
+  - var/let/const
 
-    - function/namespace/interface/type/class/enum/module
+  - function/namespace/interface/type/class/enum/module
 
-    - global
+  - global
 
 ### 声明合并
 
@@ -96,14 +98,14 @@ TS的核心能力在于给JS提供静态类型检查，是有类型定义的 JS 
 
 - commonjs
 
-    对象
+  对象
 
 ```TypeScript
 const $ = require('jquery')
 
 declare module '$' {
   export function forEach(callback: () => any): void
-} 
+}
 ```
 
     单一导出函数或者常量本身
@@ -121,9 +123,9 @@ declare module 'koa' {
 export declare var age: number
 //or
 declare var name: string
-export { name } 
+export { name }
 // or
-export default name 
+export default name
 ```
 
 # 泛型
@@ -143,7 +145,7 @@ const Jessica: Animal<'people'> = {
 
 const Wangcai: Animal<'dog'> = {
   type: 'dog'
-}  
+}
 ```
 
 具体泛型的使用配合下面大量的示例
@@ -204,21 +206,21 @@ type TEST<T, K> = {
 }
 ```
 
-这个泛型K其实就是泛型T的键值，即 `P extends keyof T `
+这个泛型 K 其实就是泛型 T 的键值，即 `P extends keyof T`
 
 ```TypeScript
 type TEST<T, K extends keyof T> = {
   [P in K]: T[P]
-} 
+}
 ```
 
-接下来需要定义一个函数来移除泛型 K中指定的那个属性key
+接下来需要定义一个函数来移除泛型 K 中指定的那个属性 key
 
 ```TypeScript
-type EXCLUDE<T, U> = T extends U ? never : T; 
+type EXCLUDE<T, U> = T extends U ? never : T;
 ```
 
-最后定义支持去除指定key的函数 OMIT
+最后定义支持去除指定 key 的函数 OMIT
 
 ```TypeScript
 type OMIT<T, K extends keyof T> = {
@@ -226,7 +228,7 @@ type OMIT<T, K extends keyof T> = {
 }
 ```
 
-再利用这个函数来声明新的Human类型
+再利用这个函数来声明新的 Human 类型
 
 ```TypeScript
 type Human_exclude = OMIT<Human, 'language'>
@@ -239,7 +241,7 @@ const Lucia: Human = { // pass
 
 #### 将指定属性定义为可选
 
-但是死板的去除指定属性某些场景可能不满足需求（后面可能会动态的想TS对象添加某个k）
+但是死板的去除指定属性某些场景可能不满足需求（后面可能会动态的想 TS 对象添加某个 k）
 
 如果我们将指定的属性（language）定义为可选，那么同样满足需求
 
@@ -247,7 +249,7 @@ const Lucia: Human = { // pass
 
     1. 定义去除key所对应的可选类型
 
-    2. 定义去除指定的属性后的类型 
+    2. 定义去除指定的属性后的类型
 
     3. 选取1和2的交叉类型
 
@@ -262,7 +264,7 @@ const Lucia: Human = { // pass
   age: 21,
 }
 
-Lucia.luanguage = 'en' // pass 
+Lucia.luanguage = 'en' // pass
 ```
 
 # 关于 `infer`
@@ -292,7 +294,7 @@ type PICK<T, K extends keyof T> = {
   [P in K]: T[P];
 };
 
-type A = PICK<Human, "age">; 
+type A = PICK<Human, "age">;
 ```
 
 #### PARTIAL
@@ -302,7 +304,7 @@ type PARTIAL<T> = {
   [P in keyof T]?: T[P];
 };
 
-type F = PARTIAL<Human>; 
+type F = PARTIAL<Human>;
 ```
 
 #### REQUIRED
@@ -312,7 +314,7 @@ type REQUIRED<T> = {
   [P in keyof T]-?: T[P];
 };
 
-type G = REQUIRED<Human>; 
+type G = REQUIRED<Human>;
 ```
 
 #### REQUIRED_K
@@ -322,8 +324,8 @@ type REQUIRED_K<T, K extends keyof T> = {
   [P in K]-?: T[P];
 } &
   OMIT<T, K>;
-  
-type E = REQUIRED_K<Human, "lover">; 
+
+type E = REQUIRED_K<Human, "lover">;
 ```
 
 #### READONLY_RECURSIVE
@@ -412,7 +414,7 @@ type PROMISE<T = any> = {
 
 #### source code
 
-- 上面所有示例中除却 REQUIRED_K、OPTIONAL_K和READONLY_RECURSIVE之外都是属于typescript lib.es5.d.ts官方库帮我们内置声明好的类型，便于平时一些快捷的使用
+- 上面所有示例中除却 REQUIRED_K、OPTIONAL_K 和 READONLY_RECURSIVE 之外都是属于 typescript lib.es5.d.ts 官方库帮我们内置声明好的类型，便于平时一些快捷的使用
 
 ```TypeScript
 
@@ -522,7 +524,7 @@ type InstanceType<T extends new (...args: any) => any> = T extends new (...args:
 
 #### others
 
-此外还内置es5其他函数和方法以及数据类型等的声明如果mac vsc有安装typescript拓展可以借助vsc打开，具体路径在** ****/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/lib.es5.d.ts**
+此外还内置 es5 其他函数和方法以及数据类型等的声明如果 mac vsc 有安装 typescript 拓展可以借助 vsc 打开，具体路径在** \*\***/Applications/Visual Studio Code.app/Contents/Resources/app/extensions/node_modules/typescript/lib/lib.es5.d.ts\*\*
 
 # 你可能需要了解的协变和逆变
 
@@ -534,13 +536,13 @@ type InstanceType<T extends new (...args: any) => any> = T extends new (...args:
 
 允许不变的列表（immutable）在它的参数类型上是协变的，但是对于可变的列表（mutable），其参数类型则必须是不变的（invariant），既不是协变也不是逆变
 
-**在 TypeScript 中， 参数类型是双向协变的 ，也就是说既是协变又是逆变的，而这并不安全。但是现在你可以在 TypeScript 2.6 版本中通过 --strictFunctionTypes 或 --strict 标记来修复这个问题。(***在 Java 中，数组既是可变的，又是协变的*。Unsafe)
+**在 TypeScript 中， 参数类型是双向协变的 ，也就是说既是协变又是逆变的，而这并不安全。但是现在你可以在 TypeScript 2.6 版本中通过 --strictFunctionTypes 或 --strict 标记来修复这个问题。(\***在 Java 中，数组既是可变的，又是协变的\*。Unsafe)
 
-# 如何利用infer配合协变实现高级类型声明
+# 如何利用 infer 配合协变实现高级类型声明
 
 ---
 
-### LeetCode的一道TS面试题
+### LeetCode 的一道 TS 面试题
 
 > [https://github.com/LeetCode-OpenSource/hire/blob/master/typescript_zh.md](https://github.com/LeetCode-OpenSource/hire/blob/master/typescript_zh.md)
 
@@ -583,11 +585,11 @@ type Result {
 
 从表面来看我们要做的有三点：
 
-1. delay<T, U>(input: Promise<T>): Promise<Action>  变成了 asyncMethod<T, U>(input: T): Action<U>
-2. setMessage<T, U>(action: Action<T>): Action  变成了 syncMethod<T, U>(action: T): Action<U>
+1. delay<T, U>(input: Promise<T>): Promise<Action> 变成了 asyncMethod<T, U>(input: T): Action<U>
+2. setMessage<T, U>(action: Action<T>): Action 变成了 syncMethod<T, U>(action: T): Action<U>
 3. 去除了其他非函数的成员属性
 
-**step1：构造转换 1 和 2的函数也是最关键的一步**
+**step1：构造转换 1 和 2 的函数也是最关键的一步**
 
 ```TypeScript
 type Transform<T> = {
@@ -612,11 +614,11 @@ type Temp = Transform<EffectModule>
 // }
 ```
 
-**step2：构造工具函数将step1中得到的 never 类型的无关类型去除**
+**step2：构造工具函数将 step1 中得到的 never 类型的无关类型去除**
 
-1. 获取所有的key
+1. 获取所有的 key
 
-2. 通过元语法批量的联合类型的key索引出值联合类型value
+2. 通过元语法批量的联合类型的 key 索引出值联合类型 value
 
 ```TypeScript
 type OmitNever<T> = {
@@ -627,7 +629,7 @@ type temp = OmitNever<EffectModule>
 // type temp = "count" | "message"
 ```
 
-**step3: 借助Omit移除step1中step2的key**
+**step3: 借助 Omit 移除 step1 中 step2 的 key**
 
 ```TypeScript
 type Connect<T> = Omit<Transform<T>, OmitNever<T>>;
@@ -655,13 +657,13 @@ type UnionToIntersection<U> = (U extends any ? (k: U) => void : never) extends (
 
 为什么 `((k: A) => void) | ((k: B) => void)` 的参数是 A & B？
 
-**因为函数参数是逆变的，我们假设有一个变量能同时传给 ****`(k: A) => void 和 (k: B) => void`****，那么这个变量的类型应该是 A & B 而不是 A | B**
+**因为函数参数是逆变的，我们假设有一个变量能同时传给 \*\***`(k: A) => void 和 (k: B) => void`\***\*，那么这个变量的类型应该是 A & B 而不是 A | B**
 
 P extends K 意味着所有 K 都可以无条件被 P 替换
 
-一个函数能被 `(k: A) => void 和 (k: B) => void` 无条件替换，那么那个函数接受的参数必然既是A又是B
+一个函数能被 `(k: A) => void 和 (k: B) => void` 无条件替换，那么那个函数接受的参数必然既是 A 又是 B
 
-**Q: 根据 conditional type ****`((k: A) => void) | ((k: B) => void) `****不是应该被分开处理吗？如果分开处理那得到的结果依然会是 A | B**，那么又是为什么能够得出A & B呢？
+**Q: 根据 conditional type \*\***`((k: A) => void) | ((k: B) => void)`\***\*不是应该被分开处理吗？如果分开处理那得到的结果依然会是 A | B**，那么又是为什么能够得出 A & B 呢？
 
 > [conditional-type](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-8.html#conditional-types)
 
@@ -677,7 +679,7 @@ type Intersection = UnionToIntersection<Union> // {age} & {number}
 type Intersection2 = UnionToIntersection<Union2> // never
 ```
 
-### 联合类型转TUPLE：A | B => [A, B]
+### 联合类型转 TUPLE：A | B => [A, B]
 
 主体的思路是递归的将联合类型的每一项取出来放入元组同时移除这一项，最后将递归结束后的元组返回；同时也要写一些基本的辅助函数：
 
@@ -685,13 +687,13 @@ type Intersection2 = UnionToIntersection<Union2> // never
 
 - 每次递归将放入元组的那个类型从原集合获取
 
-- 每次递归获取放入元组的单个类型的prepend函数
+- 每次递归获取放入元组的单个类型的 prepend 函数
 
 - 移除每次递归推入元组的那个类型
 
-- 借助函数入参reset通过infer推断出元祖
+- 借助函数入参 reset 通过 infer 推断出元祖
 
-**step1: 将Union类型转为由函数类型组成的交叉类型**
+**step1: 将 Union 类型转为由函数类型组成的交叉类型**
 
 ```TypeScript
 // union to intersection of functions
@@ -720,7 +722,7 @@ type Prepend<U, T extends any[]> =
 
 ```TypeScript
 // 借助内置类型 Exclude
-type Exclude<T, U> = T extends U ? never : T; 
+type Exclude<T, U> = T extends U ? never : T;
 ```
 
 **step5: 最后一步借助上面的工具函数写转换的递归**
@@ -737,6 +739,8 @@ Q: 此处为何要借助 {}[] 的形式来作为递归的终止条件而不是�
 type aliases are not like interfaces. interfaces are named types, where as type aliases are just aliases. internally as well they are treated differently, the compiler aggressively flatten types aliases to their declarations.
 
 type alias 不允许调用自身 这里使用索引方式 {}[]
+
+> Ts 4.1.3 版本后取消此限制
 
 ```TypeScript
 // wrong
@@ -784,16 +788,18 @@ type TupleTest = UnionToTuple<UnionTest>;
 
 type Tuple = UnionToTuple<Union43>;
 // type Tuple = [a: 1, a: 2, a: 3, a: 4, a: 5, a: 6, a: 7, a: 8, a: 9, a: 10, a: 11, a: 12, a: 13, a: 14, a: 15, a: 16, a: 17, a: 18, a: 19, a: 20, a: 21, a: 22, a: 23, a: 24, a: 25, a: 26, a: 27, a: 28, a: 29, a: 30, a: 31, a: 32, a: 33, a: 34, a: 35, a: 36, a: 37, a: 38, a: 39, a: 40, a: 41, a: 42, a: 43]
- 
+
 ```
 
-一个有意思的是批量处理联合类型时支持的最大长度为43（没确定是否和版本有关）,否则会抛出Type instantiation is excessively deep and possibly infinite.ts(2589) 的异常
+一个有意思的是批量处理联合类型时支持的最大长度为 43（没确定是否和版本有关）,否则会抛出 Type instantiation is excessively deep and possibly infinite.ts(2589) 的异常
+
+> Ts 4.1.3 版本后取消此限制
 
 # Extends
 
 ---
 
-除却本次分享之外TS还有很多其他相关的很多特性包括
+除却本次分享之外 TS 还有很多其他相关的很多特性包括
 
 - 类型保护 typeof/instanceof/in
 
@@ -809,7 +815,7 @@ type Tuple = UnionToTuple<Union43>;
 
 以及更多高阶运用
 
-以下为一些ts相关知识，有兴趣可以深入研究
+以下为一些 ts 相关知识，有兴趣可以深入研究
 
 ### 编译原理
 

@@ -1,4 +1,5 @@
 #!/bin/sh
+git push
 npm run build
 cd public
 touch CNAME
