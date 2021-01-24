@@ -11,6 +11,7 @@ tags:
 ---
 
 Block editor.
+富文本（块）编辑器开发指北
 
 ---
 
@@ -19,9 +20,6 @@ Block editor.
 区分于传统的富文本编辑器，定义块的概念，编辑区内每部分内容由**块**拼接而成
 
 从作用上分为内容块和结构块
-
-# Blocks
-![](../postImgs/Block editor page.png)
 
 ### Content block
 
@@ -95,11 +93,25 @@ interface Row {
 }
 ```
 
+# Blocks
+
+一个页面的骨架大概如下
+
+![](../postImgs/Block editor page.png)
+
+> 需要标明的是示意图的结构中中间内容块单独作为一行时没有外层的行列节点（出于结构统一的考虑行列节点的存在没有问题，出于 dom 结构的考虑将行列省略节省性能）
+
 # Operations
+
+定义用户的 **行为**
 
 # Transactions
 
+对用户的行为进行聚合上报
+
 # Work flow
+
+编辑器的大概工作流程
 
 ![](../postImgs/Block editor work flow.png)
 
@@ -107,48 +119,28 @@ interface Row {
 
 ### contentEditable
 
+为了自定义的输入需求（富），使用 contentEditable 来开启 div 的输入行为来自定义输入框
+
 - dangerouslySetInnerHTML
 
-### 获取光标位置
+> React 作为前端框架时可编辑 div 的内部元素无法通过 state 自动更新，采用 dangerouslySetInnerHTML 来动态计算子元素内容进行渲染
 
-```ts
-const sel = window.getSelection();
-range = sel.getRangeAt(0).cloneRange();
-range.collapse(true);
-const { x, y } = range.getClientRects();
+### Cursor
 
-const setCursorPosByCoords = (ele, x, y) => {
-  let range, node, offset;
-  if (document.caretPositionFromPoint) {
-    range = document.caretPositionFromPoint(x, y);
-    if (range) {
-      node = range.offsetNode;
-      offset = range.offset;
-      this.setCursorPos(node, offset);
-    }
-  }
-};
+光标的处理在编辑器中较为复杂，核心通过以下三个 API 实现光标的移动控制
 
-const setCursorPos = (startNode, offset) => {
-  const selection = document.getSelection();
-  const range = document.createRange();
-  range.setStart(
-    startNode,
-    !startNode.length || startNode.length > offset ? offset : startNode.length
-  );
-  range.collapse(true);
-  selection.removeAllRanges();
-  selection.addRange(range);
-};
-```
+- `window.getSelection()`
+- `document.createRange()`
+- `document.caretPositionFromPoint(x, y)`
 
-### render 输入的文本
+> 光标的计算和设置较为繁琐，同时针对的不同 DOM 类型要做不同的适配
 
-# Transform
+# Render
 
-将扁平结构转为树形结构
+渲染数据结构
 
-```ts
+```tsx
+// 将接口返回的扁平数据转为树结构便于按照页面结构递归渲染
 const transform = (type, ...) => {
   switch (type) {
     case 'init': return { children: transform('row', ...) }
@@ -157,11 +149,8 @@ const transform = (type, ...) => {
     case 'node': return transform('node', ...)
   }
 }
-```
 
-# Render
-
-```tsx
+// Render
 class App {
   renderNode = () => <></>;
   renderColumn = () => this.renderNode();
@@ -173,16 +162,38 @@ class App {
 
 # Markdown
 
-- 将多行字符串分割成
+针对用户从外部粘贴的文本如何进行转换成页面的块结构
+
+> 粘贴的所有文本都将进行 Markdown 转换的处理（导入的文件例如 Word、html 等文件的处理借助第三方库的解析，处理方式大同小异，为了性能的考虑放在服务端进行解析）
+
+![](../postImgs/Block editor markdown.png)
+
+1. 将多行字符串根据首部缩进空格分割成树形数据结构同时根据 Markdown 正则识别块类型
+2. 创建 Blocks
 
 # Undo redo
 
+撤销重做功能是编辑器不可少的一部分
+
 ![](../postImgs/Block editor undoRedo.png)
 
-# 拖拽释放
+# Drag & Drop
+
+块编辑器是由各种类型的块组合而成，同时各种类型的块可以自由拖动组合
+
+> 结构块中的行和列在设计中不允许被拖拽，这是为了避免各种行列结构嵌套的复杂情况发生
+
+- 使用鼠标的 MouseOver、MouseUp 等事件模拟所有块的拖拽移动以及释放
+- 使用原生 API 提供外部文件和图片的拖拽和释放
+
+> 由于拖拽 API 的相关兼容性问题以及更多的定制化需求页面的拖拽释放行为由鼠标事件的模拟拖拽和原生 API 结合使用
 
 # IndexDB
 
+由于受到离线编辑的限制，采用了 IndexDB 作为客户端的本地数据存储
+
 ![](../postImgs/Block editor IndexDB.png)
 
-# push
+# Last
+
+富文本编辑器的 DOM 结构一般较为复杂（数万的 DOM 在数据流的操作下对性能要求较为苛刻），如何优化 DOM 结构数量，优化数据结构和算法是不断重构的目标
