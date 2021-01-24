@@ -1,6 +1,6 @@
 ---
 date: 2021-01-19
-title: Block editor (To be continue...)
+title: 富文本（块）编辑器开发指北 (To be continue...)
 template: post
 thumbnail: "../thumbnails/post.png"
 slug: block-editor
@@ -11,7 +11,8 @@ tags:
 ---
 
 Block editor.
-富文本（块）编辑器开发指北
+
+富文本（块）编辑器开发指北 (To be continue...)
 
 ---
 
@@ -57,11 +58,13 @@ Block editor.
 ```ts
 type BaseType = "page" | "bullet-list" | "order-list" | "text"| "code" | "hr" | "quote"; // ...
 
+type UUID = string
+
 interface BaseBlock {
   type: BaseType;
   parent_type: BaseType | 'column';
-  id: string;
-  parent_id: string;
+  id: UUID;
+  parent_id: UUID;
   content: string;
   children?: BaseBlock[];
   ...
@@ -144,7 +147,7 @@ interface Row {
 - `document.createRange()`
 - `document.caretPositionFromPoint(x, y)`
 
-> 光标的计算和设置较为繁琐，同时针对的不同 DOM 类型要做不同的适配
+> 光标的计算和设置较为繁琐，同时针对的不同 DOM 结构（行内复合样式、公式、代码块等）要做不同的适配
 
 ### Render
 
@@ -153,7 +156,29 @@ interface Row {
 - 将接口返回的扁平数据转为树结构
 - 递归渲染
 
+接口数据签名
+
+```ts
+type AllBlockType = BaseType | "column" | "row";
+
+interface Blocks {
+  id: UUID;
+  parent_id: UUID;
+  type: AllBlockType;
+  children: UUID[];
+  ...
+}
+
+interface ResponseData {
+  data: Blocks[];
+  ...
+}
+```
+
+> 服务端返回的为扁平数据结构，彼此级联关系通过 id 和 parent_id 关联（children 内部为拍平的子元素 id）
+
 ```tsx
+// 伪代码
 const transform = (type, ...) => {
   switch (type) {
     case 'init': return { children: transform('row', ...) }
@@ -163,7 +188,6 @@ const transform = (type, ...) => {
   }
 }
 
-// Render
 class App {
   renderNode = () => <></>;
   renderColumn = () => this.renderNode();
@@ -186,7 +210,7 @@ class App {
 
 # Undo redo
 
-撤销重做功能是编辑器不可少的一部分
+撤销重做功能是编辑器不可少的一部分，撤销行为的工作流程如下
 
 ![](../postImgs/Block editor undoRedo.png)
 
@@ -215,7 +239,7 @@ class App {
 不同类型的块之间可以进行（批量）转换，需要注意如下
 
 - 转换时候缩进子块（页面子块）的处理
--
+- pageId 的处理
 
 > 图片、文件、分割线等特殊快无法转换
 
@@ -223,13 +247,15 @@ class App {
 
 由于受到离线编辑的限制，采用了 IndexDB 作为客户端的本地数据存储
 
+所有的 Transaction 都先推入 IndexDB 中从 IndexDB 中读取向服务端推送
+
 ![](../postImgs/Block editor IndexDB.png)
 
 # Last
 
 一个完整的富文本（块）编辑器的开发远不止以上内容，还包括更多的功能以及需要注意的地方还有无尽匪夷所思的 BUG
 
-此外，富文本编辑器的 DOM 结构一般较为复杂（数万的 DOM 在数据流的操作下对性能要求较为苛刻），编辑体验的提升是一直优化的方向，如何优化 DOM 结构数量，优化数据结构和算法是不断重构的目标
+此外，富文本编辑器的 DOM 结构一般较为复杂（数万的 DOM 在数据流的操作下对性能要求较为苛刻），堆叠功能之外编辑体验的提升是一直优化的方向，如何优化 DOM 结构数量，优化数据结构和算法是不断重构的目标
 
 # The end
 
