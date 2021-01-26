@@ -1,6 +1,6 @@
 ---
 date: 2021-01-19
-title: 富文本（块）编辑器开发指北 (To be continue...)
+title: 富文本（块）编辑器开发指北
 template: post
 thumbnail: "../thumbnails/post.png"
 slug: block-editor
@@ -11,8 +11,6 @@ tags:
 ---
 
 Block editor.
-
-富文本（块）编辑器开发指北 (To be continue...)
 
 ---
 
@@ -97,7 +95,7 @@ interface Row {
 }
 ```
 
-# Blocks
+# Skeleton
 
 一个页面的骨架大概如下
 
@@ -105,9 +103,15 @@ interface Row {
 
 > 需要标明的是示意图的结构中中间内容块单独作为一行时没有外层的行列节点（出于结构统一的考虑行列节点的存在没有问题，出于 dom 结构的考虑将行列省略节省性能）
 
+# Work flow
+
+编辑器的大概工作流程
+
+![](../postImgs/Block editor work flow.png)
+
 # Operations
 
-记录用户的 **行为**
+记录用户的输入、删除等所有**行为**
 
 收集本次行为的所有特征，包括
 
@@ -122,12 +126,6 @@ interface Row {
 用户的操作触发的行为会有很多且较为琐碎，针对用户的行为进行聚合上报
 
 ![](../postImgs/Block editor transaction.png)
-
-# Work flow
-
-编辑器的大概工作流程
-
-![](../postImgs/Block editor work flow.png)
 
 # 编辑区
 
