@@ -14,6 +14,66 @@ Block editor.
 
 ---
 
+# 前言
+
+目前业界的在线的富文本（块）编辑器主流的有飞书、语雀、Notion 等
+
+而其中在编辑方面飞书和语雀更多的继承传统的富文本编辑的概念（Word），与它们不同的是 Notion 这类引入块的概念将编辑区用一个个块来划分的编辑器
+
+# contentEditable
+
+为了自定义的输入需求，使用 contenteditable 属性来开启 DOM 的输入行为来自定义输入框
+
+contenteditable 是一个枚举属性，表示元素是否可被用户编辑。 如果可以，浏览器会修改元素的部件以允许编辑。
+
+> [](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contenteditable)
+
+> React 作为前端框架时可编辑 div 的内部子组件无法动态更新，采用 dangerouslySetInnerHTML 来动态计算子元素内容进行渲染
+
+# 语雀 & 飞书文档
+
+- 整个编辑区域就是一个 contentEditable 的容器，整体设计类似 word
+- ​SSR
+  - ​ 飞书文档返回整个页面所有内容的 HTML（包括文档内容）
+  - 返回语雀编辑页面其中文档内容（富文本）通过单独的接口返回
+
+# 语雀
+
+编辑区看起来像是 word 的网页增强版，用户的所有输入不会立即触发通信，而会在编辑窗口丢失前（关闭、刷新、失焦等）发起 /content 路由的 PUT 请求，将编辑区的整个 HTML 全量传回到服务端
+
+根据测试假设目前编辑区的文字内容（无特殊样式，传统富文本设计中所有样式都是内联的标签来解析）大小在 1kb 字节左右，输入字符 X 操作窗口丢失后发起的 /content 的请求的请求体高达 34kb，请求体的 data 字段的 body_asl、body_draft，body_draft_asl 三个属性都是占体积巨大的 HTML 字符串，其中有效字符仅占用 1kb，而本次有效修改字符仅 1b
+
+# 飞书文档
+
+相对于语雀，飞书文档的可视区看起来有点像块编辑器（可视区 UI 风格、辅助菜单、支持拖拽移动等），同时和语雀相比飞书文档和 lark 有着紧密的联系（生态）
+
+测试同样输入字符 X 会触发相关请求，分别会将本次修改的内容和当前编辑区全部内容（有效内容）发送到后端
+
+- https://bytedance.feishu.cn/space/data/ai/v2/aiBatchService
+
+```json
+{
+  "user_language": "zh",
+  "language": "en-US",
+  "texts": ["x"],
+  "version": "1",
+  "request_id": "86e6cd17-8139-4b72-b393-9c866df7fa57"
+}
+```
+
+- https://bytedance.feishu.cn/space/api/data/ai/smart_compose
+
+```json
+{
+  "prefix": "x",
+  "locale": "zh",
+  "scene": 3,
+  "request_id": "97c55ec5-d230-46a4-beff-6b0deeea7347",
+  "title": "飞书文档",
+  "content": "飞书文档\n*1\n*2\n*x\n*3\nx"
+}
+```
+
 # Intro
 
 区分于传统的富文本编辑器，定义块的概念，编辑区内每部分内容由**块**拼接而成
@@ -54,17 +114,17 @@ Block editor.
 ### Basic block
 
 ```ts
-type BaseType = "page" | "bullet-list" | "order-list" | "text"| "code" | "hr" | "quote"; // ...
+type BaseType = 'page' | 'bullet-list' | 'order-list' | 'text' | 'code' | 'quote' // ...
 
 type UUID = string
 
-interface BaseBlock {
-  type: BaseType;
-  parent_type: BaseType | 'column';
-  id: UUID;
-  parent_id: UUID;
-  content: string;
-  children?: BaseBlock[];
+interface BaseBlock<T = 'column'> {
+  type: BaseType
+  parent_type: BaseType | T
+  id: UUID
+  parent_id: UUID
+  content: string
+  children?: BaseBlock<never>[]
   ...
 }
 ```
@@ -128,14 +188,6 @@ interface Row {
 ![](../postImgs/Block editor transaction.png)
 
 # 编辑区
-
-### contentEditable
-
-为了自定义的输入需求（富），使用 contentEditable 来开启 div 的输入行为来自定义输入框
-
-- dangerouslySetInnerHTML
-
-> React 作为前端框架时可编辑 div 的内部子组件无法动态更新，采用 dangerouslySetInnerHTML 来动态计算子元素内容进行渲染
 
 ### Cursor
 
