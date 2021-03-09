@@ -26,7 +26,7 @@ Block editor.
 
 contenteditable 是一个枚举属性，表示元素是否可被用户编辑。 如果可以，浏览器会修改元素的部件以允许编辑。
 
-> [](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contenteditable)
+> [contenteditable](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Global_attributes/contenteditable)
 
 > React 作为前端框架时可编辑 div 的内部子组件无法动态更新，采用 dangerouslySetInnerHTML 来动态计算子元素内容进行渲染
 

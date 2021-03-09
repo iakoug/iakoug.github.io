@@ -42,6 +42,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
+    "chalk": "^4.1.0",
     "cli-glob": "^0.1.0",
     "eslint": "^6.0.1",
     "eslint-config-airbnb": "^17.1.0",
@@ -81,7 +82,9 @@
     "lint:md": "remark content/posts/",
     "write-good": "write-good $(glob 'content/posts/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "check": "yarn upgrade-interactive --latest"
+    "check": "yarn upgrade-interactive --latest",
+    "dep": "node scripts/publish.js",
+    "run:push": "npm run clean && npm run build && npm run dep"
   },
   "remarkConfig": {
     "plugins": [
