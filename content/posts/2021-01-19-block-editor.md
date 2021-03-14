@@ -5,7 +5,7 @@ template: post
 thumbnail: "../thumbnails/post.png"
 slug: block-editor
 categories:
-  - structure
+  - Structure
 tags:
   - structure
 ---

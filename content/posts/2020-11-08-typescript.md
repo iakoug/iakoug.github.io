@@ -5,7 +5,7 @@ template: post
 thumbnail: "../thumbnails/post.png"
 slug: typescript
 categories:
-  - typescript
+  - Typescript
 tags:
   - typescript
 ---
