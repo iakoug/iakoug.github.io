@@ -16,6 +16,8 @@ To be continue...
 
 ---
 
-[JS 相关](./2019-03-11-pay-attention-to-these-js.md)
+# Further reading
 
-[TS 基础进阶](./2020-11-08-typescript.md)
+- [JS 相关](./2019-03-11-pay-attention-to-these-js.md)
+
+- [TS 基础进阶](./2020-11-08-typescript.md)
