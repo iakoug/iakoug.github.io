@@ -1,4 +1,5 @@
 const { execSync } = require("child_process");
+// eslint-disable-next-line import/no-extraneous-dependencies
 const chalk = require("chalk");
 
 const run = async (cmd) => {
