@@ -16,8 +16,151 @@ To be continue...
 
 ---
 
+# const enum vs. enum
+
+两者在使用方式没有区别，但是 TS 编译的结果会存在很大的差异
+
+```ts
+enum TestConstEnum {
+  a,
+  b,
+  c,
+}
+
+console.log(TestConstEnum.a);
+```
+
+上面的代码在经过 TS 编译后会输出
+
+```ts
+"use strict";
+var TestConstEnum;
+(function(TestConstEnum) {
+  TestConstEnum[(TestConstEnum["a"] = 0)] = "a";
+  TestConstEnum[(TestConstEnum["b"] = 1)] = "b";
+  TestConstEnum[(TestConstEnum["c"] = 2)] = "c";
+})(TestConstEnum || (TestConstEnum = {}));
+console.log(TestConstEnum.a);
+```
+
+可以看到是被编译出相当多的一堆内容，生成 IIFE 内部被编译出一个分别用 0 1 2 和 a b c 互相当做键值的对象
+
+而使用 const enum 声明的对象
+
+```ts
+const enum TestEnum {
+  a,
+  b,
+  c,
+}
+
+console.log(TestEnum.a);
+```
+
+被 TSC 编译后会得到
+
+```ts
+"use strict";
+console.log(0 /* a */);
+```
+
+编译的过程直接将实际的 value 输出到使用的地方
+
+所以一般情况下使用 const enum 会极大的减小编译的代码体积
+
+> 需要注意的是动态的使用 key 的时候无法使用 cont enum<br />
+> A const enum member can only be accessed using a string literal
+
+# Typescript Type-Only Imports and Export
+
+> TypeScript 在 3.8 版本中新增了对仅导入或者导出类型的语法支持
+
+```ts
+import type { SomeThing } from "./some-module.js";
+export type { SomeThing };
+```
+
+这个功能的意义在于 tree shaking 的时候可以直接在编译阶段就去除你的类型而不会将当做依赖打包到你的 chunk 里
+
+> 在使用该语法的时候需要注意 class 在运行时具有值，静态语法检查的时候具有类型，并且使用是上下文相关的。 所以使用导入类型导入 class 时，不能对这个 class 进行继承拓展之类的操作
+
+```ts
+import type { Component } from "react";
+
+interface ButtonProps {
+  // ...
+}
+
+class Button extends Component<ButtonProps> {
+  //               ~~~~~~~~~
+  // error! 'Component' only refers to a type, but is being used as a value here.
+  // ...
+}
+```
+
+# 断言
+
+### !
+
+由于开发场景的限制，有些时候 TS 的类型检查异常在我们确定没有问题的时候可以通过断言来解决
+
+```ts
+const methods = {
+  a: function(p1: number, p2?: string) {},
+  b: function(p1: number, p2: string) {},
+};
+
+function c(p1: number, p2?: string, f?: boolean) {
+  const name = f ? "a" : "b"; // 一些逻辑封装
+
+  // Argument of type 'string | undefined' is not assignable to parameter of type 'string'.
+  // Type 'undefined' is not assignable to type 'string'.
+  // methods[name](p1, p2)
+  methods[name](p1, p2!); // 如果我们明确逻辑封装控制的f变量可以保持p2没有值的时候返回的是false这里可以使用断言来解决类型异常
+}
+```
+
+### is
+
+is 的主要用法是可以帮助我们在类型检查阶段对类型的校验进行限制（Narrow）
+
+```ts
+function isString(data: any): boolean {
+  return typeof data === "string";
+}
+```
+
+上述 isString 方法用来判断一个数值是不是字符串，返回一个布尔值
+
+```ts
+function test(char) {
+  if (isString(char)) {
+    console.log(char.length); // Works fine
+    console.log(foo.toExponential(2)); // Type check passed!!!
+  }
+}
+```
+
+上述代码在静态检查以及编译阶段都不会存在问题，但是在运行时会报错（字符串的原型上没有数字的 toExponential 方法）
+
+我们可以借助 is 来进行限制类型之后（类型守卫 Type guard）规避掉此问题
+
+```ts
+function isString(data: any): data is string {
+  return typeof data === "string";
+}
+
+function test(char) {
+  if (isString(char)) {
+    console.log(char.length); // Works fine
+    // Type error: Property 'toExponential' does not exist on type 'string'.
+    console.log(foo.toExponential(2));
+  }
+}
+```
+
 # Further reading
 
-- [JS 相关](./2019-03-11-pay-attention-to-these-js.md)
+- [JS 相关](/pay-attention-to-these-js)
 
-- [TS 基础进阶](./2020-11-08-typescript.md)
+- [TS 基础进阶](/typescript)
