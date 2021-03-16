@@ -98,7 +98,7 @@ class Button extends Component<ButtonProps> {
 }
 ```
 
-# 断言
+# Assert
 
 ### !
 
@@ -158,6 +158,47 @@ function test(char) {
   }
 }
 ```
+
+# Equal
+
+如何判断两个类型相同
+
+如果需要编写一个高级类型 Equal，作用就是判断两个类型是否相同
+
+如果存在两个类型 a 和 b，如果可以保证 a extends b 的同时 b extends a，那么 a 和 b 类型可以保证相同吗
+
+```ts
+type Equal<X, Y> = X extends Y ? (Y extends X ? true : false) : false;
+// type Result = boolean
+type Result = Equal<any, number>;
+```
+
+推断出 Result 的类型是 boolean 而不是期望的 false
+
+> 个人理解，conditional type 中左侧的表达式会被转为联合类型分别与表达式 extends 右侧的类型进行比较，而 any 代表了任意类型的联合类型所以这个类型推断的结果 true 或者 false 都是有可能的，最终返回了 boolean
+
+可以借助泛型来推断一下入参的类型
+
+```ts
+type Equal<V1, V2> = (<T>() => T extends V1 ? 1 : 2) extends <
+  T
+>() => T extends V2 ? 1 : 2
+  ? true
+  : false;
+
+// type Result = false
+type Result = Equal<any, number>;
+```
+
+上面我们借助泛型 T 同时对 V1 和 V2 的泛型进行约束，然后借助 1 和 2（任意）来代替比较
+
+# Conditional type with Array
+
+ 借助 extends 进行判断的时候为什么通常会使用 [SomeType]
+
+# Closing note
+
+类型支持转换 === 体操
 
 # Further reading
 
