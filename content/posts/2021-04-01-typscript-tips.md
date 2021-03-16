@@ -190,7 +190,7 @@ type Equal<V1, V2> = (<T>() => T extends V1 ? 1 : 2) extends <
 type Result = Equal<any, number>;
 ```
 
-上面我们借助泛型 T 同时对 V1 和 V2 的泛型进行约束，然后借助 1 和 2（任意）来代替比较
+上面我们借助泛型 T 同时对 V1 和 V2 的泛型来进行推断，然后借助 1 和 2（任意）来代替比较
 
 # Conditional type with Array
 
