@@ -1,6 +1,6 @@
 ---
 date: 2021-04-01
-title: Typescript tips
+title: Typescript gymnastics
 template: post
 thumbnail: "../thumbnails/post.png"
 slug: typescript-tips
@@ -159,6 +159,8 @@ function test(char) {
 }
 ```
 
+# Union to intersection
+
 # Equal
 
 如何判断两个类型相同
@@ -175,7 +177,15 @@ type Result = Equal<any, number>;
 
 推断出 Result 的类型是 boolean 而不是期望的 false
 
-> 个人理解，conditional type 中左侧的表达式会被转为联合类型分别与表达式 extends 右侧的类型进行比较，而 any 代表了任意类型的联合类型所以这个类型推断的结果 true 或者 false 都是有可能的，最终返回了 boolean
+> conditional type 中左侧的表达式如果是联合类型那么被转换为每一项分别与表达式 extends 右侧的类型进行比较（如上面的 Union to intersection），而 any 属于联合类型所以这个类型推断的结果 true 或者 false 都是有可能的，最终返回了 boolean
+
+同样的 boolean 也有类似的行为（boolean 就是 true | false）
+
+```ts
+type B<T> = T extends true ? 1 : 2;
+// 2 | 1
+type Res = B<boolean>;
+```
 
 可以借助泛型来推断一下入参的类型
 
@@ -190,11 +200,66 @@ type Equal<V1, V2> = (<T>() => T extends V1 ? 1 : 2) extends <
 type Result = Equal<any, number>;
 ```
 
-上面我们借助泛型 T 同时对 V1 和 V2 的泛型来进行推断，然后借助 1 和 2（任意）来代替比较
+上面我们借助泛型 T 同时对 V1 和 V2 的泛型来进行推断，然后借助 1 和 2 来代替比较
 
-# Conditional type with Array
+# any、unknown、void、never
 
- 借助 extends 进行判断的时候为什么通常会使用 [SomeType]
+- any: 任意类型
+- unknown: 未知的类型
+
+任何类型都能分配给 unknown，但 unknown 不能分配给其他基本类型，而 any 啥都能分配和被分配。
+
+- never: 表示哪些用户无法达到的类型（异常）
+
+```ts
+function throwErr(): never {
+  throw new Error("an error");
+}
+
+const age = 18;
+
+throwErr();
+
+// Unreachable code detected.
+age.toFixed(2);
+```
+
+never 还可以用于联合类型的幺元：
+
+```ts
+// string | number
+type T = string | number | never;
+```
+
+通过在联合类型中 never 类型幺元的特性可以做到很多过滤的操作
+如过滤 Human 中 age 和 name 之外的成员
+
+```ts
+type Human = {
+  age: number;
+  name: string;
+  lover: string;
+  gender: 1 | 0;
+};
+
+type Filter<T> = {
+  [P in {
+    [K in keyof T]: K extends "age" | "name" ? K : never;
+  }[keyof T]]: T[P];
+};
+
+// type T = {
+//     age: number;
+//     name: string;
+// }
+type T = Filter<Human>;
+
+// 上面只是为了试验 never 的幺元特性 Filter可以更简单的写法
+// type Filter<T, P> = {
+//   [K in Extract<keyof T, P] : T[K]
+// };
+// Filter<Human, 'name' | 'age'>
+```
 
 # Closing note
 
