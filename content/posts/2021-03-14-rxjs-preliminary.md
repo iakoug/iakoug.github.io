@@ -16,11 +16,11 @@ tags:
 
 ## RxJS: Reactive Extensions For JavaScript
 
-JS 的响应式拓展的一个库（其他语言 python、java 等都有各自的实现），核心思想是函数式编程和流式编程，区分于面向对象编程，可以成为 Reactive Programming
+JS 的响应式拓展的一个库（其他语言 python、java 等都有各自的实现），核心思想是函数式编程和流式编程，区分于面向对象编程，可以称之为 Reactive Programming
 
 ## Why rxjs
 
-1. 应用上存在大量的异步操作，而异步意味着复杂的状态难以控制和管理（即时 Promise 和 Async/Await 可以解决很多异步问题，但是在非常复杂的场景下依然显得吃力）
+1. 应用上存在大量的异步操作，而异步意味着复杂的状态难以控制和管理（即使 Promise 和 Async/Await 可以解决很多异步问题，但是在非常复杂的场景下依然显得吃力）
 
 2. API 统一
    web 标准的 api 接口使用起来都不相同，而可以借助 rxjs 统一所有 api 的调用  来书写更优雅以及美观的代码
