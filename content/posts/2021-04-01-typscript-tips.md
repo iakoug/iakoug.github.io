@@ -1,6 +1,6 @@
 ---
 date: 2021-04-01
-title: Typescript gymnastics
+title: Typescript 系列（二）使用技巧
 template: post
 thumbnail: "../thumbnails/post.png"
 slug: typescript-tips
@@ -201,65 +201,6 @@ type Result = Equal<any, number>;
 ```
 
 上面我们借助泛型 T 同时对 V1 和 V2 的泛型来进行推断，然后借助 1 和 2 来代替比较
-
-# any、unknown、void、never
-
-- any: 任意类型
-- unknown: 未知的类型
-
-任何类型都能分配给 unknown，但 unknown 不能分配给其他基本类型，而 any 啥都能分配和被分配。
-
-- never: 表示哪些用户无法达到的类型（异常）
-
-```ts
-function throwErr(): never {
-  throw new Error("an error");
-}
-
-const age = 18;
-
-throwErr();
-
-// Unreachable code detected.
-age.toFixed(2);
-```
-
-never 还可以用于联合类型的幺元：
-
-```ts
-// string | number
-type T = string | number | never;
-```
-
-通过在联合类型中 never 类型幺元的特性可以做到很多过滤的操作
-如过滤 Human 中 age 和 name 之外的成员
-
-```ts
-type Human = {
-  age: number;
-  name: string;
-  lover: string;
-  gender: 1 | 0;
-};
-
-type Filter<T> = {
-  [P in {
-    [K in keyof T]: K extends "age" | "name" ? K : never;
-  }[keyof T]]: T[P];
-};
-
-// type T = {
-//     age: number;
-//     name: string;
-// }
-type T = Filter<Human>;
-
-// 上面只是为了试验 never 的幺元特性 Filter可以更简单的写法
-// type Filter<T, P> = {
-//   [K in Extract<keyof T, P] : T[K]
-// };
-// Filter<Human, 'name' | 'age'>
-```
 
 # Closing note
 

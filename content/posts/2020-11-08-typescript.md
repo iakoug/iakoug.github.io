@@ -1,6 +1,6 @@
 ---
 date: 2020-11-08
-title: Typescript基础到进阶
+title: Typescript 系列（一）基础进阶
 template: post
 thumbnail: "../thumbnails/post.png"
 slug: typescript
@@ -10,7 +10,7 @@ tags:
   - typescript
 ---
 
-Technology sharing — Typescript 进阶
+平安壹钱包理财组技术分享
 
 Ts version 4.0.5
 
@@ -34,25 +34,174 @@ TS 的核心能力在于给 JS 提供静态类型检查，是有类型定义的 
 
    - 如果定义的时候没有赋值，不管之后有没有赋值，都会被推断成 any 类型而完全不被类型检查
 
-1. declare/class/interface/type/enum
+2. declare/class/interface/type/enum
 
-1. any
+3. any
 
-1. union |
+4. union |
 
    - 当 TypeScript 不确定一个联合类型的变量到底是哪个类型的时候，我们只能访问此联合类型的所有类型里共有的属性或方法：
 
    - 联合类型的变量在被赋值的时候，会根据类型推论的规则推断出一个类型
 
-1. Array
+5. Array
 
-1. function
+6. function
 
-1. tuple []
+7. tuple []
 
-1. as or <>
+8. as or <>
 
-1. intersection &
+9. intersection &
+
+# any、unknown、void、never
+
+- any: 任意类型（属于 Union type）
+- unknown: 未知的类型
+
+任何类型都能分配给 unknown，但 unknown 不能分配给其他基本类型，而 any 可以分配和被分配任意类型
+
+- never: 表示哪些用户无法达到的类型（异常）
+
+```ts
+function throwErr(): never {
+  throw new Error("an error");
+}
+
+const age = 18;
+
+throwErr();
+
+// Unreachable code detected.
+age.toFixed(2);
+```
+
+never 还可以用于联合类型的幺元：
+
+```ts
+// string | number
+type T = string | number | never;
+```
+
+通过在联合类型中 never 类型幺元的特性可以做到很多过滤的操作
+如过滤 Human 中 age 和 name 之外的成员
+
+```ts
+type Human = {
+  age: number;
+  name: string;
+  lover: string;
+  gender: 1 | 0;
+};
+
+type Filter<T> = {
+  [P in {
+    [K in keyof T]: K extends "age" | "name" ? K : never;
+  }[keyof T]]: T[P];
+};
+
+// type T = {
+//     age: number;
+//     name: string;
+// }
+type T = Filter<Human>;
+
+// 上面只是为了试验 never 的幺元特性 Filter可以更简单的写法
+// type Filter<T, P> = {
+//   [K in Extract<keyof T, P] : T[K]
+// };
+// Filter<Human, 'name' | 'age'>
+```
+
+# Keyword & Operators
+
+### typeof
+
+一般可以使用 typeof 来进行类型保护来避免访问错误的属性或者方法
+
+```ts
+function test(b: any) {
+  if (typeof b === "string") {
+    // Property 'test' does not exist on type 'string'
+    b.test();
+  }
+}
+```
+
+此外就是主要用来进行类型推断
+
+```ts
+const test = (a: string) => a.length;
+
+const obj = {
+  a: 1,
+  b: false,
+};
+
+// (a: string) => number
+type A = typeof test; // (x: string) => number
+// {
+//   a: number;
+//   b: boolean;
+// }
+type B = typeof obj;
+```
+
+### keyof
+
+获取接口的所有键，返回键的联合类型
+
+```ts
+type Test = {
+  a;
+  b;
+};
+
+// 'a' | 'b'
+type Res = keyof Test;
+```
+
+### in
+
+对联合类型进行遍历
+
+```ts
+type Test = {
+  a;
+  b;
+};
+
+// type Res = {
+//     a: string;
+//     b: string;
+// }
+type Res = {
+  [K in keyof Test]: string;
+};
+```
+
+需要注意的是只可以在 type 声明的类型下使用
+
+> A computed property name in an interface must refer to an expression whose type is a literal type or a 'unique symbol' type.
+> The left-hand side of an arithmetic operation must be of type 'any', 'number', 'bigint' or an enum type.
+> The right-hand side of an 'in' expression must not be a primitive.
+
+### []
+
+索引访问，类似于 js 的元语法
+
+```ts
+type Test1 = {
+  a;
+  b;
+};
+type Test2 = [1, 2];
+
+// any
+type Res1 = Test["a"];
+// 2
+type Res2 = Test2[1];
+```
 
 # Class & interface
 
