@@ -159,7 +159,75 @@ function test(char) {
 }
 ```
 
+# []
+
+```ts
+enum A {
+  a = "1",
+  b = "11",
+}
+
+type T = {
+  [key in A]: "a";
+};
+
+const a: T = {
+  // Error Type of computed property's value is 'string', which is not assignable to type '"a"'.
+  [A["a"]]: "a",
+  [A.b]: "a",
+};
+```
+
+ts 的和类型相关的中括号"[]" 取的都是类型不是值，可以类似 A.b 使用点语法也可以 as const
+
+```ts
+const a: T = {
+  // Pass
+  [A["a"]]: "a",
+  [A.b]: "a",
+} as const;
+```
+
 # Union to intersection
+
+将联合类型转为交叉类型
+
+```ts
+type UnionToIntersection<T> = (T extends any
+? (a: T) => any
+: never) extends (a: infer R) => any
+  ? R
+  : never;
+
+type Union = { age: any } | { name: any };
+
+// {
+//     age: any;
+// } & {
+//     name: any;
+// }
+type R = UnionToIntersection<Union>;
+```
+
+主要借助 conditional type 比较的特性，`T extends any ? (a: T) => any` 中的 T 由于是联合类型会转换为`(a: { age: any }) => any` 和 `(a: { name: any }) => any`
+
+特别的是，如果泛型 T 是个具体的联合类型而不是泛型，如
+
+```ts
+type Union = { age: any } | { name: any };
+// {
+//     age: any;
+// } | {
+//     name: any;
+// }
+type Res = (Union extends any
+? (a: Union) => any
+: never) extends (a: infer R) => any
+  ? R
+  : never;
+```
+
+上述转换不生效
 
 # Equal
 
@@ -201,6 +269,111 @@ type Result = Equal<any, number>;
 ```
 
 上面我们借助泛型 T 同时对 V1 和 V2 的泛型来进行推断，然后借助 1 和 2 来代替比较
+
+# Range number
+
+很多时候需要限制一个数字范围 [A, B)，由于 [A, B) 分别得到 [0, A) 和 [0, B)
+然后从[0, B)中移除（Exclude）[0, A)
+
+```ts
+type PrependNextNum<A extends Array<unknown>> = A["length"] extends infer T
+  ? ((t: T, ...a: A) => void) extends (...x: infer X) => void
+    ? X
+    : never
+  : never;
+
+type EnumerateInternal<
+  A extends Array<unknown>,
+  N extends number
+> = N extends A["length"] ? A : EnumerateInternal<PrependNextNum<A>, N>;
+
+type Enumerate<N extends number> = EnumerateInternal<[], N> extends (infer E)[]
+  ? E
+  : never;
+
+type RangeNumber<FROM extends number, TO extends number> = Exclude<
+  Enumerate<TO>,
+  Enumerate<FROM>
+>;
+
+// 1~9
+type Test = RangeNumber<1, 10>;
+```
+
+# Date limitation
+
+对日期格式进行限制
+
+- 1900-2099 之间的日期
+- 1 3 5 7 8 10 12 月份存在 31 天
+- 4 6 9 11 月份是 30 天
+- 平年 2 月 28 天
+  - 年份不能被 4 整除
+  - 世纪不能被 4 整除（被 100 整除不能被 400 乘除）
+- 闰年 2 月 29 天
+
+```ts
+type Day28 =
+  | '01'
+  | '02'
+  | '03'
+  | '04'
+  | '05'
+  | '06'
+  | '07'
+  | '08'
+  | '09'
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18
+  | 19
+  | 20
+  | 21
+  | 22
+  | 23
+  | 24
+  | 25
+  | 26
+  | 27
+  | 28
+type Month = '01' | '02' | '03' | '04' | '05' | '06' | '07' | '08' | '09' | '10' | '11' | '12'
+type Digit = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+type Year = `${19 | 20}${Digit}${Digit}`
+
+type IsDivide4<S extends string | number> = `${S}` extends '0' | '4' | '8'
+  ? true
+  : `${S}` extends `${number | ''}${`${0 | 2 | 4 | 6 | 8}` | `${1 | 3 | 5 | 7 | 9}${2 | 6}`}`
+  ? true
+  : false
+
+type IsLeapYear<S extends string | number> = `${S}` extends `${infer H}00` ? IsDivide4<H> : IsDivide4<S>
+
+type DateString =
+  | `${Year}-${'01' | '03' | '05' | '07' | '08' | '10' | '12'}-${Day28 | 29 | 30 | 31}`
+  | `${Year}-${'04' | '06' | '09' | 11}-${Day28 | 29 | 30}`
+  | {
+      [Y in Year]: `${Y}-02-${IsLeapYear<Y> extends true ? Day28 | 29 : Day28}`
+    }[Year]
+
+const dates: DateString[] = [
+  '2021-02-12',
+  // Error: Type '"1900-02-29"' is not assignable to type 'DateString'.
+  '1900-02-29',
+  // Error: Type '"2019-02-29"' is not assignable to type 'DateString'.
+  '2019-02-29',
+  // Type '"2020-12-32"' is not assignable to type 'DateString'
+  '2020-12-32',
+  '2020-02-29',
+  '2000-02-29'
+]
+
+```
 
 # Closing note
 
