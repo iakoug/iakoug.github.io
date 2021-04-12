@@ -10,6 +10,8 @@ tags:
   - typescript
 ---
 
+typescript@4.2.3
+
 To be continue...
 
 归纳 TS 使用过程中一些技巧以及注意事项
@@ -272,7 +274,7 @@ type Result = Equal<any, number>;
 
 # Range number
 
-很多时候需要限制一个数字范围 [A, B)，由于 [A, B) 分别得到 [0, A) 和 [0, B)
+需要限制一个数字范围 [A, B)，由于 [A, B) 分别得到 [0, A) 和 [0, B)
 然后从[0, B)中移除（Exclude）[0, A)
 
 ```ts
@@ -283,22 +285,24 @@ type PrependNextNum<A extends Array<unknown>> = A["length"] extends infer T
   : never;
 
 type EnumerateInternal<
-  A extends Array<unknown>,
-  N extends number
-> = N extends A["length"] ? A : EnumerateInternal<PrependNextNum<A>, N>;
+  N extends number,
+  A extends Array<unknown> = []
+> = N extends A["length"] ? A : EnumerateInternal<N, PrependNextNum<A>>;
 
-type Enumerate<N extends number> = EnumerateInternal<[], N> extends (infer E)[]
+type Enumerate<N extends number> = EnumerateInternal<N> extends (infer E)[]
   ? E
   : never;
 
-type RangeNumber<FROM extends number, TO extends number> = Exclude<
+type Range<FROM extends number, TO extends number> = Exclude<
   Enumerate<TO>,
   Enumerate<FROM>
 >;
 
-// 1~9
-type Test = RangeNumber<1, 10>;
+// 1 ~ 9
+type Test = Range<1, 10>;
 ```
+
+> 这个方式存在一些瑕疵，类型的递归处理目前只能支持到 43（大小以及数量） 以内
 
 # Date limitation
 
