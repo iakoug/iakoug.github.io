@@ -21,10 +21,12 @@ const init = async () => {
   await run(
     `cd public && git remote add origin https://github.com/justwink/justwink.github.io.git`
   );
-  await run(`cd public && git commit -m 'Site has been published!'`);
+  await run(
+    `cd public && git commit -m 'Site has been published! ${new Date().toString()}'`
+  );
   await run(`cd public && git push origin HEAD:master -f && cd ..`);
   await run(`git add .`);
-  await run(`git commit -am 'Update by publish!'`);
+  await run(`git commit -am 'Update by publish! ${new Date().toString()}'`);
   await run(`git push`);
 
   console.log(chalk.green(`\n\nPublish successfully!\n`));
