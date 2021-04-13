@@ -18,7 +18,7 @@ let spinner;
 
 function loading(text) {
   spinner = new Spinner(text);
-  spinner.setSpinnerString("|/-\\");
+  spinner.setSpinnerString("👉");
   spinner.start();
 }
 
