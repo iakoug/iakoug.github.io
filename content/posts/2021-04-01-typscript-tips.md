@@ -190,6 +190,28 @@ const a: T = {
 } as const;
 ```
 
+### as const
+
+我们来看下官方对 as const 的介绍
+
+> TypeScript 3.4 introduces a new construct for literal values called const assertions. Its syntax is a type assertion with const in place of the type name (e.g. 123 as const). When we construct new literal expressions with const assertions, we can signal to the language that no literal types in that expression should be widened (e.g. no going from "hello" to string)object literals get readonly properties array literals become readonly tuples
+
+```tsx
+let x = "hello" as const;
+
+// Type 'readonly [10, 20]'
+let y = [10, 20] as const;
+
+// Type '{ readonly text: "hello" }'
+let z = { text: "hello" } as const;
+```
+
+从官方的介绍中，对我们最有用的是
+
+**no literal types in that expression should be widened (e.g. no going from `"hello"` to `string`)**
+
+这句话的意思是，通过 as const 被声明的字面量类型，在类型推导中不会被扩展成为 "**父类型**"，比如对于字面量类型 "hello" 来讲，在类型推导中会被扩展为 string 类型，对于字面量量类型 9999 来说，在推导中会被扩展为 number 类型。
+
 # Union to intersection
 
 将联合类型转为交叉类型
