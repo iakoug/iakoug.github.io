@@ -687,6 +687,8 @@ type InstanceType<T extends new (...args: any) => any> = T extends new (...args:
 
 **在 TypeScript 中， 参数类型是双向协变的 ，也就是说既是协变又是逆变的，而这并不安全。但是现在你可以在 TypeScript 2.6 版本中通过 --strictFunctionTypes 或 --strict 标记来修复这个问题。(\***在 Java 中，数组既是可变的，又是协变的\*。Unsafe)
 
+> 逆变协变本质上还是为了满足里式替换
+
 # 如何利用 infer 配合协变实现高级类型声明
 
 ---

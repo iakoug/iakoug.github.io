@@ -72,7 +72,9 @@
   "license": "MIT",
   "main": "n/a",
   "scripts": {
+    "run:push": "npm run clean && npm run build && npm run dep",
     "develop": "gatsby develop",
+    "start": "dev",
     "dev": "gatsby clean && yarn develop",
     "serve": "gatsby serve",
     "build": "gatsby build",
@@ -84,8 +86,7 @@
     "write-good": "write-good $(glob 'content/posts/*.md')",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "check": "yarn upgrade-interactive --latest",
-    "dep": "node scripts/publish.js",
-    "run:push": "npm run clean && npm run build && npm run dep"
+    "dep": "node scripts/publish.js"
   },
   "remarkConfig": {
     "plugins": [
