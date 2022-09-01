@@ -36,8 +36,8 @@ function setSpinner(text) {
 const init = async () => {
   setSpinner(chalk.cyan(`cd public && touch CNAME`));
   await run(`cd public && touch CNAME`);
-  setSpinner(chalk.cyan(`cd public && echo 'kwoks.me' > CNAME`));
-  await run(`cd public && echo 'kwoks.me' > CNAME`);
+  setSpinner(chalk.cyan(`cd public && echo 'blog.iakoug.cn' > CNAME`));
+  await run(`cd public && echo 'blog.iakoug.cn' > CNAME`);
   setSpinner(chalk.cyan(`cd public && git init`));
   await run(`cd public && git init`);
   setSpinner(chalk.cyan(`cd public && git add`));

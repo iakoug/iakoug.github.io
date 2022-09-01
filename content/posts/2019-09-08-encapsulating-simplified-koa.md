@@ -12,7 +12,7 @@ tags:
 
 之前简单写过 koa 的中间件处理模型
 
-> [十行代码实现 koa2 洋葱模型](https://kwoks.me/post/2019-02-22-KoaOnionModel)
+> [十行代码实现 koa2 洋葱模型](https://blog.iakoug.cn/post/2019-02-22-KoaOnionModel)
 
 koa 作为目前流行的 node 框架之一，甚至很多企业级框架都是基于 koa 来封装（如 eggjs），koa 源码其实极为精简
 

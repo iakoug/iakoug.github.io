@@ -3,7 +3,7 @@ const config = {
   siteTitleShort: 'Kwok',
   siteTitleAlt: 'Kwok',
   siteLogo: '/logos/logo-1024.png',
-  siteUrl: 'https://kwoks.me',
+  siteUrl: 'https://blog.iakoug.cn',
   repo: 'https://github.com/justwink/justwink.github.io',
   pathPrefix: '',
   dateFromFormat: 'YYYY-MM-DD',

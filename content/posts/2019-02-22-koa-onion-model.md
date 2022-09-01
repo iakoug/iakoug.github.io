@@ -68,7 +68,7 @@ app.listen(3000)
 .
 
 .
-和之前的一篇 [动态规划和递归：从虎羊草开始](https://kwoks.me/post/2019-02-21-DynamicProgrammingAndRecursion) 类似进行简单的归纳之后得出思路，最关键的流程控制问题既然有了思路下面开始封装代码
+和之前的一篇 [动态规划和递归：从虎羊草开始](https://blog.iakoug.cn/post/2019-02-21-DynamicProgrammingAndRecursion) 类似进行简单的归纳之后得出思路，最关键的流程控制问题既然有了思路下面开始封装代码
 
 ### 三步完成封装
 

@@ -24,7 +24,7 @@ export default class Footer extends Component {
           </a>
           <Link to="/contact">Newsletter</Link>
           <a
-            href="https://kwoks.me/rss.xml"
+            href="https://blog.iakoug.cn/rss.xml"
             target="_blank"
             rel="noopener noreferrer"
           >
