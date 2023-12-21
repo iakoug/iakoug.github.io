@@ -3,9 +3,8 @@ date: 2021-06-06
 title: Typescript (二)
 template: post
 thumbnail: "../thumbnails/post.png"
-slug: typescript-02
-categories:
-  - Typescript
+slug: /typescript-02
+category: Typescript
 tags:
   - typescript
 ---

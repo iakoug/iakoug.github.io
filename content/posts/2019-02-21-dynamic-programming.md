@@ -3,9 +3,8 @@ date: 2019-02-21
 title: Dynamic programming & recursion - 动态规划和递归：从虎羊草开始
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: dynamic-programming
-categories:
-  - Algorithm
+slug: /dynamic-programming
+category: Algorithm
 tags:
   - dynamic programming
   - recursive

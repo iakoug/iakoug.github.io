@@ -78,22 +78,12 @@ img {
 }
 
 hr {
-  background-image: linear-gradient(
-    to bottom,
-    transparent 1px,
-    transparent 11px,
-    $color-dark 11px,
-    $color-dark 15px,
-    transparent 15px,
-    transparent 26px
-  );
-  background-size: 100% 26px;
+  height: 0;
   border: 0;
-  color: var(--color-typographic-base-font);
-  display: block;
-  height: 26px;
-  margin: 52px auto;
-  width: 100px;
+  border-top: 2px solid #ccd9df;
+  position: relative;
+  width: 12px;
+  margin: 48px auto;
 }
 
 a {

@@ -3,10 +3,8 @@ date: 2018-12-09
 title: Applet router - 小程序的路由封装
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: applet-router
-categories:
-  - Encapsulating
-  - Popular
+slug: /applet-router
+category: Encapsulating
 tags:
   - applet
   - mpvue

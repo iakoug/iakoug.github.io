@@ -3,9 +3,8 @@ date: 2021-03-11
 title: Rxjs 初探
 template: post
 thumbnail: "../thumbnails/post.png"
-slug: rxjs-preliminary
-categories:
-  - Library
+slug: /rxjs-preliminary
+category: Library
 tags:
   - rxjs
 ---

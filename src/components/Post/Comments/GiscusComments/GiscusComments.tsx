@@ -61,7 +61,7 @@ const GiscusComments: React.FC = () => {
     }
   }, [themeMode]);
 
-  return <div ref={containerRef} />;
+  return <div ref={containerRef} style={{ marginBottom: 48 }} />;
 };
 
 GiscusComments.displayName = "GiscusComments";

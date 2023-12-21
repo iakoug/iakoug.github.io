@@ -3,9 +3,8 @@ date: 2019-02-22
 title: Koa2 onion model - 十行代码实现 koa2 洋葱模型
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: koa-onion-model
-categories:
-  - Encapsulating
+slug: /koa-onion-model
+category: Encapsulating
 tags:
   - koa
   - onion model

@@ -3,10 +3,8 @@ date: 2019-10-08
 title: Call function queue - 三种函数队列调用问题的归档
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: call-function-queue
-categories:
-  - Algorithm
-  - Popular
+slug: /call-function-queue
+category: Algorithm
 tags:
   - interceptor
   - reduce

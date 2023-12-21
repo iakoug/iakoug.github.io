@@ -3,9 +3,8 @@ date: 2019-12-24
 title: Group sharing - 工作和生活常用工具分享
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: yqb-tools-sharing
-categories:
-  - Tools
+slug: /yqb-tools-sharing
+category: Tools
 tags:
   - env
 ---

@@ -3,9 +3,8 @@ date: 2020-04-06 19:26
 title: Irrational number - 从毕达哥拉斯定理到无理数存在的证明
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: irrational-number
-categories:
-  - Thinking
+slug: /irrational-number
+category: Thinking
 tags:
   - math
 ---

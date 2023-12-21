@@ -3,10 +3,8 @@ date: 2019-12-28
 title: Game theory - 博弈论/胆小鬼博弈/Chicken game，如何触发对自己有最大收益的纳什均衡点
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: game-theory
-categories:
-  - Thinking
-  - Popular
+slug: /game-theory
+category: Thinking
 tags:
   - methodology
 ---

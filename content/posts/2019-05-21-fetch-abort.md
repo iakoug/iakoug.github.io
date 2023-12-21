@@ -3,9 +3,8 @@ date: 2019-05-21
 title: Fetch abort - 使用ts封装一个fetch请求库（拦截器promise链的提前终止）
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: fetch-abort
-categories:
-  - Encapsulating
+slug: /fetch-abort
+category: Encapsulating
 tags:
   - promise
   - fetch

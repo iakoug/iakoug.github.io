@@ -3,9 +3,8 @@ date: 2020-11-08
 title: Typescript 系列（一）基础进阶
 template: post
 thumbnail: "../thumbnails/post.png"
-slug: typescript
-categories:
-  - Typescript
+slug: /typescript
+category: Typescript
 tags:
   - typescript
 ---

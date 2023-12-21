@@ -3,10 +3,8 @@ date: 2020-02-15
 title: New coronavirus - What is it attempting to expose
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: new-coronavirus
-categories:
-  - Prose
-  - Popular
+slug: /new-coronavirus
+category: Prose
 tags:
   - life
   - new coronavirus

@@ -3,9 +3,8 @@ date: 2019-04-01
 title: Is life always this hard - 君为何故泪纵横
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: bullshit-life
-categories:
-  - Prose
+slug: /bullshit-life
+category: Prose
 tags:
   - life
 ---

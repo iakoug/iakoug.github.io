@@ -3,9 +3,8 @@ date: 2019-12-24
 title: See ya again
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: see-ya-again
-categories:
-  - Prose
+slug: /see-ya-again
+category: Prose
 tags:
   - date
 ---

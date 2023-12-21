@@ -3,10 +3,8 @@ date: 2020-03-19
 title: Fiber reconciler
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: fiber-reconciler
-categories:
-  - Algorithm
-  - Popular
+slug: /fiber-reconciler
+category: Algorithm
 tags:
   - react
   - fiber

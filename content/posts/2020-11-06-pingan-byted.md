@@ -3,9 +3,8 @@ date: 2020-11-06
 title: New journey
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: 2020-new-journey
-categories:
-  - Summary
+slug: /2020-new-journey
+category: Summary
 tags:
   - bye
 ---

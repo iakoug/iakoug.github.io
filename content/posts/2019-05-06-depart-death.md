@@ -3,9 +3,8 @@ date: 2019-05-06
 title: Death - 生亦何欢 死亦何苦
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: depart-death
-categories:
-  - Prose
+slug: /depart-death
+category: Prose
 tags:
   - death
 ---

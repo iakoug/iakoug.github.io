@@ -3,9 +3,8 @@ date: 2019-07-16
 title: Find your own way
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: find-your-way
-categories:
-  - Prose
+slug: /find-your-way
+category: Prose
 tags:
   - growth
 ---

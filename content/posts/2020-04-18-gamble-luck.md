@@ -3,9 +3,8 @@ date: 2020-04-18
 title: Gamble - 你以为的以小博大
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: gamble-luck
-categories:
-  - Thinking
+slug: /gamble-luck
+category: Thinking
 tags:
   - math
 ---

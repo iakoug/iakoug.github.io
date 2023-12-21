@@ -3,9 +3,8 @@ date: 2019-04-13
 title: Fetch interceptor - 使用 ts 封装一个 fetch 请求库（拦截器篇）
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: fetch-interceptor
-categories:
-  - Encapsulating
+slug: /fetch-interceptor
+category: Encapsulating
 tags:
   - typescript
   - fetch

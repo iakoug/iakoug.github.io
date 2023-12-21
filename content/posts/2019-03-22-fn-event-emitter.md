@@ -3,9 +3,8 @@ date: 2019-03-22
 title: Functional event emitter - 用函数式编程简单封装一个 `event emitter`
 template: post
 thumbnail: '../thumbnails/post.png'
-slug: fn-event-emitter
-categories:
-  - Encapsulating
+slug: /fn-event-emitter
+category: Encapsulating
 tags:
   - functional
   - event emitter
