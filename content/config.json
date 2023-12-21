@@ -1,0 +1,46 @@
+{
+  "title": "Everything in its Right Place",
+  "url": "https://blog.iakoug.cn",
+  "subtitle": "There are two colours in my head.",
+  "copyright": "© 2017-2024 All rights reserved.",
+  "googleAnalyticsId": "G-7DNZ80VV7M",
+  "postsLimit": 5,
+  "pathPrefix": "/",
+  "menu": [
+    {
+      "label": "Home",
+      "path": "/"
+    },
+    {
+      "label": "Categories",
+      "path": "/categories"
+    },
+    {
+      "label": "Tags",
+      "path": "/tags"
+    }
+  ],
+  "author": {
+    "name": "iakoug",
+    "photo": "/photo.jpg",
+    "bio": "Everything in its Right Place",
+    "contacts": {
+      "rss": "rss.xml",
+      "email": "rollawaypoint@gmail.com",
+      "github": "iakoug",
+      "facebook": "",
+      "telegram": "",
+      "twitter": "",
+      "linkedin": "",
+      "instagram": "",
+      "mastodon": "",
+      "line": "",
+      "weibo": "",
+      "gitlab": "",
+      "medium": "",
+      "youtube": "",
+      "codepen": "",
+      "soundcloud": ""
+    }
+  }
+}

@@ -1,4 +1,4 @@
-public
-static
-.cache
-content
+*.*
+!*.ts
+!*.tsx
+/public/
