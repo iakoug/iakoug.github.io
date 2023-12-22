@@ -74,7 +74,7 @@ h6 {
 @media screen and (max-width: 900px) {
   h1 {
     @include margin-top(2);
-    @include line-height(1);
+    @include line-height(1.2);
   }
 
   h2,
@@ -83,7 +83,7 @@ h6 {
   h5,
   h6 {
     @include margin-top(1);
-    @include line-height(1);
+    @include line-height(1.1);
   }
 }
 

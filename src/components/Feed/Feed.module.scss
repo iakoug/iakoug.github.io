@@ -42,8 +42,8 @@
 
     .title {
       padding-left: 16px;
-      font-size: $typographic-base-font-size * 1.6875;
-      @include line-height(1.5);
+      font-size: $typographic-base-font-size * 1.4;
+      @include line-height(1.2);
       @include margin-top(0);
       @include margin-bottom(0.5);
 
@@ -70,7 +70,7 @@
 
       .time {
         color: var(--color-typographic-base-font);
-        font-size: $typographic-small-font-size;
+        font-size: $typographic-small-font-size * 0.9;
         font-weight: 600;
         text-transform: uppercase;
       }

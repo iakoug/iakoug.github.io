@@ -7,14 +7,15 @@
   display: flex;
   @include margin-top(2);
 
-  .previous {
-    text-align: right;
-    padding-right: 24px;
+  .previous,
+  .next {
+    padding: 0 24px;
     width: 50%;
 
-    .previousLink {
+    .previousLink,
+    .nextLink {
       color: var(--color-primary);
-      font-size: 26px;
+      font-size: 20px;
       font-weight: bold;
       transition: color 0.2s;
 
@@ -30,26 +31,11 @@
     }
   }
 
+  .previous {
+    text-align: right;
+  }
+
   .next {
     text-align: left;
-    padding-left: 24px;
-    width: 50%;
-
-    .nextLink {
-      color: var(--color-primary);
-      font-size: 26px;
-      font-weight: bold;
-      transition: color 0.2s;
-
-      &:hover,
-      &:focus {
-        color: var(--color-secondary);
-      }
-
-      &.disable {
-        color: $color-dark-cloud;
-        pointer-events: none;
-      }
-    }
   }
 }

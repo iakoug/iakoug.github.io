@@ -7,7 +7,7 @@ category: Team
 tags:
   - Team
 cover: "./media/andriy-boechko-ugpS8XAHWYI-unsplash.jpg"
-description: 关于团建建设的一些碎片想法
+description: 关于团队建设的一些碎片想法
 ---
 
 ---
