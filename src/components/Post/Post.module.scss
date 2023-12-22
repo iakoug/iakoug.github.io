@@ -10,7 +10,7 @@
 
   .footer {
     max-width: $layout-post-width;
-    @include padding(0, 0.5);
+    padding-left: 26px;
     @include margin-auto();
   }
 
