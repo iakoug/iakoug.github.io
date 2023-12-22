@@ -4,6 +4,7 @@ title: Event loop - JS 特色之一是单线程，那所谓的基于事件的异
 template: post
 thumbnail: '../thumbnails/post.png'
 slug: /event-loop
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Language
 tags:
   - js

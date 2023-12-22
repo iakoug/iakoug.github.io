@@ -40,6 +40,25 @@ const TagTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
 };
 
 export const query = graphql`
+  fragment Cover on File {
+    childImageSharp {
+      fluid(
+        maxWidth: 1200
+        maxHeight: 500
+        pngCompressionSpeed: 8
+        cropFocus: CENTER
+      ) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+        presentationWidth
+        presentationHeight
+      }
+    }
+  }
+
   query TagTemplate($group: String, $limit: Int!, $offset: Int!) {
     site {
       siteMetadata {
@@ -71,6 +90,9 @@ export const query = graphql`
             category
             description
             slug
+            cover {
+              ...Cover
+            }
           }
         }
       }

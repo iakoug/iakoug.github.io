@@ -1,9 +1,36 @@
 @import "../../assets/scss/variables";
 @import "../../assets/scss/mixins";
 
+.cover {
+  box-shadow:
+    rgba(0, 0, 0, 0.2) 0px 24px 48px -8px,
+    rgba(0, 0, 0, 0.22) 0px 16px 32px -8px;
+  transition:
+    transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s,
+    box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0s;
+}
+
 .feed {
+  display: flex;
+  flex-flow: wrap;
+  -webkit-box-pack: start;
+  justify-content: flex-start;
+  -webkit-box-align: stretch;
+  align-items: stretch;
+  margin: 0px -24px;
+
   .item {
     @include margin-bottom(1.25);
+
+    color: rgb(60, 63, 69);
+    cursor: pointer;
+    text-decoration: none;
+    position: relative;
+    display: block;
+    flex: 0 0 50%;
+    margin-bottom: 48px;
+    padding: 0px 24px;
+    box-sizing: border-box;
 
     &:last-child {
       @include margin-bottom(0.5);
@@ -33,6 +60,8 @@
     }
 
     .meta {
+      margin-top: 10px;
+
       .time {
         color: var(--color-typographic-base-font);
         font-size: $typographic-small-font-size;

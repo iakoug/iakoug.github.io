@@ -4,6 +4,7 @@ title: Game theory - 博弈论/胆小鬼博弈/Chicken game，如何触发对自
 template: post
 thumbnail: '../thumbnails/post.png'
 slug: /game-theory
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Thinking
 tags:
   - methodology

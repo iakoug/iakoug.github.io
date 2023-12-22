@@ -5,6 +5,7 @@ template: post
 thumbnail: '../thumbnails/post.png'
 slug: /pay-attention-to-these-js
 category: Issues
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - js
 ---

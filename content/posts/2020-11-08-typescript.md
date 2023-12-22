@@ -4,6 +4,7 @@ title: Typescript 系列（一）基础进阶
 template: post
 thumbnail: "../thumbnails/post.png"
 slug: /typescript
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Typescript
 tags:
   - typescript

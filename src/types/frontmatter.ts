@@ -9,6 +9,11 @@ interface Frontmatter {
   socialImage?: {
     publicURL: string;
   };
+  cover: {
+    childImageSharp: {
+      fluid: any;
+    };
+  };
 }
 
 export default Frontmatter;

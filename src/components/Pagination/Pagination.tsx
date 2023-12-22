@@ -31,22 +31,18 @@ const Pagination = ({
   return (
     <div className={styles.pagination}>
       <div className={styles.previous}>
-        <Link
-          rel="prev"
-          to={hasPrevPage ? prevPagePath : "/"}
-          className={prevClassName}
-        >
-          {PAGINATION.PREV_PAGE}
-        </Link>
+        {hasPrevPage && (
+          <Link rel="prev" to={prevPagePath} className={prevClassName}>
+            {PAGINATION.PREV_PAGE}
+          </Link>
+        )}
       </div>
       <div className={styles.next}>
-        <Link
-          rel="next"
-          to={hasNextPage ? nextPagePath : "/"}
-          className={nextClassName}
-        >
-          {PAGINATION.NEXT_PAGE}
-        </Link>
+        {hasNextPage && (
+          <Link rel="next" to={nextPagePath} className={nextClassName}>
+            {PAGINATION.NEXT_PAGE}
+          </Link>
+        )}
       </div>
     </div>
   );

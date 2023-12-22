@@ -41,6 +41,25 @@ const CategoryTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
 };
 
 export const query = graphql`
+  fragment Cover on File {
+    childImageSharp {
+      fluid(
+        maxWidth: 1200
+        maxHeight: 500
+        pngCompressionSpeed: 8
+        cropFocus: CENTER
+      ) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+        presentationWidth
+        presentationHeight
+      }
+    }
+  }
+
   query CategoryTemplate($group: String, $limit: Int!, $offset: Int!) {
     allMarkdownRemark(
       limit: $limit
@@ -66,6 +85,9 @@ export const query = graphql`
             title
             date
             slug
+            cover {
+              ...Cover
+            }
           }
         }
       }

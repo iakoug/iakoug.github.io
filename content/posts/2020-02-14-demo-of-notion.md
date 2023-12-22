@@ -4,6 +4,7 @@ title: Demo of Notion – The all-in-one workspace for your notes, tasks, wikis,
 template: post
 thumbnail: '../thumbnails/post.png'
 slug: /demo-of-notion
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Algorithm
 tags:
   - notion

@@ -1,8 +1,7 @@
 import React from "react";
-
 import { Link } from "gatsby";
-
 import { Edge } from "@/types";
+import Image from "gatsby-image";
 
 import * as styles from "./Feed.module.scss";
 
@@ -18,6 +17,18 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
 
         return (
           <div className={styles.item} key={edge.node.fields.slug}>
+            {edge.node.frontmatter.cover && (
+              <Link
+                className={styles.link}
+                to={edge.node.frontmatter?.slug || edge.node.fields.slug}
+              >
+                <Image
+                  className={styles.cover}
+                  fluid={edge.node.frontmatter.cover.childImageSharp.fluid}
+                ></Image>
+              </Link>
+            )}
+
             <div className={styles.meta}>
               <time
                 className={styles.time}
@@ -69,12 +80,6 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
             <p className={styles.description}>
               {edge.node.frontmatter.description}
             </p>
-            <Link
-              className={styles.more}
-              to={edge.node.frontmatter?.slug || edge.node.fields.slug}
-            >
-              Read
-            </Link>
           </div>
         );
       })}

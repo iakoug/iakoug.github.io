@@ -5,6 +5,7 @@ template: post
 thumbnail: '../thumbnails/post.png'
 slug: /fn-event-emitter
 category: Encapsulating
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - functional
   - event emitter

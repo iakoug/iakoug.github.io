@@ -5,6 +5,7 @@ template: post
 thumbnail: "../thumbnails/post.png"
 slug: /block-editor
 category: Structure
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - structure
 ---

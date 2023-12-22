@@ -5,6 +5,7 @@ template: post
 thumbnail: '../thumbnails/post.png'
 slug: /fetch-interceptor
 category: Encapsulating
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - typescript
   - fetch

@@ -5,6 +5,7 @@ template: post
 thumbnail: '../thumbnails/post.png'
 slug: /block-editor-depth-first
 category: Algorithm
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - block editor
 ---

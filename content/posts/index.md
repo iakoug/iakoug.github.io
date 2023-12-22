@@ -8,9 +8,10 @@ category: testPage
 tags:
   - testPage
 description: TestPage.
-socialImage: "./media/hacktoberfest.jpg"
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
+socialImage: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 ---
 
 TEST
 
-![](/media/hacktoberfest.jpg)
+![](/media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg)

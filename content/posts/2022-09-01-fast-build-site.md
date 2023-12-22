@@ -7,6 +7,8 @@ slug: /fast-build-ur-site
 category: Nginx
 tags:
   - Nginx
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
+
 ---
 
 在腾讯云服务器上快速部署一个前端页面
