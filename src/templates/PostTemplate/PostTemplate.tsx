@@ -21,6 +21,25 @@ const PostTemplate: React.FC<Props> = ({ data: { markdownRemark } }: Props) => (
 );
 
 export const query = graphql`
+  fragment Cover on File {
+    childImageSharp {
+      fluid(
+        maxWidth: 1200
+        maxHeight: 500
+        pngCompressionSpeed: 8
+        cropFocus: CENTER
+      ) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+        presentationWidth
+        presentationHeight
+      }
+    }
+  }
+
   query PostTemplate($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
@@ -34,6 +53,9 @@ export const query = graphql`
         description
         tags
         title
+        cover {
+          ...Cover
+        }
         socialImage {
           publicURL
         }

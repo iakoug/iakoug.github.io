@@ -28,7 +28,7 @@ const Post: React.FC<Props> = ({ post }: Props) => {
       </div>
 
       <div className={styles.content}>
-        <Content body={html} title={title} />
+        <Content body={html} title={title} frontmatter={post.frontmatter} />
       </div>
 
       <div className={styles.footer}>
