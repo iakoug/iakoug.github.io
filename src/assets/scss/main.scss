@@ -4,3 +4,13 @@
 @import "themes";
 @import "mixins";
 @import "base";
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background-color: transparent;
+}
+
+code {
+  text-wrap: pretty;
+  word-break: break-all;
+}

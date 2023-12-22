@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from "react";
-
-import type { Nullable } from "@/types";
+import React from "react";
 
 import * as styles from "./Page.module.scss";
 
@@ -10,16 +8,8 @@ interface Props {
 }
 
 const Page: React.FC<Props> = ({ title, children }: Props) => {
-  const pageRef = useRef<Nullable<HTMLDivElement>>(null);
-
-  useEffect(() => {
-    if (pageRef.current) {
-      pageRef.current.scrollIntoView();
-    }
-  }, []);
-
   return (
-    <div ref={pageRef} className={styles.page}>
+    <div className={styles.page}>
       <div>
         {title && <h1>{title}</h1>}
         <div>{children}</div>
