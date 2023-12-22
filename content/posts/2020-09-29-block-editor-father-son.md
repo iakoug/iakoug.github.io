@@ -1,12 +1,13 @@
 ---
 date: 2020-09-29
-title: 块编辑器：解析文本缩进父子关系还原深度优先遍历算法
+title: 块编辑器
+description: 解析文本缩进父子关系还原深度优先遍历算法
 template: post
 slug: /block-editor-depth-first
-category: Algorithm
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - block editor
+  - Rditor
 ---
 
 在写块编辑器的时候需要处理一个将粘贴的文本根据缩进关系转换为带有级联父子（兄弟）关系的（多种类型）块。

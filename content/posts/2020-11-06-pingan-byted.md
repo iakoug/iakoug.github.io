@@ -4,9 +4,9 @@ title: New journey
 template: post
 slug: /2020-new-journey
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Summary
+category: Misc
 tags:
-  - bye
+  - Misc
 ---
 
 没想到会这么快离职，人生不如意事十之八九

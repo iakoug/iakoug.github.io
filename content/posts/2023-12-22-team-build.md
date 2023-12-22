@@ -3,7 +3,7 @@ date: 2023-12-22
 title: About team building
 template: post
 slug: /about-team-building
-category: Team
+category: R&D
 tags:
   - Team
 cover: "./media/andriy-boechko-ugpS8XAHWYI-unsplash.jpg"

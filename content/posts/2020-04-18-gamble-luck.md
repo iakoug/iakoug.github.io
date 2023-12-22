@@ -1,12 +1,13 @@
 ---
 date: 2020-04-18
-title: Gamble - 你以为的以小博大
+title: Gamble
+description: 你以为的以小博大
 template: post
 slug: /gamble-luck
-category: Thinking
+category: External
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - math
+  - External
 ---
 
 所谓“搏一搏，单车变摩托”，很多时候我们以为的以‘小’博大其实并不小。

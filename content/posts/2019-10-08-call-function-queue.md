@@ -1,17 +1,17 @@
 ---
 date: 2019-10-08
-title: Call function queue - 三种函数队列调用问题的归档
+title: Call function queue
+description: 三种函数队列调用问题的归档
 template: post
 slug: /call-function-queue
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Algorithm
+category: R&D
 tags:
-  - interceptor
-  - reduce
-  - compose
-  - functional
-  - vue-router
-  - redux
+  - Interceptor
+  - Compose
+  - Functional
+  - Vue-router
+  - Redux
 ---
 
 ## 实现 axios 的拦截器
@@ -21,19 +21,19 @@ tags:
 
 ```js
 // 函数队列
-const fns = []
+const fns = [];
 
 // 借助 reduce
 function generatePromiseChain(fns) {
   return fns.reduce((promises, fn) => {
-    promises = promises.then(fn)
+    promises = promises.then(fn);
 
-    return promises
-  }, Promise.resolve())
+    return promises;
+  }, Promise.resolve());
 }
 
 // invoke execution
-generatePromiseChain(fns).then(() => console.log('end'))
+generatePromiseChain(fns).then(() => console.log("end"));
 ```
 
 这样我们就得到了一条按顺序执行的 Promise 链。
@@ -41,12 +41,12 @@ generatePromiseChain(fns).then(() => console.log('end'))
 
 ```js
 const fns = [
-  () => console.log('1'),
-  () => console.log('2'),
-  () => console.log('3')
-]
+  () => console.log("1"),
+  () => console.log("2"),
+  () => console.log("3"),
+];
 
-generatePromiseChain(fns).then(() => console.log('end'))
+generatePromiseChain(fns).then(() => console.log("end"));
 
 // output:
 // 1
@@ -71,12 +71,12 @@ function compose(fns) {
     // 队列存在当前项函数便发起调用 同时在当前项函数入参新增开关回调函数 开关内部包装下一个函数的调用
     return (
       fns[order] &&
-      fns[order](function() {
+      fns[order](function () {
         // 函数队列索引自加1进行下一个函数调用
-        return dispatch(order + 1)
+        return dispatch(order + 1);
       })
-    )
-  })()
+    );
+  })();
 }
 ```
 
@@ -84,13 +84,13 @@ compose 已经基本完成封装，测试结果如下：
 
 ```js
 const fns = [
-  next => console.log('1') || next(),
-  next => console.log('2') || next(),
-  () => console.log('end'),
-  () => console.log('3')
-]
+  (next) => console.log("1") || next(),
+  (next) => console.log("2") || next(),
+  () => console.log("end"),
+  () => console.log("3"),
+];
 
-compose(fns)
+compose(fns);
 
 // 由于函数队列的第三个参数没有开启下一个函数调用的开关，所以输出结果如下：
 
@@ -114,15 +114,17 @@ compose(fns)
 
 ```js
 // 构造 compose 函数（ctx 为 Koa 的上下文对象）
-const compose = ctx => async middlewares =>
+const compose = (ctx) => async (middlewares) =>
   // 接受函数队列借助 reduceRight 方法由由向左进行包装（这样才可以保证最外层函数是队列的第一个最先执行）
   await middlewares.reduceRight(
     (next, middleware) =>
       // 从右向左将队列的每个函数包装为下一个函数的 next 开关
-      (next = ((ctx, middleware, oldNext) => async () =>
-        await middleware(ctx, oldNext))(ctx, middleware, next)),
-    async () => Promise.resolve()
-  )()
+      (next = (
+        (ctx, middleware, oldNext) => async () =>
+          await middleware(ctx, oldNext)
+      )(ctx, middleware, next)),
+    async () => Promise.resolve(),
+  )();
 ```
 
 以上便简单封装完毕了。
@@ -131,23 +133,23 @@ const compose = ctx => async middlewares =>
 ```js
 const middlewares = [
   async (ctx, next) => {
-    console.log(1)
-    await next()
-    console.log(2)
+    console.log(1);
+    await next();
+    console.log(2);
   },
   async (ctx, next) => {
-    console.log(3)
-    await next()
-    console.log(4)
+    console.log(3);
+    await next();
+    console.log(4);
   },
   async (ctx, next) => {
-    console.log(5)
-    await next()
-    console.log(6)
-  }
-]
+    console.log(5);
+    await next();
+    console.log(6);
+  },
+];
 
-compose(null)(middlewares)
+compose(null)(middlewares);
 
 // output:
 // 1

@@ -1,12 +1,13 @@
 ---
 date: 2019-03-07
-title: Event loop - JS 特色之一是单线程，那所谓的基于事件的异步机制是什么
+title: Event loop
+description: JS 特色之一是单线程，那所谓的基于事件的异步机制是什么
 template: post
 slug: /event-loop
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Language
+category: R&D
 tags:
-  - js
+  - Js
 ---
 
 "JS 特色之一是单线程，那所谓的基于事件的异步机制是什么？"

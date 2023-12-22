@@ -3,10 +3,10 @@ date: 2019-03-12
 title: Interesting js
 template: post
 slug: /interesting-js
-category: Language
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - js
+  - Js
 ---
 
 ### JS 执行上下文（作用域）以及变量提升

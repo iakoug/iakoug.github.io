@@ -1,13 +1,14 @@
 ---
 date: 2020-02-14
-title: Demo of Notion – The all-in-one workspace for your notes, tasks, wikis, and databases
+title: Demo of Notion
+description: The all-in-one workspace for your notes, tasks, wikis, and databases
 template: post
 slug: /demo-of-notion
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Algorithm
+category: R&D
 tags:
-  - notion
-  - rich editor
+  - Notion
+  - Editor
 ---
 
 从零开发一个类 Notion 的富文本编辑项目该怎么做？一个实现 Notion 富文本基本编辑功能的 demo 记录。

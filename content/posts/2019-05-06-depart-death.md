@@ -1,12 +1,13 @@
 ---
 date: 2019-05-06
-title: Death - 生亦何欢 死亦何苦
+title: Death
+description: 生亦何欢 死亦何苦
 template: post
 slug: /depart-death
-category: Prose
+category: Misc
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - death
+  - Misc
 ---
 
 “生亦何欢 死亦何苦”

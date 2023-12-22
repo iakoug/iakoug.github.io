@@ -1,13 +1,14 @@
 ---
 date: 2019-05-21
-title: Fetch abort - 使用ts封装一个fetch请求库（拦截器promise链的提前终止）
+title: Fetch abort
+description: 使用ts封装一个fetch请求库（拦截器promise链的提前终止）
 template: post
 slug: /fetch-abort
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Encapsulating
+category: R&D
 tags:
-  - promise
-  - fetch
+  - Promise
+  - Fetch
 ---
 
 当你的 promise 链某一个环节需要显式的抛出异常，这个时候后面的所有剩余的 then 回调其实就不必要执行，那么如何终止这个 Promise 链呢

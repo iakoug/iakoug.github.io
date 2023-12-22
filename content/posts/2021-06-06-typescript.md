@@ -3,10 +3,10 @@ date: 2021-06-06
 title: Typescript (二)
 template: post
 slug: /typescript-02
-category: Typescript
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - typescript
+  - Typescript
 ---
 
 Typescript

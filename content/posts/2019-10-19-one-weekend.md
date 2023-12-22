@@ -3,10 +3,10 @@ date: 2019-10-19
 title: 渺小似芥子，却可纳须弥
 template: post
 slug: /one-weekend
-category: Prose
+category: Misc
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - life
+  - Misc
 ---
 
 ### 于己亥甲戌己丑

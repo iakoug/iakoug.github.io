@@ -1,13 +1,13 @@
 ---
 date: 2019-03-22
-title: Functional event emitter - 用函数式编程简单封装一个 `event emitter`
+title: Functional event emitter
+description: 用函数式编程简单封装一个 `event emitter`
 template: post
 slug: /fn-event-emitter
-category: Encapsulating
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - functional
-  - event emitter
+  - FP
 ---
 
 函数式编程：函数式编程（英语：functional programming），又称泛函编程，是一种编程范式，它将电脑运算视为数学上的函数计算，并且避免使用程序状态以及易变对象

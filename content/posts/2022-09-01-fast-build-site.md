@@ -3,7 +3,7 @@ date: 2022-09-02
 title: 腾讯云 Nginx 快速建站
 template: post
 slug: /fast-build-ur-site
-category: Nginx
+category: R&D
 tags:
   - Nginx
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

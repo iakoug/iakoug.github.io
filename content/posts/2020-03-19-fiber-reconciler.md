@@ -3,11 +3,11 @@ date: 2020-03-19
 title: Fiber reconciler
 template: post
 slug: /fiber-reconciler
-category: Algorithm
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - react
-  - fiber
+  - React
+  - Fiber
 ---
 
 

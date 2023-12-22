@@ -1,15 +1,14 @@
 ---
 date: 2020-02-15
-title: New coronavirus - What is it attempting to expose
+title: New coronavirus
+description: What is it attempting to expose
 template: post
 slug: /new-coronavirus
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Prose
+category: Misc
 tags:
-  - life
-  - new coronavirus
+  - Misc
 ---
-
 
 武汉发生的新冠状病毒导致的肺炎疫情已经在这块土地上肆虐了两个月。从过往非典的历程来看，至少需要半年的时间才可以平息肺炎导致的负面影响，且这次肺炎比之非典来势更为汹汹。
 

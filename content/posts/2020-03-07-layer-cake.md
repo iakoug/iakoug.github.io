@@ -3,11 +3,10 @@ date: 2020-03-07
 title: Layer cake
 template: post
 slug: /layer-cake
-category: Prose
+category: Misc
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - life
-  - 90后
+  - Misc
 ---
 
 “90 后就像夹心饼干中的夹心，被压得死死的，但所有人都认为他是最好吃的一部分。”

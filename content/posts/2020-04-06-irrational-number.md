@@ -1,12 +1,13 @@
 ---
 date: 2020-04-06 19:26
-title: Irrational number - 从毕达哥拉斯定理到无理数存在的证明
+title: Irrational number
+description: 从毕达哥拉斯定理到无理数存在的证明
 template: post
 slug: /irrational-number
-category: Thinking
+category: External
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - math
+  - External
 ---
 数学的大厦是一点点从零搭建起到今天，在发展历程中存在很多当今人们早已习以为常的概念在不断被发现。如数字 0 在被定义之前，所有正数和负数之间的间隔是什么？
 

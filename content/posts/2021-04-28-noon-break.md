@@ -4,9 +4,9 @@ title: Noon break
 template: post
 slug: /noon-break
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Prose
+category: Misc
 tags:
-  - prose
+  - Misc
 ---
 
 Noon break.

@@ -4,10 +4,10 @@ title: RUM
 description: 什么是以用户为中心的性能指标
 template: post
 slug: /web-performance
-category: Web performance
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - web performance
+  - Performance
 ---
 
 # 什么是以用户为中心的性能指标

@@ -3,10 +3,10 @@ date: 2019-07-16
 title: Find your own way
 template: post
 slug: /find-your-way
-category: Prose
+category: Misc
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - growth
+  - Misc
 ---
 
 生活不易 当砥砺前行

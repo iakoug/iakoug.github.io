@@ -1,13 +1,13 @@
 ---
 date: 2019-02-22
-title: Koa2 onion model - 十行代码实现 koa2 洋葱模型
+title: Onion model
+description: 十行代码实现 Koa 洋葱模型
 template: post
 slug: /koa-onion-model
-category: Encapsulating
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - koa
-  - onion model
+  - Koa
 ---
 
 koa2 上独特的中间件流程控制，是一个典型的洋葱模型

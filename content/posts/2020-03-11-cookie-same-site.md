@@ -1,14 +1,13 @@
 ---
 date: 2020-03-11
-title: 一次客户端请求携带 Cookie 的 🐛 - Cookie set Same-Site
+title: 一次客户端请求携带 Cookie 的 🐛
+description: Cookie set Same-Site
 template: post
 slug: /cookie-same-site
-category: Tools
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - cookie
-  - browser
-  - client
+  - Cookie
 ---
 
 早上刚到公司发现昨晚还能运行的项目（前后端代码未变更）隔夜后无法登录了，“惊！一夜之间平安大厦遭贼，竟然对开发 GG 的电脑做了这个！”。
@@ -80,12 +79,12 @@ Debugger 进登录接口所在位置可以正确获得响应报文。<br />
 最后在服务端设置：<br />
 
 ```js
-ctx.cookies.set('auth', '******************', {
-  domain: 'localhost',
-  path: '/',
+ctx.cookies.set("auth", "******************", {
+  domain: "localhost",
+  path: "/",
   secure: true,
-  sameSite: 'none'
-})
+  sameSite: "none",
+});
 ```
 
 再次拉起登录成功注入 Cookie 登录态。<br />

@@ -1,15 +1,16 @@
 ---
 date: 2018-12-09
-title: Applet router - 小程序的路由封装
+title: Applet router
+description: 小程序的路由封装
 template: post
 slug: /applet-router
-category: Encapsulating
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - applet
-  - mpvue
-  - router
-  - interceptor
+  - Applet
+  - Mpvue
+  - Router
+  - Interceptor
 ---
 
 基于 `mpvue` 小程序的路由封装

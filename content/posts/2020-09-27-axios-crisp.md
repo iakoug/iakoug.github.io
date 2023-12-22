@@ -1,15 +1,14 @@
 ---
 date: 2020-09-27
-title: 知识迁移-Technology sharing：从Axios源码解析到项目路由Crisp实践
+title: 知识迁移 - Technology sharing
+description: 从Axios源码解析到项目路由Crisp实践
 template: post
 slug: /axios-crisp
-category: Thinking
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - axios
-  - compose
-  - programming
-  - middleware
+  - Axios
+  - Compose
 ---
 
 从Axios源码解析到项目路由Crisp实践

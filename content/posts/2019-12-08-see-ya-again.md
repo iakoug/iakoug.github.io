@@ -3,10 +3,10 @@ date: 2019-12-24
 title: See ya again
 template: post
 slug: /see-ya-again
-category: Prose
+category: Misc
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - date
+  - Misc
 ---
 
 你不会总是沮丧，幸运女神终究会眷顾她可怜的信徒。

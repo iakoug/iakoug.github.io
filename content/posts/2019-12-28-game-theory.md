@@ -1,12 +1,13 @@
 ---
 date: 2019-12-28
-title: Game theory - 博弈论/胆小鬼博弈/Chicken game，如何触发对自己有最大收益的纳什均衡点
+title: Game theory
+description: 博弈论/胆小鬼博弈/Chicken game，如何触发对自己有最大收益的纳什均衡点
 template: post
 slug: /game-theory
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-category: Thinking
+category: External
 tags:
-  - methodology
+  - External
 ---
 
 最近接触了博弈论相关的思想，在决策人的空间中，对于被决策的个体行为进行预测解读和分析，从而使得结果向自己最有益的方向倾斜，如何准确把控其中临界点呢？

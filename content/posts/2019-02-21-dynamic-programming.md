@@ -1,13 +1,14 @@
 ---
 date: 2019-02-21
-title: Dynamic programming & recursion - 动态规划和递归：从虎羊草开始
+title: 动态规划和递归
+description: 从虎羊草开始
 template: post
 slug: /dynamic-programming
-category: Algorithm
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - dynamic programming
-  - recursive
+  - DP
+  - Recursive
 ---
 
 老虎会吃羊吗？🐅🐑

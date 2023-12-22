@@ -1,12 +1,12 @@
 ---
 date: 2019-03-06
-title: Algorithm complexity - 算法复杂度
+title: Algorithm complexity
 template: post
 slug: /algorithm-complexity
-category: Algorithm
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - js
+  - Js
 ---
 
 "和同学菜鸡互啄了一番之后成功验证了大学的知识早已还给老师"

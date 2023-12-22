@@ -6,7 +6,7 @@ slug: /typescript
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Typescript
 tags:
-  - typescript
+  - Typescript
 ---
 
 平安壹钱包理财组技术分享

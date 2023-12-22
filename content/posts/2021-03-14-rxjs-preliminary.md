@@ -3,10 +3,10 @@ date: 2021-03-11
 title: Rxjs 初探
 template: post
 slug: /rxjs-preliminary
-category: Library
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - rxjs
+  - Rxjs
 ---
 
 本文不会研究 rxjs 的具体使用，只是在总体上对 rxjs 进行一些初步探索

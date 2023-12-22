@@ -1,13 +1,14 @@
 ---
 date: 2019-04-13
-title: Fetch interceptor - 使用 ts 封装一个 fetch 请求库（拦截器篇）
+title: Fetch interceptor
+description: 使用 ts 封装一个 fetch 请求库（拦截器篇）
 template: post
 slug: /fetch-interceptor
-category: Encapsulating
+category: R&D
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
-  - typescript
-  - fetch
+  - Typescript
+  - Fetch
 ---
 
 封装自己的 fetch 请求库---拦截器篇
@@ -28,12 +29,12 @@ tags:
 class Obtain {
   constructor() {}
   curl(url: string, options: any = {}): Promise<any> {
-    return fetch(url, options)
+    return fetch(url, options);
   }
 }
 
-const obtain = new Obtain()
-export default obtain.curl
+const obtain = new Obtain();
+export default obtain.curl;
 ```
 
 _这里使用原生的 fetch，关于兼容性封装 xmr 对象或者针对多端请求后面可以自行封装_
@@ -58,22 +59,22 @@ Interceptor 类拥有一个存储不同拦截器的队列 `handler`
 
 ```ts
 class Interceptor {
-  public handler: Array<Array<any>>
+  public handler: Array<Array<any>>;
 
   constructor() {
-    this.handler = []
+    this.handler = [];
   }
 
   public use(success: Function, failed: Function): void {
-    this.handler.push([success, failed])
+    this.handler.push([success, failed]);
   }
 
   public reducer(fn: Function): void {
-    this.handler.forEach(handlerList => fn(handlerList))
+    this.handler.forEach((handlerList) => fn(handlerList));
   }
 }
 
-export default Interceptor
+export default Interceptor;
 ```
 
 ### 构造 Fetch 类
@@ -83,26 +84,26 @@ export default Interceptor
 
 ```ts
 interface TypeInterceptor {
-  request: Interceptor
-  response: Interceptor
+  request: Interceptor;
+  response: Interceptor;
 }
 class Fetch {
-  public interceptor: TypeInterceptor
+  public interceptor: TypeInterceptor;
 
   constructor() {
     this.interceptor = {
       request: new Interceptor(),
-      response: new Interceptor()
-    }
+      response: new Interceptor(),
+    };
   }
   fetch(url, options) {
-    return () => fetch(url, options)
+    return () => fetch(url, options);
   }
 
   curl(url: string, options: any = {}): Promise<any> {}
 }
 
-export default Fetch
+export default Fetch;
 ```
 
 ### 构造 curl 方法
@@ -111,28 +112,28 @@ export default Fetch
 
 ```js
 function curl(url: string, options: any = {}): Promise<any> {
-  options.method = options.method || 'GET'
+  options.method = options.method || "GET";
 
   // 初始化promise
-  let promise = Promise.resolve(options)
+  let promise = Promise.resolve(options);
 
   // 构造promise调用链
   // 请求派发放在中间
   const chain: Array<Array<Function | any>> = [
-    [this.fetch(url, options), undefined]
-  ]
+    [this.fetch(url, options), undefined],
+  ];
 
   // 将收集到的请求拦截器依次放在promise调用链中请求派发之前
-  this.interceptor.request.reducer(handlerList => chain.unshift(handlerList))
+  this.interceptor.request.reducer((handlerList) => chain.unshift(handlerList));
   // 将收集到的响应拦截器依次放在promise调用链中请求派发之后
-  this.interceptor.response.reducer(handlerList => chain.push(handlerList))
+  this.interceptor.response.reducer((handlerList) => chain.push(handlerList));
 
   // excute chain inteceptor
   while (chain.length) {
-    promise = promise.then(...chain.shift())
+    promise = promise.then(...chain.shift());
   }
 
-  return promise
+  return promise;
 }
 ```
 
@@ -141,57 +142,57 @@ function curl(url: string, options: any = {}): Promise<any> {
 ### 对外暴露 curl 以及封装 use 方法便于使用
 
 ```ts
-const obtain = new Fetch()
+const obtain = new Fetch();
 
 // 使用简单的拦截器进行接口response的处理
 obtain.interceptor.response.use(
-  res => res.json(),
-  err => ({ err, msg: 'oops, something wrong...' })
-)
+  (res) => res.json(),
+  (err) => ({ err, msg: "oops, something wrong..." }),
+);
 
 // bind工具 对导出的curl上下文进行绑定
 const bind = (fn, context) =>
-  function() {
-    return fn.apply(context, Array.from(arguments))
-  }
+  function () {
+    return fn.apply(context, Array.from(arguments));
+  };
 
-const curl: any = bind(Fetch.prototype.curl, obtain)
+const curl: any = bind(Fetch.prototype.curl, obtain);
 
 // 封装use方法 将fetch实例传递给外部传入的回调
-curl.use = function(plugin: Function) {
-  if (typeof plugin !== 'function') {
-    return console.error('Error: plugin must be a function!')
+curl.use = function (plugin: Function) {
+  if (typeof plugin !== "function") {
+    return console.error("Error: plugin must be a function!");
   }
 
-  plugin(obtain)
-}
+  plugin(obtain);
+};
 
-export default curl
+export default curl;
 ```
 
 ### Usage
 
 ```js
 // 拦截器
-obtain.use(function(http) {
-  http.interceptor.request.use(option => {
-    console.log('in to interceptor ****************', option)
-    return option
-  }, null)
-  http.interceptor.response.use(option => {
-    console.log('after interceptor ****************')
-    return option
-  }, null)
-})
+obtain.use(function (http) {
+  http.interceptor.request.use((option) => {
+    console.log("in to interceptor ****************", option);
+    return option;
+  }, null);
+  http.interceptor.response.use((option) => {
+    console.log("after interceptor ****************");
+    return option;
+  }, null);
+});
 
 // 并发
-obtain.use(function(http) {
-  http.concurrency = 10
-})
+obtain.use(function (http) {
+  http.concurrency = 10;
+});
 
-obtain('http://localhost:4000/banner').then(async res => {
-  console.log(res, 'result')
-})
+obtain("http://localhost:4000/banner").then(async (res) => {
+  console.log(res, "result");
+});
 ```
 
 End
