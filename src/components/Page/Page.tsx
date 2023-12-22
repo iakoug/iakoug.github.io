@@ -20,9 +20,9 @@ const Page: React.FC<Props> = ({ title, children }: Props) => {
 
   return (
     <div ref={pageRef} className={styles.page}>
-      <div className={styles.inner}>
-        {title && <h1 className={styles.title}>{title}</h1>}
-        <div className={styles.body}>{children}</div>
+      <div>
+        {title && <h1>{title}</h1>}
+        <div>{children}</div>
       </div>
     </div>
   );

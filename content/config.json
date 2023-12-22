@@ -1,16 +1,12 @@
 {
-  "title": "Everything in its Right Place",
+  "title": "Aben",
   "url": "https://blog.iakoug.cn",
-  "subtitle": "There are two colours in my head.",
+  "subtitle": "There are two colors in my head.",
   "copyright": "© 2017-2024 All rights reserved.",
   "googleAnalyticsId": "G-7DNZ80VV7M",
-  "postsLimit": 5,
+  "postsLimit": 4,
   "pathPrefix": "/",
   "menu": [
-    {
-      "label": "Home",
-      "path": "/"
-    },
     {
       "label": "Categories",
       "path": "/categories"
@@ -21,7 +17,7 @@
     }
   ],
   "author": {
-    "name": "iakoug",
+    "name": "Aben",
     "photo": "/photo.jpg",
     "bio": "Everything in its Right Place",
     "contacts": {

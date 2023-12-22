@@ -1,8 +1,6 @@
 import React from "react";
 
 import { Link } from "gatsby";
-
-import { Image } from "@/components/Image";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 
 import * as styles from "./Author.module.scss";
@@ -18,10 +16,6 @@ type Props = {
 
 const Author = ({ author, isIndex }: Props) => (
   <div className={styles.author}>
-    <Link to="/">
-      <Image alt={author.name} path={author.photo} className={styles.photo} />
-    </Link>
-
     <div className={styles.titleContainer}>
       {isIndex ? (
         <h1 className={styles.title}>
@@ -38,7 +32,6 @@ const Author = ({ author, isIndex }: Props) => (
       )}
       <ThemeSwitcher />
     </div>
-    <p className={styles.subtitle}>{author.bio}</p>
   </div>
 );
 

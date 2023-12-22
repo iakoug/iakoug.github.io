@@ -8,10 +8,13 @@
     list-style: none;
     @include margin-equal(0);
     @include padding-equal(0);
+    display: flex;
 
     .item {
       @include margin(0.5, 0);
       @include padding-equal(0);
+
+      margin-right: 10px;
 
       .link {
         border: 0;

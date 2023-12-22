@@ -32,11 +32,16 @@
     padding: 0px 24px;
     box-sizing: border-box;
 
+    &:hover .cover {
+      transform: translateY(-2px) scale3d(1.02, 1.02, 1);
+    }
+
     &:last-child {
       @include margin-bottom(0.5);
     }
 
     .title {
+      padding-left: 16px;
       font-size: $typographic-base-font-size * 1.6875;
       @include line-height(1.5);
       @include margin-top(0);
@@ -61,6 +66,7 @@
 
     .meta {
       margin-top: 10px;
+      padding-left: 16px;
 
       .time {
         color: var(--color-typographic-base-font);
@@ -96,6 +102,27 @@
       &:focus {
         border-bottom: 1px solid $color-blue;
         color: var(--color-primary);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .feed {
+    .item {
+      flex: 0 0 100%;
+      overflow: hidden;
+      margin-bottom: 24px;
+      border-radius: 8px;
+      padding: 0;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+      transition:
+        transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
       }
     }
   }
