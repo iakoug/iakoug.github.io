@@ -2,7 +2,6 @@
 date: 2019-09-08
 title: Encapsulating simplified Koa - 前端攻城狮的服务端之旅大都从 express、koa 这类 node 框架开始
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /encapsulating-simplified-koa
 category: Encapsulating
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

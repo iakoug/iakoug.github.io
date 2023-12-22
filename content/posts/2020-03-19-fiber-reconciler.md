@@ -2,7 +2,6 @@
 date: 2020-03-19
 title: Fiber reconciler
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /fiber-reconciler
 category: Algorithm
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

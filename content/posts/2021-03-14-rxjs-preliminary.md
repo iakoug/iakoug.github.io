@@ -2,7 +2,6 @@
 date: 2021-03-11
 title: Rxjs 初探
 template: post
-thumbnail: "../thumbnails/post.png"
 slug: /rxjs-preliminary
 category: Library
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

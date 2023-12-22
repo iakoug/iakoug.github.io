@@ -2,7 +2,6 @@
 date: 2021-01-19
 title: 富文本（块）编辑器开发指北
 template: post
-thumbnail: "../thumbnails/post.png"
 slug: /block-editor
 category: Structure
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

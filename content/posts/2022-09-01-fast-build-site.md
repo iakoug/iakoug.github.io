@@ -2,7 +2,6 @@
 date: 2022-09-02
 title: 腾讯云 Nginx 快速建站
 template: post
-thumbnail: "../thumbnails/post.png"
 slug: /fast-build-ur-site
 category: Nginx
 tags:

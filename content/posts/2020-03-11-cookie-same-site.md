@@ -2,7 +2,6 @@
 date: 2020-03-11
 title: 一次客户端请求携带 Cookie 的 🐛 - Cookie set Same-Site
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /cookie-same-site
 category: Tools
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

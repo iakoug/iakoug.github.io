@@ -2,7 +2,6 @@
 date: 2019-12-24
 title: See ya again
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /see-ya-again
 category: Prose
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

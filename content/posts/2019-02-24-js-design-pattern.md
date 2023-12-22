@@ -2,7 +2,6 @@
 date: 2019-02-24
 title: JS design pattern - JS 常用的设计模式
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /js-design-pattern
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Language

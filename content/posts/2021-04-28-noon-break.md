@@ -2,7 +2,6 @@
 date: 2021-04-28
 title: Noon break
 template: post
-thumbnail: "../thumbnails/post.png"
 slug: /noon-break
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Prose

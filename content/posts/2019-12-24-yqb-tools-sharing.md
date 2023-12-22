@@ -2,7 +2,6 @@
 date: 2019-12-24
 title: Group sharing - 工作和生活常用工具分享
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /yqb-tools-sharing
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Tools

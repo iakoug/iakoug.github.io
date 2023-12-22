@@ -2,7 +2,6 @@
 date: 2019-06-13
 title: Fetch concurrency - 封装一个请求并发控制的库
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /fetch-concurrency
 category: Encapsulating
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

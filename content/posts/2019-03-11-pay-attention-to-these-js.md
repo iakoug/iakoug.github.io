@@ -2,7 +2,6 @@
 date: 2019-03-11
 title: Pay attention to those js - 你应该注意的那些JS（相关）
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /pay-attention-to-these-js
 category: Issues
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

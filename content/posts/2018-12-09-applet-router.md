@@ -2,7 +2,6 @@
 date: 2018-12-09
 title: Applet router - 小程序的路由封装
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /applet-router
 category: Encapsulating
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

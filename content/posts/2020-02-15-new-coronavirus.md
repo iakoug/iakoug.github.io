@@ -2,7 +2,6 @@
 date: 2020-02-15
 title: New coronavirus - What is it attempting to expose
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /new-coronavirus
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Prose

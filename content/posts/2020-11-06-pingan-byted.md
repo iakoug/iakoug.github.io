@@ -2,7 +2,6 @@
 date: 2020-11-06
 title: New journey
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /2020-new-journey
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 category: Summary

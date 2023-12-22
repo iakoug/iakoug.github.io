@@ -2,7 +2,6 @@
 date: 2019-03-12
 title: Interesting js
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /interesting-js
 category: Language
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

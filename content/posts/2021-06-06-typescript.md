@@ -2,7 +2,6 @@
 date: 2021-06-06
 title: Typescript (二)
 template: post
-thumbnail: "../thumbnails/post.png"
 slug: /typescript-02
 category: Typescript
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

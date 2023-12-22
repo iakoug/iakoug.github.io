@@ -2,7 +2,6 @@
 date: 2020-03-07
 title: Layer cake
 template: post
-thumbnail: '../thumbnails/post.png'
 slug: /layer-cake
 category: Prose
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg

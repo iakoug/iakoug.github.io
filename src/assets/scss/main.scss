@@ -10,7 +10,20 @@ pre[class*="language-"] {
   background-color: transparent;
 }
 
-code {
-  text-wrap: pretty;
-  word-break: break-all;
+* {
+  text-wrap: pretty !important;
+  word-break: break-all !important;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+::-moz-scrollbar {
+  display: none;
+}
+::-ms-scrollbar {
+  display: none;
+}
+::-o-scrollbar {
+  display: none;
 }
