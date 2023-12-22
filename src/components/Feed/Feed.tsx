@@ -13,8 +13,6 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
   return (
     <div className={styles.feed}>
       {edges.map((edge) => {
-        const [title1, title2] = edge.node.frontmatter.title.split("-");
-
         return (
           <div className={styles.item} key={edge.node.fields.slug}>
             {edge.node.frontmatter.cover && (
@@ -63,23 +61,19 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
                 className={styles.link}
                 to={edge.node.frontmatter?.slug || edge.node.fields.slug}
               >
-                {title1}
-                {title2 && (
+                {edge.node.frontmatter.title}
+                {edge.node.frontmatter.description && (
                   <span
                     style={{
-                      color: "#3c3f45",
-                      fontWeight: 300,
+                      fontWeight: 200,
                       fontSize: 20,
                     }}
                   >
-                    -{title2}
+                    &nbsp;{edge.node.frontmatter.description}
                   </span>
                 )}
               </Link>
             </h2>
-            <p className={styles.description}>
-              {edge.node.frontmatter.description}
-            </p>
           </div>
         );
       })}
