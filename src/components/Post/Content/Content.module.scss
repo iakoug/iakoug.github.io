@@ -8,6 +8,12 @@
   @include padding(0, 0);
 }
 
+.info {
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 80%;
+}
+
 .cover {
   height: 350px;
   margin: 48px 0;
@@ -35,10 +41,6 @@
 }
 
 .content {
-  @include margin-auto();
-  max-width: $layout-post-single-width;
-  width: 80%;
-
   .title {
     font-size: 32px;
     font-weight: 700;
@@ -117,9 +119,14 @@
   }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (min-width: 1200px) {
   .body {
     padding-left: 26px;
     padding-right: 26px;
+  }
+
+  .cover {
+    max-width: 80%;
+    margin: 48px auto;
   }
 }

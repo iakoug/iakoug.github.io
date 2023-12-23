@@ -13,15 +13,17 @@ interface Props {
 const Content: React.FC<Props> = ({ body, title, frontmatter }: Props) => {
   return (
     <div className={styles.content}>
-      <div className={styles.time}>
-        {new Date(frontmatter.date).toLocaleDateString("en-US", {
-          year: "numeric",
-          month: "short",
-          day: "numeric",
-        })}
+      <div className={styles.info}>
+        <div className={styles.time}>
+          {new Date(frontmatter.date).toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          })}
+        </div>
+        <h1 className={styles.title}>{title}</h1>
+        <div className={styles.description}>{frontmatter.description}</div>
       </div>
-      <h1 className={styles.title}>{title}</h1>
-      <div className={styles.description}>{frontmatter.description}</div>
       <Image
         className={styles.cover}
         fluid={frontmatter.cover.childImageSharp.fluid}
