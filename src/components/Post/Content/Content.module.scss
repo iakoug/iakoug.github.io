@@ -120,13 +120,15 @@
 }
 
 @media screen and (min-width: 1200px) {
-  .body {
-    padding-left: 26px;
-    padding-right: 26px;
-  }
-
   .cover {
     max-width: 80%;
     margin: 48px auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .body {
+    padding-left: 26px;
+    padding-right: 26px;
   }
 }
