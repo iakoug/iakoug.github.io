@@ -4,7 +4,8 @@
 .author {
   padding-top: 70px;
   padding-bottom: 10px;
-  max-width: 1300px;
+  max-width: 1200px;
+  width: 80%;
   margin: 0 auto;
   // padding-left: 48px;
 
@@ -12,7 +13,7 @@
     align-items: center;
     display: flex;
     margin: 0 auto;
-    max-width: 1300px;
+    // max-width: 1200px;
   }
 
   .photo {
@@ -47,13 +48,5 @@
     color: $color-gray;
     @include line-height(1);
     @include margin-bottom(1);
-  }
-}
-
-@media screen and (max-width: 1400px) {
-  .author {
-    .titleContainer {
-      padding-left: 48px;
-    }
   }
 }
