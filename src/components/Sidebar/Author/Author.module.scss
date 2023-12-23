@@ -2,13 +2,25 @@
 @import "../../../assets/scss/mixins";
 
 .author {
+  padding-top: 70px;
+  padding-bottom: 10px;
+  max-width: 1300px;
+  margin: 0 auto;
+  // padding-left: 48px;
+
+  .titleContainer {
+    align-items: center;
+    display: flex;
+    margin: 0 auto;
+    max-width: 1300px;
+  }
+
   .photo {
     background-clip: padding-box;
     border-radius: 50%;
     display: inline-block;
     height: 75px;
     width: 75px;
-    @include margin-bottom(0);
 
     img {
       border-radius: 50%;
@@ -16,8 +28,8 @@
   }
 
   .title {
-    font-size: $typographic-base-font-size * 1.125;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 700;
     margin: 0;
     @include line-height(1.125);
 
@@ -36,9 +48,12 @@
     @include line-height(1);
     @include margin-bottom(1);
   }
+}
 
-  .titleContainer {
-    align-items: center;
-    display: flex;
+@media screen and (max-width: 1400px) {
+  .author {
+    .titleContainer {
+      padding-left: 48px;
+    }
   }
 }

@@ -1,6 +1,5 @@
 import React from "react";
 import Image from "gatsby-image";
-
 import Frontmatter from "src/types/frontmatter";
 
 import * as styles from "./Content.module.scss";

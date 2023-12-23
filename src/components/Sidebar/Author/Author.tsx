@@ -12,25 +12,28 @@ type Props = {
     photo: string;
   };
   isIndex?: boolean;
+  className?: string
 };
 
-const Author = ({ author, isIndex }: Props) => (
-  <div className={styles.author}>
-    <div className={styles.titleContainer}>
-      {isIndex ? (
-        <h1 className={styles.title}>
-          <Link className={styles.link} to="/">
-            {author.name}
-          </Link>
-        </h1>
-      ) : (
-        <h2 className={styles.title}>
-          <Link className={styles.link} to="/">
-            {author.name}
-          </Link>
-        </h2>
-      )}
-      <ThemeSwitcher />
+const Author = ({ author, isIndex, className }: Props) => (
+  <div>
+    <div className={[styles.author, className || ''].join(' ')}>
+      <div className={styles.titleContainer}>
+        {isIndex ? (
+          <h1 className={styles.title}>
+            <Link className={styles.link} to="/">
+              {author.name}
+            </Link>
+          </h1>
+        ) : (
+          <h2 className={styles.title}>
+            <Link className={styles.link} to="/">
+              {author.name}
+            </Link>
+          </h2>
+        )}
+        <ThemeSwitcher />
+      </div>
     </div>
   </div>
 );

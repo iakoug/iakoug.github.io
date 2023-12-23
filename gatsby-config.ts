@@ -17,6 +17,14 @@ export default {
     giscus: true,
   },
   plugins: [
+    // { 
+    //   resolve: 'gatsby-plugin-web-font-loader', 
+    //   options: {
+    //     google: { 
+    //       families: ['Open Sans'],
+    //     },
+    //   } 
+    // },
     {
       resolve: "gatsby-source-filesystem",
       options: {

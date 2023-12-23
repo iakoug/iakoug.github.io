@@ -42,6 +42,7 @@
 
     .title {
       padding-left: 16px;
+      padding-right: 16px;
       font-size: $typographic-base-font-size * 1.4;
       @include line-height(1.2);
       @include margin-top(0);
@@ -67,6 +68,7 @@
     .meta {
       margin-top: 10px;
       padding-left: 16px;
+      padding-right: 16px;
 
       .time {
         color: var(--color-typographic-base-font);
