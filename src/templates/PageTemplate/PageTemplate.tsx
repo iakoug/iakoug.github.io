@@ -5,7 +5,6 @@ import { graphql } from "gatsby";
 import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
 import { Page } from "@/components/Page";
-import { Sidebar } from "@/components/Sidebar";
 import { useSiteMetadata } from "@/hooks";
 import { Node } from "@/types";
 
@@ -22,7 +21,6 @@ const PageTemplate: React.FC<Props> = ({ data }: Props) => {
 
   return (
     <Layout>
-      <Sidebar />
       <Page title={title}>
         <div dangerouslySetInnerHTML={{ __html: body }} />
       </Page>

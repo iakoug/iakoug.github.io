@@ -34,18 +34,21 @@ pre[class*="language-"] {
   padding: 0.1em;
 }
 
-code[class*="language-"] ::-moz-selection,
-code[class*="language-"]::-moz-selection,
-pre[class*="language-"] ::-moz-selection,
-pre[class*="language-"]::-moz-selection {
-  background: #073642;
+::selection {
+  color: #ffffff;
+  background-color: #5c92ff;
 }
 
+// code[class*="language-"] ::-moz-selection,
+// code[class*="language-"]::-moz-selection,
+// pre[class*="language-"] ::-moz-selection,
+// pre[class*="language-"]::-moz-selection {
+//   background: #073642;
+// }
+
 code[class*="language-"] ::selection,
-code[class*="language-"]::selection,
-pre[class*="language-"] ::selection,
-pre[class*="language-"]::selection {
-  background: #073642;
+code[class*="language-"]::selection {
+  background: #10414d;
 }
 
 .token.cdata,

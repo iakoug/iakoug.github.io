@@ -19,7 +19,7 @@ const Layout: React.FC<Props> = ({ children }: Props) => {
 
   return (
     <div>
-      <Author className={styles.author} author={author} isIndex />
+      <Author author={author} isIndex />
       {children}
       <div className={styles.footer}>
         © 2016-{new Date().getFullYear()} All rights reserved.

@@ -7,7 +7,6 @@ import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
 import { Page } from "@/components/Page";
 import { Pagination } from "@/components/Pagination";
-import { Sidebar } from "@/components/Sidebar";
 import { useSiteMetadata } from "@/hooks";
 import { AllMarkdownRemark, PageContext } from "@/types";
 
@@ -25,7 +24,6 @@ const TagTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
 
   return (
     <Layout>
-      <Sidebar />
       <Page title={group}>
         <Feed edges={edges} />
         <Pagination

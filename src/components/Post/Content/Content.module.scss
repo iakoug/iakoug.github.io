@@ -1,13 +1,6 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
 
-.title,
-.time,
-.body,
-.description {
-  @include padding(0, 0);
-}
-
 .info {
   margin: 0 auto;
   max-width: 1200px;
@@ -38,6 +31,7 @@
   font-size: 24px;
   line-height: 1.4;
   font-weight: 200;
+  padding-top: 4px;
 }
 
 .content {

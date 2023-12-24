@@ -1,0 +1,25 @@
+.Wrapper {
+  display: block;
+  max-width: 1200px;
+  margin: 0 auto 48px;
+  padding: 10px 0 0 0;
+  text-align: left;
+  font-size: 16px;
+  font-family: "Source Sans Pro";
+}
+
+
+.Blink {
+  @keyframes blink {
+      0%, 100% {
+          opacity: 0
+      }
+
+      50% {
+          opacity: 1
+      }
+  }
+
+  margin-left: 4px;
+  animation: blink 1s infinite;
+}

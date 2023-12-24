@@ -5,7 +5,6 @@ import { Link } from "gatsby";
 import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
 import { Page } from "@/components/Page";
-import { Sidebar } from "@/components/Sidebar";
 import { useCategoriesList, useSiteMetadata } from "@/hooks";
 import { toKebabCase } from "@/utils";
 
@@ -14,7 +13,6 @@ const CategoriesTemplate: React.FC = () => {
 
   return (
     <Layout>
-      <Sidebar />
       <Page title="Categories">
         <ul>
           {categories.map((category) => (
