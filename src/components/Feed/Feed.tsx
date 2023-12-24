@@ -38,13 +38,11 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
                   day: "numeric",
                 })}
               >
-                {new Date(edge.node.frontmatter.date).toLocaleDateString(
-                  "en-US",
-                  {
-                    year: "numeric",
-                    month: "long",
-                  },
-                )}
+                {new Date(edge.node.frontmatter.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "short",
+                  day: "numeric",
+                })}
               </time>
               <span className={styles.divider} />
               <span className={styles.category}>

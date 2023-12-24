@@ -41,10 +41,8 @@
     }
 
     .title {
-      padding-left: 16px;
-      padding-right: 16px;
-      font-size: $typographic-base-font-size * 1.4;
-      @include line-height(1.2);
+      font-size: 24px;
+      line-height: 1.6;
       @include margin-top(0);
       @include margin-bottom(0.5);
 
@@ -67,12 +65,11 @@
 
     .meta {
       margin-top: 10px;
-      padding-left: 16px;
-      padding-right: 16px;
 
       .time {
         color: var(--color-typographic-base-font);
-        font-size: $typographic-small-font-size * 0.9;
+        font-size: 14px;
+        line-height: 1.6;
         font-weight: 600;
         text-transform: uppercase;
       }
@@ -125,6 +122,11 @@
       &:hover {
         transform: translateY(-1px);
         box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
+      }
+
+      .title, .meta {
+        padding-left: 20px;
+        padding-right: 20px;
       }
     }
   }

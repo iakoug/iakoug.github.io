@@ -47,7 +47,6 @@
     line-height: 1.4;
     text-align: left;
     margin: 0;
-    @include line-height(1.5);
   }
 
   .body {
@@ -97,7 +96,7 @@
 @include breakpoint-md {
   .content {
     .time {
-      margin-top: 88px;
+      margin-top: 48px;
     }
 
     .body {
