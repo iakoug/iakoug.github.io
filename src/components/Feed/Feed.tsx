@@ -7,10 +7,9 @@ import * as styles from "./Feed.module.scss";
 
 type Props = {
   edges: Array<Edge>;
-  hideCover?: boolean;
 };
 
-const Feed: React.FC<Props> = ({ edges, hideCover }: Props) => {
+const Feed: React.FC<Props> = ({ edges }: Props) => {
   return (
     <div className={styles.feed}>
       {edges.map((edge) => {
@@ -19,7 +18,7 @@ const Feed: React.FC<Props> = ({ edges, hideCover }: Props) => {
             className={styles.item}
             key={edge.node.fields.slug}
           >
-            {edge.node.frontmatter.cover && !hideCover && (
+            {edge.node.frontmatter.cover && (
               <Link
                 className={styles.link}
                 to={edge.node.frontmatter?.slug || edge.node.fields.slug}

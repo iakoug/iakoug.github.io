@@ -16,14 +16,14 @@ interface Props {
   pageContext: PageContext;
 }
 
-const CategoryTemplate: React.FC<Props> = ({ data, pageContext }: Props) => {
+const List: React.FC<Props> = ({ data, pageContext }: Props) => {
   const { group } = pageContext;
   const { edges } = data.allMarkdownRemark;
 
   return (
     <Layout>
       <Page title={group}>
-        <Feed edges={edges} hideCover />
+        <Feed edges={edges} />
       </Page>
     </Layout>
   );
@@ -49,7 +49,7 @@ export const query = graphql`
     }
   }
 
-  query CategoryTemplate($limit: Int! = 1000, $offset: Int! = 0) {
+  query List($limit: Int! = 1000, $offset: Int! = 0) {
     allMarkdownRemark(
       limit: $limit
       skip: $offset
@@ -78,12 +78,11 @@ export const query = graphql`
   }
 `;
 
-export const Head: React.FC<Props> = ({ pageContext }) => {
+export const Head: React.FC = () => {
   const { title, subtitle } = useSiteMetadata();
-  const { group } = pageContext;
-  const pageTitle = `${group} - ${title}`;
+  const pageTitle = `LIST - ${title}`;
 
   return <Meta title={pageTitle} description={subtitle} />;
 };
 
-export default CategoryTemplate;
+export default List;

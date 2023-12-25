@@ -132,6 +132,15 @@ export default {
     "gatsby-transformer-sharp",
     "gatsby-plugin-sharp",
     {
+      resolve: "gatsby-plugin-google-gtag",
+      options: {
+        trackingIds: [config.googleAnalyticsId],
+        pluginConfig: {
+          head: true,
+        },
+      },
+    },
+    {
       resolve: "gatsby-plugin-robots-txt",
       options: {
         host: "https://blog.iakoug.cn",
