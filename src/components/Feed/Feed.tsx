@@ -7,15 +7,19 @@ import * as styles from "./Feed.module.scss";
 
 type Props = {
   edges: Array<Edge>;
+  hideCover?: boolean;
 };
 
-const Feed: React.FC<Props> = ({ edges }: Props) => {
+const Feed: React.FC<Props> = ({ edges, hideCover }: Props) => {
   return (
     <div className={styles.feed}>
       {edges.map((edge) => {
         return (
-          <div className={styles.item} key={edge.node.fields.slug}>
-            {edge.node.frontmatter.cover && (
+          <div
+            className={styles.item}
+            key={edge.node.fields.slug}
+          >
+            {edge.node.frontmatter.cover && !hideCover && (
               <Link
                 className={styles.link}
                 to={edge.node.frontmatter?.slug || edge.node.fields.slug}
@@ -38,11 +42,14 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
                   day: "numeric",
                 })}
               >
-                {new Date(edge.node.frontmatter.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "short",
-                  day: "numeric",
-                })}
+                {new Date(edge.node.frontmatter.date).toLocaleDateString(
+                  "en-US",
+                  {
+                    year: "numeric",
+                    month: "short",
+                    day: "numeric",
+                  },
+                )}
               </time>
               <span className={styles.divider} />
               <span className={styles.category}>
@@ -56,6 +63,7 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
             </div>
             <h2 className={styles.title}>
               <Link
+                onClick={e => e.stopPropagation()}
                 className={styles.link}
                 to={edge.node.frontmatter?.slug || edge.node.fields.slug}
               >

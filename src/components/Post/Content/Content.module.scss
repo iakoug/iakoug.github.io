@@ -8,8 +8,10 @@
 }
 
 .cover {
+  width: 80%;
+  max-width: 1200px;
+  margin: 48px auto;
   height: 350px;
-  margin: 48px 0;
   box-shadow:
     rgba(0, 0, 0, 0.2) 0px 24px 48px -8px,
     rgba(0, 0, 0, 0.22) 0px 16px 32px -8px;
@@ -112,16 +114,13 @@
   }
 }
 
-@media screen and (min-width: 1200px) {
-  .cover {
-    max-width: 80%;
-    margin: 48px auto;
-  }
-}
-
 @media screen and (max-width: 1200px) {
   .body {
     padding-left: 26px;
     padding-right: 26px;
+  }
+
+  .cover {
+    width: 100%;
   }
 }

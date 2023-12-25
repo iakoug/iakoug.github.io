@@ -36,7 +36,7 @@ const Page: React.FC<Props> = ({ title, children }: Props) => {
     <div className={styles.page}>
       <div>
         <ByteDance byteDance={byteDance}></ByteDance>
-        {title && <h1>{title}</h1>}
+        {title && <h1 className={styles.title}>{title}</h1>}
         <div>{children}</div>
       </div>
     </div>

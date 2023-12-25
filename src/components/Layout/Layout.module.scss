@@ -1,4 +1,10 @@
+@import "../../assets/scss/variables";
+
 .footer {
   text-align: center;
   margin: 20px;
+}
+
+.copyRight {
+  color: var(--color-typographic-base-font);
 }
