@@ -1,7 +1,7 @@
 ---
 date: 2020-09-27
 title: 知识迁移 - Technology sharing
-description: 从Axios源码解析到项目路由Crisp实践
+description: 从Axios源码解析到项目路由Lib实践
 template: post
 slug: /axios-crisp
 category: R&D
@@ -10,12 +10,6 @@ tags:
   - Axios
   - Compose
 ---
-
-从 Axios 源码解析到项目路由 Crisp 实践
-
-——Technology sharing of finance Group
-
-_PPT 原稿_
 
 ---
 

@@ -122,9 +122,7 @@ function getRequestQueue(call, concurrency) {
 
 ### Source code
 
-源码放在：
-
-> [https://github.com/justwink/request-concurrency/blob/master/lib/index.js](https://github.com/justwink/request-concurrency/blob/master/lib/index.js)
+> [https://github.com/iakoug/request-concurrency/blob/master/lib/index.js](https://github.com/iakoug/request-concurrency/blob/master/lib/index.js)
 
 ```js
 const defaultConcurrency = 5

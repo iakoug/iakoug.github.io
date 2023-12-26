@@ -19,7 +19,7 @@ tags:
 本篇博客的介绍内容是封装基于原生 fetch 的一个拦截器（interceptor）。
 请求库封装的源码在
 
-> [https://github.com/justwink/obtain-fetch](https://github.com/justwink/obtain-fetch)
+> [https://github.com/iakoug/obtain-fetch](https://github.com/iakoug/obtain-fetch)
 
 ### 初始化请求基类
 

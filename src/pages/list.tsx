@@ -7,22 +7,20 @@ import { Layout } from "@/components/Layout";
 import { Meta } from "@/components/Meta";
 import { Page } from "@/components/Page";
 import { useSiteMetadata } from "@/hooks";
-import { AllMarkdownRemark, PageContext } from "@/types";
+import { AllMarkdownRemark } from "@/types";
 
 interface Props {
   data: {
     allMarkdownRemark: AllMarkdownRemark;
   };
-  pageContext: PageContext;
 }
 
-const List: React.FC<Props> = ({ data, pageContext }: Props) => {
-  const { group } = pageContext;
+const List: React.FC<Props> = ({ data }: Props) => {
   const { edges } = data.allMarkdownRemark;
 
   return (
     <Layout>
-      <Page title={group}>
+      <Page title="All posts">
         <Feed edges={edges} />
       </Page>
     </Layout>
