@@ -1,13 +1,13 @@
 ---
 date: 2023-12-22
-title: About team building
+title: Team Construction
 template: post
 slug: /about-team-building
 category: R&D
 tags:
   - Team
 cover: "./media/andriy-boechko-ugpS8XAHWYI-unsplash.jpg"
-description: 关于团队建设的一些碎片想法
+description: Some fragmented thoughts on team construction
 ---
 
 ---

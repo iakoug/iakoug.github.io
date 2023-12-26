@@ -194,5 +194,3 @@ obtain("http://localhost:4000/banner").then(async (res) => {
   console.log(res, "result");
 });
 ```
-
-End

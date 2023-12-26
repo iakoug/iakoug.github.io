@@ -56,22 +56,22 @@ _括号内表示支持的环境_
 
 ```js
 // 全局scripts macrotask
-console.log('macrotask scripts start')
+console.log("macrotask scripts start");
 
 // macrotask
 setTimeout(() => {
-  Promise.resolve().then(() => console.log('macrotask 1 inner: microtask'))
+  Promise.resolve().then(() => console.log("macrotask 1 inner: microtask"));
 
-  console.log('macrotask 1')
-}, 0)
-
-// microtask
-Promise.resolve().then(() => console.log('microtask 1'))
+  console.log("macrotask 1");
+}, 0);
 
 // microtask
-Promise.resolve().then(() => console.log('microtask 2'))
+Promise.resolve().then(() => console.log("microtask 1"));
 
-console.log('macrotask scripts end')
+// microtask
+Promise.resolve().then(() => console.log("microtask 2"));
+
+console.log("macrotask scripts end");
 
 // output:
 
@@ -198,5 +198,3 @@ Link：
 
 - [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [深入分析 Node.js 事件循环](https://blog.csdn.net/i10630226/article/details/81369841)
-
-End

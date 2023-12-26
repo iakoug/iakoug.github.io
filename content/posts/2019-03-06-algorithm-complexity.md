@@ -66,9 +66,9 @@ S(n)=O(f(n)) 若算法执行时所需要的辅助空间相对于输入数据量 
 for (let i = 0; i < arr.length; i++) {
   for (let j = 0; j < arr.length; j++) {
     if (arr[j] > arr[j + 1]) {
-      let temp = arr[j + 1]
-      arr[j + 1] = arr[j]
-      arr[j] = temp
+      let temp = arr[j + 1];
+      arr[j + 1] = arr[j];
+      arr[j] = temp;
     }
   }
 }
@@ -92,11 +92,11 @@ _只考虑有终止条件的递归，死循环的递归的复杂度当然是无�
 递归 demo：
 
 ```js
-let n = 10
+let n = 10;
 
 function recursion() {
-  if (n > 1) n-- && recursion()
-  else return 'end of the recursive'
+  if (n > 1) n-- && recursion();
+  else return "end of the recursive";
 }
 ```
 
@@ -119,21 +119,21 @@ function recursion() {
  * @param {Number} r 索引结束
  */
 function dichotomy(arr, val, l, r) {
-  let mid = Math.floor((l + r) / 2)
-  let midval = arr[mid]
+  let mid = Math.floor((l + r) / 2);
+  let midval = arr[mid];
 
-  if (l > r) return console.log('no match')
+  if (l > r) return console.log("no match");
 
-  if (midval === val) return console.log('has match, index is ', mid)
+  if (midval === val) return console.log("has match, index is ", mid);
 
   midval > val
     ? dichotomy(arr, val, l, mid - 1)
-    : dichotomy(arr, val, mid + 1, r)
+    : dichotomy(arr, val, mid + 1, r);
 }
 
 // 测试
-const arr = [1, 2, 3, 4, 5]
-dichotomy(arr, 3, 0, arr.length - 1)
+const arr = [1, 2, 3, 4, 5];
+dichotomy(arr, 3, 0, arr.length - 1);
 
 // optput:
 // has match, index is  2
@@ -154,5 +154,3 @@ dichotomy(arr, 3, 0, arr.length - 1)
 
 所以二分法的时间复杂度为 log 以 2 为底 n 的对数（打不出上标下标 🤕）
 每次需要的辅助空间依然是常数级别作为 1，所以空间复杂度也是 log 以 2 为底 n 的对数
-
-End

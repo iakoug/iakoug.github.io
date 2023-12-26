@@ -170,5 +170,3 @@ dispatch('e2')(m)
 // hey
 // hi
 ```
-
-End

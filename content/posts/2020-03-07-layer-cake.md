@@ -7,9 +7,8 @@ category: Misc
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - Misc
+description: '"90 后就像夹心饼干中的夹心，被压得死死的，但所有人都认为他是最好吃的一部分"'
 ---
-
-“90 后就像夹心饼干中的夹心，被压得死死的，但所有人都认为他是最好吃的一部分。”
 
 ---
 

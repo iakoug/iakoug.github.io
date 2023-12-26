@@ -10,7 +10,6 @@ tags:
   - Design pattern
 ---
 
-持续更新
 JS 常用的设计模式以及应用场景
 
 _以下内容为个人简单理解，部分 demo 由网上案例简单改写 😝_
@@ -67,41 +66,41 @@ _在 java 中单例的定义：一个类有且仅有一个实例，并且自行�
 // commonjs 导出
 module.exports = {
   getSingleton() {
-    return this
-  }
-}
+    return this;
+  },
+};
 ```
 
 ##### 用闭包来实现单例
 
 ```js
-const Ins1 = (function() {
-  let instance = null
+const Ins1 = (function () {
+  let instance = null;
   // 利用闭包特性保证实例私有化
-  return function(opt) {
+  return function (opt) {
     if (instance === null) {
-      instance = this
+      instance = this;
     }
 
     for (let k in opt) {
-      instance[k] = opt[k]
+      instance[k] = opt[k];
     }
 
-    return instance
-  }
-})()
+    return instance;
+  };
+})();
 ```
 
 测试：
 
 ```js
-const i1 = new Ins1({ name: 'i1' })
+const i1 = new Ins1({ name: "i1" });
 
-const i2 = new Ins1({ name: 'i2' })
+const i2 = new Ins1({ name: "i2" });
 
-console.log(i1 === i2) // true
+console.log(i1 === i2); // true
 
-console.log(i1.name) // i2
+console.log(i1.name); // i2
 ```
 
 补充：在 node 中一个文件就是一个独立模块，若在某个 js 文件中导出一个类： `class T {} export default new T` 之后在其他任何外部文件多次引入其实都是保证了 T 类只被实例化了一次而不会被多次初始化。这是因为 node 遵循了 commonjs 的规范，所有文件模块在被引用时都会先去模块系统的缓存中查看这个文件是否存在，如果存在就返回缓存否则才会重新创建一个模块，而这个缓存其实也就限制了模块内脚本的多次初始化
@@ -127,22 +126,22 @@ console.log(i1.name) // i2
 function closure() {
   // 定义
   const strategies = {
-    plus10: function(arg) {
-      return arg + 10
+    plus10: function (arg) {
+      return arg + 10;
     },
-    plus100: function(arg) {
-      return arg + 100
-    }
-  }
+    plus100: function (arg) {
+      return arg + 100;
+    },
+  };
   // 执行
-  return function(plus, base) {
-    return strategies[plus](base)
-  }
+  return function (plus, base) {
+    return strategies[plus](base);
+  };
 }
-const strategy = closure()
+const strategy = closure();
 
-console.log(strategy('plus10', 1)) // 11
-console.log(strategy('plus100', 1)) // 101
+console.log(strategy("plus10", 1)); // 11
+console.log(strategy("plus100", 1)); // 101
 ```
 
 ##### 对比分析
@@ -153,12 +152,12 @@ eg.: 代码情景为超市促销，vip 为 5 折，老客户 3 折，普通顾�
 
 ```js
 function context(name, type, price) {
-  if (type === 'vip') {
-    return price * 0.5
-  } else if (type === 'vip') {
-    return price * 0.8
+  if (type === "vip") {
+    return price * 0.5;
+  } else if (type === "vip") {
+    return price * 0.8;
   } else {
-    return price
+    return price;
   }
 }
 ```
@@ -168,43 +167,43 @@ function context(name, type, price) {
 ```js
 class Vip {
   constructor() {
-    this.discount = 0.5
+    this.discount = 0.5;
   }
   getPrice(price) {
-    return this.discount * price
+    return this.discount * price;
   }
 }
 
 class Old {
   constructor() {
-    this.discount = 0.8
+    this.discount = 0.8;
   }
   getPrice(price) {
-    return this.discount * price
+    return this.discount * price;
   }
 }
 
 class Others {
   constructor() {}
   getPrice(price) {
-    return price
+    return price;
   }
 }
 
 class Context {
   constructor() {
-    this.name = ''
-    this.strategy = null
-    this.price = 0
+    this.name = "";
+    this.strategy = null;
+    this.price = 0;
   }
   setPrice(name, strategy, price) {
-    this.name = name
-    this.strategy = strategy
-    this.price = price
+    this.name = name;
+    this.strategy = strategy;
+    this.price = price;
   }
   getPrice() {
-    console.log(this.name, this.strategy.getPrice(this.price), '元')
-    return this.strategy.getPrice(this.price)
+    console.log(this.name, this.strategy.getPrice(this.price), "元");
+    return this.strategy.getPrice(this.price);
   }
 }
 ```
@@ -212,16 +211,16 @@ class Context {
 测试：
 
 ```js
-const seller = new Context()
-const vip = new Vip()
-const old = new Old()
-const other = new Others()
-seller.setPrice('zs', vip, 1000)
-seller.getPrice()
-seller.setPrice('ls', old, 1000)
-seller.getPrice()
-seller.setPrice('ww', other, 1000)
-seller.getPrice()
+const seller = new Context();
+const vip = new Vip();
+const old = new Old();
+const other = new Others();
+seller.setPrice("zs", vip, 1000);
+seller.getPrice();
+seller.setPrice("ls", old, 1000);
+seller.getPrice();
+seller.setPrice("ww", other, 1000);
+seller.getPrice();
 // output:
 // zs 500 元
 // ls 800 元
@@ -237,11 +236,11 @@ seller.getPrice()
 class Handler {
   constructor(discount) {
     // 不传为原价
-    this.discount = discount || 1
+    this.discount = discount || 1;
   }
 
   getPrice(price) {
-    return this.discount === 1 ? price : this.discount * price
+    return this.discount === 1 ? price : this.discount * price;
   }
 }
 
@@ -266,17 +265,17 @@ class Context {}
 测试：
 
 ```js
-const seller = new Context()
-const vip = new Sub(0.5)
-const old = new Sub(0.8)
-const other = new Sub()
+const seller = new Context();
+const vip = new Sub(0.5);
+const old = new Sub(0.8);
+const other = new Sub();
 
-seller.setPrice('zs', vip, 1000)
-seller.getPrice()
-seller.setPrice('ls', old, 1000)
-seller.getPrice()
-seller.setPrice('ww', other, 1000)
-seller.getPrice()
+seller.setPrice("zs", vip, 1000);
+seller.getPrice();
+seller.setPrice("ls", old, 1000);
+seller.getPrice();
+seller.setPrice("ww", other, 1000);
+seller.getPrice();
 
 // output:
 // zs 500 元
@@ -310,30 +309,30 @@ seller.getPrice()
 
 ```js
 const imgSet = (() => {
-  let node = new Image()
-  document.body.append(node)
+  let node = new Image();
+  document.body.append(node);
 
-  return function(src) {
-    node.src = src
-  }
-})()
+  return function (src) {
+    node.src = src;
+  };
+})();
 
 const proxyImg = (() => {
-  let _img = new Image()
+  let _img = new Image();
 
-  _img.onload = function() {
-    setTimeout(imgSet, 2000, this.src)
-  }
+  _img.onload = function () {
+    setTimeout(imgSet, 2000, this.src);
+  };
 
-  return function(src) {
-    imgSet('https://yphoto.eryufm.cn/upload/assets/jump.gif')
-    _img.src = src
-  }
-})()
+  return function (src) {
+    imgSet("https://yphoto.eryufm.cn/upload/assets/jump.gif");
+    _img.src = src;
+  };
+})();
 // call
 proxyImg(
-  `https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1551174639&di=90b4757f68c9480f78c132c930c1df10&src=http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/02/ChMkJ1bKxkmIObywAArTTfACinwAALHjACDZuIACtNl408.jpg`
-)
+  `https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1551174639&di=90b4757f68c9480f78c132c930c1df10&src=http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/02/ChMkJ1bKxkmIObywAArTTfACinwAALHjACDZuIACtNl408.jpg`,
+);
 ```
 
 ##### 保护代理
@@ -344,28 +343,28 @@ proxyImg(
 // filter some no use or unneed requestions or data
 // A  ---> B(proxy) ----> C
 const a = {
-  name: 'a',
+  name: "a",
   send(target, info) {
-    target.receive(info)
-  }
-}
+    target.receive(info);
+  },
+};
 const c = {
-  name: 'c',
+  name: "c",
   receive(target, info) {
-    console.log('c receive ', info, ' from ', target.name)
-  }
-}
+    console.log("c receive ", info, " from ", target.name);
+  },
+};
 const b = {
-  name: 'b',
+  name: "b",
   receive(info) {
     if (info) {
-      c.receive(this, info)
+      c.receive(this, info);
     }
-  }
-}
-a.send(b, 'good morning')
-a.send(b, '')
-a.send(b, 'send again')
+  },
+};
+a.send(b, "good morning");
+a.send(b, "");
+a.send(b, "send again");
 
 // output:
 // c receive good morning from b
@@ -382,41 +381,41 @@ a.send(b, 'send again')
 
 ```js
 // 存储所有标签
-let tags
+let tags;
 
-const sendApiGetTags = index => {
+const sendApiGetTags = (index) => {
   // ajax.get('/api', { index })
-}
+};
 let proxyCache = (async () => {
-  const allTagsCache = {}
-  const number = 5
-  const all = []
-  const params = {}
+  const allTagsCache = {};
+  const number = 5;
+  const all = [];
+  const params = {};
 
   for (let index = 0; index < number; index++) {
     all.push(
       sendApiGetTags({
         ...params,
-        index
-      })
-    )
+        index,
+      }),
+    );
   }
-  const list = await Promise.all(all)
+  const list = await Promise.all(all);
 
-  list.forEach((res, i) => (allTagsCache[i] = res))
+  list.forEach((res, i) => (allTagsCache[i] = res));
 
-  return allTagsCache
-})()
+  return allTagsCache;
+})();
 
-let setTags = async index => {
+let setTags = async (index) => {
   // 缓存中有直接拿
   if (proxyCache[index]) {
-    tags = proxyCache[index]
+    tags = proxyCache[index];
   } else {
     // 缓存中没有则重发请求
-    tags = await sendApiGetTags(index)
+    tags = await sendApiGetTags(index);
   }
-}
+};
 ```
 
 ### 发布订阅模式
@@ -442,13 +441,13 @@ AngularJs 的广播、vue 的 eventbus 等
 class Publisher {
   constructor() {
     // 订阅发布者的队列 存储每个订阅者
-    this.subscribers = []
+    this.subscribers = [];
   }
   deliver(data) {
     // 发布消息 调用订阅者的回调 告知订阅者
-    this.subscribers.forEach(fn => fn.shot(data))
+    this.subscribers.forEach((fn) => fn.shot(data));
 
-    return this
+    return this;
   }
 }
 ```
@@ -459,25 +458,25 @@ class Publisher {
 class Observer {
   constructor(call) {
     // 传入订阅回调
-    this.shot = call
+    this.shot = call;
   }
   subscribe(publisher) {
-    if (!publisher.subscribers.some(v => v.shot === this.shot)) {
-      console.log('订阅该消息')
+    if (!publisher.subscribers.some((v) => v.shot === this.shot)) {
+      console.log("订阅该消息");
       // 判断当前订阅者是否订阅
-      publisher.subscribers.push(this)
+      publisher.subscribers.push(this);
     }
-    return this
+    return this;
   }
   unsubscribe(publisher) {
     // 移除当前订阅者
-    console.log('取消订阅')
+    console.log("取消订阅");
 
     publisher.subscribers = publisher.subscribers.filter(
-      v => v.shot !== this.shot
-    )
+      (v) => v.shot !== this.shot,
+    );
 
-    return this
+    return this;
   }
 }
 ```
@@ -485,18 +484,18 @@ class Observer {
 测试：
 
 ```js
-const pub = new Publisher()
-const pub2 = new Publisher()
-const obs = new Observer(deliver => console.log(deliver))
+const pub = new Publisher();
+const pub2 = new Publisher();
+const obs = new Observer((deliver) => console.log(deliver));
 
-obs.subscribe(pub) // 订阅该消息
-obs.subscribe(pub2) // 订阅该消息
+obs.subscribe(pub); // 订阅该消息
+obs.subscribe(pub2); // 订阅该消息
 
-pub.deliver('pub deliver first message') // pub deliver first message
-pub2.deliver('pub2 deliver first message') // pub2 deliver first message
+pub.deliver("pub deliver first message"); // pub deliver first message
+pub2.deliver("pub2 deliver first message"); // pub2 deliver first message
 
-obs.unsubscribe(pub) // 取消订阅
-pub.deliver('pub deliver second message') //
+obs.unsubscribe(pub); // 取消订阅
+pub.deliver("pub deliver second message"); //
 ```
 
 ### 装饰者模式
@@ -522,41 +521,41 @@ pub.deliver('pub deliver second message') //
 
 ```js
 function fn(msg) {
-  console.log(msg, ' right now')
+  console.log(msg, " right now");
 }
 
-fn('let go') // lets go right now
+fn("let go"); // lets go right now
 ```
 
 我们知道 JS 中所有的函数都是基于父类 `Function` 生成的，所以会继承父类原型的方法，下面我们将函数的钩子挂在父类的原型上即可：
 
 ```js
 // 执行前
-Function.prototype.before = function(call) {
-  const fn = this
+Function.prototype.before = function (call) {
+  const fn = this;
 
   // 返回体本身也是函数所以支持继续调用钩子
-  return function() {
+  return function () {
     // 调用钩子，同时参数传递到钩子内
-    call.apply(this, arguments)
+    call.apply(this, arguments);
     // 调用自身
-    return fn.apply(this, arguments)
-  }
-}
+    return fn.apply(this, arguments);
+  };
+};
 // 执行后
 // 和 before 同理
-Function.prototype.after = function(call) {
-  const fn = this
+Function.prototype.after = function (call) {
+  const fn = this;
 
-  return function() {
-    const res = fn.apply(this, arguments)
+  return function () {
+    const res = fn.apply(this, arguments);
 
-    call.apply(this, arguments)
+    call.apply(this, arguments);
 
     // 返回自身的返回值
-    return res
-  }
-}
+    return res;
+  };
+};
 ```
 
 测试：
@@ -564,18 +563,18 @@ Function.prototype.after = function(call) {
 ```js
 // 重新包装 fn
 function fn(msg) {
-  console.log(msg, ' right now')
+  console.log(msg, " right now");
 }
 
 const decoratorFn = fn
-  .before(function(msg) {
-    console.log('when we go,', msg)
+  .before(function (msg) {
+    console.log("when we go,", msg);
   })
-  .after(function(msg) {
-    console.log('had to go', msg)
-  })
+  .after(function (msg) {
+    console.log("had to go", msg);
+  });
 
-decoratorFn('lets go')
+decoratorFn("lets go");
 
 // out put:
 // when we go, right now
@@ -607,10 +606,10 @@ JS 中的事件冒泡（事件委托）就是经典案例
 ```js
 class Handler {
   constructor() {
-    this.next = null
+    this.next = null;
   }
   setNext(_handler) {
-    this.next = _handler
+    this.next = _handler;
   }
   handleRequest(money) {}
 }
@@ -623,11 +622,11 @@ class CGBHandler extends Handler {
   handleRequest(money) {
     // 1w
     if (money < 10000) {
-      console.log('1w以内，同意')
+      console.log("1w以内，同意");
     } else {
-      console.log('金额太大，只能处理1w以内的采购')
+      console.log("金额太大，只能处理1w以内的采购");
       if (this.next) {
-        this.next.handleRequest(money)
+        this.next.handleRequest(money);
       }
     }
   }
@@ -641,11 +640,11 @@ class ZJLHandler extends Handler {
   handleRequest(money) {
     // 10w
     if (money < 100000) {
-      console.log('10w以内，同意')
+      console.log("10w以内，同意");
     } else {
-      console.log('金额太大，只能处理10w以内的采购')
+      console.log("金额太大，只能处理10w以内的采购");
       if (this.next) {
-        this.next.handleRequest(money)
+        this.next.handleRequest(money);
       }
     }
   }
@@ -659,7 +658,7 @@ class DSZHandler extends Handler {
   handleRequest(money) {
     // 100w
     if (money >= 100000) {
-      console.log('10万以上的我来处理')
+      console.log("10万以上的我来处理");
       //处理其他逻辑
     }
   }
@@ -670,27 +669,27 @@ class DSZHandler extends Handler {
 
 ```js
 const dispatch = (function client() {
-  const cgb = new CGBHandler()
-  const zjl = new ZJLHandler()
-  const dsz = new DSZHandler()
+  const cgb = new CGBHandler();
+  const zjl = new ZJLHandler();
+  const dsz = new DSZHandler();
 
-  cgb.setNext(zjl)
-  zjl.setNext(dsz)
+  cgb.setNext(zjl);
+  zjl.setNext(dsz);
 
-  return cgb.handleRequest.bind(cgb)
-})()
+  return cgb.handleRequest.bind(cgb);
+})();
 ```
 
 测试：
 
 ```js
-dispath(800000)
+dispath(800000);
 // output:
 // 金额太大，只能处理1w以内的采购
 // 金额太大，只能处理10w以内的采购
 // 10万以上的我来处理
 
-dispath(7000)
+dispath(7000);
 // output:
 // 1w以内，同意
 ```
@@ -700,11 +699,3 @@ dispath(7000)
 - 纯的责任链：要求请求在这些对象链中必须被处理，而且一个节点处理对象，要么只处理请求，要么把请求转发给下个节点对象处理
 
 - 不纯的责任链：要求在责任链里不一定会有处理结构，而且一个节点对象，即可以处理部分请求，并把请求再转发下个节点处理
-
-.
-
-.
-
-.
-
-未完待续...👏

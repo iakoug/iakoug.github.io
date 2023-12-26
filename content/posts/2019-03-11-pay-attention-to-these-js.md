@@ -1,6 +1,6 @@
 ---
 date: 2019-03-11
-title: 你应该注意的那些JS（相关）
+title: 一些 JS issues
 template: post
 slug: /pay-attention-to-these-js
 category: R&D
@@ -8,9 +8,6 @@ cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 tags:
   - Js
 ---
-
-记录基本的 JS 相关的使用或者遇到的 issues
-持续更新 👏
 
 ---
 
@@ -38,12 +35,12 @@ _`Number.EPSILON`(1 与大于 1 的最小浮点数之间的差, 换句话说其�
 
 ```js
 function make() {
-  return () => console.log(this)
+  return () => console.log(this);
 }
-const testFunc = make.call({ name: 'foo' })
+const testFunc = make.call({ name: "foo" });
 
-testFunc() // { name: "foo" }
-testFunc.call({ name: 'bar' }) // { name: "foo" }
+testFunc(); // { name: "foo" }
+testFunc.call({ name: "bar" }); // { name: "foo" }
 ```
 
 可以看到箭头函数在定义之后，this 就不会发生改变了，无论用什么样的方式调用它，this 都不会改变
@@ -108,26 +105,26 @@ createElement 接收 3 个参数：
 const Instance = new Vue({
   data: Object.assign({}, _props, {}),
   render(h) {
-    const vnode = h('input', {
+    const vnode = h("input", {
       attrs: {
-        type: 'file',
-        accept: 'image/*'
+        type: "file",
+        accept: "image/*",
       },
       style: {
-        display: 'none'
+        display: "none",
       },
-      ref: 'tuhu_upload_input'
-    })
+      ref: "tuhu_upload_input",
+    });
 
     return h(
-      'div',
+      "div",
       {
-        class: 'tuhu_upload_layout'
+        class: "tuhu_upload_layout",
       },
-      [vnode]
-    )
-  }
-})
+      [vnode],
+    );
+  },
+});
 ```
 
 ### 使用 instanceof 判断构造函数的问题
@@ -137,18 +134,18 @@ const Instance = new Vue({
 ```js
 function A() {}
 
-var a = new A()
-console.log(a instanceof A) // true
-console.log(a instanceof Object) // true
+var a = new A();
+console.log(a instanceof A); // true
+console.log(a instanceof Object); // true
 
-var obj = {}
-A.prototype = obj
+var obj = {};
+A.prototype = obj;
 // a.__proto__ = obj // console.log(a instanceof A) // true
-var a2 = new A()
-console.log(a2 instanceof A) // true
-console.log(a instanceof A) // false
+var a2 = new A();
+console.log(a2 instanceof A); // true
+console.log(a instanceof A); // false
 
-console.log(a instanceof Object) // true
+console.log(a instanceof Object); // true
 ```
 
 所以综上所述 instanceof 并不能从字面意思来判断谁是否是谁的实例对象
@@ -183,18 +180,18 @@ es6 的 class 声明类的方式是必须通过 new 关键字进行调用的
 
 function A() {
   if (this.constructor !== arguments.callee) {
-    return new A()
+    return new A();
   }
-  this.name = 'chris'
-  this.age = 23
-  this.job = function() {
-    console.log('A front-end engineer')
-  }
-  A.work = function() {
-    console.log('working hard')
-  }
+  this.name = "chris";
+  this.age = 23;
+  this.job = function () {
+    console.log("A front-end engineer");
+  };
+  A.work = function () {
+    console.log("working hard");
+  };
 }
-A().job() // that's all
+A().job(); // that's all
 ```
 
 补充：
@@ -221,22 +218,22 @@ play 是一个异步函数， 返回一个 promise
 
 ```js
 const playSound = () => {
-  let timer = null
-  const audio = new Audio(fileUrl)
-  const playPromise = audio.play()
+  let timer = null;
+  const audio = new Audio(fileUrl);
+  const playPromise = audio.play();
   if (playPromise !== undefined) {
     playPromise
       .then(() => {
         timer = setTimeout(() => {
-          audio.pause()
-          clearTimeout(timer)
-        }, 2000)
+          audio.pause();
+          clearTimeout(timer);
+        }, 2000);
       })
-      .catch(err => {
-        console.log(err)
-      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
-}
+};
 ```
 
 > [https://developers.google.com/web/updates/2017/06/play-request-was-interrupted](https://developers.google.com/web/updates/2017/06/play-request-was-interrupted)
@@ -249,15 +246,15 @@ const playSound = () => {
 
 ```js
 function resolve(value) {
-  setTimeout(function() {
-    if (self.status === 'pending') {
-      self.status = 'resolved'
-      self.data = value
+  setTimeout(function () {
+    if (self.status === "pending") {
+      self.status = "resolved";
+      self.data = value;
       for (var i = 0; i < self.onResolvedCallback.length; i++) {
-        self.onResolvedCallback[i](value)
+        self.onResolvedCallback[i](value);
       }
     }
-  })
+  });
 }
 ```
 
@@ -292,17 +289,17 @@ emit 是静态的而 on 才是依赖收集的地方 这个顺序不能变----一
 支持传递第三个以及之后参数作为第一个回调函数的参数
 
 ```js
-const delay = (fn, wait, ...args) => setTimeout(fn, wait, ...args)
+const delay = (fn, wait, ...args) => setTimeout(fn, wait, ...args);
 
 delay(
-  function(...args) {
-    console.log(args)
+  function (...args) {
+    console.log(args);
   },
   1000,
   1,
   2,
-  3
-)
+  3,
+);
 ```
 
 ##### JSON.parse
@@ -322,10 +319,10 @@ _萌新日常问题_
 **今天看到之前写的一段代码大概为：**
 
 ```js
-let obj = {}
-let arr = [1, 2, 3]
+let obj = {};
+let arr = [1, 2, 3];
 
-Array.prototype.push.apply(obj, arr)
+Array.prototype.push.apply(obj, arr);
 ```
 
 **最终的 obj 为：**
@@ -341,10 +338,10 @@ Array.prototype.push.apply(obj, arr)
 那如果向一个 map 中 push 呢？
 
 ```js
-let map = new Map()
-let arr = [1, 2, 3]
+let map = new Map();
+let arr = [1, 2, 3];
 
-Array.prototype.push.apply(map, arr)
+Array.prototype.push.apply(map, arr);
 ```
 
 **最终的 map 为：**
@@ -382,17 +379,3 @@ _意思就是本质上其实数组与对象其实是同一个东西（实现方�
 **什么是 record 类型**
 
 > 记录(Record)类型类似于 C 语言中的结构数据类型，它把逻辑相关的、分离的、基本数据类型的变量组成一个整体存储起来，它必须包括至少一个标量型或 RECORD 数据类型的成员，称作 PL/SQL RECORD 的域(FIELD)，其作用是存放互不相同但逻辑相关的信息。在使用记录数据类型变量时，需要先在声明部分先定义记录的组成、记录的变量，然后在执行部分引用该记录变量本身或其中的成员
-
-.
-
-.
-
-.
-
-.
-
-.
-
-.
-
-未完待续...👏

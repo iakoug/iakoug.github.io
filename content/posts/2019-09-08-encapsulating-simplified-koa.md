@@ -12,7 +12,7 @@ tags:
 
 之前简单写过 koa 的中间件处理模型
 
-> [十行代码实现 koa2 洋葱模型](https://blog.iakoug.cn/post/2019-02-22-KoaOnionModel)
+> [十行代码实现 koa2 洋葱模型](/koa-onion-model)
 
 koa 作为目前流行的 node 框架之一，甚至很多企业级框架都是基于 koa 来封装（如 eggjs），koa 源码其实极为精简
 
@@ -330,7 +330,7 @@ Koa 的中间件和 Express 不同，Koa 选择了洋葱圈模型
 
 且在 koa2 中采用了 async await 的机制，转而舍弃了 yield，要如何控制整条链路在贯穿整个请求过程中同步执行呢？这里采用 Promise 链来控制流程
 
-具体实现方式不再赘述，具体查看 [十行代码实现 koa2 洋葱模型](/2019/02/22/writeSomething/koa2OnionModel/)
+具体实现方式不再赘述，具体查看 [十行代码实现 koa2 洋葱模型](/koa-onion-model)
 
 核心函数也很精简，主要目的无非是将多个函数以一个函数的调用包装另一个函数的方式串联起来，为了保证代码的同步执行在其中使用了 Promise 链式调用
 
