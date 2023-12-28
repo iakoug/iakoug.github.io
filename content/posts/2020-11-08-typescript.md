@@ -9,7 +9,7 @@ tags:
   - Typescript
 ---
 
-平安壹钱包理财组技术分享
+平安理财组技术分享
 
 Ts version 4.0.5
 
