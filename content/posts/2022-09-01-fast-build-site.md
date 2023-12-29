@@ -1,6 +1,7 @@
 ---
 date: 2022-09-02
-title: 腾讯云 Nginx 快速建站
+title: Using Nginx to create a website
+description: By Tencent Cloud
 template: post
 slug: /fast-build-ur-site
 category: R&D
@@ -9,7 +10,7 @@ tags:
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 ---
 
-在腾讯云服务器上快速部署一个前端页面
+在腾讯云服务器上快速部署一个前端页面，当然也可以随便选择一个厂商
 
 ---
 
@@ -115,7 +116,20 @@ server {
 
 配置完成后可以通过 `nginx -t`命令检测配置是否正确（避免语法等问题）
 
-如果需要配置子域名，可以新建 server 选项，子域名也需要相应的 ssl 证书需要自行申请（或者购买主域名下的通配符证书）后配置
+# Sub
+
+如果需要配置子域名如上操作：
+
+1. 新建 server 选项配置 server_name，子域名也需要相应的 ssl 证书需要自行申请（或者购买主域名下的通配符证书）后配置
+   不过如果只是挂靠在一级域名下可以直接使用一级域名的 ssl 访问，会带有安全警告
+
+2. 配置子域名的 DNS 解析记录，在购买域名的服务上面添加子域名的主机记录以及相关的类型和 IP 地址
+
+如在腾讯云购买的域名可以访问：https://console.dnspod.cn/dns/
+
+| 主机记录 | 类型 |             IP             |
+| :------: | :--: | :------------------------: |
+| 二级域名 |  A   | 服务器公网 IP 1.116.219.68 |
 
 # Redirect http to https
 
@@ -136,7 +150,7 @@ server {
 ```Bash
     server {
         listen      443 ssl;
-        server_name blog.iakoug.cn;
+        server_name www.iakoug.cn; # 可以分别配置带有和不带有 www 的 server
         root        /home/lighthouse/christian/demo/build; # 项目路径
         index       index.html; # 入口文件
     }
