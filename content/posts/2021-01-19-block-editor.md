@@ -158,7 +158,7 @@ interface Row {
 
 一个页面的骨架大概如下
 
-![](../postImgs/Block editor page.png)
+<img src="./postImgs/Block editor page.png">
 
 > 需要标明的是示意图的结构中中间内容块单独作为一行时没有外层的行列节点（出于结构统一的考虑行列节点的存在没有问题，出于 dom 结构的考虑将行列省略节省性能）
 
@@ -166,7 +166,7 @@ interface Row {
 
 编辑器的大概工作流程
 
-![](../postImgs/Block editor work flow.png)
+<img src="./postImgs/Block editor work flow.png">
 
 # Operations
 
@@ -184,7 +184,7 @@ interface Row {
 
 用户的操作触发的行为会有很多且较为琐碎，针对用户的行为进行聚合上报
 
-![](../postImgs/Block editor transaction.png)
+<img src="./postImgs/Block editor transaction.png">
 
 # 编辑区
 
@@ -252,7 +252,7 @@ class App {
 
 > 粘贴的所有文本都将进行 Markdown 转换的处理（导入的文件例如 Word、html 等文件的处理借助第三方库的解析，处理方式大同小异，为了性能的考虑放在服务端进行解析）
 
-![](../postImgs/Block editor markdown.png)
+<img src="./postImgs/Block editor markdown.png">
 
 1. 将多行字符串根据首部缩进空格分割成树形数据结构同时根据 Markdown 正则识别块类型
 2. 创建 Blocks
@@ -261,7 +261,7 @@ class App {
 
 撤销重做功能是编辑器不可少的一部分，撤销行为的工作流程如下
 
-![](../postImgs/Block editor undoRedo.png)
+<img src="./postImgs/Block editor undoRedo.png">
 
 # Drag & Drop
 
@@ -298,14 +298,10 @@ class App {
 
 所有的 Transaction 都先推入 IndexDB 中从 IndexDB 中读取向服务端推送
 
-![](../postImgs/Block editor IndexDB.png)
+<img src="./postImgs/Block editor IndexDB.png">
 
 # Last
 
 一个完整的富文本（块）编辑器的开发远不止以上内容，还包括更多的功能以及需要注意的地方还有无尽匪夷所思的 BUG
 
 此外，富文本编辑器的 DOM 结构一般较为复杂（数万的 DOM 在数据流的操作下对性能要求较为苛刻），堆叠功能之外编辑体验的提升是一直优化的方向，如何优化 DOM 结构数量，优化数据结构和算法是不断重构的目标
-
-# The end
-
-Thanks

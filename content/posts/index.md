@@ -1,15 +1,15 @@
 ---
-title: Demo Page
-date: 2000-01-01 22:00:00
+title: Hello world!
+date: 1996-07-28 08:00:00
 template: post
 draft: false
-slug: /demo
-category: demo
+slug: /born
+category: born
 tags:
-  - demo
-description: Here is a demo page.
+  - born
+description: We met.
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 socialImage: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 ---
 
-TEST
+你好，世界！

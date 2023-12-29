@@ -28,6 +28,10 @@ const Layout: React.FC<Props> = ({ children }: Props) => {
             © 2016-{new Date().getFullYear()} All rights reserved.
           </span>
         </Link>
+        &nbsp; Visit&nbsp;
+        <Link target="__blank" to="https://home.iakoug.cn">
+          <span>Home Site.</span>
+        </Link>
       </div>
     </div>
   );
