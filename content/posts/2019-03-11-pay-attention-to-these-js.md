@@ -1,6 +1,6 @@
 ---
 date: 2019-03-11
-title: 一些 JS issues
+title: JS issues
 template: post
 slug: /pay-attention-to-these-js
 category: R&D

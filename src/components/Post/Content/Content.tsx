@@ -24,10 +24,16 @@ const Content: React.FC<Props> = ({ body, title, frontmatter }: Props) => {
         <h1 className={styles.title}>{title}</h1>
         <div className={styles.description}>{frontmatter.description}</div>
       </div>
-      <Image
-        className={styles.cover}
-        fluid={frontmatter.cover.childImageSharp.fluid}
-      />
+      <div className={styles.coverWrapper}>
+        <Image
+          className={styles.cover}
+          fluid={frontmatter.cover.childImageSharp.fluid}
+        />
+      </div>
+      <div
+        className={styles.photoBy}
+        dangerouslySetInnerHTML={{ __html: frontmatter.by || "" }}
+      ></div>
       <div className={styles.body} dangerouslySetInnerHTML={{ __html: body }} />
     </div>
   );

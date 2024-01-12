@@ -25,15 +25,3 @@
     padding-left: 25px;
   }
 }
-
-@include breakpoint-sm {
-  .post {
-    .footer {
-      @include padding-equal(0);
-    }
-
-    .comments {
-      @include padding-equal(0);
-    }
-  }
-}

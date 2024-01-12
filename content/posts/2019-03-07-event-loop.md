@@ -192,9 +192,7 @@ node 是 js 的一个 runtime，所以事件循环同样是 Node.js 处理非阻
    process.nextTick 在技术上不是事件循环的一部分。相反，无论事件循环的当前阶段如何，都将在当前操作完成后处理 nextTickQueue。这里的一个操作被视作为一个从 C++ 底层处理开始过渡，并且处理需要执行的 JavaScript 代码
    任何时候在给定的阶段中调用 process.nextTick，所有传递到 process.nextTick 的回调将在事件循环继续之前得到解决。这可能会造成一些糟糕的情况, 因为它允许您通过进行递归 process.nextTick 来“饿死”您的 I/O 调用，阻止事件循环到达 轮询 阶段
 
-以上简要介绍 JS/Node 的事件循环，存在相关错误请指出 😄
-
-Link：
+Links:
 
 - [The Node.js Event Loop, Timers, and process.nextTick()](https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/)
 - [深入分析 Node.js 事件循环](https://blog.csdn.net/i10630226/article/details/81369841)

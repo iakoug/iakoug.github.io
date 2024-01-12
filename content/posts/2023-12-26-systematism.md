@@ -19,16 +19,16 @@ About Systematic Thinking
 ## 认知 Cognitively
 
 在强调如何进行体系化的思考之前先强调一下认知问题，这是一切让思考保持正确的从发散到汇总脉络的前提<br>
-Before emphasizing how to think systematically, let's emphasize the cognitive issue, which is a prerequisite for everything that keeps thinking in the right vein from diffusion to aggregation
+Before emphasizing how to think systematically, let's emphasize the cognitive issue, which is a prerequisite for everything that keeps thinking in the right direction from diffusion to aggregation
 
-对于一件事物的思考不应该偏离其本质的特性，我用第一性原理来解释<br>
-Thinking about a thing should not deviate from its essential properties, which I explain using the first nature principle
+对于一件事物的思考不应该偏离其本质的特性，我用*第一性原理*来解释<br>
+Thinking about a thing should not deviate from its essential properties, which I explain with the *First Principle*
 
 > 第一性原理是一种分析问题和推导结论的方法，它基于最基本、不可分解的事实或假设，而不依赖于其他已知结论<br>
-> First principles are a method of analyzing problems and deriving conclusions based on the most basic, undecomposable facts or assumptions that do not depend on other known conclusions
+> First principle is a method of analyzing problems and deriving conclusions based on the most basic, undecomposable facts or assumptions that do not depend on other known conclusions
 
 提前说明第一性原理和知识迁移的关系，他们之间可能会存在一些冲突，但是我们要避免这种冲突，下文会对知识迁移的思想进行阐述<br>
-State in advance the relationship between first principles and knowledge transfer; there may be some conflict between them, but we want to avoid it, and the idea of knowledge transfer is described below
+State in advance the relationship between first principle and knowledge transfer; there may be some conflict between them, but we want to avoid it, and the idea of knowledge transfer is described below
 
 这里存在两种可能，两种让我们对于一件事情的存在错误的分析和判断的可能<br>
 There are two possibilities here, two possibilities that allow us to analyze and judge something incorrectly
@@ -42,7 +42,7 @@ For simple problems we can usually give a quick and accurate judgment, but for c
 It should be clear what the core of the question is before giving your own thinking, otherwise a complete deviation from the direction is quite possible, a bit like failing to examine a question in a high school language exam leads to 0 points
 
 在复杂场景中会存在很多的误导需要我们去抽丝剥茧的提取关键信息或者最初的核心目标是什么，所以说我们最应该明确就是这件事情的目的或者动机是什么<br>
-In complex scenarios there will be a lot of misdirection we need to extract the key information or the initial core objective is what, so that we should be most clear is the purpose of the matter or what the motive is
+In complex scenarios where there will be many misdirections, we need to find out the key information or the original core objective so that we are clear about the purpose of the matter or the motive
 
 那么那些其他信息就不重要了吗？是重要的，误导不是目的，只是因为最初的本质没有抓住，这些信息会作为一些依据或者线索去支撑基于问题核心而进行的思考和分析<br>
 So that other information is not important? Yes, it is important, misleading is not the goal, just because the initial essence is not captured, this information will be used as some basis or clue to support the thinking and analysis based on the core of the problem.

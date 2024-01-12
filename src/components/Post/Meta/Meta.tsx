@@ -9,7 +9,7 @@ interface Props {
 const Meta: React.FC<Props> = ({ date }: Props) => (
   <div className={styles.meta}>
     <p className={styles.date}>
-      Published{" "}
+      Published on{" "}
       {new Date(date).toLocaleDateString("en-US", {
         year: "numeric",
         month: "short",

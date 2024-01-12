@@ -53,6 +53,7 @@ export const query = graphql`
         description
         tags
         title
+        by
         cover {
           ...Cover
         }

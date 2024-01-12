@@ -88,6 +88,7 @@ export const query = graphql`
             category
             description
             slug
+            by
             cover {
               ...Cover
             }

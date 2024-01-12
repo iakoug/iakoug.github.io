@@ -14,6 +14,7 @@ interface Frontmatter {
       fluid: any;
     };
   };
+  by?: string
 }
 
 export default Frontmatter;

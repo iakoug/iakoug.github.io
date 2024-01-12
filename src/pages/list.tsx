@@ -20,7 +20,7 @@ const List: React.FC<Props> = ({ data }: Props) => {
 
   return (
     <Layout>
-      <Page title="All posts">
+      <Page title="All Posts">
         <Feed edges={edges} />
       </Page>
     </Layout>
@@ -66,6 +66,7 @@ export const query = graphql`
             title
             date
             slug
+            by
             cover {
               ...Cover
             }

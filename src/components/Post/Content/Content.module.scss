@@ -1,6 +1,18 @@
 @import "../../../assets/scss/variables";
 @import "../../../assets/scss/mixins";
 
+.photoBy {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 0;
+  font-size: 14px;
+}
+
+.coverWrapper {
+  margin-top: 48px;
+}
+
 .info {
   margin: 0 auto;
   max-width: 1200px;
@@ -10,7 +22,7 @@
 .cover {
   width: 80%;
   max-width: 1200px;
-  margin: 48px auto;
+  margin: 0 auto;
   height: 350px;
   box-shadow:
     rgba(0, 0, 0, 0.2) 0px 24px 48px -8px,
@@ -76,6 +88,7 @@
       font-size: $typographic-base-font-size * 1.1;
       @include line-height(1.125);
       @include margin-bottom(1.125);
+      @include margin-top(1.125);
 
       p {
         font-size: $typographic-base-font-size * 1.1;

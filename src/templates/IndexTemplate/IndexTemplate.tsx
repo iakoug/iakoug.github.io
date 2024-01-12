@@ -77,6 +77,7 @@ export const query = graphql`
             title
             date
             slug
+            by
             cover {
               ...Cover
             }
