@@ -8,9 +8,12 @@
     @include margin-auto();
   }
 
+  .footerWrapper {
+    padding: 0 26px;
+  }
+
   .footer {
     max-width: $layout-post-width;
-    padding-left: 26px;
     @include margin-auto();
   }
 

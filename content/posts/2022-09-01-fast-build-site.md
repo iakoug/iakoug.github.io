@@ -3,14 +3,12 @@ date: 2022-09-02
 title: Nginx 快速建站
 description: By Tencent Cloud
 template: post
-slug: /fast-build-ur-site
+slug: /site-v6
 category: R&D
 tags:
   - Nginx
 cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 ---
-
-重构博客 <span color='red'>v6</span>
 
 在腾讯云服务器上快速部署一个前端页面，当然也可以随便选择一个厂商
 

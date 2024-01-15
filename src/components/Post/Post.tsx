@@ -24,9 +24,12 @@ const Post: React.FC<Props> = ({ post }: Props) => {
         <Content body={html} title={title} frontmatter={post.frontmatter} />
       </div>
 
-      <div className={styles.footer}>
-        <Meta date={date} />
-        {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
+      <div className={styles.footerWrapper}>
+        <div className={styles.footer}>
+          👾
+          <Meta date={date} />
+          {tags && tagSlugs && <Tags tags={tags} tagSlugs={tagSlugs} />}
+        </div>
       </div>
 
       <div className={styles.comments}>

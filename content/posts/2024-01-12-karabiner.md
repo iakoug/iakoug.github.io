@@ -136,14 +136,14 @@ _这里其实因为我猜测大概率是新推送的 ForcePoint 导致所以很�
   </dict>
   <key>AllowedSystemExtensions</key>
   <dict>
-    <key>>******</</key>
+    <key>******</key>
     <array>
       <string>com.forcepoint.ne</string>
     </array>
   </dict>
   <key>RemovableSystemExtensions</key>
   <dict>
-    <key>>******</</key>
+    <key>******</key>
     <array>
       <string>com.forcepoint.ne</string>
     </array>
@@ -153,6 +153,6 @@ _这里其实因为我猜测大概率是新推送的 ForcePoint 导致所以很�
 
 ## Fixed
 
-联系安全相关同学临时我的设备上删除相关 Profile 再重新安装 Karabiner Elements 已经可以正常唤起隐私中的 Allow（相关 Profile 可能需要向厂商提交修改申请）
+联系安全相关同学临时删除我的设备上相关 Profile 后再重新安装 Karabiner Elements 已经可以正常唤起隐私安全中的 Allow Button（相关 Profile 可能需要向厂商提交修改申请）
 
 一切好起来了

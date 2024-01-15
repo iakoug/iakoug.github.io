@@ -25,7 +25,7 @@ const Layout: React.FC<Props> = ({ children }: Props) => {
       <div className={styles.footer}>
         <Link to="/list">
           <span className={styles.copyRight}>
-            © 2016-{new Date().getFullYear()} All rights reserved.
+            © 2017-{new Date().getFullYear()} All rights reserved.
           </span>
         </Link>
         &nbsp; Visit&nbsp;

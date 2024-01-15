@@ -17,28 +17,28 @@ koa2 上独特的中间件流程控制，是一个典型的洋葱模型
 ### 运行 koa2 demo
 
 ```js
-const Koa = require('koa2')
+const Koa = require("koa2");
 
-const app = new Koa()
-
-app.use(async (ctx, next) => {
-  console.log(1, ' start')
-  await next()
-  console.log(1, ' end')
-})
+const app = new Koa();
 
 app.use(async (ctx, next) => {
-  console.log(2, ' start')
-  await next()
-  console.log(2, ' end')
-})
-app.use(async (ctx, next) => {
-  console.log(3, ' start')
-  await next()
-  console.log(3, ' end')
-})
+  console.log(1, " start");
+  await next();
+  console.log(1, " end");
+});
 
-app.listen(3000)
+app.use(async (ctx, next) => {
+  console.log(2, " start");
+  await next();
+  console.log(2, " end");
+});
+app.use(async (ctx, next) => {
+  console.log(3, " start");
+  await next();
+  console.log(3, " end");
+});
+
+app.listen(3000);
 ```
 
 输出结果：
@@ -67,7 +67,7 @@ app.listen(3000)
 .
 
 .
-和之前的一篇 [动态规划和递归：从虎羊草开始](https://blog.iakoug.cn/post/2019-02-21-DynamicProgrammingAndRecursion) 类似进行简单的归纳之后得出思路，最关键的流程控制问题既然有了思路下面开始封装代码
+和之前的一篇 [动态规划和递归：从虎羊草开始](/dynamic-programming) 类似进行简单的归纳之后得出思路，最关键的流程控制问题既然有了思路下面开始封装代码
 
 ### 三步完成封装
 
@@ -76,10 +76,10 @@ app.listen(3000)
 ```js
 class App {
   constructor() {
-    this.middleware = []
+    this.middleware = [];
   }
   use(fn) {
-    this.middleware.push(fn)
+    this.middleware.push(fn);
   }
 }
 ```
@@ -87,18 +87,18 @@ class App {
 第二步：接下来我们需要构建一个 compose 函数 对收集到的依赖进行处理，参数是收集的依赖栈，返回一个通过一层层中间件函数包装的新函数，数组有个 reduce 方法可以很轻易的帮我们做到这件事情，但是由于我们是需要按照收集的中间件的顺序执行每一个中间件函数，按照我们上面的归纳如果按 1 -> 2 -> 3 的流程顺序遍历显然就会将最早收集的依赖包装在最内层，不过我们还有 reduceRight😄， 代码如下：
 
 ```js
-const compose = middlewares =>
+const compose = (middlewares) =>
   middlewares.reduceRight(
     (oldNext, fn) => createNext(fn, oldNext),
-    async () => Promise.resolve()
-  )
+    async () => Promise.resolve(),
+  );
 ```
 
 第三步：显然接下来最关键的就是对上面 compose 函数中的 createNext 方法进行封装，我们需要两个参数，上面已经说过，next 方法是对下一个中间件函数的处理，一个参数是中间件函数，而另一个显然就是那个 next 方法，包装调用后返回一个新的 next 函数传递到下一层包装，代码如下：
 
 ```js
 const createNext = (middleware, oldNext) => async () =>
-  await middleware(oldNext)
+  await middleware(oldNext);
 ```
 
 以上基本的封装已经完成，核心代码只有 middlewares 和 createNext 两个函数，只有 6 行，下面对上面整个流程进行聚合测试
@@ -108,43 +108,43 @@ const createNext = (middleware, oldNext) => async () =>
 ```js
 class App {
   constructor() {
-    this.middleware = []
+    this.middleware = [];
   }
   use(fn) {
-    this.middleware.push(fn)
+    this.middleware.push(fn);
   }
 }
 
-const app = new App()
+const app = new App();
 
 app.use(async function m1(next) {
-  console.log('m1')
-  await next()
-  console.log('m1 end')
-})
+  console.log("m1");
+  await next();
+  console.log("m1 end");
+});
 
 app.use(async function m2(next) {
-  console.log('m2')
-  await next()
-  console.log('m2 end')
-})
+  console.log("m2");
+  await next();
+  console.log("m2 end");
+});
 
 app.use(async function m3(next) {
-  console.log('m3')
-  await next()
-  console.log('m3 end')
-})
+  console.log("m3");
+  await next();
+  console.log("m3 end");
+});
 
 const createNext = (middleware, oldNext) => async () =>
-  await middleware(oldNext)
+  await middleware(oldNext);
 
-const compose = middlewares =>
+const compose = (middlewares) =>
   middlewares.reduceRight(
     (oldNext, fn) => createNext(fn, oldNext),
-    async () => Promise.resolve()
-  )
+    async () => Promise.resolve(),
+  );
 
-compose(app.middleware)()
+compose(app.middleware)();
 
 // output:
 // m1
@@ -155,8 +155,6 @@ compose(app.middleware)()
 // m1 end
 ```
 
-达到预期结果 ahhhhh💐
-
-### summary
+达到预期 💐
 
 当然这里只是简单的封装一下，关于上下文传递错误捕获之类都没做，但是已经完成一个标准的洋葱模型的流程控制了，下次有机会封装完整的 koa2

@@ -12,18 +12,18 @@ export default {
     title: config.title,
     author: config.author,
     subtitle: config.subtitle,
-    copyright: config.copyright,
+    copyright: `© 2017-${new Date().getFullYear()} All rights reserved.`,
     postsLimit: config.postsLimit,
     giscus: true,
   },
   plugins: [
-    // { 
-    //   resolve: 'gatsby-plugin-web-font-loader', 
+    // {
+    //   resolve: 'gatsby-plugin-web-font-loader',
     //   options: {
-    //     google: { 
+    //     google: {
     //       families: ['Open Sans'],
     //     },
-    //   } 
+    //   }
     // },
     {
       resolve: "gatsby-source-filesystem",
@@ -80,7 +80,7 @@ export default {
               {
                 allMarkdownRemark(
                   limit: 1000,
-                  sort: { order: DESC, fields: [frontmatter___date] },
+                  sort: { frontmatter: { date: DESC } },
                   filter: { frontmatter: { template: { eq: "post" }, draft: { ne: true } } }
                 ) {
                   edges {
@@ -143,8 +143,8 @@ export default {
     {
       resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: "https://blog.iakoug.cn",
-        sitemap: "https://blog.iakoug.cn/sitemap.xml",
+        host: "https://www.iakoug.cn",
+        sitemap: "https://www.iakoug.cn/sitemap.xml",
         policy: [
           {
             userAgent: "*",
