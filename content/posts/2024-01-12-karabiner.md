@@ -8,7 +8,7 @@ category: R&D
 tags:
   - Mac Profile
 description: 突然发现日常使用的 Karabiner Elements 设置的 Hyper key 失效了，这可是我的生产力效率支柱
-cover: media/jez-timms-aCgM_7B-cNk-unsplash.jpg
+cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
 by: Photo by &nbsp;<a href="https://unsplash.com/@jeztimms?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jez Timms</a> &nbsp; on <a href="https://unsplash.com/photos/white-and-black-angel-painting-aCgM_7B-cNk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">&nbsp;Unsplash</a>
 ---
 

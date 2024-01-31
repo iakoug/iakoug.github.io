@@ -43,8 +43,9 @@ export const query = graphql`
       fluid(
         maxWidth: 1200
         maxHeight: 500
-        pngCompressionSpeed: 8
+        pngCompressionSpeed: 5
         cropFocus: CENTER
+        quality: 90
       ) {
         base64
         aspectRatio
