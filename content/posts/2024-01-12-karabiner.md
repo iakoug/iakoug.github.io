@@ -8,8 +8,8 @@ category: R&D
 tags:
   - Mac Profile
 description: 突然发现日常使用的 Karabiner Elements 设置的 Hyper key 失效了，这可是我的生产力效率支柱
-cover: media/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg
-by: Photo by &nbsp;<a href="https://unsplash.com/@jeztimms?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Jez Timms</a> &nbsp; on <a href="https://unsplash.com/photos/white-and-black-angel-painting-aCgM_7B-cNk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">&nbsp;Unsplash</a>
+cover: media/20240202-115151.jpeg
+by: Photo by &nbsp;<a>iakoug</a>&nbsp; at &nbsp;<a>枫林科创园</a>&nbsp; on 2023/12/26
 ---
 
 日常工作中 Mac 上对我来说影响最大的效率提升工具是 Keyboard Maestro + Karabiner Elements 的组合。Keyboard Maestro 用来定义一些系统通知、快捷指令、Text snippet、 Clipboard History、App 唤起等功能，Karabiner Elements 主要用来做一些 Key mapping Or Key combination
