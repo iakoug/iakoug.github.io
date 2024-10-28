@@ -11,6 +11,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -22,8 +23,14 @@ jobs:
       - name: Build the project
         run: yarn build
 
+      - name: Check public directory
+        run: ls -l ./public
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
+          destination_dir: /
+          keep_files: false
+          force_orphan: true
