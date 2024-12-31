@@ -21,7 +21,7 @@ const List: React.FC<Props> = ({ data }: Props) => {
   return (
     <Layout>
       <Page title="All Posts">
-        <Feed edges={edges} />
+        <Feed edges={edges} isListPage />
       </Page>
     </Layout>
   );

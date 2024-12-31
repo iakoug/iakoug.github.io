@@ -19,6 +19,17 @@
   align-items: stretch;
   margin: 0px -24px;
 
+  &.listFeed {
+    .item {
+      flex: 0 0 100% !important;
+      margin-bottom: 0;
+
+      .cover {
+        display: none;
+      }
+    }
+  }
+
   .item {
     @include margin-bottom(1.25);
 
@@ -123,7 +134,8 @@
         box-shadow: 0 16px 48px rgba(0, 0, 0, 0.2);
       }
 
-      .title, .meta {
+      .title,
+      .meta {
         padding-left: 20px;
         padding-right: 20px;
       }

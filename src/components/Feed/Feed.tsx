@@ -7,17 +7,15 @@ import * as styles from "./Feed.module.scss";
 
 type Props = {
   edges: Array<Edge>;
+  isListPage?: boolean;
 };
 
-const Feed: React.FC<Props> = ({ edges }: Props) => {
+const Feed: React.FC<Props> = ({ edges, isListPage }: Props) => {
   return (
-    <div className={styles.feed}>
+    <div className={`${styles.feed} ${isListPage && styles.listFeed}`}>
       {edges.map((edge) => {
         return (
-          <div
-            className={styles.item}
-            key={edge.node.fields.slug}
-          >
+          <div className={styles.item} key={edge.node.fields.slug}>
             {edge.node.frontmatter.cover && (
               <Link
                 className={styles.link}
@@ -62,7 +60,7 @@ const Feed: React.FC<Props> = ({ edges }: Props) => {
             </div>
             <h2 className={styles.title}>
               <Link
-                onClick={e => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 className={styles.link}
                 to={edge.node.frontmatter?.slug || edge.node.fields.slug}
               >
