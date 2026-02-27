@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://iakoug.github.io/sitemap.xml
+Host: https://iakoug.github.io

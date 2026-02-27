@@ -1,0 +1,639 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.15.0"/><meta name="theme-color" content="#fff"/><meta name="description" content="JS 常用的设计模式" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="JS design pattern - CHRIS KWOK" data-gatsby-head="true"/><meta name="twitter:description" content="JS 常用的设计模式" data-gatsby-head="true"/><meta name="og:title" content="JS design pattern - CHRIS KWOK" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="JS 常用的设计模式" data-gatsby-head="true"/><style data-href="/styles.faac0f9fd2620b969dc5.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#eff3f5}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#000}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:15px;line-height:1.65;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility;transition:background .3s}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:30px;line-height:50px;margin-bottom:25px;margin-top:62.5px}h2{font-size:22.5px;line-height:37.5px;margin-bottom:10px;margin-top:25px}h3{font-size:18px}h3,h4{line-height:25px;margin-bottom:10px;margin-top:25px}h4{font-size:15px}h5,h6{font-size:15px;line-height:25px;margin-bottom:10px;margin-top:25px}@media screen and (max-width:1200px){h1{line-height:30px;margin-top:50px}h2,h3,h4,h5,h6{line-height:27.5px;margin-top:25px}}img{display:block;max-width:100%}hr,img{border:0}hr{border-top:2px solid #ccd9df;height:0;margin:48px auto;position:relative;width:12px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:circle;margin-bottom:25px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:25px;margin-bottom:25px}blockquote{background:var(--color-theme-blockquote-bg);border-radius:8px}blockquote p{font-style:italic;margin:0!important;padding:16px 24px}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:18.75px;margin-bottom:0;margin-top:6.25px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 25px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-size:.85em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}::selection{background-color:#5c92ff;color:#fff}code[class*=language-] ::selection,code[class*=language-]::selection{background:#10414d}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:400;src:local("Heebo Light"),local("Heebo-Light"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9ldb6RMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:500;src:local("Heebo Medium"),local("Heebo-Medium"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9kFbqRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:700;src:local("Heebo Bold"),local("Heebo-Bold"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9lNaKRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:transparent}body{font-family:Heebo}*{text-wrap:pretty;word-break:break-word}code{text-wrap:pretty!important;word-break:break-all!important}::-webkit-scrollbar{display:none}::-moz-scrollbar{display:none}::-ms-scrollbar{display:none}::-o-scrollbar{display:none}.Feed-module--cover--35f87{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Feed-module--feed--a6204{align-items:stretch;display:flex;flex-flow:wrap;justify-content:flex-start;margin:0 -24px}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63{flex:0 0 100%!important;margin-bottom:0}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63 .Feed-module--cover--35f87{display:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63{box-sizing:border-box;color:#3c3f45;cursor:pointer;display:block;flex:0 0 50%;margin-bottom:48px;padding:0 24px;position:relative;text-decoration:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover .Feed-module--cover--35f87{transform:translateY(-2px) scale3d(1.02,1.02,1)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:24px;line-height:1.6;margin-bottom:12.5px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:15px;line-height:25px;margin-bottom:18.75px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2{margin-top:10px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;line-height:1.6;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-primary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:15px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}@media screen and (max-width:768px){.Feed-module--feed--a6204 .Feed-module--item--c7a63{border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.1);flex:0 0 100%;margin-bottom:24px;overflow:hidden;padding:0;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s cubic-bezier(.25,.46,.45,.94)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover{box-shadow:0 16px 48px rgba(0,0,0,.2);transform:translateY(-1px)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{padding-left:20px;padding-right:20px}}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31{margin:0 auto;max-width:1200px;padding-bottom:10px;padding-top:70px;width:80%}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;margin:0 auto}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:22px;font-weight:700;line-height:28.125px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:25px;margin-bottom:25px}.Layout-module--footer--cde73{margin:20px;text-align:center}.Layout-module--copyRight--7da7b{color:var(--color-typographic-base-font)}.index-module--Wrapper--e7732{display:block;font-family:Source Sans Pro;font-size:16px;margin:0 auto 48px;max-width:1200px;padding:10px 0 0;text-align:left}@keyframes index-module--blink--608b0{0%,to{opacity:0}50%{opacity:1}}.index-module--Blink--1c2e2{animation:index-module--blink--608b0 1s infinite;margin-left:4px}.Page-module--page--24e03{margin:20px auto 48px;max-width:1200px;width:80%}.Page-module--title--90338{margin-top:0}.Pagination-module--pagination--d61cb{display:flex;margin-top:50px}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{padding:0 24px;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-primary);font-size:20px;font-weight:700;transition:color .2s}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-secondary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:right}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:left}.Content-module--photoBy--49f5a{align-items:center;display:flex;font-size:14px;justify-content:center;padding:16px 0}.Content-module--coverWrapper--6dd08{margin-top:48px}.Content-module--cover--e6f21,.Content-module--info--f72fb{margin:0 auto;max-width:1200px;width:80%}.Content-module--cover--e6f21{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);height:350px;transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Content-module--time--9f828{font-size:16px;font-weight:700;line-height:26px;margin-top:50px;text-transform:uppercase;word-break:break-word}.Content-module--description--e8a56{font-size:24px;font-weight:200;line-height:1.4;padding-top:4px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:700;line-height:1.4;margin:0;text-align:left}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:895px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58 .Content-module--time--9f828{margin-top:48px}.Content-module--content--80d58 .Content-module--body--726c2{font-size:16.5px;line-height:28.125px;margin-bottom:28.125px;margin-top:28.125px}.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:16.5px;line-height:28.125px;margin-bottom:25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:12.5px;visibility:unset}}@media screen and (max-width:1200px){.Content-module--body--726c2{padding-left:26px;padding-right:26px}.Content-module--cover--e6f21{width:100%}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:15px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 25px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.Tags-module--tags--18589{margin-bottom:12.5px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.25px 0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}.Post-module--post--3a994{padding:25px 0 0}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--footerWrapper--95bf1{padding:0 26px}.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:895px}.Post-module--post--3a994 .Post-module--comments--d3b99{margin:0 auto;max-width:895px;min-height:378px;padding:0 12.5px}.Post-module--post--3a994 .Post-module--buttons--2972d{padding-left:25px}</style><link rel="alternate" type="application/rss+xml" title="CHRIS KWOK" href="/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SLJTP0PP9G"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SLJTP0PP9G', {"send_page_view":false});
+      }
+      </script><link rel="icon" href="/favicon-32x32.png?v=2a2ba7ad50a1204635c8d82993790f6c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><title data-gatsby-head="true">JS design pattern - CHRIS KWOK</title></head><body><script>
+          void function() {
+            var cachedMode;
+
+            try {
+              var preferredTheme = JSON.parse(localStorage.getItem('diesel:theme-atom'));
+
+              if (preferredTheme && preferredTheme.mode) {
+                cachedMode = preferredTheme.mode;
+              }
+            } catch (err) { }
+
+            function setTheme(newTheme) {
+              document.documentElement.className = newTheme;
+            }
+
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
+          }()
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div><div><div class="Author-module--author--cbd31 "><div class="Author-module--titleContainer--4f576"><h1 class="Author-module--title--cf7e5"><a class="Author-module--link--09c17" href="/">CHRIS KWOK</a></h1></div></div></div><div class="Post-module--post--3a994"><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><div class="Content-module--info--f72fb"><div class="Content-module--time--9f828">Feb 24, 2019</div><h1 class="Content-module--title--09504">JS design pattern</h1><div class="Content-module--description--e8a56">JS 常用的设计模式</div></div><div class="Content-module--coverWrapper--6dd08"><div class="Content-module--cover--e6f21 gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:41.66666666666667%"></div><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAGDUKnFn//EABgQAAMBAQAAAAAAAAAAAAAAAAABAhES/9oACAEBAAEFApfbeSO2f//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwFn/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEhEWH/2gAIAQEABj8Co8XCI//EABoQAAMAAwEAAAAAAAAAAAAAAAABESFBYaH/2gAIAQEAAT8hWiIpPRc06KtJ/9oADAMBAAIAAwAAABAL/wD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EMLl/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxBtIj//xAAaEAEBAAIDAAAAAAAAAAAAAAABEQAxIWHB/9oACAEBAAE/EDpydy2p9wDeGridYIAMGzP/2Q==" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/33996f9491bbe0b7817031e467f796cd/17f4c/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 300w,
+/static/33996f9491bbe0b7817031e467f796cd/d8967/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 600w,
+/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1200w,
+/static/33996f9491bbe0b7817031e467f796cd/ba7f6/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1800w,
+/static/33996f9491bbe0b7817031e467f796cd/b349f/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1920w" sizes="(max-width: 1200px) 100vw, 1200px" /><img loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" srcset="/static/33996f9491bbe0b7817031e467f796cd/17f4c/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 300w,
+/static/33996f9491bbe0b7817031e467f796cd/d8967/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 600w,
+/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1200w,
+/static/33996f9491bbe0b7817031e467f796cd/ba7f6/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1800w,
+/static/33996f9491bbe0b7817031e467f796cd/b349f/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1920w" src="/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><div class="Content-module--photoBy--49f5a"></div><div class="Content-module--body--726c2"><p>JS 常用的设计模式以及应用场景</p>
+<p><em>以下内容为个人简单理解，部分 demo 由网上案例简单改写 😝</em></p>
+<hr>
+<h3 id="何谓设计模式" style="position:relative;"><a href="#%E4%BD%95%E8%B0%93%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" aria-label="何谓设计模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>何谓设计模式</h3>
+<p>没必要被高大上的名词所吓倒，日常 coding 中或许一个不了解各种设计模式的程序员可能自己其实已经用到了很多</p>
+<p>抛开官方的定义在我看来简单来说就是一个简单的思想被统一为规范，按照这个规范可以写出更优雅可控亦或性能更佳的代码，像是框架的单位</p>
+<p>定义：在软件工程中，设计模式（design pattern）是对软件设计中普遍存在（反复出现）的各种问题，所提出的解决方案</p>
+<p>补充：并非所有的软件模式都是设计模式，设计模式特指软件“设计”层次上的问题。还有其他非设计模式的模式，如架构模式。同时，算法不能算是一种设计模式，因为算法主要是用来解决计算上的问题，而非设计上的问题</p>
+<p>软件设计模式有很多，常规的有 23 种，本文针对其中常用的几种进行简要介绍</p>
+<h3 id="设计原则" style="position:relative;"><a href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" aria-label="设计原则 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>设计原则</h3>
+<p>在列举具体的设计模式之前，我们要先知道设计模式本身的规范是什么，这就是设计原则，主要以下三种：</p>
+<ul>
+<li>
+<p>单一职责原则（SRP）：一个对象或方法只做一件事情。如果一个方法承担了过多的职责，那么在需求的变迁过程中，需要改写这个方法的可能性就越大。应该把对象或方法划分成较小的粒度</p>
+</li>
+<li>
+<p>最少知识原则（LKP）：一个软件实体应当 尽可能少地与其他实体发生相互作用，应当尽量减少对象之间的交互。如果两个对象之间不必彼此直接通信，那么这两个对象就不要发生直接的 相互联系，可以转交给第三方进行处理</p>
+</li>
+<li>
+<p>开放-封闭原则（OCP）：软件实体（类、模块、函数）等应该是可以 扩展的，但是不可修改，当需要改变一个程序的功能或者给这个程序增加新功能的时候，可以使用增加代码的方式，尽量避免改动程序的源代码，防止影响原系统的稳定</p>
+</li>
+</ul>
+<h3 id="从最简单的单体单例模式开始" style="position:relative;"><a href="#%E4%BB%8E%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%8D%95%E4%BD%93%E5%8D%95%E4%BE%8B%E6%A8%A1%E5%BC%8F%E5%BC%80%E5%A7%8B" aria-label="从最简单的单体单例模式开始 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>从最简单的单体/单例模式开始</h3>
+<h5 id="定义" style="position:relative;"><a href="#%E5%AE%9A%E4%B9%89" aria-label="定义 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>定义：</h5>
+<p>单体：一个用来划分命名空间并将一批相关的属性和方法组织在一起的对象</p>
+<p>单例：顾名仅可以可以被实例化一次：在它的核心结构中只包含一个被称为单例的特殊类。通过单例模式可以保证系统中，应用该模式的一个类只有一个实例。即一个类只有一个对象实例
+<em>在 java 中单例的定义：一个类有且仅有一个实例，并且自行实例化向整个系统提供</em></p>
+<h5 id="优点" style="position:relative;"><a href="#%E4%BC%98%E7%82%B9" aria-label="优点 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优点:</h5>
+<ul>
+<li>单例模式会阻止其他对象实例化其自己的单例对象的副本，从而确保所有对象都访问唯一实例</li>
+<li>因为类控制了实例化过程，所以类可以灵活更改实例化过程</li>
+<li>单体可以控制局部变量污染</li>
+</ul>
+<h5 id="应用场景" style="position:relative;"><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" aria-label="应用场景 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>应用场景：</h5>
+<ul>
+<li>可以用单例来划分命名空间: 一些对象我们往往只需要一个，如某些数据的缓存</li>
+<li>借助单例模式，可以把代码组织的更为一致</li>
+</ul>
+<h5 id="最基本的单体模式" style="position:relative;"><a href="#%E6%9C%80%E5%9F%BA%E6%9C%AC%E7%9A%84%E5%8D%95%E4%BD%93%E6%A8%A1%E5%BC%8F" aria-label="最基本的单体模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最基本的单体模式</h5>
+<p>直接导出一个方法属性集合的对象</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// commonjs 导出</span>
+module<span class="token punctuation">.</span>exports <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token function">getSingleton</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<h5 id="用闭包来实现单例" style="position:relative;"><a href="#%E7%94%A8%E9%97%AD%E5%8C%85%E6%9D%A5%E5%AE%9E%E7%8E%B0%E5%8D%95%E4%BE%8B" aria-label="用闭包来实现单例 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>用闭包来实现单例</h5>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> Ins1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> instance <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token comment">// 利用闭包特性保证实例私有化</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">opt</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>instance <span class="token operator">===</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      instance <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> k <span class="token keyword">in</span> opt<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      instance<span class="token punctuation">[</span>k<span class="token punctuation">]</span> <span class="token operator">=</span> opt<span class="token punctuation">[</span>k<span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">return</span> instance<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>测试：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> i1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Ins1</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"i1"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> i2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Ins1</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"i2"</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i1 <span class="token operator">===</span> i2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// true</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i1<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// i2</span></code></pre></div>
+<p>补充：在 node 中一个文件就是一个独立模块，若在某个 js 文件中导出一个类： <code class="language-text">class T {} export default new T</code> 之后在其他任何外部文件多次引入其实都是保证了 T 类只被实例化了一次而不会被多次初始化。这是因为 node 遵循了 commonjs 的规范，所有文件模块在被引用时都会先去模块系统的缓存中查看这个文件是否存在，如果存在就返回缓存否则才会重新创建一个模块，而这个缓存其实也就限制了模块内脚本的多次初始化</p>
+<h3 id="策略模式" style="position:relative;"><a href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F" aria-label="策略模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>策略模式</h3>
+<h5 id="定义-1" style="position:relative;"><a href="#%E5%AE%9A%E4%B9%89-1" aria-label="定义 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>定义：</h5>
+<p>就是解耦，何为策略解耦： 指的是定义一些列的算法，把他们一个个封装起来，目的就是将算法的使用与算法的实现分离开来。说白了就是以前要很多判断的写法，现在把判断里面的内容抽离开来，变成一个个小的个体。如大量的 if else 或者 switch case 判断当需求更改时需要添加和更改判断，这违背了设计模式的对修改关闭，对扩展开放的原则</p>
+<h5 id="优点-1" style="position:relative;"><a href="#%E4%BC%98%E7%82%B9-1" aria-label="优点 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优点：</h5>
+<ul>
+<li>减少<code class="language-text">command c &amp; command v</code>, 提高复用性</li>
+<li>遵循开闭原则，算法独立易于切换、理解、拓展</li>
+</ul>
+<h5 id="应用场景-1" style="position:relative;"><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-1" aria-label="应用场景 1 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>应用场景：</h5>
+<p>针对代码多种行为设置大量的条件判断时将每一个行为划分为多个独立的对象。每一个对象被称为一个策略。设置多个这种策略对象，可以改进我们的代码质量，也更好的进行单元测试</p>
+<h5 id="最简单的执行" style="position:relative;"><a href="#%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E6%89%A7%E8%A1%8C" aria-label="最简单的执行 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>最简单的执行</h5>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// 定义</span>
+  <span class="token keyword">const</span> strategies <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token function-variable function">plus10</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> arg <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token function-variable function">plus100</span><span class="token operator">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">arg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> arg <span class="token operator">+</span> <span class="token number">100</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token comment">// 执行</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">plus<span class="token punctuation">,</span> base</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> strategies<span class="token punctuation">[</span>plus<span class="token punctuation">]</span><span class="token punctuation">(</span>base<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">const</span> strategy <span class="token operator">=</span> <span class="token function">closure</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">strategy</span><span class="token punctuation">(</span><span class="token string">"plus10"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 11</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">strategy</span><span class="token punctuation">(</span><span class="token string">"plus100"</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 101</span></code></pre></div>
+<h5 id="对比分析" style="position:relative;"><a href="#%E5%AF%B9%E6%AF%94%E5%88%86%E6%9E%90" aria-label="对比分析 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>对比分析</h5>
+<p>eg.: 代码情景为超市促销，vip 为 5 折，老客户 3 折，普通顾客没折，计算最后需要支付的金额</p>
+<p>意大利逻辑:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">context</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> type<span class="token punctuation">,</span> price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">"vip"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>type <span class="token operator">===</span> <span class="token string">"vip"</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price <span class="token operator">*</span> <span class="token number">0.8</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>如果 type 类型非常多，内部逻辑分别也不只是简单的 return 一个 val，那对后续的维护和测试就是灾难，下面拆分逻辑为独立单元:</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Vip</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token parameter">price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">*</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Old</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">=</span> <span class="token number">0.8</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token parameter">price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">*</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Others</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+  <span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token parameter">price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Context</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>price <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token parameter">name<span class="token punctuation">,</span> strategy<span class="token punctuation">,</span> price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>name <span class="token operator">=</span> name<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>strategy <span class="token operator">=</span> strategy<span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>price <span class="token operator">=</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>name<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>strategy<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token string">"元"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>strategy<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>price<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>测试：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> seller <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Context</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> vip <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Vip</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> old <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Old</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> other <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Others</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token string">"zs"</span><span class="token punctuation">,</span> vip<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token string">"ls"</span><span class="token punctuation">,</span> old<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token string">"ww"</span><span class="token punctuation">,</span> other<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// output:</span>
+<span class="token comment">// zs 500 元</span>
+<span class="token comment">// ls 800 元</span>
+<span class="token comment">// ww 1000 元</span></code></pre></div>
+<p>显然逻辑多而复杂时可以极大提高代码可读性以及减少维护成本</p>
+<p>补充：上述不断重复的代码片段看起来非常丑陋，其实可以通过继承来实现更简洁的写法：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 定义父类</span>
+<span class="token keyword">class</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">discount</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 不传为原价</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">=</span> discount <span class="token operator">||</span> <span class="token number">1</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token parameter">price</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">===</span> <span class="token number">1</span> <span class="token operator">?</span> price <span class="token operator">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>discount <span class="token operator">*</span> price<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment">// 声明子类</span>
+<span class="token keyword">class</span> <span class="token class-name">Sub</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+
+<span class="token comment">// 可以自定义更多不同级别顾客不同需求</span>
+<span class="token comment">// class Test extend Handler {</span>
+<span class="token comment">//   getGifts() {</span>
+<span class="token comment">//     if (this.discount &lt; 1) {</span>
+<span class="token comment">//       // 赠送赠品</span>
+<span class="token comment">//     }</span>
+<span class="token comment">//   }</span>
+<span class="token comment">// }</span>
+<span class="token comment">// const master = new Test(0.1)</span>
+<span class="token comment">// master.getGifts()</span>
+
+<span class="token comment">// Context类同上方便统一接口输出</span>
+<span class="token keyword">class</span> <span class="token class-name">Context</span> <span class="token punctuation">{</span><span class="token punctuation">}</span></code></pre></div>
+<p>测试：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> seller <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Context</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> vip <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sub</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> old <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sub</span><span class="token punctuation">(</span><span class="token number">0.8</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> other <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Sub</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+seller<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token string">"zs"</span><span class="token punctuation">,</span> vip<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token string">"ls"</span><span class="token punctuation">,</span> old<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">setPrice</span><span class="token punctuation">(</span><span class="token string">"ww"</span><span class="token punctuation">,</span> other<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+seller<span class="token punctuation">.</span><span class="token function">getPrice</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// output:</span>
+<span class="token comment">// zs 500 元</span>
+<span class="token comment">// ls 800 元</span>
+<span class="token comment">// ww 1000 元</span></code></pre></div>
+<p>测试结果一致</p>
+<h3 id="代理模式" style="position:relative;"><a href="#%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F" aria-label="代理模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>代理模式</h3>
+<h5 id="定义-2" style="position:relative;"><a href="#%E5%AE%9A%E4%B9%89-2" aria-label="定义 2 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>定义：</h5>
+<p>为其他对象提供一种代理以控制对这个对象的访问。在某些情况下，一个对象不适合或者不能直接引用另一个对象，而代理对象可以在客户端和目标对象之间起到中介的作用
+著名的代理模式例子为引用计数（reference counting）指针对象
+另外代理模式还可分为：</p>
+<ul>
+<li>虚拟代理：把一些开销很大的对象，延迟到真正需要它的时候才去创建，当对象在创建前或创建中时，由虚拟代理来扮演对象的替身；对象创建后，代理就会将请求直接委托给对象</li>
+<li>保护代理：用于控制不同权限的对象对目标对象的访问</li>
+<li>缓存代理: 缓存代理可以作为一些开销大的运算结果提供暂时的存储，下次运算时，如果传递进来的参数跟之前一致，则可以直接返回前面存储的运算结果</li>
+</ul>
+<h5 id="优点-2" style="position:relative;"><a href="#%E4%BC%98%E7%82%B9-2" aria-label="优点 2 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优点：</h5>
+<p>独立职责归属，便于维护测试</p>
+<h5 id="应用场景-2" style="position:relative;"><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-2" aria-label="应用场景 2 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>应用场景：</h5>
+<p>比如图片的懒加载，数据缓存等</p>
+<h5 id="虚拟代理实现图片懒加载" style="position:relative;"><a href="#%E8%99%9A%E6%8B%9F%E4%BB%A3%E7%90%86%E5%AE%9E%E7%8E%B0%E5%9B%BE%E7%89%87%E6%87%92%E5%8A%A0%E8%BD%BD" aria-label="虚拟代理实现图片懒加载 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>虚拟代理实现图片懒加载</h5>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> imgSet <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> node <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>node<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">src</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    node<span class="token punctuation">.</span>src <span class="token operator">=</span> src<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> proxyImg <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">let</span> _img <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Image</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  _img<span class="token punctuation">.</span><span class="token function-variable function">onload</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">setTimeout</span><span class="token punctuation">(</span>imgSet<span class="token punctuation">,</span> <span class="token number">2000</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>src<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">src</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">imgSet</span><span class="token punctuation">(</span><span class="token string">"https://yphoto.eryufm.cn/upload/assets/jump.gif"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    _img<span class="token punctuation">.</span>src <span class="token operator">=</span> src<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// call</span>
+<span class="token function">proxyImg</span><span class="token punctuation">(</span>
+  <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&amp;quality=100&amp;size=b4000_4000&amp;sec=1551174639&amp;di=90b4757f68c9480f78c132c930c1df10&amp;src=http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/02/02/ChMkJ1bKxkmIObywAArTTfACinwAALHjACDZuIACtNl408.jpg</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<h5 id="保护代理" style="position:relative;"><a href="#%E4%BF%9D%E6%8A%A4%E4%BB%A3%E7%90%86" aria-label="保护代理 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>保护代理</h5>
+<p>对象 a 需要给对象 c 发送信息，为了保证 a 对 c 是不可见，可用对象 b 代理转发</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// filter some no use or unneed requestions or data</span>
+<span class="token comment">// A  ---> B(proxy) ----> C</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"a"</span><span class="token punctuation">,</span>
+  <span class="token function">send</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> info</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    target<span class="token punctuation">.</span><span class="token function">receive</span><span class="token punctuation">(</span>info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"c"</span><span class="token punctuation">,</span>
+  <span class="token function">receive</span><span class="token punctuation">(</span><span class="token parameter">target<span class="token punctuation">,</span> info</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"c receive "</span><span class="token punctuation">,</span> info<span class="token punctuation">,</span> <span class="token string">" from "</span><span class="token punctuation">,</span> target<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"b"</span><span class="token punctuation">,</span>
+  <span class="token function">receive</span><span class="token punctuation">(</span><span class="token parameter">info</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>info<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      c<span class="token punctuation">.</span><span class="token function">receive</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> info<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> <span class="token string">"good morning"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> <span class="token string">""</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+a<span class="token punctuation">.</span><span class="token function">send</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> <span class="token string">"send again"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// output:</span>
+<span class="token comment">// c receive good morning from b</span>
+<span class="token comment">// c receive send again from b</span></code></pre></div>
+<p>上面表示一个最简单的保护代理</p>
+<h5 id="缓存代理" style="position:relative;"><a href="#%E7%BC%93%E5%AD%98%E4%BB%A3%E7%90%86" aria-label="缓存代理 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>缓存代理</h5>
+<p>顾名思义就是缓存相关的代理</p>
+<p>有一个二级别联动的标签列表，第二级的各有自己所属的多个标签根据第一级的参数来发送指定请求来获取，如果想要达到点击第一级列表迅速展示出相关的第二级标签，我们可以在系统空闲时预先将所有标签全部获取并缓存</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 存储所有标签</span>
+<span class="token keyword">let</span> tags<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">sendApiGetTags</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// ajax.get('/api', { index })</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> proxyCache <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> allTagsCache <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> number <span class="token operator">=</span> <span class="token number">5</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> all <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> params <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> index <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> index <span class="token operator">&lt;</span> number<span class="token punctuation">;</span> index<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    all<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>
+      <span class="token function">sendApiGetTags</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        <span class="token operator">...</span>params<span class="token punctuation">,</span>
+        index<span class="token punctuation">,</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token keyword">await</span> Promise<span class="token punctuation">.</span><span class="token function">all</span><span class="token punctuation">(</span>all<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  list<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res<span class="token punctuation">,</span> i</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>allTagsCache<span class="token punctuation">[</span>i<span class="token punctuation">]</span> <span class="token operator">=</span> res<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> allTagsCache<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> <span class="token function-variable function">setTags</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token parameter">index</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// 缓存中有直接拿</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>proxyCache<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    tags <span class="token operator">=</span> proxyCache<span class="token punctuation">[</span>index<span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 缓存中没有则重发请求</span>
+    tags <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">sendApiGetTags</span><span class="token punctuation">(</span>index<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<h3 id="发布订阅模式" style="position:relative;"><a href="#%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E6%A8%A1%E5%BC%8F" aria-label="发布订阅模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>发布订阅模式</h3>
+<h5 id="定义-3" style="position:relative;"><a href="#%E5%AE%9A%E4%B9%89-3" aria-label="定义 3 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>定义：</h5>
+<p>一种一对多的依赖关系，让多个订阅者对象同时监听某一个主题对象。这个主题对象在自身状态变化时，会通知所有订阅者对象，使它们能够自动更新自己的状态。
+至于发布订阅模式和观察者模式是不是同一样东西不同的人各有看法</p>
+<h5 id="优点-3" style="position:relative;"><a href="#%E4%BC%98%E7%82%B9-3" aria-label="优点 3 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优点：</h5>
+<p>订阅者可以根据自己需求当某种 Action 被触发时完成自己的调度</p>
+<h5 id="应用场景-3" style="position:relative;"><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-3" aria-label="应用场景 3 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>应用场景：</h5>
+<p>AngularJs 的广播、vue 的 eventbus 等</p>
+<h5 id="根据主体构建发布订阅的基类" style="position:relative;"><a href="#%E6%A0%B9%E6%8D%AE%E4%B8%BB%E4%BD%93%E6%9E%84%E5%BB%BA%E5%8F%91%E5%B8%83%E8%AE%A2%E9%98%85%E7%9A%84%E5%9F%BA%E7%B1%BB" aria-label="根据主体构建发布订阅的基类 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>根据主体构建发布订阅的基类</h5>
+<p>构造发布者基类</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Publisher</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 订阅发布者的队列 存储每个订阅者</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subscribers <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">deliver</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 发布消息 调用订阅者的回调 告知订阅者</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>subscribers<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">fn</span><span class="token punctuation">)</span> <span class="token operator">=></span> fn<span class="token punctuation">.</span><span class="token function">shot</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>构造订阅者基类</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Observer</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">call</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 传入订阅回调</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>shot <span class="token operator">=</span> call<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">subscribe</span><span class="token punctuation">(</span><span class="token parameter">publisher</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>publisher<span class="token punctuation">.</span>subscribers<span class="token punctuation">.</span><span class="token function">some</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=></span> v<span class="token punctuation">.</span>shot <span class="token operator">===</span> <span class="token keyword">this</span><span class="token punctuation">.</span>shot<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"订阅该消息"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">// 判断当前订阅者是否订阅</span>
+      publisher<span class="token punctuation">.</span>subscribers<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">unsubscribe</span><span class="token punctuation">(</span><span class="token parameter">publisher</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 移除当前订阅者</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"取消订阅"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    publisher<span class="token punctuation">.</span>subscribers <span class="token operator">=</span> publisher<span class="token punctuation">.</span>subscribers<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span>
+      <span class="token punctuation">(</span><span class="token parameter">v</span><span class="token punctuation">)</span> <span class="token operator">=></span> v<span class="token punctuation">.</span>shot <span class="token operator">!==</span> <span class="token keyword">this</span><span class="token punctuation">.</span>shot<span class="token punctuation">,</span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>测试：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> pub <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Publisher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> pub2 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Publisher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> obs <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Observer</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">deliver</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>deliver<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+obs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>pub<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 订阅该消息</span>
+obs<span class="token punctuation">.</span><span class="token function">subscribe</span><span class="token punctuation">(</span>pub2<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 订阅该消息</span>
+
+pub<span class="token punctuation">.</span><span class="token function">deliver</span><span class="token punctuation">(</span><span class="token string">"pub deliver first message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// pub deliver first message</span>
+pub2<span class="token punctuation">.</span><span class="token function">deliver</span><span class="token punctuation">(</span><span class="token string">"pub2 deliver first message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// pub2 deliver first message</span>
+
+obs<span class="token punctuation">.</span><span class="token function">unsubscribe</span><span class="token punctuation">(</span>pub<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 取消订阅</span>
+pub<span class="token punctuation">.</span><span class="token function">deliver</span><span class="token punctuation">(</span><span class="token string">"pub deliver second message"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">//</span></code></pre></div>
+<h3 id="装饰者模式" style="position:relative;"><a href="#%E8%A3%85%E9%A5%B0%E8%80%85%E6%A8%A1%E5%BC%8F" aria-label="装饰者模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>装饰者模式</h3>
+<h5 id="定义-4" style="position:relative;"><a href="#%E5%AE%9A%E4%B9%89-4" aria-label="定义 4 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>定义：</h5>
+<p>装饰模式指的是在不必改变原类文件和使用继承的情况下，动态地扩展一个对象的功能</p>
+<h5 id="优点-4" style="position:relative;"><a href="#%E4%BC%98%E7%82%B9-4" aria-label="优点 4 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优点：</h5>
+<ul>
+<li>装饰对象和真实对象有相同的接口。这样客户端对象就能以和真实对象相同的方式和装饰对象交互</li>
+<li>装饰对象可以在转发这些请求以前或以后增加一些附加功能。这样就确保了在运行时，不用修改给定对象的结构就可以在外部增加附加的功能。在面向对象的设计中，通常是通过继承来实现对给定类的功能扩展</li>
+</ul>
+<h5 id="应用场景-4" style="position:relative;"><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-4" aria-label="应用场景 4 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>应用场景：</h5>
+<ul>
+<li>需要扩展一个类的功能，或给一个类添加附加职责</li>
+<li>需要动态的给一个对象添加功能，这些功能可以再动态的撤销</li>
+<li>不必改动原本的逻辑造成不可知问题</li>
+</ul>
+<h5 id="给所有的函数调用添加调用前和调用后的钩子" style="position:relative;"><a href="#%E7%BB%99%E6%89%80%E6%9C%89%E7%9A%84%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E6%B7%BB%E5%8A%A0%E8%B0%83%E7%94%A8%E5%89%8D%E5%92%8C%E8%B0%83%E7%94%A8%E5%90%8E%E7%9A%84%E9%92%A9%E5%AD%90" aria-label="给所有的函数调用添加调用前和调用后的钩子 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>给所有的函数调用添加调用前和调用后的钩子</h5>
+<p>普通函数：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token string">" right now"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token function">fn</span><span class="token punctuation">(</span><span class="token string">"let go"</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// lets go right now</span></code></pre></div>
+<p>我们知道 JS 中所有的函数都是基于父类 <code class="language-text">Function</code> 生成的，所以会继承父类原型的方法，下面我们将函数的钩子挂在父类的原型上即可：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 执行前</span>
+<span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">before</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">call</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// 返回体本身也是函数所以支持继续调用钩子</span>
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 调用钩子，同时参数传递到钩子内</span>
+    <span class="token function">call</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// 调用自身</span>
+    <span class="token keyword">return</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// 执行后</span>
+<span class="token comment">// 和 before 同理</span>
+<span class="token class-name">Function</span><span class="token punctuation">.</span>prototype<span class="token punctuation">.</span><span class="token function-variable function">after</span> <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">call</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> fn <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> res <span class="token operator">=</span> <span class="token function">fn</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token function">call</span><span class="token punctuation">.</span><span class="token function">apply</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">,</span> arguments<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token comment">// 返回自身的返回值</span>
+    <span class="token keyword">return</span> res<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre></div>
+<p>测试：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 重新包装 fn</span>
+<span class="token keyword">function</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>msg<span class="token punctuation">,</span> <span class="token string">" right now"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> decoratorFn <span class="token operator">=</span> fn
+  <span class="token punctuation">.</span><span class="token function">before</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"when we go,"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">.</span><span class="token function">after</span><span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token parameter">msg</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"had to go"</span><span class="token punctuation">,</span> msg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">decoratorFn</span><span class="token punctuation">(</span><span class="token string">"lets go"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// out put:</span>
+<span class="token comment">// when we go, right now</span>
+<span class="token comment">// lets go, right now</span>
+<span class="token comment">// had to go, right now</span></code></pre></div>
+<h3 id="职责链责任链模式" style="position:relative;"><a href="#%E8%81%8C%E8%B4%A3%E9%93%BE%E8%B4%A3%E4%BB%BB%E9%93%BE%E6%A8%A1%E5%BC%8F" aria-label="职责链责任链模式 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>职责链（责任链）模式</h3>
+<h5 id="定义-5" style="position:relative;"><a href="#%E5%AE%9A%E4%B9%89-5" aria-label="定义 5 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>定义：</h5>
+<p>它是一种链式结构，每个节点都有可能两种操作，要么处理该请求停止该请求操作，要么把请求转发到下一个节点，让下一个节点来处理请求</p>
+<h5 id="优点-5" style="position:relative;"><a href="#%E4%BC%98%E7%82%B9-5" aria-label="优点 5 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优点：</h5>
+<p>职责链上的处理者负责处理请求，客户只需要将请求发送到职责链上即可，无须关心请求的处理细节和请求的传递，所以职责链将请求的发送者和请求的处理者解耦了</p>
+<h5 id="应用场景-5" style="position:relative;"><a href="#%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF-5" aria-label="应用场景 5 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>应用场景：</h5>
+<p>JS 中的事件冒泡（事件委托）就是经典案例</p>
+<h5 id="实例分析" style="position:relative;"><a href="#%E5%AE%9E%E4%BE%8B%E5%88%86%E6%9E%90" aria-label="实例分析 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>实例分析</h5>
+<p>部门采购物品不同金额需要走不同职位的流程审批，采购部经理可自主决定 1w 以内的采购，总经理可以决定 10w 以内的采购，董事长决定 100w 以内的采购
+下面分别抽象处理者构造基类</p>
+<p>责任链调度中心：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">setNext</span><span class="token punctuation">(</span><span class="token parameter">_handler</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>next <span class="token operator">=</span> _handler<span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">handleRequest</span><span class="token punctuation">(</span><span class="token parameter">money</span><span class="token punctuation">)</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>采购部经理：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">CGBHandler</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+  <span class="token function">handleRequest</span><span class="token punctuation">(</span><span class="token parameter">money</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 1w</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>money <span class="token operator">&lt;</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"1w以内，同意"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"金额太大，只能处理1w以内的采购"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span><span class="token function">handleRequest</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>总经理：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">ZJLHandler</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+  <span class="token function">handleRequest</span><span class="token punctuation">(</span><span class="token parameter">money</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 10w</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>money <span class="token operator">&lt;</span> <span class="token number">100000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"10w以内，同意"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"金额太大，只能处理10w以内的采购"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>next<span class="token punctuation">.</span><span class="token function">handleRequest</span><span class="token punctuation">(</span>money<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>董事长：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">class</span> <span class="token class-name">DSZHandler</span> <span class="token keyword">extends</span> <span class="token class-name">Handler</span> <span class="token punctuation">{</span>
+  <span class="token function">handleRequest</span><span class="token punctuation">(</span><span class="token parameter">money</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// 100w</span>
+    <span class="token keyword">if</span> <span class="token punctuation">(</span>money <span class="token operator">>=</span> <span class="token number">100000</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"10万以上的我来处理"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token comment">//处理其他逻辑</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>封装客户端接口：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> dispatch <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">function</span> <span class="token function">client</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> cgb <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">CGBHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> zjl <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ZJLHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">const</span> dsz <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DSZHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  cgb<span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span>zjl<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  zjl<span class="token punctuation">.</span><span class="token function">setNext</span><span class="token punctuation">(</span>dsz<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token keyword">return</span> cgb<span class="token punctuation">.</span><span class="token function">handleRequest</span><span class="token punctuation">.</span><span class="token function">bind</span><span class="token punctuation">(</span>cgb<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre></div>
+<p>测试：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token function">dispath</span><span class="token punctuation">(</span><span class="token number">800000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// output:</span>
+<span class="token comment">// 金额太大，只能处理1w以内的采购</span>
+<span class="token comment">// 金额太大，只能处理10w以内的采购</span>
+<span class="token comment">// 10万以上的我来处理</span>
+
+<span class="token function">dispath</span><span class="token punctuation">(</span><span class="token number">7000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// output:</span>
+<span class="token comment">// 1w以内，同意</span></code></pre></div>
+<p>补充：</p>
+<ul>
+<li>
+<p>纯的责任链：要求请求在这些对象链中必须被处理，而且一个节点处理对象，要么只处理请求，要么把请求转发给下个节点对象处理</p>
+</li>
+<li>
+<p>不纯的责任链：要求在责任链里不一定会有处理结构，而且一个节点对象，即可以处理部分请求，并把请求再转发下个节点处理</p>
+</li>
+</ul></div></div></div><div class="Post-module--footerWrapper--95bf1"><div class="Post-module--footer--f8705">👾<div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published on<!-- --> <!-- -->Feb 24, 2019</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/tag/design-pattern/">Design pattern</a></li></ul></div></div></div><div class="Post-module--comments--d3b99"><div style="margin-bottom:48px"></div></div></div><div class="Layout-module--footer--cde73"><a href="/list/"><span class="Layout-module--copyRight--7da7b">© 2017-<!-- -->2026<!-- --> All rights reserved.</span></a>  Visit <a href="https://home.iakoug.cn" target="__blank"><span>Home Site.</span></a></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/js-design-pattern/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-6a764cef83457993c210.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-631dfa6a69a68c0c4cf7.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-295833c4ebd7d3855895.js\"],\"component---src-pages-list-tsx\":[\"/component---src-pages-list-tsx-b977552347e76a6abe03.js\"],\"component---src-templates-categories-template-categories-template-tsx\":[\"/component---src-templates-categories-template-categories-template-tsx-2544ee2a036fb60c5154.js\"],\"component---src-templates-category-template-category-template-tsx\":[\"/component---src-templates-category-template-category-template-tsx-15f983c30bb7686feb59.js\"],\"component---src-templates-index-template-index-template-tsx\":[\"/component---src-templates-index-template-index-template-tsx-8e53b469b155d358ea3d.js\"],\"component---src-templates-page-template-page-template-tsx\":[\"/component---src-templates-page-template-page-template-tsx-940fe06e326cf3952ab7.js\"],\"component---src-templates-post-template-post-template-tsx\":[\"/component---src-templates-post-template-post-template-tsx-3e2c75712d73ea0f5aaf.js\"],\"component---src-templates-tag-template-tag-template-tsx\":[\"/component---src-templates-tag-template-tag-template-tsx-e530e5f310c3f462320f.js\"],\"component---src-templates-tags-template-tags-template-tsx\":[\"/component---src-templates-tags-template-tags-template-tsx-8c4ca1f42cd1fbf538e3.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="00287a7dbe1800182756";</script><script src="/webpack-runtime-65df9bc75473ed75c7d3.js" async></script><script src="/framework-6dd0a313b10aa20604f0.js" async></script><script src="/app-6a764cef83457993c210.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -1,0 +1,458 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.15.0"/><meta name="theme-color" content="#fff"/><meta name="description" content="入门指北" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="Nginx - CHRIS KWOK" data-gatsby-head="true"/><meta name="twitter:description" content="入门指北" data-gatsby-head="true"/><meta name="og:title" content="Nginx - CHRIS KWOK" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="入门指北" data-gatsby-head="true"/><style data-href="/styles.faac0f9fd2620b969dc5.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#eff3f5}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#000}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:15px;line-height:1.65;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility;transition:background .3s}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:30px;line-height:50px;margin-bottom:25px;margin-top:62.5px}h2{font-size:22.5px;line-height:37.5px;margin-bottom:10px;margin-top:25px}h3{font-size:18px}h3,h4{line-height:25px;margin-bottom:10px;margin-top:25px}h4{font-size:15px}h5,h6{font-size:15px;line-height:25px;margin-bottom:10px;margin-top:25px}@media screen and (max-width:1200px){h1{line-height:30px;margin-top:50px}h2,h3,h4,h5,h6{line-height:27.5px;margin-top:25px}}img{display:block;max-width:100%}hr,img{border:0}hr{border-top:2px solid #ccd9df;height:0;margin:48px auto;position:relative;width:12px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:circle;margin-bottom:25px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:25px;margin-bottom:25px}blockquote{background:var(--color-theme-blockquote-bg);border-radius:8px}blockquote p{font-style:italic;margin:0!important;padding:16px 24px}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:18.75px;margin-bottom:0;margin-top:6.25px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 25px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-size:.85em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}::selection{background-color:#5c92ff;color:#fff}code[class*=language-] ::selection,code[class*=language-]::selection{background:#10414d}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:400;src:local("Heebo Light"),local("Heebo-Light"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9ldb6RMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:500;src:local("Heebo Medium"),local("Heebo-Medium"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9kFbqRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:700;src:local("Heebo Bold"),local("Heebo-Bold"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9lNaKRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:transparent}body{font-family:Heebo}*{text-wrap:pretty;word-break:break-word}code{text-wrap:pretty!important;word-break:break-all!important}::-webkit-scrollbar{display:none}::-moz-scrollbar{display:none}::-ms-scrollbar{display:none}::-o-scrollbar{display:none}.Feed-module--cover--35f87{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Feed-module--feed--a6204{align-items:stretch;display:flex;flex-flow:wrap;justify-content:flex-start;margin:0 -24px}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63{flex:0 0 100%!important;margin-bottom:0}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63 .Feed-module--cover--35f87{display:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63{box-sizing:border-box;color:#3c3f45;cursor:pointer;display:block;flex:0 0 50%;margin-bottom:48px;padding:0 24px;position:relative;text-decoration:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover .Feed-module--cover--35f87{transform:translateY(-2px) scale3d(1.02,1.02,1)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:24px;line-height:1.6;margin-bottom:12.5px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:15px;line-height:25px;margin-bottom:18.75px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2{margin-top:10px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;line-height:1.6;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-primary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:15px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}@media screen and (max-width:768px){.Feed-module--feed--a6204 .Feed-module--item--c7a63{border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.1);flex:0 0 100%;margin-bottom:24px;overflow:hidden;padding:0;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s cubic-bezier(.25,.46,.45,.94)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover{box-shadow:0 16px 48px rgba(0,0,0,.2);transform:translateY(-1px)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{padding-left:20px;padding-right:20px}}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31{margin:0 auto;max-width:1200px;padding-bottom:10px;padding-top:70px;width:80%}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;margin:0 auto}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:22px;font-weight:700;line-height:28.125px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:25px;margin-bottom:25px}.Layout-module--footer--cde73{margin:20px;text-align:center}.Layout-module--copyRight--7da7b{color:var(--color-typographic-base-font)}.index-module--Wrapper--e7732{display:block;font-family:Source Sans Pro;font-size:16px;margin:0 auto 48px;max-width:1200px;padding:10px 0 0;text-align:left}@keyframes index-module--blink--608b0{0%,to{opacity:0}50%{opacity:1}}.index-module--Blink--1c2e2{animation:index-module--blink--608b0 1s infinite;margin-left:4px}.Page-module--page--24e03{margin:20px auto 48px;max-width:1200px;width:80%}.Page-module--title--90338{margin-top:0}.Pagination-module--pagination--d61cb{display:flex;margin-top:50px}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{padding:0 24px;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-primary);font-size:20px;font-weight:700;transition:color .2s}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-secondary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:right}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:left}.Content-module--photoBy--49f5a{align-items:center;display:flex;font-size:14px;justify-content:center;padding:16px 0}.Content-module--coverWrapper--6dd08{margin-top:48px}.Content-module--cover--e6f21,.Content-module--info--f72fb{margin:0 auto;max-width:1200px;width:80%}.Content-module--cover--e6f21{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);height:350px;transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Content-module--time--9f828{font-size:16px;font-weight:700;line-height:26px;margin-top:50px;text-transform:uppercase;word-break:break-word}.Content-module--description--e8a56{font-size:24px;font-weight:200;line-height:1.4;padding-top:4px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:700;line-height:1.4;margin:0;text-align:left}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:895px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58 .Content-module--time--9f828{margin-top:48px}.Content-module--content--80d58 .Content-module--body--726c2{font-size:16.5px;line-height:28.125px;margin-bottom:28.125px;margin-top:28.125px}.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:16.5px;line-height:28.125px;margin-bottom:25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:12.5px;visibility:unset}}@media screen and (max-width:1200px){.Content-module--body--726c2{padding-left:26px;padding-right:26px}.Content-module--cover--e6f21{width:100%}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:15px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 25px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.Tags-module--tags--18589{margin-bottom:12.5px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.25px 0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}.Post-module--post--3a994{padding:25px 0 0}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--footerWrapper--95bf1{padding:0 26px}.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:895px}.Post-module--post--3a994 .Post-module--comments--d3b99{margin:0 auto;max-width:895px;min-height:378px;padding:0 12.5px}.Post-module--post--3a994 .Post-module--buttons--2972d{padding-left:25px}</style><link rel="alternate" type="application/rss+xml" title="CHRIS KWOK" href="/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SLJTP0PP9G"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SLJTP0PP9G', {"send_page_view":false});
+      }
+      </script><link rel="icon" href="/favicon-32x32.png?v=2a2ba7ad50a1204635c8d82993790f6c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><title data-gatsby-head="true">Nginx - CHRIS KWOK</title></head><body><script>
+          void function() {
+            var cachedMode;
+
+            try {
+              var preferredTheme = JSON.parse(localStorage.getItem('diesel:theme-atom'));
+
+              if (preferredTheme && preferredTheme.mode) {
+                cachedMode = preferredTheme.mode;
+              }
+            } catch (err) { }
+
+            function setTheme(newTheme) {
+              document.documentElement.className = newTheme;
+            }
+
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
+          }()
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div><div><div class="Author-module--author--cbd31 "><div class="Author-module--titleContainer--4f576"><h1 class="Author-module--title--cf7e5"><a class="Author-module--link--09c17" href="/">CHRIS KWOK</a></h1></div></div></div><div class="Post-module--post--3a994"><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><div class="Content-module--info--f72fb"><div class="Content-module--time--9f828">Jan 31, 2024</div><h1 class="Content-module--title--09504">Nginx</h1><div class="Content-module--description--e8a56">入门指北</div></div><div class="Content-module--coverWrapper--6dd08"><div class="Content-module--cover--e6f21 gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:41.66666666666667%"></div><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAP/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABqLJA/8QAFxABAQEBAAAAAAAAAAAAAAAAAQIAA//aAAgBAQABBQIqXFyr0jf/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAwEBPwGI/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oACAECAQE/Abqv/8QAFhABAQEAAAAAAAAAAAAAAAAAAAEx/9oACAEBAAY/Ala//8QAGBABAQEBAQAAAAAAAAAAAAAAAREAIZH/2gAIAQEAAT8hMtwoJzAZPu//2gAMAwEAAgADAAAAEAPP/8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QlD//xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxBW/8QAGhABAAMBAQEAAAAAAAAAAAAAAQARIWExcf/aAAgBAQABPxCsxW+8Ymcqs+bEKFOJ/9k=" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/b8f3019f3beeaa9967b6acc764975f7c/17f4c/20240131-153411.jpg 300w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/d8967/20240131-153411.jpg 600w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/dd377/20240131-153411.jpg 1200w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/ba7f6/20240131-153411.jpg 1800w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/398ee/20240131-153411.jpg 2400w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/d43e1/20240131-153411.jpg 4032w" sizes="(max-width: 1200px) 100vw, 1200px" /><img loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" srcset="/static/b8f3019f3beeaa9967b6acc764975f7c/17f4c/20240131-153411.jpg 300w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/d8967/20240131-153411.jpg 600w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/dd377/20240131-153411.jpg 1200w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/ba7f6/20240131-153411.jpg 1800w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/398ee/20240131-153411.jpg 2400w,
+/static/b8f3019f3beeaa9967b6acc764975f7c/d43e1/20240131-153411.jpg 4032w" src="/static/b8f3019f3beeaa9967b6acc764975f7c/dd377/20240131-153411.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><div class="Content-module--photoBy--49f5a">Photo by &nbsp;<a>iakoug</a>&nbsp; at &nbsp;<a>上海城隍庙</a>&nbsp; on 2023/12/24</div><div class="Content-module--body--726c2"><p>以最常用的 CentOS 上的使用为例，相对完整的介绍 Nginx 在日常工作中的作用，包括基础的使用、指令的概念和作用以及工作中的一些运用场景等</p>
+<hr>
+<h1 id="基础使用" style="position:relative;"><a href="#%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8" aria-label="基础使用 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>基础使用</h1>
+<h2 id="install" style="position:relative;"><a href="#install" aria-label="install permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>INSTALL</h2>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># CentOS</span>
+<span class="token function">sudo</span> yum <span class="token function">install</span> nginx
+<span class="token comment"># MacOS</span>
+brew <span class="token function">install</span> nginx</code></pre></div>
+<h2 id="cli" style="position:relative;"><a href="#cli" aria-label="cli permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>CLI</h2>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token comment"># Start: nginx start</span>
+<span class="token function">sudo</span> systemctl start nginx
+<span class="token comment"># Stop: nginx stop</span>
+<span class="token function">sudo</span> systemctl stop nginx
+<span class="token comment"># Reload conf: nginx -s reload</span>
+<span class="token function">sudo</span> systemctl reload nginx</code></pre></div>
+<h2 id="nginxconf" style="position:relative;"><a href="#nginxconf" aria-label="nginxconf permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>NGINX.CONF</h2>
+<p>nginx.conf 配置文件一般在不同的操作系统上会存放在特定的位置</p>
+<p><strong>CentOS：</strong>
+/etc/nginx/nginx.conf<br>
+<strong>MacOS：</strong>
+/usr/local/etc/nginx/nginx.conf</p>
+<h2 id="log" style="position:relative;"><a href="#log" aria-label="log permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>LOG</h2>
+<p>Nginx 的运行日志存放位置通常取决于 Nginx 的配置文件中指定的日志路径。在默认情况下，Nginx 的主配置文件中会指定默认的日志路径，一般是在 Nginx 安装目录下的 <code class="language-text">logs</code> 目录中</p>
+<p>通常情况下，Nginx 的主日志文件是 <code class="language-text">error.log</code> 和 <code class="language-text">access.log</code>，分别记录 Nginx 的错误日志和访问日志</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">error_log  /var/log/nginx/error.log<span class="token punctuation">;</span>
+access_log  /var/log/nginx/access.log<span class="token punctuation">;</span></code></pre></div>
+<h1 id="概念" style="position:relative;"><a href="#%E6%A6%82%E5%BF%B5" aria-label="概念 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>概念</h1>
+<p>通过 <code class="language-text">nginx.conf</code> 文件进行配置 Nginx 服务器的行为，主要由指令和块组成</p>
+<p>指令和块通常位于特定的上下文中，例如 <code class="language-text">http</code>、<code class="language-text">server</code>、<code class="language-text">location</code> 等上下文中，决定了指令的作用范围</p>
+<p>注意：</p>
+<ul>
+<li>块是一组指令的集合，而指令是单个配置项</li>
+<li>块用于逻辑上组织和归类指令，使配置文件更加结构化和易于管理</li>
+<li>指令是配置 Nginx 服务器行为和功能的基本单位，用于指定服务器的操作和参数</li>
+</ul>
+<p>Nginx 的配置具有继承和覆盖的特性，子块可以继承父块的指令，也可以覆盖父块的指令</p>
+<h2 id="块blocks" style="position:relative;"><a href="#%E5%9D%97blocks" aria-label="块blocks permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>块（Blocks）</h2>
+<p>指令可以被包含在一个块中，一个块以 <code class="language-text">{}</code> 包围，用于分组相关指令。例如：</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">server <span class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name example.com<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p>Nginx 中常见的块：</p>
+<ol>
+<li><strong>http 块：</strong></li>
+</ol>
+<p>http 块是 Nginx 配置文件中的最外层块，用于配置全局的 HTTP 参数和 HTTP 服务器</p>
+<ol start="2">
+<li><strong>server 块：</strong></li>
+</ol>
+<p><code class="language-text">server</code> 块是 <code class="language-text">http</code> 块内的子块，用于定义虚拟主机（Virtual Host）。每个 server 块对应一个虚拟主机，用于处理客户端的请求</p>
+<ol start="3">
+<li><strong>location 块：</strong></li>
+</ol>
+<p><code class="language-text">location</code> 块是 <code class="language-text">server</code> 块内的子块，用于匹配请求的 URI，并设置对应的处理规则。location 块可以根据请求的 URI 进行匹配，并定义不同的处理逻辑</p>
+<ol start="4">
+<li><strong>upstream 块：</strong></li>
+</ol>
+<p>upstream 块用于定义一组后端服务器的集群。通常用于负载均衡和反向代理等场景</p>
+<ol start="5">
+<li><strong>if 块：</strong></li>
+</ol>
+<p><code class="language-text">if</code> 块是用于条件判断的块，可以根据条件执行不同的指令</p>
+<h2 id="指令directives" style="position:relative;"><a href="#%E6%8C%87%E4%BB%A4directives" aria-label="指令directives permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>指令（Directives）</h2>
+<p>Nginx 配置文件由一系列指令组成，每个指令都控制着 Nginx 服务器的行为。指令由名称和参数组成，参数可以是字符串、数字、变量等。例如：<code class="language-text">listen 80;</code>、<code class="language-text">root /var/www/html;</code></p>
+<ol>
+<li><strong>server 指令：</strong></li>
+</ol>
+<p>用于定义虚拟主机（Virtual Host），即服务器监听的 IP 地址和端口号，以及与该虚拟主机相关的配置。一个 Nginx 配置文件可以包含多个 <code class="language-text">server</code> 块，每个块定义一个虚拟主机</p>
+<ol start="2">
+<li><strong>location 指令：</strong></li>
+</ol>
+<p>用于定义 Nginx 服务器中的不同 URL 路径的配置。每个 <code class="language-text">location</code> 块可以包含一组指令，用于指定该路径下的行为，例如代理、重定向、缓存等</p>
+<p><code class="language-text">server</code> 块下的多个 <code class="language-text">location</code> 指令的执行顺序是根据匹配规则来确定的。Nginx 会按照配置文件中 <code class="language-text">location</code> 指令的顺序逐个匹配请求的 URI，并执行第一个匹配成功的 <code class="language-text">location</code> 块中的指令，一旦 Nginx 匹配到了一个 <code class="language-text">location</code> 块，就会停止继续查找其他 <code class="language-text">location</code> 块。如果没有匹配成功的 <code class="language-text">location</code> 块，则会执行 <code class="language-text">server</code> 块中的默认指令</p>
+<p>通常情况下，Nginx 会按照以下几个规则来确定 location 块的匹配顺序：</p>
+<p>a) 精确匹配（Exact Match）：Nginx 会优先匹配 URI 与 <code class="language-text">location</code> 指令中的 URI 完全相同的 <code class="language-text">location</code> 块</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">location / <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配根目录</span>
+<span class="token punctuation">}</span>
+
+location /example <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配/example路径</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p>b) 最长前缀匹配（Longest Prefix Match）：如果没有精确匹配的 <code class="language-text">location</code> 块，则 Nginx 会选择 URI 最长前缀与 location 指令中的 URI 匹配的 location 块</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">location / <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配根目录</span>
+<span class="token punctuation">}</span>
+
+location /example <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配/example路径</span>
+<span class="token punctuation">}</span>
+
+location /example/foo <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配/example/foo路径</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p>c) 正则表达式匹配（Regular Expression Match）：如果没有精确匹配或最长前缀匹配的 location 块，则 Nginx 会尝试与使用正则表达式定义的 location 块中的 URI 匹配</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">location ~* <span class="token punctuation">\</span>.<span class="token punctuation">(</span>jpg<span class="token operator">|</span>jpeg<span class="token operator">|</span>png<span class="token operator">|</span>gif<span class="token punctuation">)</span>$ <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配图片文件</span>
+<span class="token punctuation">}</span>
+
+location ~* <span class="token punctuation">\</span>.php$ <span class="token punctuation">{</span>
+    <span class="token comment"># 匹配PHP文件</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<ol start="3">
+<li><strong>listen 指令：</strong></li>
+</ol>
+<p>用于指定 Nginx 服务器监听的 IP 地址和端口号</p>
+<ol start="4">
+<li><strong>root 指令：</strong></li>
+</ol>
+<p>用于指定 Nginx 服务器提供静态文件服务时的根目录</p>
+<ol start="5">
+<li><strong>proxy_pass 指令：</strong></li>
+</ol>
+<p>用于设置 Nginx 作为反向代理时转发请求到后端服务器的地址</p>
+<ol start="6">
+<li><strong>rewrite 指令：</strong></li>
+</ol>
+<p>用于对请求的 URI 进行重写，可以用来实现 URL 重定向等功能</p>
+<ol start="7">
+<li><strong>access_log 和 error_log 指令：</strong></li>
+</ol>
+<p>分别用于设置访问日志和错误日志的文件路径和格式</p>
+<ol start="8">
+<li><strong>include 指令：</strong></li>
+</ol>
+<p>用于将其他配置文件包含到当前配置文件中，可以使配置文件更加模块化和易于管理</p>
+<ol start="9">
+<li><strong>ssl_certificate 和 ssl_certificate_key 指令：</strong></li>
+</ol>
+<p>用于配置 SSL 证书和私钥，启用 HTTPS 协议</p>
+<ol start="10">
+<li><strong>limit_req 和 limit_conn 指令：</strong></li>
+</ol>
+<p>分别用于配置请求速率限制和连接数限制，用于保护服务器免受 DDoS 攻击等</p>
+<h2 id="全局变量" style="position:relative;"><a href="#%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F" aria-label="全局变量 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>全局变量</h2>
+<p>在 Nginx 配置中，有许多内置变量和模块提供的变量可以用于控制和定制服务器行为。以下是一些常见的 Nginx 配置变量：</p>
+<p>内置变量：</p>
+<p><code class="language-text">$is_args</code>：如果请求中包含查询参数，则 $is_args 的值为 ?；如果请求中不包含查询参数，则为一个空字符串，用于检查<br>求中是否包含查询参数。它通常用于在配置中执行条件判断<br>
+<code class="language-text">$args</code>：请求中的查询参数部分<br>
+<code class="language-text">$uri</code>：不带查询参数的请求 URI<br>
+<code class="language-text">$request_uri</code>：完整的原始请求 URI，包括查询参数<br>
+<code class="language-text">$request_method</code>：HTTP 请求方法，比如 GET、POST 等<br>
+<code class="language-text">$remote_addr</code>：客户端的 IP 地址<br>
+<code class="language-text">$http_user_agent</code>：客户端的用户代理字符串<br>
+<code class="language-text">$server_name</code>：当前请求的主机名<br>
+<code class="language-text">$scheme</code>：请求的协议，通常是 http 或 https<br>
+<code class="language-text">$http_referer</code>：请求来源页面的 URL<br>
+<code class="language-text">$http_cookie</code>：请求中的 Cookie<br></p>
+<p>其他模块提供的变量：</p>
+<p><code class="language-text">$request_body</code>：请求主体的内容<br>
+<code class="language-text">$request_time</code>：请求处理时间，以秒为单位<br>
+<code class="language-text">$http_&lt;header></code>：HTTP 请求头中的任意一个头部字段，例如$http_user_agent<br>
+<code class="language-text">$arg\_&lt;param></code>：获取请求中指定查询参数的值，例如$arg_id 可以获取 id 参数的值<br></p>
+<h1 id="场景" style="position:relative;"><a href="#%E5%9C%BA%E6%99%AF" aria-label="场景 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>场景</h1>
+<p>做为一款 Web 服务器，和开发场景联系最紧密的就是使用 Nginx 作为反向代理服务器和负载均衡器等使用场景，除此之外还有一些其他应用：</p>
+<h2 id="static-server" style="position:relative;"><a href="#static-server" aria-label="static server permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Static server</h2>
+<p>作为静态文件服务器提供前端站点资源 HTML、JS、CSS 的访问，如本站点的博客直接通过启动一个 Nginx server 来实现站点资源的访问</p>
+<h2 id="正反向代理" style="position:relative;"><a href="#%E6%AD%A3%E5%8F%8D%E5%90%91%E4%BB%A3%E7%90%86" aria-label="正反向代理 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>正/反向代理</h2>
+<p>转发客户端的请求，反向代理可以隐藏服务器真实 IP</p>
+<p>通过本地客户端启动一个 Ng server 来转发接口的请求解决本地跨域问题也是很容易的（webpack dev server 的 proxy middleware 就是这个原理）这个就属于正向代理的范畴了</p>
+<h2 id="load-balance" style="position:relative;"><a href="#load-balance" aria-label="load balance permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Load Balance</h2>
+<ol>
+<li>定义一个 upstream 块，指定后端服务器的地址和相关参数</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">upstream backend <span class="token punctuation">{</span>
+    server backend1.example.com<span class="token punctuation">;</span>
+    server backend2.example.com<span class="token punctuation">;</span>
+    server backend3.example.com<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<ol start="2">
+<li>配置负载均衡算法
+在 upstream 块中选择负载均衡算法，Nginx 提供了多种负载均衡算法，包括轮询（默认）、加权轮询、IP 哈希、最小连接数等</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">upstream backend <span class="token punctuation">{</span>
+    ip_hash<span class="token punctuation">;</span>
+    server backend1.example.com<span class="token punctuation">;</span>
+    server backend2.example.com<span class="token punctuation">;</span>
+    server backend3.example.com<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<p>上面的配置使用了 IP 哈希算法，根据客户端 IP 地址将请求分发给后端服务器，以保证同一客户端的请求始终被分发到同一后端服务器</p>
+<ol start="3">
+<li>转发代理
+在 Ngin’x 的 server 块中配置代理服务，并将请求转发给负载均衡器</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">server <span class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name example.com<span class="token punctuation">;</span>
+
+    location / <span class="token punctuation">{</span>
+        proxy_pass http://backend<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<h2 id="cache" style="position:relative;"><a href="#cache" aria-label="cache permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cache</h2>
+<ol>
+<li>定义缓存路径和设置缓存参数：
+nginx.cong 中定义用于存储缓存文件的路径，并设置缓存的相关参数。通常，缓存文件存储在服务器的本地磁盘上</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">http <span class="token punctuation">{</span>
+    <span class="token comment"># 定义缓存路径和名称</span>
+    proxy_cache_path /path/to/cache <span class="token assign-left variable">levels</span><span class="token operator">=</span><span class="token number">1</span>:2 <span class="token assign-left variable">keys_zone</span><span class="token operator">=</span>my_cache:10m <span class="token assign-left variable">max_size</span><span class="token operator">=</span>10g <span class="token assign-left variable">inactive</span><span class="token operator">=</span>60m<span class="token punctuation">;</span>
+
+    <span class="token comment"># 配置其他缓存参数</span>
+    proxy_cache_key <span class="token string">"<span class="token variable">$scheme</span><span class="token variable">$request_method</span><span class="token variable">$host</span><span class="token variable">$request_uri</span>"</span><span class="token punctuation">;</span>
+    proxy_cache_valid <span class="token number">200</span> <span class="token number">301</span> <span class="token number">302</span> <span class="token number">304</span> 5m<span class="token punctuation">;</span>
+    proxy_cache_valid any 1m<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>proxy_cache_path：定义缓存路径和名称，以及相关参数，如存储路径、缓存区域名称、最大缓存空间等</li>
+<li>proxy_cache_key：定义用于生成缓存键的变量，用于标识缓存项</li>
+<li>proxy_cache_valid：定义响应代码和时间段，表示相应状态码的响应将被缓存多长时间</li>
+</ul>
+<ol start="2">
+<li>配置需要缓存的请求路径和代理服务器：
+在 Nginx 配置文件中，配置需要缓存的请求路径，并将这些请求代理到后端服务器。使用 proxy_cache 指令启用缓存功能</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">server <span class="token punctuation">{</span>
+    listen <span class="token number">80</span><span class="token punctuation">;</span>
+    server_name example.com<span class="token punctuation">;</span>
+
+    location / <span class="token punctuation">{</span>
+        proxy_pass http://backend_server<span class="token punctuation">;</span>
+        proxy_cache my_cache<span class="token punctuation">;</span>
+        proxy_cache_key <span class="token string">"<span class="token variable">$scheme</span><span class="token variable">$request_method</span><span class="token variable">$host</span><span class="token variable">$request_uri</span>"</span><span class="token punctuation">;</span>
+        proxy_cache_valid <span class="token number">200</span> <span class="token number">301</span> <span class="token number">302</span> <span class="token number">304</span> 5m<span class="token punctuation">;</span>
+        proxy_cache_valid any 1m<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>proxy_pass：将请求代理到后端服务器</li>
+<li>proxy_cache：指定要使用的缓存区域名称</li>
+<li>proxy_cache_key：可选择性地设置缓存键</li>
+<li>proxy_cache_valid：指定响应状态码的缓存有效期</li>
+</ul>
+<ol start="3">
+<li>配置缓存控制：
+通过配置 Nginx 的缓存控制指令来控制缓存的行为，如刷新缓存、清除缓存等</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">location / <span class="token punctuation">{</span>
+    proxy_cache_bypass <span class="token variable">$http_cache_control</span><span class="token punctuation">;</span>
+    proxy_no_cache <span class="token variable">$http_pragma</span> <span class="token variable">$http_authorization</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>proxy_cache_bypass：指定是否跳过缓存</li>
+<li>proxy_no_cache：指定哪些请求不应该被缓存</li>
+</ul>
+<ol start="4">
+<li>配置缓存清除：
+配置一个接口或者脚本，用于手动清除缓存。这可以通过使用 proxy_cache_purge 模块来实现</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">location ~ /purge<span class="token punctuation">(</span>/.*<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    allow <span class="token number">127.0</span>.0.1<span class="token punctuation">;</span>
+    deny all<span class="token punctuation">;</span>
+    proxy_cache_purge my_cache <span class="token variable">$1</span><span class="token variable">$is_args</span><span class="token variable">$args</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<ul>
+<li>allow：指定允许访问清除接口的 IP 地址</li>
+<li>deny：指定拒绝访问清除接口的 IP 地址</li>
+<li>proxy_cache_purge：定义清除缓存的指令</li>
+</ul>
+<h2 id="http2--ssltls" style="position:relative;"><a href="#http2--ssltls" aria-label="http2  ssltls permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>HTTP2 + SSL/TLS</h2>
+<p>Nginx 1.9.5 版本+，HTTP/2 必须与 SSL/TLS 一起使用</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">server <span class="token punctuation">{</span>
+    listen <span class="token number">443</span> ssl http2<span class="token punctuation">;</span> <span class="token comment"># 启用了 HTTP/2</span>
+    server_name example.com<span class="token punctuation">;</span>
+
+    ssl_certificate /path/to/your/certificate.crt<span class="token punctuation">;</span>
+    ssl_certificate_key /path/to/your/private.key<span class="token punctuation">;</span>
+
+    <span class="token comment"># 其他 SSL/TLS 相关配置</span>
+
+    location / <span class="token punctuation">{</span>
+        <span class="token comment"># 其他配置</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre></div>
+<h2 id="爬虫访问限制" style="position:relative;"><a href="#%E7%88%AC%E8%99%AB%E8%AE%BF%E9%97%AE%E9%99%90%E5%88%B6" aria-label="爬虫访问限制 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>爬虫/访问限制</h2>
+<ol>
+<li>配置请求速率限制：
+Nginx 提供了 <code class="language-text">limit_req</code> 模块，用于限制请求的速率。可以在 Nginx 的配置文件中配置 <code class="language-text">limit_req_zone</code> 来定义一个共享内存区域，然后在 <code class="language-text">server</code> 或 <code class="language-text">location</code> 块中使用 <code class="language-text">limit_req</code> 指令来设置请求的速率限制</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">limit_req_zone <span class="token variable">$binary_remote_addr</span> <span class="token assign-left variable">zone</span><span class="token operator">=</span>limit_zone:10m <span class="token assign-left variable">rate</span><span class="token operator">=</span>10r/s<span class="token punctuation">;</span>
+
+server <span class="token punctuation">{</span>
+    location / <span class="token punctuation">{</span>
+        limit_req <span class="token assign-left variable">zone</span><span class="token operator">=</span>limit_zone <span class="token assign-left variable">burst</span><span class="token operator">=</span><span class="token number">20</span><span class="token punctuation">;</span>
+        <span class="token comment"># 其他配置</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>上面的配置将限制每秒接受来自同一 IP 地址的请求不超过 10 个，超过限制的请求将会被延迟处理或者拒绝</p>
+<ol start="2">
+<li>配置请求连接数限制：
+除了限制请求速率，还可以限制每个客户端的并发连接数，以防止过多的连接影响服务器性能。可以使用 limit_conn 模块来设置连接数限制</li>
+</ol>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash">limit_conn_zone <span class="token variable">$binary_remote_addr</span> <span class="token assign-left variable">zone</span><span class="token operator">=</span>addr:10m<span class="token punctuation">;</span>
+
+server <span class="token punctuation">{</span>
+    location / <span class="token punctuation">{</span>
+        limit_conn addr <span class="token number">10</span><span class="token punctuation">;</span>
+        <span class="token comment"># 其他配置</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>这个配置将限制来自同一 IP 地址的并发连接数不超过 10 个</p>
+<ol start="3">
+<li>
+<p>配置访问频率限制：
+可以使用第三方模块，如 ngx_http_limit_req_module、ngx_http_limit_req_module 等，来实现更加灵活和细粒度的访问频率限制</p>
+</li>
+<li>
+<p>使用防火墙和安全组：
+除了 Nginx 本身的配置，还可以使用防火墙和安全组来限制访问。通过配置防火墙规则，可以在网络层面对恶意请求进行阻止或过滤</p>
+</li>
+</ol>
+<h2 id="健康检查" style="position:relative;"><a href="#%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5" aria-label="健康检查 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>健康检查</h2>
+<ol>
+<li>使用第三方模块</li>
+</ol>
+<p><code class="language-text">ngx_http_healthcheck_module</code>：这是一个常用的第三方 Nginx 模块，可以实现对后端服务器的健康检查。通过配置 Nginx 来定期发送健康检查请求到后端服务器，根据返回的状态码或响应内容来判断后端服务器的健康状态</p>
+<ol start="2">
+<li>配合代理和负载均衡</li>
+</ol>
+<p>a) 健康检查脚本：编写一个简单的脚本，定期检查后端服务器的健康状态，并根据检查结果向 Nginx 发送相应的信号。Nginx 可以根据接收到的信号来启用或禁用特定的后端服务器</p>
+<div class="gatsby-highlight" data-language="bash"><pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/bin/bash</span>
+
+<span class="token comment"># 后端服务器的 IP 地址和端口</span>
+<span class="token assign-left variable">SERVER</span><span class="token operator">=</span><span class="token string">"backend.example.com:8080"</span>
+
+<span class="token comment"># 检查后端服务器的响应状态</span>
+<span class="token function-name function">check_status</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> <span class="token function">curl</span> <span class="token parameter variable">-s</span> <span class="token parameter variable">--head</span> <span class="token variable">$SERVER</span> <span class="token operator">|</span> <span class="token function">head</span> <span class="token parameter variable">-n</span> <span class="token number">1</span> <span class="token operator">|</span> <span class="token function">grep</span> <span class="token string">"200 OK"</span> <span class="token operator">></span> /dev/null<span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">"Server <span class="token variable">$SERVER</span> is UP"</span>
+        <span class="token builtin class-name">return</span> <span class="token number">0</span>
+    <span class="token keyword">else</span>
+        <span class="token builtin class-name">echo</span> <span class="token string">"Server <span class="token variable">$SERVER</span> is DOWN"</span>
+        <span class="token builtin class-name">return</span> <span class="token number">1</span>
+    <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 检查后端服务器状态并发送信号给 NGINX</span>
+<span class="token function-name function">check_status_and_signal_nginx</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">if</span> check_status<span class="token punctuation">;</span> <span class="token keyword">then</span>
+        <span class="token comment"># 向 NGINX 发送启用后端服务器的信号</span>
+    <span class="token keyword">else</span>
+        <span class="token comment"># 向 NGINX 发送禁用后端服务器的信号</span>
+    <span class="token keyword">fi</span>
+<span class="token punctuation">}</span>
+
+<span class="token comment"># 每隔 60 秒检查一次</span>
+<span class="token keyword">while</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token keyword">do</span>
+    check_status_and_signal_nginx
+    <span class="token function">sleep</span> <span class="token number">60</span>
+<span class="token keyword">done</span>
+</code></pre></div>
+<p>b) 监控工具：使用监控工具（如 Prometheus）来监控后端服务器的健康状态，并将监控结果反馈给 Nginx。Nginx 可以根据监控数据来动态调整后端服务器的负载均衡策略</p>
+<p>如配置 Nginx Exporter 部署和使用 Prometheus 配合 Grafana 进行看板的可视化直观的观察 Nginx 的健康状态</p></div></div></div><div class="Post-module--footerWrapper--95bf1"><div class="Post-module--footer--f8705">👾<div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published on<!-- --> <!-- -->Jan 31, 2024</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/tag/rd/">R&amp;D</a></li></ul></div></div></div><div class="Post-module--comments--d3b99"><div style="margin-bottom:48px"></div></div></div><div class="Layout-module--footer--cde73"><a href="/list/"><span class="Layout-module--copyRight--7da7b">© 2017-<!-- -->2026<!-- --> All rights reserved.</span></a>  Visit <a href="https://home.iakoug.cn" target="__blank"><span>Home Site.</span></a></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/nginx/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-6a764cef83457993c210.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-631dfa6a69a68c0c4cf7.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-295833c4ebd7d3855895.js\"],\"component---src-pages-list-tsx\":[\"/component---src-pages-list-tsx-b977552347e76a6abe03.js\"],\"component---src-templates-categories-template-categories-template-tsx\":[\"/component---src-templates-categories-template-categories-template-tsx-2544ee2a036fb60c5154.js\"],\"component---src-templates-category-template-category-template-tsx\":[\"/component---src-templates-category-template-category-template-tsx-15f983c30bb7686feb59.js\"],\"component---src-templates-index-template-index-template-tsx\":[\"/component---src-templates-index-template-index-template-tsx-8e53b469b155d358ea3d.js\"],\"component---src-templates-page-template-page-template-tsx\":[\"/component---src-templates-page-template-page-template-tsx-940fe06e326cf3952ab7.js\"],\"component---src-templates-post-template-post-template-tsx\":[\"/component---src-templates-post-template-post-template-tsx-3e2c75712d73ea0f5aaf.js\"],\"component---src-templates-tag-template-tag-template-tsx\":[\"/component---src-templates-tag-template-tag-template-tsx-e530e5f310c3f462320f.js\"],\"component---src-templates-tags-template-tags-template-tsx\":[\"/component---src-templates-tags-template-tags-template-tsx-8c4ca1f42cd1fbf538e3.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="00287a7dbe1800182756";</script><script src="/webpack-runtime-65df9bc75473ed75c7d3.js" async></script><script src="/framework-6dd0a313b10aa20604f0.js" async></script><script src="/app-6a764cef83457993c210.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.15.0"/><meta name="theme-color" content="#fff"/><meta name="description" content="JS 特色之一是单线程，那所谓的基于事件的异步机制是什么" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="Event loop - CHRIS KWOK" data-gatsby-head="true"/><meta name="twitter:description" content="JS 特色之一是单线程，那所谓的基于事件的异步机制是什么" data-gatsby-head="true"/><meta name="og:title" content="Event loop - CHRIS KWOK" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="JS 特色之一是单线程，那所谓的基于事件的异步机制是什么" data-gatsby-head="true"/><style data-href="/styles.faac0f9fd2620b969dc5.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#eff3f5}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#000}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:15px;line-height:1.65;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility;transition:background .3s}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:30px;line-height:50px;margin-bottom:25px;margin-top:62.5px}h2{font-size:22.5px;line-height:37.5px;margin-bottom:10px;margin-top:25px}h3{font-size:18px}h3,h4{line-height:25px;margin-bottom:10px;margin-top:25px}h4{font-size:15px}h5,h6{font-size:15px;line-height:25px;margin-bottom:10px;margin-top:25px}@media screen and (max-width:1200px){h1{line-height:30px;margin-top:50px}h2,h3,h4,h5,h6{line-height:27.5px;margin-top:25px}}img{display:block;max-width:100%}hr,img{border:0}hr{border-top:2px solid #ccd9df;height:0;margin:48px auto;position:relative;width:12px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:circle;margin-bottom:25px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:25px;margin-bottom:25px}blockquote{background:var(--color-theme-blockquote-bg);border-radius:8px}blockquote p{font-style:italic;margin:0!important;padding:16px 24px}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:18.75px;margin-bottom:0;margin-top:6.25px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 25px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-size:.85em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}::selection{background-color:#5c92ff;color:#fff}code[class*=language-] ::selection,code[class*=language-]::selection{background:#10414d}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:400;src:local("Heebo Light"),local("Heebo-Light"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9ldb6RMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:500;src:local("Heebo Medium"),local("Heebo-Medium"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9kFbqRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:700;src:local("Heebo Bold"),local("Heebo-Bold"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9lNaKRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:transparent}body{font-family:Heebo}*{text-wrap:pretty;word-break:break-word}code{text-wrap:pretty!important;word-break:break-all!important}::-webkit-scrollbar{display:none}::-moz-scrollbar{display:none}::-ms-scrollbar{display:none}::-o-scrollbar{display:none}.Feed-module--cover--35f87{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Feed-module--feed--a6204{align-items:stretch;display:flex;flex-flow:wrap;justify-content:flex-start;margin:0 -24px}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63{flex:0 0 100%!important;margin-bottom:0}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63 .Feed-module--cover--35f87{display:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63{box-sizing:border-box;color:#3c3f45;cursor:pointer;display:block;flex:0 0 50%;margin-bottom:48px;padding:0 24px;position:relative;text-decoration:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover .Feed-module--cover--35f87{transform:translateY(-2px) scale3d(1.02,1.02,1)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:24px;line-height:1.6;margin-bottom:12.5px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:15px;line-height:25px;margin-bottom:18.75px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2{margin-top:10px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;line-height:1.6;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-primary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:15px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}@media screen and (max-width:768px){.Feed-module--feed--a6204 .Feed-module--item--c7a63{border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.1);flex:0 0 100%;margin-bottom:24px;overflow:hidden;padding:0;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s cubic-bezier(.25,.46,.45,.94)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover{box-shadow:0 16px 48px rgba(0,0,0,.2);transform:translateY(-1px)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{padding-left:20px;padding-right:20px}}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31{margin:0 auto;max-width:1200px;padding-bottom:10px;padding-top:70px;width:80%}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;margin:0 auto}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:22px;font-weight:700;line-height:28.125px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:25px;margin-bottom:25px}.Layout-module--footer--cde73{margin:20px;text-align:center}.Layout-module--copyRight--7da7b{color:var(--color-typographic-base-font)}.index-module--Wrapper--e7732{display:block;font-family:Source Sans Pro;font-size:16px;margin:0 auto 48px;max-width:1200px;padding:10px 0 0;text-align:left}@keyframes index-module--blink--608b0{0%,to{opacity:0}50%{opacity:1}}.index-module--Blink--1c2e2{animation:index-module--blink--608b0 1s infinite;margin-left:4px}.Page-module--page--24e03{margin:20px auto 48px;max-width:1200px;width:80%}.Page-module--title--90338{margin-top:0}.Pagination-module--pagination--d61cb{display:flex;margin-top:50px}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{padding:0 24px;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-primary);font-size:20px;font-weight:700;transition:color .2s}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-secondary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:right}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:left}.Content-module--photoBy--49f5a{align-items:center;display:flex;font-size:14px;justify-content:center;padding:16px 0}.Content-module--coverWrapper--6dd08{margin-top:48px}.Content-module--cover--e6f21,.Content-module--info--f72fb{margin:0 auto;max-width:1200px;width:80%}.Content-module--cover--e6f21{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);height:350px;transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Content-module--time--9f828{font-size:16px;font-weight:700;line-height:26px;margin-top:50px;text-transform:uppercase;word-break:break-word}.Content-module--description--e8a56{font-size:24px;font-weight:200;line-height:1.4;padding-top:4px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:700;line-height:1.4;margin:0;text-align:left}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:895px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58 .Content-module--time--9f828{margin-top:48px}.Content-module--content--80d58 .Content-module--body--726c2{font-size:16.5px;line-height:28.125px;margin-bottom:28.125px;margin-top:28.125px}.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:16.5px;line-height:28.125px;margin-bottom:25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:12.5px;visibility:unset}}@media screen and (max-width:1200px){.Content-module--body--726c2{padding-left:26px;padding-right:26px}.Content-module--cover--e6f21{width:100%}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:15px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 25px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.Tags-module--tags--18589{margin-bottom:12.5px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.25px 0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}.Post-module--post--3a994{padding:25px 0 0}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--footerWrapper--95bf1{padding:0 26px}.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:895px}.Post-module--post--3a994 .Post-module--comments--d3b99{margin:0 auto;max-width:895px;min-height:378px;padding:0 12.5px}.Post-module--post--3a994 .Post-module--buttons--2972d{padding-left:25px}</style><link rel="alternate" type="application/rss+xml" title="CHRIS KWOK" href="/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SLJTP0PP9G"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SLJTP0PP9G', {"send_page_view":false});
+      }
+      </script><link rel="icon" href="/favicon-32x32.png?v=2a2ba7ad50a1204635c8d82993790f6c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><title data-gatsby-head="true">Event loop - CHRIS KWOK</title></head><body><script>
+          void function() {
+            var cachedMode;
+
+            try {
+              var preferredTheme = JSON.parse(localStorage.getItem('diesel:theme-atom'));
+
+              if (preferredTheme && preferredTheme.mode) {
+                cachedMode = preferredTheme.mode;
+              }
+            } catch (err) { }
+
+            function setTheme(newTheme) {
+              document.documentElement.className = newTheme;
+            }
+
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
+          }()
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div><div><div class="Author-module--author--cbd31 "><div class="Author-module--titleContainer--4f576"><h1 class="Author-module--title--cf7e5"><a class="Author-module--link--09c17" href="/">CHRIS KWOK</a></h1></div></div></div><div class="Post-module--post--3a994"><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><div class="Content-module--info--f72fb"><div class="Content-module--time--9f828">Mar 7, 2019</div><h1 class="Content-module--title--09504">Event loop</h1><div class="Content-module--description--e8a56">JS 特色之一是单线程，那所谓的基于事件的异步机制是什么</div></div><div class="Content-module--coverWrapper--6dd08"><div class="Content-module--cover--e6f21 gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:41.66666666666667%"></div><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAGDUKnFn//EABgQAAMBAQAAAAAAAAAAAAAAAAABAhES/9oACAEBAAEFApfbeSO2f//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwFn/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEhEWH/2gAIAQEABj8Co8XCI//EABoQAAMAAwEAAAAAAAAAAAAAAAABESFBYaH/2gAIAQEAAT8hWiIpPRc06KtJ/9oADAMBAAIAAwAAABAL/wD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EMLl/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxBtIj//xAAaEAEBAAIDAAAAAAAAAAAAAAABEQAxIWHB/9oACAEBAAE/EDpydy2p9wDeGridYIAMGzP/2Q==" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/33996f9491bbe0b7817031e467f796cd/17f4c/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 300w,
+/static/33996f9491bbe0b7817031e467f796cd/d8967/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 600w,
+/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1200w,
+/static/33996f9491bbe0b7817031e467f796cd/ba7f6/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1800w,
+/static/33996f9491bbe0b7817031e467f796cd/b349f/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1920w" sizes="(max-width: 1200px) 100vw, 1200px" /><img loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" srcset="/static/33996f9491bbe0b7817031e467f796cd/17f4c/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 300w,
+/static/33996f9491bbe0b7817031e467f796cd/d8967/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 600w,
+/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1200w,
+/static/33996f9491bbe0b7817031e467f796cd/ba7f6/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1800w,
+/static/33996f9491bbe0b7817031e467f796cd/b349f/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1920w" src="/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><div class="Content-module--photoBy--49f5a"></div><div class="Content-module--body--726c2"><p>“JS 特色之一是单线程，那所谓的基于事件的异步机制是什么？”</p>
+<hr>
+<h3 id="js-是单线程" style="position:relative;"><a href="#js-%E6%98%AF%E5%8D%95%E7%BA%BF%E7%A8%8B" aria-label="js 是单线程 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS 是单线程</h3>
+<p>All we know, JS 是一种动态类型、弱类型、基于原型的脚本语言，浏览器上有着 JS 专属的引擎作为其解释器，V8
+另外，JS 是单线程语言，为何如此设计呢？其实原因很简单，JS 是被用来设计在浏览器中使用，支持操作页面 dom 元素，假设同时有多个进程同时对同一 dom 元素进行 crud，浏览器如何执行呢？所以这就是原因</p>
+<p>另外 JS 虽然是单线程运行，但是在主线程运行之外还是有其他的侦听线程作为辅助的如事件触发线程、Http 请求线程等，所以 JS 所谓的单线程并不孤单。浏览器内核实现允许多个线程异步执行，这些线程在内核制控下相互配合以保持同步</p>
+<p>那单线程却能执行异步任务为何？主要是因为 JS 中存在事件循环(Event Loop)和任务队列(Task Queue)也叫事件队列</p>
+<h3 id="js-事件循环" style="position:relative;"><a href="#js-%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF" aria-label="js 事件循环 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>JS 事件循环</h3>
+<p>类似进入一个 while(true)的事件循环，直到没有事件观察者退出，每个异步事件都生成一个事件观察者，如果有事件发生就调用该回调函数</p>
+<p>一个浏览器环境只能有一个事件循环，而一个事件循环主要包含 macrotask 和 microtask 两个事件队列（macrotask 和 microtask 是异步任务的两种分类），每个任务都有一个任务源（Task source）。同一个任务队列中的任务必须按先进先出的顺序执行</p>
+<p>在挂起任务时，JS 引擎会将所有任务按照类别分到 macrotask 和 microtask 这两个队列中</p>
+<p>每一次事件循环，只处理一个 macrotask，待该 macrotask 完成后，所有的 microtask 会在同一次循环中处理。处理这些 microtask 时，还可以将更多的 microtask 入队，它们会一一执行，直到整个 microtask 队列处理完后开始执行下一个 macrotask 开启新一轮事件循环</p>
+<h5 id="宏任务macrotask" style="position:relative;"><a href="#%E5%AE%8F%E4%BB%BB%E5%8A%A1macrotask" aria-label="宏任务macrotask permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>宏任务（Macrotask）</h5>
+<ul>
+<li>整体代码(script)</li>
+<li>setTimeout</li>
+<li>setInterval</li>
+<li>setImmediate（node）</li>
+<li>I/O</li>
+<li>UI rendering</li>
+<li>requestAnimationFrame（浏览器）</li>
+</ul>
+<h5 id="微任务microtask" style="position:relative;"><a href="#%E5%BE%AE%E4%BB%BB%E5%8A%A1microtask" aria-label="微任务microtask permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>微任务（Microtask）</h5>
+<ul>
+<li>process.nextTick（node）</li>
+<li>Promise.then catch finally</li>
+<li>Object.observe（已废弃）</li>
+<li>MutationObserver（浏览器）</li>
+</ul>
+<p><em>括号内表示支持的环境</em></p>
+<h5 id="案例分析" style="position:relative;"><a href="#%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90" aria-label="案例分析 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>案例分析</h5>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">// 全局scripts macrotask</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"macrotask scripts start"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// macrotask</span>
+<span class="token function">setTimeout</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"macrotask 1 inner: microtask"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"macrotask 1"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// microtask</span>
+Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"microtask 1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// microtask</span>
+Promise<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"microtask 2"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">"macrotask scripts end"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// output:</span>
+
+<span class="token comment">// VM322:1  macrotask scripts start</span>
+<span class="token comment">// VM322:16 macrotask scripts end</span>
+<span class="token comment">// VM322:11 microtask 1</span>
+<span class="token comment">// VM322:14 microtask 2</span>
+<span class="token comment">// VM322:7  macrotask 1</span>
+<span class="token comment">// VM322:5  macrotask 1 inner: microtask</span></code></pre></div>
+<p>首先进入 <strong>全局 scripts macrotask</strong></p>
+<ul>
+<li>执行当前 macrotask 中所有同步代码
+<ul>
+<li>// VM322:1 macrotask scripts start</li>
+<li>// VM322:16 macrotask scripts end</li>
+</ul>
+</li>
+<li>执行完毕后按先进先出的顺序执行 microtask 队列
+<ul>
+<li>// VM322:11 microtask 1</li>
+<li>// VM322:14 microtask 2</li>
+</ul>
+</li>
+<li>当前 macrotask 执行完毕查找当前 macrotask 队列，若已经清空则结束事件循环，否则开启下一轮循环</li>
+<li>新一轮循环执行当前 macrotask 中所有同步代码
+<ul>
+<li>// VM322:7 macrotask 1</li>
+</ul>
+</li>
+<li>执行完毕后按先进先出的顺序执行 microtask 队列
+<ul>
+<li>// VM322:5 macrotask 1 inner: microtask</li>
+</ul>
+</li>
+<li>当前 macrotask 执行完毕查找当前 macrotask 队列，若已经清空则结束事件循环，否则开启下一轮循环
+<ul>
+<li>执行完毕结束循环</li>
+</ul>
+</li>
+</ul>
+<h5 id="误解" style="position:relative;"><a href="#%E8%AF%AF%E8%A7%A3" aria-label="误解 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>误解</h5>
+<p>面试过很多人发现他们在回答相关问题时总会有各种误解：“Promise 是微任务，解析执行代码时遇到 promise 会将其推入微任务队列等”</p>
+<ul>
+<li>一些人说 Promise 是微任务，其实 Promsie 只是普通的构造函数的初始化，.then 等钩子才是微任务，触发.then 的时候才会将.then 的回调推入任务队列</li>
+<li>键盘事件由 webcore 的 DOM Binding 模块来处理，当事件触发时将监听事件的回调函数推入任务队列</li>
+<li>setTimeout 由 webcore 的 timer 模块来进行延时处理，当时间到达的时候，才会将回调函数推入任务队</li>
+<li>ajax 则会由 webcore 的 network 模块来处理，在网络请求完成返回之后，才会将回调函数推入任务队</li>
+</ul>
+<h3 id="node-的事件循环" style="position:relative;"><a href="#node-%E7%9A%84%E4%BA%8B%E4%BB%B6%E5%BE%AA%E7%8E%AF" aria-label="node 的事件循环 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Node 的事件循环</h3>
+<p>node 是 js 的一个 runtime，所以事件循环同样是 Node.js 处理非阻塞 I/O 操作的机制。由于大多数内核都是多线程的，node.js 会尽可能将操作装载到系统内核。因此它们可以处理在后台执行的多个操作。当其中一个操作完成时，内核会告诉 Node.js，以便 node.js 可以将相应的回调添加到轮询队列中以最终执行</p>
+<p>当 Node.js 启动后，它会初始化事件轮询；处理已提供的输入脚本（或丢入 REPL），它可能会调用一些异步的 API 函数调用，安排任务处理事件，或者调用 process.nextTick，然后开始处理事件循环</p>
+<p>与浏览器端的事件循环相比有很大不同，node 的事件循环主要分为六个阶段（Phase），每个阶段都会有一个类似于队列的结构, 存储着该阶段需要处理的回调函数：</p>
+<ul>
+<li>timer：用一个 for 循环处理所有 setTimeout 和 setInterval 的回调
+<ul>
+<li>检查 timer 队列是否有到期的 timer 回调，如果有，将到期的 timer 回调按照 timerId 升序执行</li>
+<li>检查是否有 process.nextTick 任务，如果有，全部执行</li>
+<li>检查是否有 microtask，如果有，全部执行</li>
+<li>退出该阶段</li>
+</ul>
+</li>
+<li>Pending I/O Callback Phase：执行你的 fs.read, socket 等 IO 操作的回调函数, 同时也包括各种 error 的回调
+<ul>
+<li>检查是否有 pending 的 I/O 回调。如果有，执行回调。如果没有，退出该阶段</li>
+<li>检查是否有 process.nextTick 任务，如果有，全部执行</li>
+<li>检查是否有 microtask，如果有，全部执行</li>
+<li>退出该阶段</li>
+</ul>
+</li>
+<li>idle, prepare：仅系统内部使用</li>
+<li>Poll Phase：检索新的 I/O 事件;执行与 I/O 相关的回调（几乎所有情况下，除了关闭的回调函数，它们由计时器和 setImmediate 排定的之外），其余情况 node 将在此处阻塞，循环中最重要的一个 Phase, 作用是等待异步请求和数据，最重要是因为它支撑了整个消息循环机制，Poll Phase 首先会执行 watch_queue 队列中的 IO 请求, 一旦 watch_queue 队列空, 则整个消息循环就会进入 sleep , 从而等待被内核事件唤醒
+首先检查是否存在尚未完成的回调，如果存在，那么分两种情况。
+<ul>
+<li>第一种情况：
+<ul>
+<li>如果有可用回调（可用回调包含到期的定时器还有一些 IO 事件等），执行所有可用回调</li>
+<li>检查是否有 process.nextTick 回调，如果有，全部执行</li>
+<li>检查是否有 microtaks，如果有，全部执行</li>
+<li>退出该阶段</li>
+</ul>
+</li>
+<li>第二种情况：
+<ul>
+<li>如果没有可用回调</li>
+<li>检查是否有 immediate 回调，如果有，退出 poll 阶段。如果没有，阻塞在此阶段，等待新的事件通知</li>
+<li>如果不存在尚未完成的回调，退出 poll 阶段</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Check Phase：这个阶段只处理 setImmediate 的回调函数（因为 Poll Phase 阶段可能设置一些回调, 希望在 Poll Phase 后运行. 所以在 Poll Phase 后面增加了这个 Check Phase.）
+<ul>
+<li>如果有 immediate 回调，则执行所有 immediate 回调</li>
+<li>检查是否有 process.nextTick 回调，如果有，全部执行</li>
+<li>检查是否有 microtaks，如果有，全部执行</li>
+<li>退出 check 阶段</li>
+</ul>
+</li>
+<li>Close Callbacks Phase：专门处理一些 close 类型的回调. 比如 socket.on(‘close’, …). 用于资源清理
+<ul>
+<li>如果有 immediate 回调，则执行所有 immediate 回调</li>
+<li>检查是否有 process.nextTick 回调，如果有，全部执行</li>
+<li>检查是否有 microtaks，如果有，全部执行</li>
+<li>退出 closing 阶段
+一轮循环结束后检查是否有活跃的 handles（定时器、IO 等事件句柄）如果有就继续下一轮循环，如果没有则结束事件循环，退出程序</li>
+</ul>
+</li>
+</ul>
+<p>事件循环过程如下图示意<em>每个框内代表一个阶段</em>：</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js">   ┌───────────────────────────┐
+┌─<span class="token operator">></span>│           timers          │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │     pending callbacks     │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+│  │       idle<span class="token punctuation">,</span> prepare       │
+│  └─────────────┬─────────────┘      ┌───────────────┐
+│  ┌─────────────┴─────────────┐      │   incoming<span class="token operator">:</span>   │
+│  │           poll            │<span class="token operator">&lt;</span>─────┤  connections<span class="token punctuation">,</span> │
+│  └─────────────┬─────────────┘      │   data<span class="token punctuation">,</span> etc<span class="token punctuation">.</span>  │
+│  ┌─────────────┴─────────────┐      └───────────────┘
+│  │           check           │
+│  └─────────────┬─────────────┘
+│  ┌─────────────┴─────────────┐
+└──┤      close callbacks      │
+   └───────────────────────────┘</code></pre></div>
+<p>每个阶段都有一个 FIFO 队列来执行回调。虽然每个阶段都是特殊的，但通常情况下，当事件循环进入给定的阶段时，它将执行特定于该阶段的任何操作，然后在该阶段的队列中执行回调，直到队列用尽或最大回调数已执行。当该队列已用尽或达到回调限制，事件循环将移动到下一阶段</p>
+<p>由于这些操作中的任何一个都可能计划 更多的 操作，并且在 轮询 阶段处理的新事件由内核排队，因此在处理轮询事件时，轮询事件可以排队。因此，长时间运行回调可以允许轮询阶段运行大量长于计时器的阈值</p>
+<p>在每次运行的事件循环之间，Node.js 检查它是否在等待任何异步 I/O 或计时器，如果没有的话，则关闭干净</p>
+<p>补充：</p>
+<ol>
+<li>setImmediate 对比 setTimeout
+setImmediate 和 setTimeout 很类似，但何时调用行为完全不同</li>
+</ol>
+<ul>
+<li>setImmediate 设计为在当前 轮询 阶段完成后执行脚本</li>
+<li>setTimeout 计划在毫秒的最小阈值经过后运行的脚本
+执行计时器的顺序将根据调用它们的上下文而异。如果二者都从主模块内调用，则计时将受进程性能的约束（这可能会受到计算机上运行的其它应用程序的影响）</li>
+</ul>
+<ol start="2">
+<li>process.nextTick
+process.nextTick 在技术上不是事件循环的一部分。相反，无论事件循环的当前阶段如何，都将在当前操作完成后处理 nextTickQueue。这里的一个操作被视作为一个从 C++ 底层处理开始过渡，并且处理需要执行的 JavaScript 代码
+任何时候在给定的阶段中调用 process.nextTick，所有传递到 process.nextTick 的回调将在事件循环继续之前得到解决。这可能会造成一些糟糕的情况, 因为它允许您通过进行递归 process.nextTick 来“饿死”您的 I/O 调用，阻止事件循环到达 轮询 阶段</li>
+</ol>
+<p>Links:</p>
+<ul>
+<li><a href="https://nodejs.org/en/docs/guides/event-loop-timers-and-nexttick/" target="_blank" rel="nofollow noopener noreferrer">The Node.js Event Loop, Timers, and process.nextTick()</a></li>
+<li><a href="https://blog.csdn.net/i10630226/article/details/81369841" target="_blank" rel="nofollow noopener noreferrer">深入分析 Node.js 事件循环</a></li>
+</ul></div></div></div><div class="Post-module--footerWrapper--95bf1"><div class="Post-module--footer--f8705">👾<div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published on<!-- --> <!-- -->Mar 7, 2019</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/tag/js/">Js</a></li></ul></div></div></div><div class="Post-module--comments--d3b99"><div style="margin-bottom:48px"></div></div></div><div class="Layout-module--footer--cde73"><a href="/list/"><span class="Layout-module--copyRight--7da7b">© 2017-<!-- -->2026<!-- --> All rights reserved.</span></a>  Visit <a href="https://home.iakoug.cn" target="__blank"><span>Home Site.</span></a></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/event-loop/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-6a764cef83457993c210.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-631dfa6a69a68c0c4cf7.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-295833c4ebd7d3855895.js\"],\"component---src-pages-list-tsx\":[\"/component---src-pages-list-tsx-b977552347e76a6abe03.js\"],\"component---src-templates-categories-template-categories-template-tsx\":[\"/component---src-templates-categories-template-categories-template-tsx-2544ee2a036fb60c5154.js\"],\"component---src-templates-category-template-category-template-tsx\":[\"/component---src-templates-category-template-category-template-tsx-15f983c30bb7686feb59.js\"],\"component---src-templates-index-template-index-template-tsx\":[\"/component---src-templates-index-template-index-template-tsx-8e53b469b155d358ea3d.js\"],\"component---src-templates-page-template-page-template-tsx\":[\"/component---src-templates-page-template-page-template-tsx-940fe06e326cf3952ab7.js\"],\"component---src-templates-post-template-post-template-tsx\":[\"/component---src-templates-post-template-post-template-tsx-3e2c75712d73ea0f5aaf.js\"],\"component---src-templates-tag-template-tag-template-tsx\":[\"/component---src-templates-tag-template-tag-template-tsx-e530e5f310c3f462320f.js\"],\"component---src-templates-tags-template-tags-template-tsx\":[\"/component---src-templates-tags-template-tags-template-tsx-8c4ca1f42cd1fbf538e3.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="00287a7dbe1800182756";</script><script src="/webpack-runtime-65df9bc75473ed75c7d3.js" async></script><script src="/framework-6dd0a313b10aa20604f0.js" async></script><script src="/app-6a764cef83457993c210.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

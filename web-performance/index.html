@@ -1,0 +1,553 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 5.15.0"/><meta name="theme-color" content="#fff"/><meta name="description" content="什么是以用户为中心的性能指标" data-gatsby-head="true"/><meta name="twitter:card" content="summary_large_image" data-gatsby-head="true"/><meta name="twitter:title" content="RUM - CHRIS KWOK" data-gatsby-head="true"/><meta name="twitter:description" content="什么是以用户为中心的性能指标" data-gatsby-head="true"/><meta name="og:title" content="RUM - CHRIS KWOK" data-gatsby-head="true"/><meta name="og:type" content="website" data-gatsby-head="true"/><meta name="og:description" content="什么是以用户为中心的性能指标" data-gatsby-head="true"/><style data-href="/styles.faac0f9fd2620b969dc5.css" data-identity="gatsby-global-css">:after,:before,:root{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#eaeaeb;--color-typographic-base-font:#242933;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#eaeaeb;--color-page-background:#fff;--color-sidebar-border:#eaeaeb;--color-sidebar-border-fade:#fff;--color-contacts-border:#eaeaeb;--color-button-border:#eaeaeb;--color-button-color:#242933;--color-theme-switcher:#3f485a;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#eff3f5}.dark :after,.dark :before,:root.dark{--color-white:#fff;--color-primary:#5c92ff;--color-secondary:#f7a145;--color-prism-background:#191d24;--color-typographic-base-font:#fff;--color-typographic-link-p-font:#5c92ff;--color-typographic-link-s-font:#f7a145;--color-page-border:#3f485a;--color-page-background:#242933;--color-sidebar-border:#3f485a;--color-sidebar-border-fade:#242933;--color-contacts-border:#3f485a;--color-button-border:#3f485a;--color-button-color:#fff;--color-theme-switcher:#eaeaeb;--color-theme-switcher-hover:#5c92ff;--color-theme-blockquote-bg:#000}html{font-size:100}body{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;background:var(--color-page-background);color:var(--color-typographic-base-font);font-size:15px;line-height:1.65;margin:0 0 0 calc(100vw - 100%);text-rendering:optimizelegibility;transition:background .3s}h1,h2,h3,h4,h5,h6{font-weight:600}h1{font-size:30px;line-height:50px;margin-bottom:25px;margin-top:62.5px}h2{font-size:22.5px;line-height:37.5px;margin-bottom:10px;margin-top:25px}h3{font-size:18px}h3,h4{line-height:25px;margin-bottom:10px;margin-top:25px}h4{font-size:15px}h5,h6{font-size:15px;line-height:25px;margin-bottom:10px;margin-top:25px}@media screen and (max-width:1200px){h1{line-height:30px;margin-top:50px}h2,h3,h4,h5,h6{line-height:27.5px;margin-top:25px}}img{display:block;max-width:100%}hr,img{border:0}hr{border-top:2px solid #ccd9df;height:0;margin:48px auto;position:relative;width:12px}a{color:var(--color-typographic-link-p-font);text-decoration:none}a:active,a:focus,a:hover{color:var(--color-typographic-link-s-font)}b,strong{font-weight:600}ul{list-style:circle;margin-bottom:25px}ul li{margin-bottom:10px;padding:0 5px}p{line-height:25px;margin-bottom:25px}blockquote{background:var(--color-theme-blockquote-bg);border-radius:8px}blockquote p{font-style:italic;margin:0!important;padding:16px 24px}figure{display:block;height:auto;width:100%}figcaption{color:var(--color-typographic-base-font);font-size:14px;font-style:italic;line-height:18.75px;margin-bottom:0;margin-top:6.25px;text-align:center}@media screen and (min-width:685px){figure.float-left,figure.float-right{max-width:310px;padding:0 25px}.float-right{float:right}.float-left{float:left}}code[class*=language-],pre[class*=language-]{word-wrap:normal;color:#657b83;font-size:.85em;-webkit-hyphens:none;hyphens:none;line-height:1.5;tab-size:4;text-align:left;white-space:pre;word-break:normal;word-spacing:normal}pre[class*=language-]{border-radius:.3em;margin:.5em 0;overflow:auto;padding:1em}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:var(--color-prism-background)}:not(pre)>code[class*=language-]{border-radius:.3em;padding:.1em}::selection{background-color:#5c92ff;color:#fff}code[class*=language-] ::selection,code[class*=language-]::selection{background:#10414d}.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#93a1a1}.token.punctuation{color:#586e75}.namespace{opacity:.7}.token.boolean,.token.constant,.token.deleted,.token.number,.token.property,.token.symbol,.token.tag{color:#268bd2}.token.attr-name,.token.builtin,.token.char,.token.inserted,.token.selector,.token.string,.token.url{color:#2aa198}.token.entity{background:#eee8d5;color:#657b83;cursor:help}.token.atrule,.token.attr-value,.token.keyword{color:#859900}.token.class-name,.token.function{color:#b58900}.token.important,.token.regex,.token.variable{color:#cb4b16}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:400;src:local("Heebo Light"),local("Heebo-Light"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9ldb6RMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:500;src:local("Heebo Medium"),local("Heebo-Medium"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9kFbqRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}@font-face{font-display:swap;font-family:Heebo;font-style:normal;font-weight:700;src:local("Heebo Bold"),local("Heebo-Bold"),url(https://fonts.gstatic.com/s/heebo/v5/NGS3v5_NC0k9P9lNaKRMkK4q06VE.woff2) format("woff2");unicode-range:u+00??,u+0131,u+0152-0153,u+02bb-02bc,u+02c6,u+02da,u+02dc,u+2000-206f,u+2074,u+20ac,u+2122,u+2191,u+2193,u+2212,u+2215,u+feff,u+fffd}:not(pre)>code[class*=language-],pre[class*=language-]{background-color:transparent}body{font-family:Heebo}*{text-wrap:pretty;word-break:break-word}code{text-wrap:pretty!important;word-break:break-all!important}::-webkit-scrollbar{display:none}::-moz-scrollbar{display:none}::-ms-scrollbar{display:none}::-o-scrollbar{display:none}.Feed-module--cover--35f87{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Feed-module--feed--a6204{align-items:stretch;display:flex;flex-flow:wrap;justify-content:flex-start;margin:0 -24px}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63{flex:0 0 100%!important;margin-bottom:0}.Feed-module--feed--a6204.Feed-module--listFeed--46182 .Feed-module--item--c7a63 .Feed-module--cover--35f87{display:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63{box-sizing:border-box;color:#3c3f45;cursor:pointer;display:block;flex:0 0 50%;margin-bottom:48px;padding:0 24px;position:relative;text-decoration:none}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover .Feed-module--cover--35f87{transform:translateY(-2px) scale3d(1.02,1.02,1)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:last-child{margin-bottom:12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{font-size:24px;line-height:1.6;margin-bottom:12.5px;margin-top:0}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f .Feed-module--link--6123b:hover{color:var(--color-typographic-base-font)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--description--57348{font-size:15px;line-height:25px;margin-bottom:18.75px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2{margin-top:10px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--time--72864{color:var(--color-typographic-base-font);font-size:14px;font-weight:600;line-height:1.6;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--divider--81a18{margin:0 12.5px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b{color:var(--color-primary);font-size:14px;font-weight:600;text-transform:uppercase}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2 .Feed-module--category--59f58 .Feed-module--link--6123b:hover{color:#5c92ff}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e{color:var(--color-primary);font-size:15px}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:focus,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--more--51a4e:hover{border-bottom:1px solid #5c92ff;color:var(--color-primary)}@media screen and (max-width:768px){.Feed-module--feed--a6204 .Feed-module--item--c7a63{border-radius:8px;box-shadow:0 16px 48px rgba(0,0,0,.1);flex:0 0 100%;margin-bottom:24px;overflow:hidden;padding:0;transition:transform .3s cubic-bezier(.25,.46,.45,.94),box-shadow .3s cubic-bezier(.25,.46,.45,.94)}.Feed-module--feed--a6204 .Feed-module--item--c7a63:hover{box-shadow:0 16px 48px rgba(0,0,0,.2);transform:translateY(-1px)}.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--meta--250c2,.Feed-module--feed--a6204 .Feed-module--item--c7a63 .Feed-module--title--f252f{padding-left:20px;padding-right:20px}}.ThemeSwitcher-module--themeSwitcher--8a77f{--color:var(--color-theme-switcher)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b{align-items:center;background:transparent;border:0;cursor:pointer;display:flex;justify-content:center;outline:0}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b svg{stroke:var(--color);pointer-events:none;transition:stroke .4s}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--button--7cb7b:hover{--color:var(--color-theme-switcher-hover)}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--moon--10537{stroke-dasharray:0 1px;opacity:0;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f .ThemeSwitcher-module--sun--2163a{stroke-dasharray:1px 1px;opacity:1;transition:stroke-dasharray .2s ease-in,opacity .4s ease-in}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--moon--10537{stroke-dasharray:1px 1px;opacity:1}.ThemeSwitcher-module--themeSwitcher--8a77f.ThemeSwitcher-module--dark--6db0c .ThemeSwitcher-module--sun--2163a{stroke-dasharray:0 1px;opacity:0}.Author-module--author--cbd31{margin:0 auto;max-width:1200px;padding-bottom:10px;padding-top:70px;width:80%}.Author-module--author--cbd31 .Author-module--titleContainer--4f576{align-items:center;display:flex;margin:0 auto}.Author-module--author--cbd31 .Author-module--photo--9787b{background-clip:padding-box;border-radius:50%;display:inline-block;height:75px;width:75px}.Author-module--author--cbd31 .Author-module--photo--9787b img{border-radius:50%}.Author-module--author--cbd31 .Author-module--title--cf7e5{font-size:22px;font-weight:700;line-height:28.125px;margin:0}.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:focus,.Author-module--author--cbd31 .Author-module--title--cf7e5 .Author-module--link--09c17:hover{color:var(--color-typographic-base-font)}.Author-module--author--cbd31 .Author-module--subtitle--86ec5{color:#7f8ba4;line-height:25px;margin-bottom:25px}.Layout-module--footer--cde73{margin:20px;text-align:center}.Layout-module--copyRight--7da7b{color:var(--color-typographic-base-font)}.index-module--Wrapper--e7732{display:block;font-family:Source Sans Pro;font-size:16px;margin:0 auto 48px;max-width:1200px;padding:10px 0 0;text-align:left}@keyframes index-module--blink--608b0{0%,to{opacity:0}50%{opacity:1}}.index-module--Blink--1c2e2{animation:index-module--blink--608b0 1s infinite;margin-left:4px}.Page-module--page--24e03{margin:20px auto 48px;max-width:1200px;width:80%}.Page-module--title--90338{margin-top:0}.Pagination-module--pagination--d61cb{display:flex;margin-top:50px}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{padding:0 24px;width:50%}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d{color:var(--color-primary);font-size:20px;font-weight:700;transition:color .2s}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff:hover,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:focus,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d:hover{color:var(--color-secondary)}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8 .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--nextLink--532ff.Pagination-module--disable--7e105,.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b .Pagination-module--previousLink--5590d.Pagination-module--disable--7e105{color:#3f485a;pointer-events:none}.Pagination-module--pagination--d61cb .Pagination-module--previous--4a76b{text-align:right}.Pagination-module--pagination--d61cb .Pagination-module--next--1cab8{text-align:left}.Content-module--photoBy--49f5a{align-items:center;display:flex;font-size:14px;justify-content:center;padding:16px 0}.Content-module--coverWrapper--6dd08{margin-top:48px}.Content-module--cover--e6f21,.Content-module--info--f72fb{margin:0 auto;max-width:1200px;width:80%}.Content-module--cover--e6f21{box-shadow:0 24px 48px -8px rgba(0,0,0,.2),0 16px 32px -8px rgba(0,0,0,.22);height:350px;transition:transform .3s cubic-bezier(.25,.46,.45,.94) 0s,box-shadow .3s cubic-bezier(.25,.46,.45,.94) 0s}.Content-module--time--9f828{font-size:16px;font-weight:700;line-height:26px;margin-top:50px;text-transform:uppercase;word-break:break-word}.Content-module--description--e8a56{font-size:24px;font-weight:200;line-height:1.4;padding-top:4px}.Content-module--content--80d58 .Content-module--title--09504{font-size:32px;font-weight:700;line-height:1.4;margin:0;text-align:left}.Content-module--content--80d58 .Content-module--body--726c2 *{margin-left:auto;margin-right:auto;max-width:895px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{visibility:hidden}.Content-module--content--80d58 .Content-module--body--726c2 h2>a>svg{fill:var(--color-typographic-base-font)}.Content-module--content--80d58 .Content-module--body--726c2 img{max-width:100%}@media screen and (min-width:960px){.Content-module--content--80d58 .Content-module--time--9f828{margin-top:48px}.Content-module--content--80d58 .Content-module--body--726c2{font-size:16.5px;line-height:28.125px;margin-bottom:28.125px;margin-top:28.125px}.Content-module--content--80d58 .Content-module--body--726c2 p{font-size:16.5px;line-height:28.125px;margin-bottom:25px}.Content-module--content--80d58 .Content-module--body--726c2 h2>a{padding-right:12.5px;visibility:unset}}@media screen and (max-width:1200px){.Content-module--body--726c2{padding-left:26px;padding-right:26px}.Content-module--cover--e6f21{width:100%}}.Meta-module--meta--dae0a .Meta-module--date--4d30d{font-style:italic}.Button-module--button--b1113{border:1px solid var(--color-button-border);border-radius:20px;color:var(--color-button-color);display:inline-block;font-size:15px;font-weight:400;height:40px;line-height:40px;margin-left:auto;margin-right:auto;padding:0 25px;text-align:center;text-decoration:none}.Button-module--button--b1113:focus,.Button-module--button--b1113:hover{color:#5c92ff}.Tags-module--tags--18589{margin-bottom:12.5px}.Tags-module--tags--18589 .Tags-module--list--82ae6{list-style:none;padding:0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015{display:inline-block;margin:6.25px 0}.Tags-module--tags--18589 .Tags-module--list--82ae6 .Tags-module--item--52015:first-child{margin-left:0;padding-left:0}.Post-module--post--3a994{padding:25px 0 0}.Post-module--post--3a994 .Post-module--content--3c6e5{margin:0 auto}.Post-module--post--3a994 .Post-module--footerWrapper--95bf1{padding:0 26px}.Post-module--post--3a994 .Post-module--footer--f8705{margin:0 auto;max-width:895px}.Post-module--post--3a994 .Post-module--comments--d3b99{margin:0 auto;max-width:895px;min-height:378px;padding:0 12.5px}.Post-module--post--3a994 .Post-module--buttons--2972d{padding-left:25px}</style><link rel="alternate" type="application/rss+xml" title="CHRIS KWOK" href="/rss.xml"/><style type="text/css">
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      padding-right: 4px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
+    }
+    h1 .anchor svg,
+    h2 .anchor svg,
+    h3 .anchor svg,
+    h4 .anchor svg,
+    h5 .anchor svg,
+    h6 .anchor svg {
+      visibility: hidden;
+    }
+    h1:hover .anchor svg,
+    h2:hover .anchor svg,
+    h3:hover .anchor svg,
+    h4:hover .anchor svg,
+    h5:hover .anchor svg,
+    h6:hover .anchor svg,
+    h1 .anchor:focus svg,
+    h2 .anchor:focus svg,
+    h3 .anchor:focus svg,
+    h4 .anchor:focus svg,
+    h5 .anchor:focus svg,
+    h6 .anchor:focus svg {
+      visibility: visible;
+    }
+  </style><script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      var hash = window.decodeURI(location.hash.replace('#', ''))
+      if (hash !== '') {
+        var element = document.getElementById(hash)
+        if (element) {
+          var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+          var clientTop = document.documentElement.clientTop || document.body.clientTop || 0
+          var offset = element.getBoundingClientRect().top + scrollTop - clientTop
+          // Wait for the browser to finish rendering before scrolling.
+          setTimeout((function() {
+            window.scrollTo(0, offset - 0)
+          }), 0)
+        }
+      }
+    })
+  </script><link rel="preconnect" href="https://www.googletagmanager.com"/><link rel="dns-prefetch" href="https://www.googletagmanager.com"/><script async="" src="https://www.googletagmanager.com/gtag/js?id=G-SLJTP0PP9G"></script><script>
+      
+      
+      if(true) {
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-SLJTP0PP9G', {"send_page_view":false});
+      }
+      </script><link rel="icon" href="/favicon-32x32.png?v=2a2ba7ad50a1204635c8d82993790f6c" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=2a2ba7ad50a1204635c8d82993790f6c"/><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){const t=e.target;if(void 0===t.dataset.mainImage)return;if(void 0===t.dataset.gatsbyImageSsr)return;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap-index.xml"/><title data-gatsby-head="true">RUM - CHRIS KWOK</title></head><body><script>
+          void function() {
+            var cachedMode;
+
+            try {
+              var preferredTheme = JSON.parse(localStorage.getItem('diesel:theme-atom'));
+
+              if (preferredTheme && preferredTheme.mode) {
+                cachedMode = preferredTheme.mode;
+              }
+            } catch (err) { }
+
+            function setTheme(newTheme) {
+              document.documentElement.className = newTheme;
+            }
+
+            var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+
+            setTheme(cachedMode || (darkQuery.matches ? 'dark' : 'light'));
+          }()
+        </script><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div><div><div class="Author-module--author--cbd31 "><div class="Author-module--titleContainer--4f576"><h1 class="Author-module--title--cf7e5"><a class="Author-module--link--09c17" href="/">CHRIS KWOK</a></h1></div></div></div><div class="Post-module--post--3a994"><div class="Post-module--content--3c6e5"><div class="Content-module--content--80d58"><div class="Content-module--info--f72fb"><div class="Content-module--time--9f828">Apr 1, 2021</div><h1 class="Content-module--title--09504">RUM</h1><div class="Content-module--description--e8a56">什么是以用户为中心的性能指标</div></div><div class="Content-module--coverWrapper--6dd08"><div class="Content-module--cover--e6f21 gatsby-image-wrapper" style="position:relative;overflow:hidden"><div aria-hidden="true" style="width:100%;padding-bottom:41.66666666666667%"></div><img aria-hidden="true" src="data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAQD/8QAFgEBAQEAAAAAAAAAAAAAAAAAAgAB/9oADAMBAAIQAxAAAAGDUKnFn//EABgQAAMBAQAAAAAAAAAAAAAAAAABAhES/9oACAEBAAEFApfbeSO2f//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/ASf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAgEBPwFn/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAEhEWH/2gAIAQEABj8Co8XCI//EABoQAAMAAwEAAAAAAAAAAAAAAAABESFBYaH/2gAIAQEAAT8hWiIpPRc06KtJ/9oADAMBAAIAAwAAABAL/wD/xAAXEQEAAwAAAAAAAAAAAAAAAAAAAREx/9oACAEDAQE/EMLl/8QAFxEAAwEAAAAAAAAAAAAAAAAAAAERIf/aAAgBAgEBPxBtIj//xAAaEAEBAAIDAAAAAAAAAAAAAAABEQAxIWHB/9oACAEBAAE/EDpydy2p9wDeGridYIAMGzP/2Q==" alt="" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:1;transition-delay:500ms"/><noscript><picture><source srcset="/static/33996f9491bbe0b7817031e467f796cd/17f4c/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 300w,
+/static/33996f9491bbe0b7817031e467f796cd/d8967/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 600w,
+/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1200w,
+/static/33996f9491bbe0b7817031e467f796cd/ba7f6/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1800w,
+/static/33996f9491bbe0b7817031e467f796cd/b349f/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1920w" sizes="(max-width: 1200px) 100vw, 1200px" /><img loading="lazy" sizes="(max-width: 1200px) 100vw, 1200px" srcset="/static/33996f9491bbe0b7817031e467f796cd/17f4c/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 300w,
+/static/33996f9491bbe0b7817031e467f796cd/d8967/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 600w,
+/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1200w,
+/static/33996f9491bbe0b7817031e467f796cd/ba7f6/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1800w,
+/static/33996f9491bbe0b7817031e467f796cd/b349f/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg 1920w" src="/static/33996f9491bbe0b7817031e467f796cd/dd377/arseny-togulev-mnx3NlXwKdg-unsplash-middle.jpg" alt="" style="position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center"/></picture></noscript></div></div><div class="Content-module--photoBy--49f5a"></div><div class="Content-module--body--726c2"><h1 id="什么是以用户为中心的性能指标" style="position:relative;"><a href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BB%A5%E7%94%A8%E6%88%B7%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87" aria-label="什么是以用户为中心的性能指标 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>什么是以用户为中心的性能指标</h1>
+<p>你可能已无数次听人提及性能的重要性，以及网页应用的运行速度十分关键。</p>
+<p>但是，当我们尝试回答「我的应用有多快？」这个问题时，就会意识到，「快」是一个很模糊的概念。 我们所谓的「快」究竟是指什么？其情境为何？ 为谁提供高的运行速度？</p>
+<h2 id="我们说的性能体验到底是什么" style="position:relative;"><a href="#%E6%88%91%E4%BB%AC%E8%AF%B4%E7%9A%84%E6%80%A7%E8%83%BD%E4%BD%93%E9%AA%8C%E5%88%B0%E5%BA%95%E6%98%AF%E4%BB%80%E4%B9%88" aria-label="我们说的性能体验到底是什么 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>我们说的性能体验到底是什么？</h2>
+<p>讨论性能时务求精确，以免产生误解或散布谬见，从而导致出于善意的开发者朝着错误的方向优化，最终影响而非改善用户体验。</p>
+<p>性能监控误区一：<strong><em>我已经测试我的应用性能情况，加载时间为 xxx 秒</em></strong>。</p>
+<p>网页的加载时间会因为用户的客户端环境的不同而有很大的变化，具体取决于用户的设备功能以及网络状况。 以单纯的数字表示加载时间忽略了遭遇过长加载时间的用户。</p>
+<p>实际上，WebApp 的加载时间是每个用户所有加载时间的汇总，而全面表示加载时间的唯一方法是使用以下直方图所示的分布方法：</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/697a0311-4b9d-424d-8a2d-bd1bdd9f1ac0/Untitled.png" alt="Untitled"></p>
+<p>X 轴上的数字显示加载时间，而 Y 轴上条的高度显示体验到特定时间段中加载时间的用户相对数量。 正如此图表所示，虽然最大的用户群体验到的加载时间不到 1 或 2 秒，但仍有很多用户体验到相当长的加载时间。</p>
+<p>之所以说「我网站的加载时间为 xxx 秒」是不是事实的另一个原因是，加载并非单一的时刻，是一段复杂的过程，是任何单一指标都无法全面衡量的体验。 在加载过程中，有多个时刻都会影响到用户对速度的感知，如果只关注其中某个时刻，就可能会遗漏其余时间内用户感受到的不良体验。</p>
+<p>例如，假定某 WebApp 针对快速初始渲染进行优化，以便立刻将内容传递给用户。 然后，如果该 WebApp 加载一个需要花费数秒来解析和执行的大型 JavaScript 脚本，那么只有在 JavaScript 运行之后，页面上的内容才可供交互。</p>
+<p>如果用户可以看到页面上的链接但无法点击，或者可以看到文本框但无法在其中输入内容，他们可能就不会关心页面渲染的速度有多快。</p>
+<p>因此，我们不应该只使用一个指标来衡量加载，而应该衡量整个体验过程中可能影响用户对加载的<em>感知</em>的每个时刻。</p>
+<p>性能监控误区二：认为**<em>性能只是加载时间的问题</em>**。</p>
+<p>但事实是，随时都有可能发生性能不佳的情况，不只限于加载期间。 应用无法迅速响应点按或点击操作，以及无法平滑滚动或产生动画效果的问题与加载缓慢一样，都会导致糟糕的用户体验。 用户关心的是总体体验，我们开发者也应如此。</p>
+<p>所有这些性能误解有一个共同的主题，即开发者都将注意力集中在对于用户体验帮助不大甚至全无帮助的事情上。 同样地，<a href="https://developer.mozilla.org/en-US/docs/Web/Events/load" target="_blank" rel="nofollow noopener noreferrer">加载</a> 时间或 <a href="https://developer.mozilla.org/en-US/docs/Web/Events/DOMContentLoaded" target="_blank" rel="nofollow noopener noreferrer">DOMContentLoaded</a> 时间等传统性能指标极不可靠，因为加载发生的时间可能与用户认为的应用加载时间不上。</p>
+<p>因此，为确保不进入性能监控的误区，我们必须回答下列问题（也是用户和产品都共同关心的问题）：</p>
+<ol>
+<li>哪些指标能够最准确地衡量人所感受到的性能？</li>
+<li>如何针对实际用户来衡量这些指标？</li>
+<li>如何解读衡量结果以确定应用是否「速度快」？</li>
+<li>了解应用的实际用户性能之后，如何避免性能下降并在未来提高性能？</li>
+</ol>
+<blockquote>
+<p>了解到性能监控的本质是一个非常非常重要的事情</p>
+</blockquote>
+<h2 id="有哪些以用户为中心的性能指标" style="position:relative;"><a href="#%E6%9C%89%E5%93%AA%E4%BA%9B%E4%BB%A5%E7%94%A8%E6%88%B7%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87" aria-label="有哪些以用户为中心的性能指标 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>有哪些以用户为中心的性能指标？</h2>
+<p>当用户访问网页时，通常会寻找视觉反馈，以确信一切符合他们的预期。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>是否发生？</td>
+<td>导航是否成功启动？服务器是否有响应？</td>
+</tr>
+<tr>
+<td>是否有用？</td>
+<td>是否已渲染可以与用户互动的足够内容？</td>
+</tr>
+<tr>
+<td>是否可用？</td>
+<td>用户可以与页面交互，还是页面仍在忙于加载？</td>
+</tr>
+<tr>
+<td>是否令人愉快？</td>
+<td>交互是否顺畅而自然，没有滞后和卡顿？</td>
+</tr>
+</tbody>
+</table>
+<p>为了解页面何时为用户提供这样的反馈，我们定义了多个新指标：</p>
+<h3 id="首次绘制-fp-与首次内容绘制-fcp" style="position:relative;"><a href="#%E9%A6%96%E6%AC%A1%E7%BB%98%E5%88%B6-fp-%E4%B8%8E%E9%A6%96%E6%AC%A1%E5%86%85%E5%AE%B9%E7%BB%98%E5%88%B6-fcp" aria-label="首次绘制 fp 与首次内容绘制 fcp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>首次绘制 FP 与首次内容绘制 FCP</h3>
+<p><a href="https://github.com/WICG/paint-timing" target="_blank" rel="nofollow noopener noreferrer">Paint Timing</a> API 定义两个指标：<em>首次绘制</em> (FP) 和 <em>首次内容绘制</em> (FCP)。 这些指标用于标记 URL 跳转之后浏览器在屏幕上渲染像素的时间点。 这对于用户来说十分重要，因为它回答了「*是否发生？__」*的问题</p>
+<p>这两个指标之间的主要差别在于：</p>
+<ul>
+<li>FP 标记浏览器渲染 <strong><em>任何</em></strong> 在视觉上不同于导航前屏幕内容之内容的时间点。</li>
+<li>FCP 标记的是浏览器渲染来自 DOM 第一位内容的时间点，该内容可能是文本、图像、SVG 甚至 <canvas> 元素。</li>
+</ul>
+<h3 id="首次有效绘制-fmp-和-hero-元素渲染打点" style="position:relative;"><a href="#%E9%A6%96%E6%AC%A1%E6%9C%89%E6%95%88%E7%BB%98%E5%88%B6-fmp-%E5%92%8C-hero-%E5%85%83%E7%B4%A0%E6%B8%B2%E6%9F%93%E6%89%93%E7%82%B9" aria-label="首次有效绘制 fmp 和 hero 元素渲染打点 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>首次有效绘制 FMP 和 Hero 元素渲染打点</h3>
+<p>首次有效绘制 (FMP) 指标能够回答「<em>是否有用？</em>」问题。 虽然「有用」这一概念很难以通用于所有网页的方式规范化（因此社区尚不存在任何标准的规范），但是 WebApp 开发者自己很清楚其页面的哪些部分对用户最为有用。</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/aa062376-a8f4-4b0b-a5ca-1c8eae921da3/Untitled.png" alt="Untitled"></p>
+<p>网页的这些「最重要部分」通常称为 <strong><em>Hero 元素</em></strong>。 例如，在 YouTube WebApp 的观看页面上，主视频就是 Hero 元素。 在 Twitter 上，Hero 元素可能是通知标志和第一篇推文。 在天气应用上，Hero 元素是指定地点的天气预测。 在新闻网站上，Hero 元素可能是重大新闻和置顶大图。</p>
+<p>在网页上，几乎总有一部分内容比其他部分更重要。 如果页面最重要的部分能迅速加载，用户就会认为当前的 WebApp 展示的内容是有用的，可能不会注意到其余部分是否加载。</p>
+<h3 id="耗时较长的任务-long-task" style="position:relative;"><a href="#%E8%80%97%E6%97%B6%E8%BE%83%E9%95%BF%E7%9A%84%E4%BB%BB%E5%8A%A1-long-task" aria-label="耗时较长的任务 long task permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>耗时较长的任务 Long Task</h3>
+<p>浏览器通过将任务添加到主线程上的队列等待逐个执行来响应用户输入。 浏览器执行 WebApp 的 JavaScript 时也会这样做，因此从这个角度看，浏览器为单线程。</p>
+<p>在某些情况下，运行这些任务可能要花费较长时间，如果确实如此，主线程就会遭到阻止，而队列中的所有其他任务都必须等待。</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/f73c8e05-ab17-4ad7-b93c-653761a8f51e/Untitled.png" alt="Untitled"></p>
+<p>对于用户而言，任务耗时较长表现为滞后或卡顿，而这也是目前网页不良体验的主要根源。</p>
+<p><a href="https://w3c.github.io/longtasks/" target="_blank" rel="nofollow noopener noreferrer">Long Tasks API</a> 可以将任何耗时超过 50 毫秒的任务标记为可能存在问题，并向应用开发者显示这些任务。 选择 50 毫秒的时间是为了让应用满足在 100 毫秒内响应用户输入的 <a href="https://developers.google.com/web/fundamentals/performance/rail" target="_blank" rel="nofollow noopener noreferrer">RAIL 指导原则</a>。</p>
+<h3 id="可交互时间-tti" style="position:relative;"><a href="#%E5%8F%AF%E4%BA%A4%E4%BA%92%E6%97%B6%E9%97%B4-tti" aria-label="可交互时间 tti permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>可交互时间 TTI</h3>
+<p>可交互时间 (TTI) 指标用于标记应用已进行视觉渲染并能可靠响应用户输入的时间点。 应用可能会因为多种原因而无法响应用户输入：</p>
+<ul>
+<li>页面组件运行所需的 JavaScript 尚未加载。</li>
+<li>耗时较长的任务阻塞主线程</li>
+</ul>
+<p>TTI 指标可识别页面初始 JavaScript 已加载且主线程处于空闲状态（没有耗时较长的任务）的时间点。</p>
+<h3 id="将指标对应到用户体验" style="position:relative;"><a href="#%E5%B0%86%E6%8C%87%E6%A0%87%E5%AF%B9%E5%BA%94%E5%88%B0%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C" aria-label="将指标对应到用户体验 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>将指标对应到用户体验</h3>
+<p>回顾前面确定的对用户体验最重要的问题，下表概述刚刚列出的各个指标如何对应到我们希望优化的体验：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>体验</td>
+<td>指标</td>
+</tr>
+<tr>
+<td>是否发生？</td>
+<td>首次绘制 (FP)/首次内容绘制 (FCP)</td>
+</tr>
+<tr>
+<td>是否有用？</td>
+<td>首次有效绘制 (FMP)/主角元素计时</td>
+</tr>
+<tr>
+<td>是否可用？</td>
+<td>可交互时间 (TTI)</td>
+</tr>
+<tr>
+<td>是否令人愉快？</td>
+<td>耗时较长的任务（在技术上不存在耗时较长的任务）</td>
+</tr>
+</tbody>
+</table>
+<p>下列加载时间线屏幕截图有助于更直观地了解加载指标对应的加载体验：</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/ae7b5927-8e24-427e-b281-f3e50a95b829/Untitled.png" alt="Untitled"></p>
+<h2 id="在实际用户的设备上如何计算这些指标" style="position:relative;"><a href="#%E5%9C%A8%E5%AE%9E%E9%99%85%E7%94%A8%E6%88%B7%E7%9A%84%E8%AE%BE%E5%A4%87%E4%B8%8A%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E8%BF%99%E4%BA%9B%E6%8C%87%E6%A0%87" aria-label="在实际用户的设备上如何计算这些指标 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>在实际用户的设备上如何计算这些指标？</h2>
+<p>以前我们针对加载和 DOMContentLoaded 等指标进行优化的一个主要原因是，这些指标在浏览器中显示为事件，而且容易针对实际用户进行衡量。</p>
+<p>相比而言，许多其他指标在过去很难加以衡量。 例如，以下代码是开发者经常用来检测耗时较长任务的黑科技：</p>
+<p>(function detectLongFrame() {</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">var lastFrameTime = Date.now();
+
+requestAnimationFrame(function() {
+
+  var currentFrameTime = Date.now();
+
+  if (currentFrameTime - lastFrameTime > 50) {
+
+    // Report long frame here...
+
+  }
+
+  detectLongFrame(currentFrameTime);
+
+});
+</code></pre></div>
+<p>}());</p>
+<p>此代码以无限循环的 requestAnimationFrame 开头，并记录每次迭代所花费的时间。 如果当前时间距离前次时间超过 50 毫秒，则会认为原因在于存在耗时较长的任务。 虽然大部分情况下此代码都行得通，但其也有不少缺点：</p>
+<ul>
+<li>此代码会给每个帧增加开销。</li>
+<li>此代码会阻止空闲块。</li>
+<li>此代码会严重消耗电池续航时间。</li>
+</ul>
+<p>性能测量代码最重要的规则是不应降低性能。</p>
+<p><a href="https://developers.google.com/web/tools/lighthouse/" target="_blank" rel="nofollow noopener noreferrer">Lighthouse</a> 和 <a href="https://www.webpagetest.org/" target="_blank" rel="nofollow noopener noreferrer">Web Page Test</a> 等服务已经提供部分新指标一段时间（这些工具通常非常适合用于在功能发布前测试其性能），但这些工具并未在用户设备上运行，因此未反映出用户的实际性能体验。</p>
+<p>得益于 W3C 规范新增的几个浏览器 API，我们可以在实际设备上衡量这些指标，而无需使用大量可能降低性能的黑科技或变通方法。</p>
+<p>这些新增的 API 是 <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver" target="_blank" rel="nofollow noopener noreferrer">PerformanceObserver</a>、<a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceEntry" target="_blank" rel="nofollow noopener noreferrer">PerformanceEntry</a> 和 <a href="https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp" target="_blank" rel="nofollow noopener noreferrer">DOMHighResTimeStamp</a>。 为显示实际运行这些新 API 的一些代码，以下代码示例创建新的 PerformanceObserver 实例，并通过订阅接收有关绘制输入（例如， FP 和 FCP）以及发生任何耗时较长任务的通知：</p>
+<p>const observer = new PerformanceObserver((list) => {</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">for (const entry of list.getEntries()) {
+
+  // `entry` is a PerformanceEntry instance.
+
+  console.log(entry.entryType);
+
+  console.log(entry.startTime); // DOMHighResTimeStamp
+
+  console.log(entry.duration); // DOMHighResTimeStamp
+
+}
+</code></pre></div>
+<p>});</p>
+<p>// Start observing the entry types you care about.</p>
+<p>observer.observe({entryTypes: [‘resource’, ‘paint’]});</p>
+<p>PerformanceObserver 为我们提供的新功能是，能够在性能事件发生时订阅这些事件，并以异步方式响应事件。 此 API 取代旧的 <a href="https://www.w3.org/TR/navigation-timing/#sec-navigation-timing-interface" target="_blank" rel="nofollow noopener noreferrer">PerformanceTiming</a> 界面，后者通常需要执行轮询才能查看数据可用的时间。</p>
+<h3 id="跟踪-fpfcp" style="position:relative;"><a href="#%E8%B7%9F%E8%B8%AA-fpfcp" aria-label="跟踪 fpfcp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>跟踪 FP/FCP</h3>
+<p>获得特定性能事件的数据之后，可将其发送给数据分析平台。 例如 Google Analytics，我们可跟踪首次绘制时间，如下所示：</p>
+<head>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">&lt;!-- Add the async Google Analytics snippet first. -->
+
+&lt;script>
+
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+
+ga('create', 'UA-XXXXX-Y', 'auto');
+
+ga('send', 'pageview');
+
+&lt;/script>
+
+&lt;script async src='https://www.google-analytics.com/analytics.js'>&lt;/script>
+
+&lt;!-- Register the PerformanceObserver to track paint timing. -->
+
+&lt;script>
+
+const observer = new PerformanceObserver((list) => {
+
+  for (const entry of list.getEntries()) {
+
+    // `name` will be either 'first-paint' or 'first-contentful-paint'.
+
+    const metricName = [entry.name](http://entry.name);
+
+    const time = Math.round(entry.startTime + entry.duration);
+
+    ga('send', 'event', {
+
+      eventCategory:'Performance Metrics',
+
+      eventAction: metricName,
+
+      eventValue: time,
+
+      nonInteraction: true,
+
+    });
+
+  }
+
+});
+
+observer.observe({entryTypes: ['paint']});
+
+&lt;/script>
+
+&lt;!-- Include any stylesheets after creating the PerformanceObserver. -->
+
+&lt;link rel="stylesheet" href="...">
+</code></pre></div>
+</head>
+<blockquote>
+<p>中注册，以使其在 FP/FCP 发生前运行。</p>
+</blockquote>
+<blockquote>
+<p>浏览器内核实现 Performance Observer 规范 Level 2 后就不必再执行这项注册，因为该级别引入 [buffered](<a href="https://w3c.github.io/performance-timeline/#dom-performanceobserverinit-" target="_blank" rel="nofollow noopener noreferrer">https://w3c.github.io/performance-timeline/#dom-performanceobserverinit-</a> buffered) 标记，可用于访问在创建 PerformanceObserver 之前排队的 性能条目。</p>
+</blockquote>
+<h3 id="使用-hero-元素跟踪-fmp" style="position:relative;"><a href="#%E4%BD%BF%E7%94%A8-hero-%E5%85%83%E7%B4%A0%E8%B7%9F%E8%B8%AA-fmp" aria-label="使用 hero 元素跟踪 fmp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>使用 Hero 元素跟踪 FMP</h3>
+<p>确定页面上的主角元素之后，可以跟踪为用户呈现这些元素的时间点。</p>
+<p>目前尚无标准化的 FMP 定义，因此也没有性能条目类型。 部分原因在于很难以通用的方式确定「有效」对于所有页面意味着什么。</p>
+<p>但是，一般来说，在单个页面或单个应用中，最好是将 FMP 视为主角元素呈现在屏幕上的时刻。</p>
+<p>有一篇精彩的文章（<a href="https://speedcurve.com/blog/user-timing-and-custom-metrics/" target="_blank" rel="nofollow noopener noreferrer">用户计时与自定义指标</a>）详细说明使用浏览器性能 API 来确定代码中各类媒体呈现时间的技术。</p>
+<h3 id="另辟蹊径的跟踪-fmp" style="position:relative;"><a href="#%E5%8F%A6%E8%BE%9F%E8%B9%8A%E5%BE%84%E7%9A%84%E8%B7%9F%E8%B8%AA-fmp" aria-label="另辟蹊径的跟踪 fmp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>另辟蹊径的跟踪 FMP</h3>
+<p>这里还有有一种方式， 借助 mutationObserver 的方式进行检测 DOM 元素增量最大的时间点，好处是完全不需要关心当前的页面是常规的服务端直出页面还是 SPA 异步渲染出来的页面，只会聚焦在 DOM 的变化。</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/5e649a02-77b5-49e4-aaf7-229b62fa8674/Untitled.png" alt="Untitled"></p>
+<p>此方案基于一个猜想，「主要内容 = 元素增量最大的点」具体方案参见 <a href="http://jm.taobao.org/2018/06/29/%E5%A4%A7%E5%89%8D%E7%AB%AF%E6%97%B6%E4%BB%A3%E5%89%8D%E7%AB%AF%E7%9B%91%E6%8E%A7%E7%9A%84%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/" target="_blank" rel="nofollow noopener noreferrer">阿里云前端监控团队的方案</a></p>
+<h3 id="跟踪-tti" style="position:relative;"><a href="#%E8%B7%9F%E8%B8%AA-tti" aria-label="跟踪 tti permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>跟踪 TTI</h3>
+<p>从长远来看，Chrome 团队希望将 TTI 指标标准化，并通过 PerformanceObserver 在浏览器中公开。 同时，Chrome 团队已开发出一个 polyfill，它可用于检测目前的 TTI，并适用于所有支持 <a href="https://w3c.github.io/longtasks/" target="_blank" rel="nofollow noopener noreferrer">Long Tasks API</a> 的浏览器。</p>
+<p>该 polyfill 暴露一个 getFirstConsistentlyInteractive() 方法，后者返回使用 TTI 值进行解析的 promise。 假如我们使用 Google Analytics 来跟踪 TTI，如下所示：</p>
+<p>import ttiPolyfill from ‘./path/to/tti-polyfill.js’;</p>
+<p>ttiPolyfill.getFirstConsistentlyInteractive().then((tti) => {</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">ga('send', 'event', {
+
+  eventCategory:'Performance Metrics',
+
+  eventAction:'TTI',
+
+  eventValue: tti,
+
+  nonInteraction: true,
+
+});
+</code></pre></div>
+<p>});</p>
+<p>getFirstConsistentlyInteractive() 方法接受可选的 startTime 配置选项，可以指定下限值（这就知道 WebApp 在此之前无法进行交互）。 默认情况下，该 polyfill 使用 DOMContentLoaded 作为开始时间，但通常情况下，使用 Hero 元素呈现的时刻会更准确。</p>
+<p>请参阅 <a href="https://github.com/GoogleChrome/tti-polyfill" target="_blank" rel="nofollow noopener noreferrer">TTI polyfill 文档</a>，以获取完整的安装和使用说明。</p>
+<blockquote>
+<p>**注：**与 FMP 相同，很难规范化适用于所有网页的 TTI 指标定义。 Chrome 团队在 polyfill 中实施的版本适用于大部分应用，但可能不适用于特定的 WebApp。 因此最好在使用前，先进行测试。 如需有关 TTI 定义及实施细节的详情，请阅读 TTI 指标定义文档。</p>
+</blockquote>
+<h3 id="跟踪耗时较长的任务" style="position:relative;"><a href="#%E8%B7%9F%E8%B8%AA%E8%80%97%E6%97%B6%E8%BE%83%E9%95%BF%E7%9A%84%E4%BB%BB%E5%8A%A1" aria-label="跟踪耗时较长的任务 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>跟踪耗时较长的任务</h3>
+<p>前面提到，耗时较长的任务通常会带来某种负面的用户体验（例如， 事件处理程序运行缓慢，或者掉帧）。 我们最好了解发生这种情况的频率，以设法尽量减少这种情况。</p>
+<p>要在 JavaScript 中检测耗时较长的任务，请创建新的 PerformanceObserver，并观察类型为 longtask 的条目。 耗时较长的任务条目的一个有点是包含<a href="https://w3c.github.io/longtasks/#sec-TaskAttributionTiming" target="_blank" rel="nofollow noopener noreferrer">提供方属性</a>，有助于我们更轻松地追查导致出现耗时较长任务的代码：</p>
+<p>const observer = new PerformanceObserver((list) => {</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">for (const entry of list.getEntries()) {
+
+  ga('send', 'event', {
+
+    eventCategory:'Performance Metrics',
+
+    eventAction: 'longtask',
+
+    eventValue:Math.round(entry.startTime + entry.duration),
+
+    eventLabel:JSON.stringify(entry.attribution),
+
+  });
+
+}
+</code></pre></div>
+<p>});</p>
+<p>observer.observe({entryTypes: [‘longtask’]});</p>
+<p>提供方属性会指出导致耗时较长任务的帧上下文，这有助于确定问题是否由第三方 iframe 脚本所致。 未来版本的 W3C 规范计划添加更多详细信息并公开脚本网址、行号和列号，这有助于确定速度缓慢问题是否是我们的自己的代码导致的。</p>
+<h3 id="跟踪输入延迟" style="position:relative;"><a href="#%E8%B7%9F%E8%B8%AA%E8%BE%93%E5%85%A5%E5%BB%B6%E8%BF%9F" aria-label="跟踪输入延迟 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>跟踪输入延迟</h3>
+<p>阻塞主线程的耗时较长任务可能会导致事件侦听器无法及时执行。 <a href="https://developers.google.com/web/fundamentals/performance/rail" target="_blank" rel="nofollow noopener noreferrer">RAIL 性能模型</a> 指出，为提供流畅的界面体验，界面应在用户执行输入后的 100 毫秒内作出响应，若非如此，需要探查原因。</p>
+<p>若要在代码中检测输入延迟，可将事件时间戳与当前时间作比较，如果两者相差超过 100 毫秒，应该进行数据上报。</p>
+<p>const subscribeBtn = document.querySelector(‘#subscribe’);</p>
+<p>subscribeBtn.addEventListener(‘click’, (event) => {</p>
+<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// Event listener logic goes here...
+
+const lag = performance.now() - event.timeStamp;
+
+if (lag > 100) {
+
+  ga('send', 'event', {
+
+    eventCategory:'Performance Metric'
+
+    eventAction: 'input-latency',
+
+    eventLabel: '#subscribe:click',
+
+    eventValue:Math.round(lag),
+
+    nonInteraction: true,
+
+  });
+
+}
+</code></pre></div>
+<p>});</p>
+<p>由于事件延迟通常是由耗时较长的任务所致，因此可以将事件延迟检测逻辑与耗时较长任务检测逻辑相结合：如果某个耗时较长的任务在 event.timeStamp 所示的时间阻塞主线程，也可以报告该耗时较长任务的提供方值。 这样就可以在性能体验恶化与导致该体验恶化的代码之间建立明确的联系。</p>
+<p>虽然这种方法并不完美（不会处理之后在传播阶段耗时较长的事件侦听器，也不适用于不在主线程中运行的滚动或合成动画），但至少可以让我们能更好地了解运行时间较长的 JavaScript 代码对用户体验产生影响的频率。</p>
+<h2 id="如何上报数据以及解读数据" style="position:relative;"><a href="#%E5%A6%82%E4%BD%95%E4%B8%8A%E6%8A%A5%E6%95%B0%E6%8D%AE%E4%BB%A5%E5%8F%8A%E8%A7%A3%E8%AF%BB%E6%95%B0%E6%8D%AE" aria-label="如何上报数据以及解读数据 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何上报数据以及解读数据？</h2>
+<p>开始收集针对实际用户的性能指标后，就需要将该数据付诸实践。 实际用户性能数据十分有用，主要原因在于以下几个方面：</p>
+<ul>
+<li>验证 WebApp 性能符合预期。</li>
+<li>识别不良性能对转化（根据具体的 WebApp 而定）造成负面影响的地方。</li>
+<li>寻找改善用户体验和取悦用户的机会。</li>
+</ul>
+<p>我们有必要将应用在移动设备和桌面设备上的性能进行比较。 下图显示桌面设备（蓝色）和移动设备（橙色）上的 TTI 分布情况。 正如此示例所示，移动设备上的 TTI 值明显大于桌面设备：</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/6c171f0e-9ddc-486d-bfc0-3f3c18ebcddd/Untitled.png" alt="Untitled"></p>
+<h3 id="桌面设备" style="position:relative;"><a href="#%E6%A1%8C%E9%9D%A2%E8%AE%BE%E5%A4%87" aria-label="桌面设备 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>桌面设备</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>百分位</td>
+<td>TTI（秒）</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>2.3</td>
+</tr>
+<tr>
+<td>75%</td>
+<td>4.7</td>
+</tr>
+<tr>
+<td>90%</td>
+<td>8.3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="移动设备" style="position:relative;"><a href="#%E7%A7%BB%E5%8A%A8%E8%AE%BE%E5%A4%87" aria-label="移动设备 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>移动设备</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>百分位</td>
+<td>TTI（秒）</td>
+</tr>
+<tr>
+<td>50%</td>
+<td>3.9</td>
+</tr>
+<tr>
+<td>75%</td>
+<td>8</td>
+</tr>
+<tr>
+<td>90%</td>
+<td>12.6</td>
+</tr>
+</tbody>
+</table>
+<p>按移动设备与桌面设备划分结果，并以分布图的方式分析数据，可让迅速了解实际用户的体验。 例如，通过上表，我很容易便可发现，对于此应用，<strong>10% 的移动用户需等待 12 秒以上才能进行交互！</strong></p>
+<h3 id="性能对业务的影响" style="position:relative;"><a href="#%E6%80%A7%E8%83%BD%E5%AF%B9%E4%B8%9A%E5%8A%A1%E7%9A%84%E5%BD%B1%E5%93%8D" aria-label="性能对业务的影响 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>性能对业务的影响</h3>
+<p>在分析工具中跟踪性能让我们可以利用该数据来分析性能对业务的影响。</p>
+<p>如果在分析工具中跟踪目标达成情况或电子商务转化情况，则可通过创建报告来探查两者与应用性能指标之间的关联。 例如：</p>
+<ul>
+<li>体验到更快交互速度的用户是否会购买更多商品？</li>
+<li>如果用户在结账流程中遇到较多耗时较长的任务，其离开率是否较高？</li>
+</ul>
+<p>如果发现存在关联，即可轻松建立性能至关重要且应该优先考虑的商业案例。</p>
+<h3 id="加载退出率" style="position:relative;"><a href="#%E5%8A%A0%E8%BD%BD%E9%80%80%E5%87%BA%E7%8E%87" aria-label="加载退出率 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>加载退出率</h3>
+<p>用户经常会因为页面加载时间过长而选择离开。 这意味着我们的所有性能指标都存在<a href="https://en.wikipedia.org/wiki/Survivorship_bias" target="_blank" rel="nofollow noopener noreferrer">幸存者偏差</a>，即数据不包括未等待页面加载完成的用户的加载指标（这很可能意味着数量过低）。</p>
+<p>虽然我们无法获得如果这类用户逗留所产生的指标，但可以跟踪发生这种情况的频率以及每位用户停留的时长。</p>
+<p>使用监听上报 SDK （如 Google Analytics）完成此任务比较棘手，因为 SDK 通常是以异步方式加载，而且可能在用户决定离开前尚不可用。 其实我们无需等待 SDK 加载完成再将数据发送到 Google Analytics。 我们可以直接通过 <a href="https://developers.google.com/analytics/devguides/collection/protocol/v1/" target="_blank" rel="nofollow noopener noreferrer">Measurement Protocol</a> 发送数据。</p>
+<p>以下代码为 <a href="https://developer.mozilla.org/en-US/docs/Web/Events/visibilitychange" target="_blank" rel="nofollow noopener noreferrer">visibilitychange</a> 事件添加侦听器（该事件在页面卸载或进入后台时触发），并在该事件触发时发送 performance.now() 值。</p>
+<script>
+
+window.__trackAbandons = () => {
+
+```
+// Remove the listener so it only runs once.
+
+document.removeEventListener('visibilitychange', window.__trackAbandons);
+
+const ANALYTICS_URL = 'https://www.google-analytics.com/collect';
+
+const GA_COOKIE = document.cookie.replace(
+
+  /(?:(?:^|.*;)\s*_ga\s*=\s*(?:\w+.\d.)([^;]*).*$)|^.*$/, '$1');
+
+const TRACKING_ID = 'UA-XXXXX-Y';
+
+const CLIENT_ID =  GA_COOKIE || (Math.random() * Math.pow(2, 52));
+
+// Send the data to Google Analytics via the Measurement Protocol.
+
+navigator.sendBeacon && navigator.sendBeacon(ANALYTICS_URL, [
+
+  'v=1', 't=event', 'ec=Load', 'ea=abandon', 'ni=1',
+
+  'dl=' + encodeURIComponent(location.href),
+
+  'dt=' + encodeURIComponent(document.title),
+
+  'tid=' + TRACKING_ID,
+
+  'cid=' + CLIENT_ID,
+
+  'ev=' + Math.round(performance.now()),
+
+].join('&'));
+
+```
+
+};
+
+document.addEventListener('visibilitychange', window.__trackAbandons);
+
+</script>
+<p>要使用此代码，请将其复制到文档的 <head> 中，并将 UA-XXXXX-Y 占位符替换为我们的<a href="https://support.google.com/analytics/answer/1008080" target="_blank" rel="nofollow noopener noreferrer">跟踪 ID</a>。</p>
+<p>此外，我们还应确保在页面可进行交互时移除此侦听器，否则在上报 TTI 时还需报告放弃加载。</p>
+<p>document.removeEventListener(‘visibilitychange’, window.__trackAbandons);</p>
+<h2 id="如何优化性能以及避免性能下降" style="position:relative;"><a href="#%E5%A6%82%E4%BD%95%E4%BC%98%E5%8C%96%E6%80%A7%E8%83%BD%E4%BB%A5%E5%8F%8A%E9%81%BF%E5%85%8D%E6%80%A7%E8%83%BD%E4%B8%8B%E9%99%8D" aria-label="如何优化性能以及避免性能下降 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何优化性能以及避免性能下降？</h2>
+<p>定义以用户为中心的指标的好处在于，我们在优化这些指标时，用户体验必然也会同时得到改善。改善性能最简单的一种方法是，直接减少发送到客户端的 JavaScript 代码，但如果无法缩减代码长度，则务必要思考如何提供 JavaScript。</p>
+<h3 id="优化-fpfcp" style="position:relative;"><a href="#%E4%BC%98%E5%8C%96-fpfcp" aria-label="优化 fpfcp permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优化 FP/FCP</h3>
+<p>从文档的 <head> 中移除任何阻塞渲染的脚本或样式表，可以减少首次绘制和首次内容绘制前的等待时间。</p>
+<p>花时间确定向用户指出「正在发生」所需的最小样式集，并将其内联到 <head> 中（或者使用 <a href="https://developers.google.com/web/fundamentals/performance/http2/#server_push" target="_blank" rel="nofollow noopener noreferrer">HTTP/2 服务器推送</a>)），即可实现极短的首次绘制时间。<a href="https://developers.google.com/web/updates/2015/11/app-shell" target="_blank" rel="nofollow noopener noreferrer">应用 shell 模式</a> 可以很好地说明如何针对 <a href="https://developers.google.com/web/progressive-web-apps/" target="_blank" rel="nofollow noopener noreferrer">渐进式网页应用</a> 实现这一点。</p>
+<h3 id="优化-fmptti" style="position:relative;"><a href="#%E4%BC%98%E5%8C%96-fmptti" aria-label="优化 fmptti permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>优化 FMP/TTI</h3>
+<p>确定页面上最关键的界面元素（Hero 元素）之后，我们应确保初始脚本加载仅包含渲染这些元素并使其可交互所需的代码。</p>
+<p>初始 JavaScript 中所包含的任何与主角元素无关的代码都会延长可交互时间。 我们没有理由强迫用户设备下载并解析当前不需要的 JavaScript 代码。</p>
+<p>一般来说，我们应该尽可能缩短 FMP 与 TTI 之间的时间。 如果无法最大限度缩短此时间，界面绝对有必要明确指出页面尚不可交互。因为对于用户来说，其中一种最令人失望的体验就是点按元素后毫无反应。</p>
+<h3 id="避免出现耗时较长的任务" style="position:relative;"><a href="#%E9%81%BF%E5%85%8D%E5%87%BA%E7%8E%B0%E8%80%97%E6%97%B6%E8%BE%83%E9%95%BF%E7%9A%84%E4%BB%BB%E5%8A%A1" aria-label="避免出现耗时较长的任务 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>避免出现耗时较长的任务</h3>
+<p>拆分代码并按照优先顺序排列要加载的代码，不仅可以缩短页面可交互时间，还可以减少耗时较长的任务，然后即有希望减少输入延迟及慢速帧。</p>
+<p>除了将代码拆分 JavaScript 为多个单独的文件之外，我们还可将大型同步代码块拆分为较小的块，以便以异步方式执行，或者 <a href="https://developers.google.com/web/updates/2015/08/using-requestidlecallback" target="_blank" rel="nofollow noopener noreferrer">推迟到下一空闲点</a>。 以异步方式在较小的块中执行此逻辑，可在主线程中留出空间，供浏览器响应用户输入。</p>
+<p>最后，我们应确保测试第三方代码，并对任何低速运行的代码追责。 产生大量耗时较长任务的第三方广告或跟踪脚本对业务的伤害大于帮助。</p>
+<h3 id="避免性能下降" style="position:relative;"><a href="#%E9%81%BF%E5%85%8D%E6%80%A7%E8%83%BD%E4%B8%8B%E9%99%8D" aria-label="避免性能下降 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>避免性能下降</h3>
+<p>在这里我们重点强调的是针对实际用户的性能测量，虽然 RUM 数据确实是十分重要的性能数据，但线下实验检测数据对于在发布新功能前确保应用性能良好（而且不会下降）而言仍然十分关键。</p>
+<p>线下实验测试非常适合用于检测性能是否下降，因为这些测试是在受控环境中运行，出现随机变化的可能性远低于 RUM 测试。</p>
+<p><a href="https://developers.google.com/web/tools/lighthouse/" target="_blank" rel="nofollow noopener noreferrer">Lighthouse</a> 和 <a href="https://www.webpagetest.org/" target="_blank" rel="nofollow noopener noreferrer">Web Page Test</a> 等工具可以集成到持续集成服务器中，而且我们可以编写相应的测试，以在关键指标退化或下降到低于特定阈值时将构件判定为失败。</p>
+<p>对于已发布的代码，我们可以添加自定义报警机制，以通知我们性能恶化事件的发生率是否意外突增。 例如，如果第三方发布其某个服务的新版本，而用户突然开始看到大量新增的耗时较长任务，就代表出现这种情况。</p>
+<p>为成功避免性能下降，我们必须在线下实验和线上实际运行环境中针对发行的每个新功能进行性能测试。</p>
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/c0c968d2-f1f9-489b-a9f5-491ce1ad58ac/05f0d1f6-79d4-49b8-9675-bfddae9fe1dc/Untitled.png" alt="Untitled"></p>
+<h2 id="我们还能做些什么" style="position:relative;"><a href="#%E6%88%91%E4%BB%AC%E8%BF%98%E8%83%BD%E5%81%9A%E4%BA%9B%E4%BB%80%E4%B9%88" aria-label="我们还能做些什么 permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>我们还能做些什么？</h2>
+<p>我们希望完全将可交互时间和主角元素指标标准化，让开发者不必自己测量这些指标或依赖于 polyfill。 我们还希望帮助开发者更轻松地找到导致掉帧和输入延迟的特定耗时较长任务，以及产生这些任务的代码。</p>
+<p>凭借 PerformanceObserver 等新 API，以及浏览器对耗时较长任务的原生支持，开发者终于能够针对实际用户相对准确的测量性能而不会影响用户体验。</p>
+<p>能够代表实际用户体验的指标就是最重要的指标，希望我们和社区一起尽可能地为业务开发提供便利，帮助产品取悦用户并创建出色的 WebApp。</p>
+<hr></div></div></div><div class="Post-module--footerWrapper--95bf1"><div class="Post-module--footer--f8705">👾<div class="Meta-module--meta--dae0a"><p class="Meta-module--date--4d30d">Published on<!-- --> <!-- -->Apr 1, 2021</p></div><div class="Tags-module--tags--18589"><ul class="Tags-module--list--82ae6"><li class="Tags-module--item--52015"><a class="Button-module--button--b1113" href="/tag/performance/">Performance</a></li></ul></div></div></div><div class="Post-module--comments--d3b99"><div style="margin-bottom:48px"></div></div></div><div class="Layout-module--footer--cde73"><a href="/list/"><span class="Layout-module--copyRight--7da7b">© 2017-<!-- -->2026<!-- --> All rights reserved.</span></a>  Visit <a href="https://home.iakoug.cn" target="__blank"><span>Home Site.</span></a></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/web-performance/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+          <script
+            id="gatsby-chunk-mapping"
+          >
+            window.___chunkMapping="{\"app\":[\"/app-6a764cef83457993c210.js\"],\"component---cache-caches-gatsby-plugin-offline-app-shell-js\":[\"/component---cache-caches-gatsby-plugin-offline-app-shell-js-631dfa6a69a68c0c4cf7.js\"],\"component---src-pages-404-tsx\":[\"/component---src-pages-404-tsx-295833c4ebd7d3855895.js\"],\"component---src-pages-list-tsx\":[\"/component---src-pages-list-tsx-b977552347e76a6abe03.js\"],\"component---src-templates-categories-template-categories-template-tsx\":[\"/component---src-templates-categories-template-categories-template-tsx-2544ee2a036fb60c5154.js\"],\"component---src-templates-category-template-category-template-tsx\":[\"/component---src-templates-category-template-category-template-tsx-15f983c30bb7686feb59.js\"],\"component---src-templates-index-template-index-template-tsx\":[\"/component---src-templates-index-template-index-template-tsx-8e53b469b155d358ea3d.js\"],\"component---src-templates-page-template-page-template-tsx\":[\"/component---src-templates-page-template-page-template-tsx-940fe06e326cf3952ab7.js\"],\"component---src-templates-post-template-post-template-tsx\":[\"/component---src-templates-post-template-post-template-tsx-3e2c75712d73ea0f5aaf.js\"],\"component---src-templates-tag-template-tag-template-tsx\":[\"/component---src-templates-tag-template-tag-template-tsx-e530e5f310c3f462320f.js\"],\"component---src-templates-tags-template-tags-template-tsx\":[\"/component---src-templates-tags-template-tags-template-tsx-8c4ca1f42cd1fbf538e3.js\"]}";
+          </script>
+        <script>window.___webpackCompilationHash="00287a7dbe1800182756";</script><script src="/webpack-runtime-65df9bc75473ed75c7d3.js" async></script><script src="/framework-6dd0a313b10aa20604f0.js" async></script><script src="/app-6a764cef83457993c210.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
